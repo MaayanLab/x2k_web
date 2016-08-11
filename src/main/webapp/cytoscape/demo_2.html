@@ -1,0 +1,189 @@
+<html>
+<head>
+	<link rel="stylesheet" href="jquery.qtip.min.css">
+</head>
+<body id="graph">
+<script src="jquery.min.js"></script>
+<script src="cytoscape.min.js"></script>
+<script src="jquery.qtip.min.js"></script>
+<script src="cytoscape-qtip.js"></script>
+<script src="cola.v3.min.js"></script>
+<script src="cytoscape-cola.js"></script>
+<script>
+
+
+//takes an interaction in x2k output format and turns it into a cytoscape
+//style interaction - currently, the PMIDs are just placeholders
+
+function convertInteraction(idx, interaction_array, node_array){
+	source = node_array[interaction_array[idx]["source"]]["name"];
+	target = node_array[interaction_array[idx]["target"]]["name"];
+	new_interaction = {data:{id: idx,
+							 source: source,
+							 target: target,
+							 pmid: 123456789}};
+	return new_interaction;
+}
+
+function convertNode(x2k_node){
+	cyto_node = {data: {name: x2k_node["name"],
+						id: x2k_node["name"]},
+				 classes: x2k_node["type"]}
+	return cyto_node;
+}
+
+//take an x2k output formatted json and convert it into a cytoscape input json
+x2k_json = 'test-json.json'
+$.getJSON(x2k_json, function(json) {
+
+	network = json.network; //ignore kinase rankings, etc. - just make network
+	node_array = network.nodes;
+	interaction_array = network.interactions;
+	cytoscape_array = [];
+
+	for(i = 0; i < node_array.length; i++){
+		cyto_node = convertNode(node_array[i]);
+		cytoscape_array.push(cyto_node);
+	}
+
+	for(i = 0; i < interaction_array.length; i++){
+		cyto_interaction = convertInteraction(i, interaction_array, node_array);
+		cytoscape_array.push(cyto_interaction);
+	} 
+	var cy = cytoscape({
+		container: $('#graph'),
+		style: [
+			{
+				"selector": "core",
+				"style": {
+					"selection-box-color": "#AAD8FF",
+					"selection-box-border-color": "#8BB0D0",
+					"selection-box-opacity": "0.2"
+				}
+			},
+			{
+				"selector": "node",
+				"style": {
+					"content": "data(name)",
+					"font-size": "12px",
+					"text-valign": "center",
+					"text-halign": "center",
+					"text-outline-color": "#555",
+					"text-outline-width": "2px",
+					"color": "#fff",
+					"overlay-padding": "6px",
+					"z-index": "10"
+				}
+			},
+			{
+				"selector": ".tf",
+				"style": {
+					"background-color": "#555",
+					"width": "50",
+					"height": "50"
+				}
+			},
+			{
+				"selector": ".kinase",
+				"style": {
+					"background-color": "#aaa",
+					"width": "40",
+					"height": "40"
+				}
+			},
+			{
+				"selector": ".other",
+				"style": {
+					"background-color": "#500",
+					"width": "60",
+					"height": "60"
+				}
+			},
+			{
+				"selector": ".hidden",
+				"style": {
+					"display": "none"
+				}
+			},
+			{
+				"selector": "edge",
+				"style": {
+					"curve-style": "haystack",
+					"haystack-radius": "0.5",
+					"opacity": "0.4",
+					"line-color": "#222",
+					"width": "mapData(weight, 0, 1, 1, 8)",
+					"overlay-padding": "3px"
+				}
+			}
+		],
+		elements: cytoscape_array,
+		layout: {
+			name: 'cola',
+			maxSimulationTime: 1000
+		}
+	});
+
+	cy.nodes().forEach(function(node) {
+		var name = node.data('name');
+		node.qtip({
+			content: [
+				{
+					name: 'View node graph',
+					url: '/components/'+name+'.html'
+				},
+				{
+					name: 'View on Harminizome',
+					url: 'http://amp.pharm.mssm.edu/Harmonizome/gene/'+name
+				},
+				{
+					name: 'View on GeneCard',
+					url: 'http://www.genecards.org/cgi-bin/carddisp.pl?gene='+name
+				}
+			].map(function(link) {
+					return '<a href="'+link.url+'">'+link.name+'</a>';
+				}).join('<br />\n'),
+			position: {
+				my: 'top center',
+				at: 'bottom center'
+			},
+			style: {
+				classes: 'qtip',
+				tip: {
+					width: 16,
+					height: 8
+				}
+			}
+		});
+	});
+
+	cy.edges().forEach(function(edge) {
+		edge.qtip({
+			content: String(edge.data('pmid')).split(' ').map(function(pmid) {
+					return {
+							name: 'View PubMed Article ('+pmid+')',
+							url: 'http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids='+pmid
+						}
+				}).map(function(link) {
+					return '<a href="'+link.url+'">'+link.name+'</a>';
+				}).join('<br />\n'),
+			position: {
+				my: 'top center',
+				at: 'bottom center'
+			},
+			style: {
+				classes: 'qtip',
+				tip: {
+					width: 16,
+					height: 8
+				}
+			}
+		});
+	});
+
+});
+</script>
+
+
+</body>
+</html>
