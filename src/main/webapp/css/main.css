@@ -1,0 +1,309 @@
+body {
+    margin: 0px auto;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 14px;
+    height: 100%;
+    width: 750px;
+}
+
+a:link {
+    color: #086788;
+}
+
+a:visited {
+    color: #086788;
+}
+
+#everything {
+    padding: 23px;
+    border: 1px solid #46494C;
+    margin-top:10px;
+}
+
+#logo {
+    margin-bottom: 10px;
+    /*border: 1px solid #46494C;*/
+    top: 0;
+    float: left;
+}
+
+#header {
+    float: right;
+    position: relative;
+    top: 0px;
+    right: 0px;
+    text-align: center;
+    width: 300px;
+    height: 80px;
+    /*background-color: lightgreen;*/
+}
+
+ul.tab {
+    clear:both;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #46494C;
+    background-color: #00CC99;
+}
+
+ul.tab .settings{
+    background-color:#086788;
+    color: white;
+}
+
+ul.tab .settings:hover{
+    background-color: #246EB9;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+    background-color: #4CB944;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, ul.tab li a.active {
+    background-color: #46494C;
+    color: white;
+}
+
+button, input {
+    margin: 6px;/
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #46494C;
+    border-top: none;
+    height: auto;
+}
+
+
+/*main part of css*/
+
+#pageBottom {
+    width: 750px;
+    height: auto;
+
+}
+#fileInput {
+    width: 330px;
+    height: auto;
+    float: left;
+    padding: 5px;
+    /*background-color: yellow;*/
+}
+#textInput {
+    width: 335px;
+    height: auto;
+    float: left;
+    padding: 5px;
+    /*background-color: pink;*/
+}
+#runButtons {
+    width: 335px;
+    height: auto;
+    float: left;
+    padding: 5px;
+    /*background-color: greenyellow;*/
+}
+
+#descriptionText {
+    height: auto;
+    /*background-color: pink;*/
+    padding: 5px;
+}
+
+textarea {
+    resize: none;
+    margin-left:5px;
+    width:310px;
+
+}
+
+#footer {
+    margin-top: 20px;
+    padding: 5px;
+    clear:both;
+    border: 1px solid #656565;
+    color: #656565;
+    /*background-color: lightblue;*/
+}
+
+#download_buttons {
+    padding: 5px;
+    /*background-color: pink;*/
+    top: 0;
+    float: left;
+    height: 110px;
+    /*border: 1px solid #46494C;*/
+}
+
+#legend {
+    padding: 5px;
+    /*background-color: lightcoral;*/
+    top: 0;
+    float: left;
+    height: 110px;
+    /*border: 1px solid #46494C;*/
+}
+
+#graph{
+    clear: both;
+    width: 700px;
+    height: 700px;
+    border: 1px solid #46494C;
+    /*background-color: lightcyan;*/
+}
+
+ul.no_bullet {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding: 10px 30px;
+}
+
+li.legend {
+    margin: 0 0 12px 0;
+}
+
+h4 {
+    margin: 5px;
+}
+
+#affiliations_list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    float: left;
+}
+
+#social_buttons {
+    float:right;
+}
+
+.clear {
+    clear: both;
+}
+
+
+
+.back_button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #0EB0E6;
+    color: black;
+}
+
+.back_button:hover {
+    background-color: #086788;
+
+    color: white;
+}
+
+.stats {
+    float:left;
+    /*border: 1px solid #46494C;*/
+    width: 310px;
+    padding: 10px;
+}
+
+.stats_name {
+    font-weight: 500;
+    background-color: #086788;
+    color: white;
+    padding: 3px;
+}
+
+.stat_category {
+    background-color: #00CC99;
+    color: black;
+    padding: 5px 40px 5px 5px;
+    text-align: right;
+}
+
+#pagetop_spacer{
+    float: left;
+    width: 200px;
+    height: 100px;
+    /*background-color: blueviolet;*/
+}
+
+.top_bar_text{
+    margin-bottom: 5px;
+}
+
+#settings_text{
+    float: left;
+    position: relative;
+    left: 120px;
+}
+
+#info_text{
+    float:left;
+    position:relative;
+    left: 380px;
+}
+
+#text_gene_input_title{
+    margin-right: 9px;
+}
+
+#runButtons button {
+    margin-right: 10px;
+    width: 100px;
+}
+
+
+button.download_button{
+    width: 180px;
+}
+
+#loading_wheel {
+    margin-left: auto;
+    margin-right: auto }
+
+ol li{
+    margin: 10px 0;
+}
+
+#data_table{
+    text-align: center;
+}
+
+.table_left{
+    text-align: left;
+}
+
+th, td{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}

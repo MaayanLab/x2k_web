@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+<installation version="1.0">
+
+    <info>
+        <appname>Expression2Kinases</appname>
+        <appversion>1.6-SNAPSHOT</appversion>
+		<appsubpath>MSSM/Expression2Kinases</appsubpath>
+        <authors>
+            <author name="Edward Chen" email="Edward.Chen@mssm.edu"/>
+            <author name="Avi Ma'ayan" email="Avi.Maayan@mssm.edu"/>
+        </authors>
+        <url>http://www.maayanlab.net/X2K</url>
+		<javaversion>1.6</javaversion>
+		<requiresjdk>no</requiresjdk>
+		<run-privileged condition="izpack.windowsinstall.vista|izpack.windowsinstall.7"/>
+    </info>
+	
+    <guiprefs width="640" height="480" resizable="yes"/>
+	
+	<variables>
+        <variable name="DesktopShortcutCheckboxEnabled" value="true"/>
+        <variable name="ApplicationShortcutPath" value="ApplicationShortcuts"/>
+    </variables>
+	
+    <locale>
+		<langpack iso3="chn"/>
+		<langpack iso3="dan"/>
+		<langpack iso3="deu"/>
+        <langpack iso3="eng"/>
+        <langpack iso3="fra"/>
+		<langpack iso3="ita"/>
+		<langpack iso3="jpn"/>
+		<langpack iso3="spa"/>
+    </locale>
+	
+    <resources>
+		<res src="installer/banner.png" id="banner"/>
+		<res src="installer/hello.html" id="HTMLHelloPanel.hellopanel"/>
+		<res src="installer/default_shortcut_specification.xml" id="shortcutSpec.xml"/>
+		<res src="installer/unix_shortcut_specification.xml" id="Unix_shortcutSpec.xml"/>		
+    </resources>
+	
+    <panels>
+        <panel classname="HTMLHelloPanel" id="hellopanel"/>
+        <panel classname="TargetPanel" id="targetpanel"/>
+        <panel classname="PacksPanel" id="packspanel"/>
+        <panel classname="InstallPanel" id="installpanel"/>
+		<panel classname="ShortcutPanel" id="shortcutpanel"/>
+        <panel classname="FinishPanel" id="finishpanel"/>
+    </panels>
+	
+	<listeners>
+		<listener installer="RegistryInstallerListener"
+			uninstaller="RegistryUninstallerListener" >
+			<os family="windows"/>
+		</listener>
+	</listeners>
+	
+    <packs>
+        <pack name="Base" required="yes">
+            <description>The base files</description>
+			<file src="installer/icon.ico" targetdir="$INSTALL_PATH"/>
+			<file src="installer/icon.png" targetdir="$INSTALL_PATH"/>
+			<file src="settings.ini" targetdir="$INSTALL_PATH"/>
+			<file src="installer/uninstall.sh" targetdir="$INSTALL_PATH" os="unix"/>
+			<file src="installer/results go here" targetdir="$USER_HOME\X2K" os="windows" override="false"/>
+			<fileset dir="target" targetdir="$INSTALL_PATH">
+				<include name="X2K-*-jar-with-dependencies.jar"/>
+			</fileset>
+        </pack>
+		<pack name="Documentation" required="no" preselected="yes">
+			<description>The documentation and files necessary to duplicate case studies</description>
+			<fileset dir="installer" targetdir="$INSTALL_PATH/docs">
+				<include name="website.html"/>
+				<include name="*.pdf"/>
+				<include name="*.txt"/>
+			</fileset>
+		</pack>
+        <pack name="Source" required="no" preselected="no">
+            <description>The source code</description>
+			<fileset dir="../www/x2k/code" targetdir="$INSTALL_PATH/src">
+				<include name="**/*"/>
+				<exclude name="**/.svn/"/>
+				<exclude name="**/src/test/"/>
+				<exclude name="**/art/"/>
+				<exclude name="**/installer/"/>
+				<exclude name="**/*.py"/>
+				<exclude name="**/*.bat"/>
+				<exclude name="**/install.xml"/>
+			</fileset>
+        </pack>
+    </packs>
+	
+	<native type="izpack" name="ShellLink.dll"/>
+    <native type="izpack" name="ShellLink_x64.dll"/>
+	<native type="3rdparty" name="COIOSHelper.dll" stage="both">
+        <os family="windows"/>
+    </native>
+	<native type="3rdparty" name="COIOSHelper_x64.dll" stage="both">
+        <os family="windows"/>
+    </native>
+	
+</installation>
