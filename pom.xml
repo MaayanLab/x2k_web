@@ -24,8 +24,8 @@
 	<dependencies>
 
 
-
-		<dependency>
+<!-- See documentation.txt to find out how to add ChEA and G2N to the local Maven repository -->
+  		<dependency>
 			<groupId>edu.mssm.pharm.maayanlab.ChEA</groupId>
 			<artifactId>ChEA</artifactId>
 			<version>1.0</version>
@@ -36,22 +36,24 @@
 			<version>1.0</version>
 		</dependency>
 
-		<!--<dependency>-->
-		<!--<groupId>edu.mssm.pharm.maayanlab.ChEA</groupId>-->
-		<!--<artifactId>ChEA</artifactId>-->
-		<!--<version>1.8</version>-->
-		<!--<scope>system</scope>-->
-		<!--<systemPath>${project.basedir}/resources/ChEA.jar</systemPath>-->
-		<!--</dependency>-->
 
-		<!--<dependency>-->
-		<!--<groupId>edu.mssm.pharm.maayanlab.Genes2Networks</groupId>-->
-		<!--<artifactId>G2N</artifactId>-->
-		<!--<version>1.7</version>-->
-		<!--<optional>false</optional>-->
-		<!--<scope>system</scope>-->
-		<!--<systemPath>${project.basedir}/resources/G2N.jar</systemPath>-->
-		<!--</dependency>-->
+<!-- Somehow this way doesn't work
+		<dependency>
+		<groupId>edu.mssm.pharm.maayanlab.ChEA</groupId>
+		<artifactId>ChEA</artifactId>
+		<version>1.8</version>
+		<scope>system</scope>
+		<systemPath>${project.basedir}/resources/ChEA.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		<groupId>edu.mssm.pharm.maayanlab.Genes2Networks</groupId>
+		<artifactId>G2N</artifactId>
+		<version>1.7</version>
+		<optional>false</optional>
+		<scope>system</scope>
+		<systemPath>${project.basedir}/resources/G2N.jar</systemPath>
+		</dependency> -->
 
 
 

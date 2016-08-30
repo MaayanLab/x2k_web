@@ -53,7 +53,7 @@ being said, i'm not completely sure how it all works and if anything causes
 problems, it will be this.  
 
 mvn install:install-file -Dfile=resources/G2N.jar -DgroupId=edu.mssm.pharm.maayanlab.Genes2Networks -DartifactId=G2N -Dversion=1.0 -Dpackaging=jar
-mvn install:install-file -Dfile=resources/ChEA.jar -DgroupId=edu.mssm.pharm.maayanlab -DartifactId=ChEA -Dversion=1.0 -Dpackaging=jar
+mvn install:install-file -Dfile=resources/ChEA.jar -DgroupId=edu.mssm.pharm.maayanlab.ChEA -DartifactId=ChEA -Dversion=1.0 -Dpackaging=jar
 
 -resources - updated ChEA and G2N jar files. the only changes are that they have
 new datasets and the java is configured to work with them
