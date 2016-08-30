@@ -1,4 +1,7 @@
-/target/
-/.settings
+target/
+.settings/
+.metadata/
+src/.metadata/
+.idea/
 .DS_store
 
