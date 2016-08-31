@@ -57,7 +57,7 @@ function listenForExample() {
  */
 function insertExample() {
     $.get('resources/example_genes', function(data) {
-        $('textarea#text-genes').val($.trim(data));
+        $('textarea#text-genes').val(data);
     });
     return false;
 }
@@ -138,7 +138,7 @@ function submitButtonListener(button, endpoint){
         event.preventDefault();
         document.getElementById("settings_form").setAttribute("action", endpoint);
 
-        text_input = document.getElementById("text-genes").value;
+        text_input = $("#text-genes").val();
         file_input = document.getElementById("file_upload").value;
         if (text_input.length > 0 || file_input.length > 0){
             document.getElementById("settings_form").submit();

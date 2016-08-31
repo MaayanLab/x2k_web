@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="edu.mssm.pharm.maayanlab.X2K.web.*" %>
+<%@ page import="edu.mssm.pharm.maayanlab.X2K.enrichment.*" %>
+<%@ page import="edu.mssm.pharm.maayanlab.ChEA.*" %>
+<%@ page import="edu.mssm.pharm.maayanlab.Genes2Networks.*" %>
+<%@ page import="edu.mssm.pharm.maayanlab.KEA.*" %>
 
 <html>
 	<head>
@@ -20,12 +25,7 @@
 	<body>
 		<div id="page">
 
-			<!-- x2k_web logo image -->
-			<div id="logo" >
-                <a href="/X2K">
-                    <img src="resources/logo.png"/>
-                </a>
-            </div>
+            <%@ include file="templates/logo.html" %>
 
             <p id="description">
                 Welcome to <strong>Expression2Kinases (X2K) web</strong>! Input a gene list either by choosing a file from your computer or by pasting it directly
