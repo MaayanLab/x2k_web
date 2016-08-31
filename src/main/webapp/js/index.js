@@ -4,7 +4,11 @@
 /* Checks for page loading with hash or hash changing.
  */
 function listenForHashChange() {
-    if (hasHash()) { highlightTabAndShowContent(); }
+    if (hasHash()) {
+        highlightTabAndShowContent();
+    } else {
+        clearTabContent();
+    }
     $(window).on('hashchange', highlightTabAndShowContent);
 }
 
@@ -13,11 +17,21 @@ function listenForHashChange() {
 function highlightTabAndShowContent() {
     var hash = getHash(),
         $tabToHighlight = $('#menu a[href="#' + hash + '"]'),
-        $tabContentToShow = $('#' + hash);
-    $('.tab-content').hide();
-    $('.tab-link').removeClass('active');
+        $tabContentToShow = $('#' + hash),
+        $inputFields = $('#input-fields');
+    clearTabContent();
     $tabToHighlight.addClass('active');
     $tabContentToShow.fadeIn(600);
+    if ($tabToHighlight.hasClass('information')) {
+        $inputFields.hide();
+    } else {
+        $inputFields.show();
+    }
+}
+
+function clearTabContent() {
+    $('.tab-content').hide();
+    $('.tab-link').removeClass('active');
 }
 
 /* Returns true if URL contains characters beyond hash symbol, False otherse.
@@ -33,11 +47,17 @@ function getHash() {
     return window.location.hash.substring(1);
 }
 
+/* Listens for the user to click on the "Example gene list" button.
+ */
+function listenForExample() {
+    $('#example-gene-list').click(insertExample);
+}
+
 /* Fetches and inserts example genes.
  */
 function insertExample() {
     $.get('resources/example_genes', function(data) {
-        $('textarea#textGenes').val(data);
+        $('textarea#text-genes').val($.trim(data));
     });
     return false;
 }
@@ -118,28 +138,26 @@ function submitButtonListener(button, endpoint){
         event.preventDefault();
         document.getElementById("settings_form").setAttribute("action", endpoint);
 
-        text_input = document.getElementById("textGenes").value;
+        text_input = document.getElementById("text-genes").value;
         file_input = document.getElementById("file_upload").value;
         if (text_input.length > 0 || file_input.length > 0){
             document.getElementById("settings_form").submit();
-            loading_elem = document.getElementById("loading_wheel");
-            loading_elem.style.display = "block";
+            //loading_elem = document.getElementById("loading_wheel");
+            //loading_elem.style.display = "block";
         }
     });
 }
 
-window.onload = function() {
+$(function() {
 
     listenForHashChange();
+    listenForExample();
 
     // Get the thing that submits to different servlets
     submitButtonListener("chea_submit", "ChEA");
     submitButtonListener("kea_submit", "KEA");
     submitButtonListener("x2k_submit", "network");
     submitButtonListener("g2n_submit", "G2N");
-
-    // Confirm the initial tab selection
-    //document.getElementById("tf_tab").click();
 
     // Display stats
     $.ajax({
@@ -162,4 +180,4 @@ window.onload = function() {
             );
         }
     })
-};
+});

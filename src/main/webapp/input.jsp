@@ -13,16 +13,25 @@
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
         <!-- CSS -->
-		<link rel="stylesheet" href="css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+        <link rel="stylesheet" href="css/main.css">
 	</head>
 
 	<body>
-		<div id="everything">
+		<div id="page">
 
 			<!-- x2k_web logo image -->
-			<a href="/X2K">
-				<img id="logo" src="x2k_logo_v4.png" alt="HTML5 Icon" width="150" height="90">
-            </a>
+			<div id="logo" >
+                <a href="/X2K">
+                    <img src="resources/logo.png"/>
+                </a>
+            </div>
+
+            <p id="description">
+                Welcome to <strong>Expression2Kinases (X2K) web</strong>! Input a gene list either by choosing a file from your computer or by pasting it directly
+                into the input box. Then, customize your analysis through the settings tabs at the top of the page. Finally,
+                run your desired analysis using the run buttons provided. For further information, click on the <strong>Help</strong> tab.
+            </p>
 
 			<div id="top_bar">
 				<div class="clear"></div>
@@ -35,17 +44,19 @@
 			<form id="settings_form" action="network" method="POST" enctype="multipart/form-data">
 				
 				<!-- Tab selector -->
-				<ul id="menu">
-			        <li><a href="#x2k" class="settings tab-link active">X2K</a></li>
-			        <li><a href="#chea" class="settings tab-link">ChEA</a></li>
-					<li><a href="#g2n" class="settings tab-link">Genes2Networks</a></li>
-					<li><a href="#kea" class="settings tab-link">KEA</a></li>
+                <div>
+                    <ul id="menu">
+                        <li><a href="#x2k" class="setting tab-link">X2K</a></li>
+                        <li><a href="#chea" class="setting tab-link">ChEA</a></li>
+                        <li><a href="#g2n" class="setting tab-link">Genes2Networks</a></li>
+                        <li><a href="#kea" class="setting tab-link">KEA</a></li>
 
-			        <li><a href="#downloads" class="tab-link">Downloads</a></li>
-			        <li><a href="#about" class="tab-link">About</a></li>
-			        <li><a href="#stats" class="tab-link">Statistics</a></li>
-			        <li><a href="#help" class="tab-link">Help</a></li>
-	    		</ul>
+                        <li><a href="#downloads" class="information tab-link">Downloads</a></li>
+                        <li><a href="#about" class="information tab-link">About</a></li>
+                        <li><a href="#statistics" class="information tab-link">Statistics</a></li>
+                        <li><a href="#help" class="information tab-link">Help</a></li>
+                    </ul>
+                </div>
 
 	    		<!-- Tab content -->
 
@@ -217,70 +228,76 @@
 					</p>
 			    </div>
 
-			    <br>
+				<%--<img id="loading_wheel" src="default.svg" style="display:none;">--%>
 
-				<img id="loading_wheel" src="default.svg" style="display:none;">
-
-			    <div id="pageBottom">
-					<div id="textInput">
-						<h4 class="stats_name" id="text_gene_input_title">Input Genes As Text</h4>
-						<textarea rows="12" name = "textGenes" id="textGenes"></textarea><br>
-						<input type="button" value="Example gene list" id="sampleGenes" onclick="return insertExample()">
+			    <div id="input-fields" class="section">
+					<div id="text-input">
+						<h4 class="section-label">Input Genes As Text</h4>
+						<textarea rows="12" name="text-genes" id="text-genes"></textarea>
+						<button type="button" id="example-gene-list">Example gene list</button>
 					</div>
-					<div id="fileInput">
-						<h4 class="stats_name">Input Genes As File</h4>
-						<input id="file_upload" type="file" name="geneList">
+					<div id="file-input">
+						<h4 class="section-label">Input Genes As File</h4>
+						<input id="file_upload" type="file" name="file-genes">
 					</div>
-		            <div id="runButtons">
-		            	<h4 class="stats_name">Analyze Inputs</h4>
-						<button type="submit" id="x2k_submit"> Run X2K</button>{all settings apply}
-						<button type="submit" id="chea_submit"> Run ChEA</button>{only ChEA settings apply}<br>
-						<button type="submit" id="g2n_submit"> Run G2N</button>{only G2N settings apply}<br>
-						<button type="submit" id="kea_submit"> Run KEA</button>{only KEA settings apply}<br>
-		            </div>
 	        	</div>
+
+                <div class="section">
+                    <div id="run-buttons">
+                        <h4 class="section-label">Analyze Inputs</h4>
+                        <ul class="list-unstyled">
+                            <li>
+                                <button type="submit" id="x2k_submit"> Run X2K</button>(All settings)
+                            </li>
+                            <li>
+                                <button type="submit" id="chea_submit"> Run ChEA</button>(Only ChEA settings)
+                            </li>
+                            <li>
+                                <button type="submit" id="g2n_submit"> Run G2N</button>(Only G2N settings)
+                            </li>
+                            <li>
+                                <button type="submit" id="kea_submit"> Run KEA</button>(Only KEA settings)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
 			</form>
 
 			<div class="clear"></div>
 
-			<div id="descriptionText" class="description">
-				Welcome to X2K Web! Input a gene list either by choosing a file from your computer or by pasting it directly
-				into the input box. Then, customize your analysis through the settings tabs at the top of the page. Finally,
-				run your desired analysis using the run buttons provided. For further information, click on the Help tab.
-			</div>
-
-			<div id="footer">
-		        <div class="container">
-		            <div id="affiliations">
-		                <h4>Affiliations</h4>
-		                <ul id="affiliations_list">
-		                    <li><a href="http://icahn.mssm.edu/research/labs/maayan-laboratory" target="_blank">The Ma'ayan
-		                        Lab</a></li>
-		                    <li><a href="http://www.lincs-dcic.org/" target="_blank">BD2K-LINCS Data Coordination and
-		                        Integration Center (DCIC)</a></li>
-		                    <li><a href="http://www.lincsproject.org/">NIH LINCS program</a></li>
-		                    <li><a href="http://bd2k.nih.gov/" target="_blank">NIH Big Data to Knowledge (BD2K)</a></li>
-		                    <li><a href="https://commonfund.nih.gov/idg/index" target="_blank">NIH Illuminating the Druggable
-		                        Genome (IDG) Program</a></li>
-		                    <li><a href="http://icahn.mssm.edu/" target="_blank">Icahn School of Medicine at Mount Sinai</a>
-		                    </li>
-		                </ul>
-		            </div>
-		            <div id="social_media">
-
-		                <!-- Go to www.addthis.com/dashboard to customize your tools -->
-		                <div id="social_buttons" class="addthis_sharing_toolbox"></div>
-
-		            </div>
-		        </div>
-		        <div class="clear"></div>
-		        <br>
-		        <div>
-		            <h4>Updated from</h4>
-		            <a href="http://www.ncbi.nlm.nih.gov/pubmed/22080467"> Chen EY, Xu H, Gordonov S, Lim MP, Perkins MH, Ma'ayan A. Expression2Kinases: mRNA Profiling Linked to Multiple Upstream Regulatory Layers. Bioinformatics. (2012) 28 (1): 105-111</a>
-		        </div>
-
+			<div id="footer" class="section">
+                <div id="affiliations">
+                    <div>
+                        <h3>Affiliations</h3>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="http://icahn.mssm.edu/research/labs/maayan-laboratory" target="_blank">The Ma'ayan Lab</a>
+                            </li>
+                            <li>
+                                <a href="http://www.lincs-dcic.org/" target="_blank">BD2K-LINCS Data Coordination and Integration Center (DCIC)</a>
+                            </li>
+                            <li>
+                                <a href="http://www.lincsproject.org/">NIH LINCS program</a>
+                            </li>
+                            <li>
+                                <a href="http://bd2k.nih.gov/" target="_blank">NIH Big Data to Knowledge (BD2K)</a>
+                            </li>
+                            <li>
+                                <a href="https://commonfund.nih.gov/idg/index" target="_blank">NIH Illuminating the Druggable Genome (IDG) Program</a>
+                            </li>
+                            <li>
+                                <a href="http://icahn.mssm.edu/" target="_blank">Icahn School of Medicine at Mount Sinai</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Updated from</h3>
+                        <a href="http://www.ncbi.nlm.nih.gov/pubmed/22080467" target="_blank">
+                            Chen EY, Xu H, Gordonov S, Lim MP, Perkins MH, Ma'ayan A. Expression2Kinases: mRNA Profiling Linked to Multiple Upstream Regulatory Layers. Bioinformatics. (2012) 28 (1): 105-111
+                        </a>
+                    </div>
+                </div>
 	    	</div>
 		</div>
 	</body>
