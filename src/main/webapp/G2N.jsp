@@ -33,16 +33,16 @@
 
 
 <body bgcolor=white>
-<div id="everything">
+<div id="page">
+
     <script>
         json_file = ${json};
         console.log(json_file);
     </script>
 
+    <%@ include file="templates/logo.html" %>
+
     <div id="top_container">
-        <a href="/X2K"><img id="logo" src="x2k_logo_v4.png" alt="HTML5 Icon" width="150" height="90"></a>
-
-
 
         <div id="download_buttons">
             Download results:

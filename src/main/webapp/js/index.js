@@ -7,7 +7,7 @@ function listenForHashChange() {
     if (hasHash()) {
         highlightTabAndShowContent();
     } else {
-        clearTabContent();
+        window.location.hash = "x2k";
     }
     $(window).on('hashchange', highlightTabAndShowContent);
 }
@@ -18,14 +18,17 @@ function highlightTabAndShowContent() {
     var hash = getHash(),
         $tabToHighlight = $('#menu a[href="#' + hash + '"]'),
         $tabContentToShow = $('#' + hash),
-        $inputFields = $('#input-fields');
+        $inputFields = $('#input-fields'),
+        $runButtons = $('#run-buttons').parent();
     clearTabContent();
     $tabToHighlight.addClass('active');
     $tabContentToShow.fadeIn(600);
     if ($tabToHighlight.hasClass('information')) {
         $inputFields.hide();
+        $runButtons.hide();
     } else {
         $inputFields.show();
+        $runButtons.show();
     }
 }
 
@@ -76,10 +79,10 @@ function histogram(data, labels, title, canvas, width, height) {
             datasets: [
                 {
                     lineTension: .1,
-                    pointHoverBackgroundColor: "rgba(8,103,136,1)",
-                    pointHoverBorderColor: "rgba(8,103,136,1)",
-                    backgroundColor: "rgba(0,204,153,0.4)",
-                    borderColor: "rgba(0,204,153,1)",
+                    pointHoverBackgroundColor: "rgba(0, 152, 255, 1)",
+                    pointHoverBorderColor: "rgba(0, 152, 255, 1)",
+                    backgroundColor: "rgba(154, 214, 255, 1)",
+                    borderColor: "rgba(0, 152, 255, 1)",
                     label: title,
                     data: data
                 }
@@ -133,17 +136,18 @@ function buildHistograms(data, data_type, datasets){
 }
 
 function submitButtonListener(button, endpoint){
-    console.log(button, endpoint);
-    document.getElementById(button).addEventListener("click", function(event){
-        event.preventDefault();
-        document.getElementById("settings_form").setAttribute("action", endpoint);
+    $('#' + button).click(function(evt) {
+        evt.preventDefault();
+        var $form = $("#settings_form"),
+            text_input,
+            file_input;
 
+        $form.attr("action", endpoint);
         text_input = $("#text-genes").val();
-        file_input = document.getElementById("file_upload").value;
+        file_input = $("#file_upload").val();
         if (text_input.length > 0 || file_input.length > 0){
-            document.getElementById("settings_form").submit();
-            //loading_elem = document.getElementById("loading_wheel");
-            //loading_elem.style.display = "block";
+            $form.submit();
+            // TODO: Implement a better loader.
         }
     });
 }

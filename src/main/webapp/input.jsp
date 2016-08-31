@@ -181,14 +181,14 @@
 			            <h3 class="stat_category">ChEA Datasets</h3>
 			            <p>Histograms for each of the ChEA datasets depicting the number of nodes with certain
 						   numbers of interactions per node in the Transcription Factor-Transcription Factor network.
-						</p><br>
+						</p>
 			        </div>
 		            <div class="clear"></div>
 
 			        <div id="G2N_stats">
 			            <h3 class="stat_category">G2N Datasets</h3>
 			            <p> Histograms for each of the Genes2Networks datasets depicting the number of nodes with certain
-							numbers of interactions per node in the Protein-Protein Interaction Netowork. </p>
+							numbers of interactions per node in the Protein-Protein Interaction Netowork.</p>
 			        </div>
 			        <div class="clear"></div>
 

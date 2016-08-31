@@ -69,19 +69,17 @@ ul#menu li a {
   text-decoration: none;
   transition: 0.3s;
 }
-ul#menu li a.active {
-  background-color: #026196;
-  color: white;
-}
 ul#menu li a.setting {
   background-color: #0098ff;
 }
+ul#menu li a.setting.active,
 ul#menu li a.setting:hover {
   background-color: #246EB9;
 }
 ul#menu li a.information {
   background-color: #666;
 }
+ul#menu li a.information.active,
 ul#menu li a.information:hover {
   background-color: #46494c;
 }
@@ -195,13 +193,7 @@ li.legend {
 .stats {
   float: left;
   padding: 10px;
-  width: 310px;
-}
-.stat_category {
-  background-color: #666;
-  color: black;
-  padding: 5px 40px 5px 5px;
-  text-align: right;
+  width: 330px;
 }
 #pagetop_spacer {
   float: left;
@@ -246,4 +238,10 @@ td {
   border-bottom: 1px solid #dddddd;
   padding-bottom: 5px;
   padding-top: 5px;
+}
+#statistics h3 {
+  background-color: #eee;
+  color: black;
+  padding: 10px;
+  margin-top: 0;
 }
