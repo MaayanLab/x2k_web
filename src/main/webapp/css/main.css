@@ -38,7 +38,7 @@ a:visited {
     /*background-color: lightgreen;*/
 }
 
-ul.tab {
+ul#menu {
     clear:both;
     list-style-type: none;
     margin: 0;
@@ -48,20 +48,20 @@ ul.tab {
     background-color: #00CC99;
 }
 
-ul.tab .settings{
+ul#menu .settings{
     background-color:#086788;
     color: white;
 }
 
-ul.tab .settings:hover{
+ul#menu .settings:hover{
     background-color: #246EB9;
 }
 
 /* Float the list items side by side */
-ul.tab li {float: left;}
+ul#menu li {float: left;}
 
 /* Style the links inside the list items */
-ul.tab li a {
+ul#menu li a {
     display: inline-block;
     color: black;
     text-align: center;
@@ -72,12 +72,12 @@ ul.tab li a {
 }
 
 /* Change background color of links on hover */
-ul.tab li a:hover {
+ul#menu li a:hover {
     background-color: #4CB944;
 }
 
 /* Create an active/current tablink class */
-ul.tab li a:focus, ul.tab li a.active {
+ul#menu li a:focus, ul#menu li a.active {
     background-color: #46494C;
     color: white;
 }
@@ -87,7 +87,7 @@ button, input {
 }
 
 /* Style the tab content */
-.tabcontent {
+.tab-content {
     display: none;
     padding: 6px 12px;
     border: 1px solid #46494C;

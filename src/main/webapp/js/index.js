@@ -1,30 +1,49 @@
-/**
- * Created by maayanlab on 7/27/16.
+/* index.js: Primary JavaScript file for handling user interface.
  */
-function opentab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-} //this is copy pasted, will fix later
 
+/* Checks for page loading with hash or hash changing.
+ */
+function listenForHashChange() {
+    if (hasHash()) { highlightTabAndShowContent(); }
+    $(window).on('hashchange', highlightTabAndShowContent);
+}
+
+/* Highlights the selected/active tab and shows the appropriate content.
+ */
+function highlightTabAndShowContent() {
+    var hash = getHash(),
+        $tabToHighlight = $('#menu a[href="#' + hash + '"]'),
+        $tabContentToShow = $('#' + hash);
+    $('.tab-content').hide();
+    $('.tab-link').removeClass('active');
+    $tabToHighlight.addClass('active');
+    $tabContentToShow.fadeIn(600);
+}
+
+/* Returns true if URL contains characters beyond hash symbol, False otherse.
+ */
+function hasHash() {
+    var h = window.location.hash;
+    return !!h && h !== '#';
+}
+
+/* Returns URL hash, stripping the "#" symbol.
+ */
+function getHash() {
+    return window.location.hash.substring(1);
+}
+
+/* Fetches and inserts example genes.
+ */
 function insertExample() {
-    $.get('sample_genes.txt', function(data) {
+    $.get('resources/example_genes', function(data) {
         $('textarea#textGenes').val(data);
     });
     return false;
 }
 
-
-var graph_width = 300;
-var graph_height = 290;
+var GRAPH_WIDTH = 300;
+var GRAPH_HEIGHT = 290;
 
 function histogram(data, labels, title, canvas, width, height) {
     var ctx = document.getElementById(canvas).getContext("2d");
@@ -70,12 +89,12 @@ function histogram(data, labels, title, canvas, width, height) {
 }
 
 function statsDiv(dataset_name, data) {
-    dataset = data[dataset_name]
+    dataset = data[dataset_name];
     div_string = '<div id=' + dataset_name + ' class="stats">' +
         '<h4 class="stats_name">' + dataset_name.replace(/_/g, ' ') + '</h4>' +
         'Total Interactions: ' + dataset.count +
         '<canvas id=' + dataset_name + '_graph></canvas>' +
-        '</div>'
+        '</div>';
     return div_string;
 }
 
@@ -88,8 +107,8 @@ function buildHistograms(data, data_type, datasets){
             data[data_type][dataset_name].labels,
             "Number of interactors",
             dataset_name + "_graph",
-            graph_width,
-            graph_height);
+            GRAPH_WIDTH,
+            GRAPH_HEIGHT);
     }
 }
 
@@ -109,27 +128,38 @@ function submitButtonListener(button, endpoint){
     });
 }
 
-window.onload = function(){
+window.onload = function() {
 
-    //get the thing that submits to different servlets
-    submitButtonListener("chea_submit","ChEA");
-    submitButtonListener("kea_submit","KEA");
-    submitButtonListener("x2k_submit","network");
-    submitButtonListener("g2n_submit","G2N");
+    listenForHashChange();
 
-    //confirm the initial tab selection
-    document.getElementById("tf_tab").click();
+    // Get the thing that submits to different servlets
+    submitButtonListener("chea_submit", "ChEA");
+    submitButtonListener("kea_submit", "KEA");
+    submitButtonListener("x2k_submit", "network");
+    submitButtonListener("g2n_submit", "G2N");
 
-    //dispaly stats
+    // Confirm the initial tab selection
+    //document.getElementById("tf_tab").click();
+
+    // Display stats
     $.ajax({
         url: 'datasets/dataset_statistics.json',
         success: function(data) {
-
-            buildHistograms(data, "ChEA", ["ChEA_2015","ENCODE_2015","ChEA_&_ENCODE_Consensus","Transfac_&_Jaspar"]);
-            buildHistograms(data, "G2N", ["Biocarta","BioGrid","DIP","innateDB","IntAct","KEGG","MINT","ppid","SNAVI"]);
-            buildHistograms(data, "KEA", ["Kinase-Protein","Phosphorylation"]);
-
+            buildHistograms(
+                data,
+                "ChEA",
+                ["ChEA_2015", "ENCODE_2015", "ChEA_&_ENCODE_Consensus", "Transfac_&_Jaspar"]
+            );
+            buildHistograms(
+                data,
+                "G2N",
+                ["Biocarta", "BioGrid", "DIP", "innateDB", "IntAct", "KEGG", "MINT", "ppid", "SNAVI"]
+            );
+            buildHistograms(
+                data,
+                "KEA",
+                ["Kinase-Protein", "Phosphorylation"]
+            );
         }
     })
-}
-
+};

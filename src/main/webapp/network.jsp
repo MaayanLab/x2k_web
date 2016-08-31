@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
          pageEncoding="US-ASCII"%>
-<%@ page import="edu.mssm.pharm.maayanlab.X2K.web.*" %>
-<%@ page import="edu.mssm.pharm.maayanlab.X2K.enrichment.*" %>
-<%@ page import="edu.mssm.pharm.maayanlab.ChEA.*" %>
-<%@ page import="edu.mssm.pharm.maayanlab.Genes2Networks.*" %>
-<%@ page import="edu.mssm.pharm.maayanlab.KEA.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>

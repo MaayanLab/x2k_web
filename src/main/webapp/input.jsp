@@ -1,22 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=US-ASCII"
-    pageEncoding="US-ASCII"%>
-<%@ page import="edu.mssm.pharm.maayanlab.X2K.web.*" %>
-<%@ page import="edu.mssm.pharm.maayanlab.X2K.enrichment.*" %>
-<%@ page import="edu.mssm.pharm.maayanlab.ChEA.*" %>
-<%@ page import="edu.mssm.pharm.maayanlab.Genes2Networks.*" %>
-<%@ page import="edu.mssm.pharm.maayanlab.KEA.*" %>
+<%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 	<head>
-		<!-- javascript imports -->
+		<!-- JavaScript imports -->
 		<script src="js/jquery-3.0.0.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-578e939ffe83e029"></script>
-		<!-- load favicon -->
+
+        <!-- Load favicon -->
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-		<!-- css -->
+
+        <!-- CSS -->
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 
@@ -24,85 +20,57 @@
 		<div id="everything">
 
 			<!-- x2k_web logo image -->
-			<a href="/X2K"><img id="logo" src="x2k_logo_v4.png" alt="HTML5 Icon" width="150" height="90"></a>
+			<a href="/X2K">
+				<img id="logo" src="x2k_logo_v4.png" alt="HTML5 Icon" width="150" height="90">
+            </a>
 
-			<div id = top_bar>
+			<div id="top_bar">
 				<div class="clear"></div>
 				<h3 id="settings_text" class="top_bar_text">Settings</h3>
 				<h3 id="info_text" class="top_bar_text">Information</h3>
 				<div class="clear"></div>
 			</div>
 
-			<!-- the form that occupies most of the page, storing all settings -->
+			<!-- The form that occupies most of the page, storing all settings -->
 			<form id="settings_form" action="network" method="POST" enctype="multipart/form-data">
 				
-				<!-- tab selector -->
-				<ul class="tab">
-			        <li><a id="x2k_tab" href="#" class="settings tablinks" onclick="opentab(event, 'X2K Analysis')">X2K</a></li>
-			        <li><a id="tf_tab" href="#" class="settings tablinks active" onclick="opentab(event, 'Transcription Factors')">ChEA</a></li>
-					<li><a id="ppi_tab" href="#" class="settings tablinks" onclick="opentab(event, 'Protein Network')">Genes2Networks</a></li>
-					<li><a id="kin_tab" href="#" class="settings tablinks" onclick="opentab(event, 'Kinases')">KEA</a></li>
-			        <li><a id="downloads_tab" href="#" class="tablinks" onclick="opentab(event, 'Downloads')">Downloads</a></li>
-			        <li><a id="about_tab" href="#" class="tablinks" onclick="opentab(event, 'About')">About</a></li>
-			        <li><a id="stats_tab" href="#" class="tablinks" onclick="opentab(event, 'Statistics')">Statistics</a></li>
-			        <li><a id="help_tab" href="#" class="tablinks" onclick="opentab(event, 'Help')">Help</a></li>
+				<!-- Tab selector -->
+				<ul id="menu">
+			        <li><a href="#x2k" class="settings tab-link active">X2K</a></li>
+			        <li><a href="#chea" class="settings tab-link">ChEA</a></li>
+					<li><a href="#g2n" class="settings tab-link">Genes2Networks</a></li>
+					<li><a href="#kea" class="settings tab-link">KEA</a></li>
+
+			        <li><a href="#downloads" class="tab-link">Downloads</a></li>
+			        <li><a href="#about" class="tab-link">About</a></li>
+			        <li><a href="#stats" class="tab-link">Statistics</a></li>
+			        <li><a href="#help" class="tab-link">Help</a></li>
 	    		</ul>
 
-	    		<!-- tabs -->
+	    		<!-- Tab content -->
 
-	    		<div id="X2K Analysis" class="tabcontent">
+	    		<div id="x2k" class="tab-content">
 			        Minimum number of proteins in network:
-			        <input type="text" name="${X2K.MINIMUM_NETWORK_SIZE}" size="3" value="50"><br>
+			        <input type="text" name="${X2K.MINIMUM_NETWORK_SIZE}" size="3" value="50">
 	    		</div>
 
-	    		<div id="Downloads" class="tabcontent">
+                <div id="chea" class="tab-content">
+                    Sort by:
+                    <input type="radio" name="${ChEA.SORT_BY}" value="${ChEA.PVALUE}"> p-value
+                    <input type="radio" name="${ChEA.SORT_BY}" value="${ChEA.RANK}"> rank
+                    <input type="radio" name="${ChEA.SORT_BY}" value="${ChEA.COMBINED_SCORE}" checked="checked"> combined score<br><br>
+                    Background organism:
+                    <input type="radio" name="${ChEA.INCLUDED_ORGANISMS}" value="${ChEA.MOUSE_ONLY}"> mouse
+                    <input type="radio" name="${ChEA.INCLUDED_ORGANISMS}" value="${ChEA.HUMAN_ONLY}"> human
+                    <input type="radio" name="${ChEA.INCLUDED_ORGANISMS}" value="${ChEA.BOTH}" checked="checked"> both<br><br>
+                    Transcription factor database:<br>
+                    <input type="radio" name="${ChEA.BACKGROUND_DATABASE}" value="${ChEA.CHEA_2015}" checked="checked"> ChEA 2015 <br>
+                    <input type="radio" name="${ChEA.BACKGROUND_DATABASE}" value="${ChEA.ENCODE_2015}"> ENCODE 2015 <br>
+                    <input type="radio" name="${ChEA.BACKGROUND_DATABASE}" value="${ChEA.CONSENSUS}"> ChEA & ENCODE Consensus <br>
+                    <input type="radio" name="${ChEA.BACKGROUND_DATABASE}" value="${ChEA.TRANS_JASP}"> Transfac & Jaspar<br>
+                </div>
 
-					Download the datasets used in X2K analysis:
-
-			        <dl>
-			            <dt>Transcription Factor Datasets</dt>
-			            <dd><a href="datasets/ChEA2015.zip"> ChEA 2015 </a></dd>
-			            <dd><a href="datasets/ENCODE2015.zip"> ENCODE 2015 </a></dd>
-			            <dd><a href="datasets/Consensus.zip"> ChEA & ENCODE Consensus </a></dd>
-			            <dd><a href="datasets/TransfacAndJaspar.zip"> Transfac & Jaspar </a></dd>
-			        </dl>
-
-			        <dl>
-			            <dt>Protein-Protein Interaction Datasets</dt>
-			            <dd><a href="datasets/Biocarta.sig"> Biocarta </a></dd>
-			            <dd><a href="datasets/BioGrid.sig"> BioGrid </a></dd>
-			            <dd><a href="datasets/DIP.sig"> DIP </a></dd>
-			            <dd><a href="datasets/innateDB.sig"> innateDB </a></dd>
-			            <dd><a href="datasets/IntAct.sig"> IntAct </a></dd>
-			            <dd><a href="datasets/KEGG.sig"> KEGG </a></dd>
-			            <dd><a href="datasets/MINT.sig"> MINT </a></dd>
-			            <dd><a href="datasets/ppid.sig"> ppid </a></dd>
-			            <dd><a href="datasets/SNAVI.sig"> SNAVI </a></dd>
-			        </dl>
-
-			        <dl>
-			            <dt>Kinase Dataset</dt>
-			            <dd><a href="datasets/KEA.zip"> KEA </a></dd>
-			        </dl>
-	    		</div>
-
-			    <div id="Transcription Factors" class="tabcontent">
-					Sort by:
-					<input type="radio" name="${ChEA.SORT_BY}" value="${ChEA.PVALUE}"> p-value
-					<input type="radio" name="${ChEA.SORT_BY}" value="${ChEA.RANK}"> rank
-					<input type="radio" name="${ChEA.SORT_BY}" value="${ChEA.COMBINED_SCORE}" checked="checked"> combined score<br><br>
-					Background organism:
-					<input type="radio" name="${ChEA.INCLUDED_ORGANISMS}" value="${ChEA.MOUSE_ONLY}"> mouse
-					<input type="radio" name="${ChEA.INCLUDED_ORGANISMS}" value="${ChEA.HUMAN_ONLY}"> human
-					<input type="radio" name="${ChEA.INCLUDED_ORGANISMS}" value="${ChEA.BOTH}" checked="checked"> both<br><br>
-					Transcription factor database:<br>
-					<input type="radio" name="${ChEA.BACKGROUND_DATABASE}" value="${ChEA.CHEA_2015}" checked="checked"> ChEA 2015 <br>
-					<input type="radio" name="${ChEA.BACKGROUND_DATABASE}" value="${ChEA.ENCODE_2015}"> ENCODE 2015 <br>
-					<input type="radio" name="${ChEA.BACKGROUND_DATABASE}" value="${ChEA.CONSENSUS}"> ChEA & ENCODE Consensus <br>
-					<input type="radio" name="${ChEA.BACKGROUND_DATABASE}" value="${ChEA.TRANS_JASP}"> Transfac & Jaspar<br>
-			    </div>
-
-			    <div id="Protein Network" class="tabcontent">
+			    <div id="g2n" class="tab-content">
 					<input type="text" name="${Genes2Networks.PATH_LENGTH}" size="5" value="2"> Path Length<br>
 					<input type="text" name="${Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES}" size="5" value="2"> Minimum Number of Articles<br>
 					<input type="text" name="${Genes2Networks.MAXIMUM_NUMBER_OF_EDGES}" size="5" value="200"> Maximum Number of Edges per Node<br>
@@ -145,13 +113,59 @@
 					<input type="hidden" name="${Genes2Networks.ENABLE_SNAVI}" value="false">
 			    </div>
 
-			    <div id="Kinases" class="tabcontent">
+			    <div id="kea" class="tab-content">
 					<input type="radio" name="${KEA.SORT_BY}" value="${KEA.PVALUE}" checked="checked"> p-value
 					<input type="radio" name="${KEA.SORT_BY}" value="${KEA.RANK}"> rank
 					<input type="radio" name="${KEA.SORT_BY}" value="${KEA.COMBINED_SCORE}" checked="checked"> combined score<br>
 			    </div>
 
-			    <div id="Statistics" class="tabcontent">
+                <div id="downloads" class="tab-content">
+
+                    Download the datasets used in X2K analysis:
+
+                    <dl>
+                        <dt>Transcription Factor Datasets</dt>
+                        <dd><a href="datasets/ChEA2015.zip"> ChEA 2015 </a></dd>
+                        <dd><a href="datasets/ENCODE2015.zip"> ENCODE 2015 </a></dd>
+                        <dd><a href="datasets/Consensus.zip"> ChEA & ENCODE Consensus </a></dd>
+                        <dd><a href="datasets/TransfacAndJaspar.zip"> Transfac & Jaspar </a></dd>
+                    </dl>
+
+                    <dl>
+                        <dt>Protein-Protein Interaction Datasets</dt>
+                        <dd><a href="datasets/Biocarta.sig"> Biocarta </a></dd>
+                        <dd><a href="datasets/BioGrid.sig"> BioGrid </a></dd>
+                        <dd><a href="datasets/DIP.sig"> DIP </a></dd>
+                        <dd><a href="datasets/innateDB.sig"> innateDB </a></dd>
+                        <dd><a href="datasets/IntAct.sig"> IntAct </a></dd>
+                        <dd><a href="datasets/KEGG.sig"> KEGG </a></dd>
+                        <dd><a href="datasets/MINT.sig"> MINT </a></dd>
+                        <dd><a href="datasets/ppid.sig"> ppid </a></dd>
+                        <dd><a href="datasets/SNAVI.sig"> SNAVI </a></dd>
+                    </dl>
+
+                    <dl>
+                        <dt>Kinase Dataset</dt>
+                        <dd><a href="datasets/KEA.zip"> KEA </a></dd>
+                    </dl>
+                </div>
+
+                <div id="about" class="tab-content">
+                    <p>
+                        X2K Web is an online tool used to infer upstream regulatory networks from differentially expressed genes.
+                        Combining the
+                        <a href="http://amp.pharm.mssm.edu/lib/chea.jsp">ChEA</a>,
+                        <a href="http://amp.pharm.mssm.edu/genes2networks/">Genes2Networks</a>, and
+                        <a href="http://amp.pharm.mssm.edu/lib/kea.jsp">KEA</a>
+                        apps together, X2K Web produces inferred networks of transcription factors, proteins, and kinases
+                        which take part in the upstream regulation of the inputted gene list. X2K web also allows users to
+                        analyze their differentially expressed gene lists using ChEA, G2N, and KEA individually. To read more about
+                        the concept of X2K, you can read about it <a href="http://www.maayanlab.net/X2K/">here</a>. To learn how to
+                        use X2K web, please click on the Help tab.
+                    </p>
+                </div>
+
+                <div id="statistics" class="tab-content">
 			        <div id="ChEA_stats">
 			            <h3 class="stat_category">ChEA Datasets</h3>
 			            <p>Histograms for each of the ChEA datasets depicting the number of nodes with certain
@@ -175,22 +189,7 @@
 			        <div class="clear"></div>
 			    </div>
 
-			    <div id="About" class="tabcontent">
-					<p>
-						X2K Web is an online tool used to infer upstream regulatory networks from differentially expressed genes.
-						Combining the
-						<a href="http://amp.pharm.mssm.edu/lib/chea.jsp">ChEA</a>,
-						<a href="http://amp.pharm.mssm.edu/genes2networks/">Genes2Networks</a>, and
-						<a href="http://amp.pharm.mssm.edu/lib/kea.jsp">KEA</a>
-						apps together, X2K Web produces inferred networks of transcription factors, proteins, and kinases
-						which take part in the upstream regulation of the inputted gene list. X2K web also allows users to
-						analyze their differentially expressed gene lists using ChEA, G2N, and KEA individually. To read more about
-						the concept of X2K, you can read about it <a href="http://www.maayanlab.net/X2K/">here</a>. To learn how to
-						use X2K web, please click on the Help tab.
-					</p>
-			    </div>
-			    
-			    <div id="Help" class="tabcontent">
+			    <div id="help" class="tab-content">
 			        <p>
 						X2K Web offers four different analysis options: ChEA, Genes2Networks, KEA, and the full X2K pipeline.
 						Despite producing different analyses, their usage is relatively similar. All of them require 3 main steps:
@@ -226,7 +225,7 @@
 					<div id="textInput">
 						<h4 class="stats_name" id="text_gene_input_title">Input Genes As Text</h4>
 						<textarea rows="12" name = "textGenes" id="textGenes"></textarea><br>
-						<input type="button" value="Sample Genelist" id="sampleGenes" onclick="return insertExample()">
+						<input type="button" value="Example gene list" id="sampleGenes" onclick="return insertExample()">
 					</div>
 					<div id="fileInput">
 						<h4 class="stats_name">Input Genes As File</h4>
@@ -239,9 +238,8 @@
 						<button type="submit" id="g2n_submit"> Run G2N</button>{only G2N settings apply}<br>
 						<button type="submit" id="kea_submit"> Run KEA</button>{only KEA settings apply}<br>
 		            </div>
-
-
 	        	</div>
+
 			</form>
 
 			<div class="clear"></div>
