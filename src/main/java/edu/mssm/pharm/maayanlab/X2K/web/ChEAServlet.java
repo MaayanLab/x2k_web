@@ -34,7 +34,7 @@ public class ChEAServlet extends HttpServlet {
         Part geneChunk = req.getPart("text-genes");
         ArrayList<String> textGenes = PartReader.readLines(geneChunk);
 
-        System.out.println("HELLO?");
+        System.out.println(textGenes.size());
 
         //handle both possible types of input
         if (fileGenes.size() > 0) {
@@ -54,6 +54,12 @@ public class ChEAServlet extends HttpServlet {
         // Run enrichment
         ChEA app = new ChEA();
         System.out.println(app);
+        System.out.println(ChEA.SORT_BY);
+        System.out.println(req.getParameter(ChEA.SORT_BY));
+        System.out.println(ChEA.INCLUDED_ORGANISMS);
+        System.out.println(req.getParameter(ChEA.INCLUDED_ORGANISMS));
+        System.out.println(ChEA.BACKGROUND_DATABASE);
+        System.out.println(req.getParameter(ChEA.BACKGROUND_DATABASE));
         app.setSetting(ChEA.SORT_BY, req.getParameter(ChEA.SORT_BY));
         app.setSetting(ChEA.INCLUDED_ORGANISMS, req.getParameter(ChEA.INCLUDED_ORGANISMS));
         app.setSetting(ChEA.BACKGROUND_DATABASE, req.getParameter(ChEA.BACKGROUND_DATABASE));
