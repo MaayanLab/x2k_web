@@ -1,19 +1,6 @@
 package edu.mssm.pharm.maayanlab.X2K.web;
 
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
-
 import edu.mssm.pharm.maayanlab.ChEA.ChEA;
 import edu.mssm.pharm.maayanlab.Genes2Networks.Genes2Networks;
 import edu.mssm.pharm.maayanlab.KEA.KEA;
@@ -21,7 +8,14 @@ import edu.mssm.pharm.maayanlab.X2K.enrichment.Network;
 import edu.mssm.pharm.maayanlab.X2K.enrichment.X2K;
 import edu.mssm.pharm.maayanlab.common.web.JSONify;
 import edu.mssm.pharm.maayanlab.common.web.PartReader;
-import edu.mssm.pharm.maayanlab.common.core.FileUtils;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 @WebServlet(urlPatterns = { "/network" })
@@ -71,10 +65,10 @@ public class X2KServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("doing post request - X2K");
-		Part fileChunk = req.getPart("geneList");
+		Part fileChunk = req.getPart("file-genes");
 		ArrayList<String> inputList = PartReader.readLines(fileChunk);
 
-		Part geneChunk = req.getPart("textGenes");
+		Part geneChunk = req.getPart("text-genes");
 		ArrayList<String> textGenes = PartReader.readLines(geneChunk);
 
 		//handle both possible types of input

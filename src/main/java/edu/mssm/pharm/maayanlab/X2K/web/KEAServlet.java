@@ -1,21 +1,16 @@
 package edu.mssm.pharm.maayanlab.X2K.web;
 
 
-import java.io.IOException;
-import java.util.ArrayList;
+import edu.mssm.pharm.maayanlab.KEA.KEA;
+import edu.mssm.pharm.maayanlab.common.web.JSONify;
+import edu.mssm.pharm.maayanlab.common.web.PartReader;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
-
-import edu.mssm.pharm.maayanlab.KEA.KEA;
-import edu.mssm.pharm.maayanlab.common.web.JSONify;
-import edu.mssm.pharm.maayanlab.common.web.PartReader;
+import javax.servlet.http.*;
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 @WebServlet(urlPatterns = { "/KEA" })
@@ -55,10 +50,10 @@ public class KEAServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("doing post request - KEA");
-        Part fileChunk = req.getPart("geneList");
+        Part fileChunk = req.getPart("file-genes");
         ArrayList<String> inputList = PartReader.readLines(fileChunk);
 
-        Part geneChunk = req.getPart("textGenes");
+        Part geneChunk = req.getPart("text-genes");
         ArrayList<String> textGenes = PartReader.readLines(geneChunk);
 
         //handle both possible types of input
