@@ -5,6 +5,7 @@ import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -154,11 +155,13 @@ public class X2K implements SettingsChanger {
 		try {
 			setProgress(0, "Finding transcription factors...");		
 			runChea(genelist);
-
+			
 			setProgress(30, "Finding network...");
 			runG2N();
+			
 			setProgress(60, "Finding kinases...");
 			runKea();
+			
 			setProgress(90, "Writing outputs...");
 		} catch (InterruptedException e) {
 			log.info(e.getMessage());
@@ -227,39 +230,36 @@ public class X2K implements SettingsChanger {
 
 	public Network webNetwork() {
 		Network network = new Network();
-
 		ArrayList<String> tfSimpleNames = new ArrayList<String>();
-
 
 		for (TranscriptionFactor tf : chea.getTopRanked(settings.getInt(NUMBER_OF_TOP_TFS))) {
 			network.addNode(Network.nodeTypes.transcriptionFactor, tf, tf.getSimpleName());
 			tfSimpleNames.add(tf.getSimpleName());
 		}
-
 		for (Kinase kinase : kea.getTopRanked(settings.getInt(NUMBER_OF_TOP_KINASES)))
 			network.addNode(Network.nodeTypes.kinase, kinase, kinase.getName().split("-")[0]);
-
 		HashSet<NetworkNode> networkSet = g2n.getNetworkSet();
 		for (NetworkNode node : networkSet) {
-			if(!tfSimpleNames.contains(node.getName())){
-				network.addNode(Network.nodeTypes.networkNode, node, node.getName().split("-")[0]);
+			if(node.getName() != null){
+				if(!tfSimpleNames.contains(node.getName())){
+					network.addNode(Network.nodeTypes.networkNode, node, node.getName().split("-")[0]);
+				}
 			}
-
 		}
-
 		for (Kinase kinase : kea.getTopRanked(settings.getInt(NUMBER_OF_TOP_KINASES))) {
 			Set<String> substrates = kinase.getEnrichedSubstrates();
-			for (String substrate : substrates)
-				network.addInteraction(kinase.getName().split("-")[0], substrate.split("-")[0]);
+			for (String substrate : substrates){
+				network.addInteraction(kinase.getName().split("-")[0], substrate.split("-")[0]);}
 		}
-
 		for (NetworkNode node : networkSet) {
 			HashSet<NetworkNode> neighbors = node.getNeighbors();
-			for (NetworkNode neighbor : neighbors)
-				if (network.contains(neighbor.getName()))
-					network.addInteraction(node.getName().split("-")[0], neighbor.getName().split("-")[0]);
+			for (NetworkNode neighbor : neighbors){
+				if ((neighbor.getName() != null)&&(node.getName() != null)){
+					if (network.contains(neighbor.getName())){
+						network.addInteraction(node.getName().split("-")[0], neighbor.getName().split("-")[0]);
+					}
+				}}
 		}
-
 		return network;
 	}
 
@@ -422,7 +422,7 @@ public class X2K implements SettingsChanger {
 		
 		for (String line : topRankedTFs)
 			proteinSet.add(line);
-		
+		proteinSet.removeAll(Collections.singleton(null));
 		return proteinSet;
 		
 	}
