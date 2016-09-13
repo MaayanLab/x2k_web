@@ -67,10 +67,8 @@ public class X2KServlet extends HttpServlet {
 		System.out.println("doing post request - X2K");
 		Part fileChunk = req.getPart("file-genes");
 		ArrayList<String> inputList = PartReader.readLines(fileChunk);
-
 		Part geneChunk = req.getPart("text-genes");
 		ArrayList<String> textGenes = PartReader.readLines(geneChunk);
-
 		//handle both possible types of input
 		if(inputList.size() > 0){
 			enrichList(inputList, req, resp);
@@ -87,9 +85,10 @@ public class X2KServlet extends HttpServlet {
 	public static void enrichList(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Run enrichment
 		X2K app = new X2K();
+
 		readAndSetSettings(req, app);
 		app.run(inputList);
-
+		
 
 		// Write app to session
 		HttpSession httpSession = req.getSession();
