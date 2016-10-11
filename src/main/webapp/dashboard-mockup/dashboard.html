@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>X2K Dashboard</title>
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="./css/dashboard.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="https://jqueryui.com/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="http://www.w3schools.com/lib/w3data.js"></script>
+<script src="./js/dashboard.js"></script>
+</head>
+<body>
+	<!-- header -->
+	<div w3-include-html="../templates/frame/header.html"></div>
+	<script>
+		w3IncludeHTML();
+	</script>
+
+	<!-- buttons -->
+	<div id="buttons-panel" style="float: left; width: 160px;">
+
+		<div>
+			<button type="button" id="x2k-button" class="selected"
+				style="background: url(./img/x2k_icon.png); background-size: 100%; background-position: center;">X2K</button>
+		</div>
+		<div>
+			<button type="button" id="chea-button"
+				style="background: url(./img/chea.png) no-repeat; background-size: 100%; background-position: center;">ChEA</button>
+		</div>
+		<div>
+			<button type="button" id="g2n-button"
+				style="background: url(./img/g2n_icon.png); background-size: 100%; background-position: center;">G2N</button>
+		</div>
+		<div>
+			<button type="button" id="kea-button"
+				style="background: url(./img/kea.png) no-repeat; background-size: 100%; background-position: center;">KEA</button>
+		</div>
+	</div>
+
+	<!-- results -->
+	<div id="results">
+		<!-- x2k -->
+		<div id="tabs-x2k" style="display: block">
+			<ul>
+				<li><a href="#x2k-network">Network</a></li>
+			</ul>
+
+			<!-- network -->
+			<div id="x2k-network">
+				<img src="./img/x2k.png" height=550px>
+			</div>
+		</div>
+
+		<!-- chea -->
+		<div id="tabs-chea" style="display: none">
+			<ul>
+				<li><a href="#bargraph-chea">Bargraph</a></li>
+				<li><a href="#table-chea">Table</a></li>
+			</ul>
+
+			<!-- bargraph -->
+			<div id="bargraph-chea">
+				<img src="./img/chea.png" height=550px>
+			</div>
+
+			<!-- table -->
+			<div id="table-chea">
+				<div id="Table" class="tabcontent">
+
+					<table id="data_table">
+						<colgroup>
+							<col width="400">
+							<col width="90">
+							<col width="90">
+							<col width="90">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th class="table_left">Name</th>
+								<th>P-Value</th>
+								<th>Z-Score</th>
+								<th>Combined Score</th>
+							</tr>
+
+							<tr>
+								<td class="table_left">E2F1_18555785_CHIP-SEQ_MESC_MOUSE</td>
+								<td>9.66e-54</td>
+								<td>-1.216</td>
+								<td>148.412</td>
+							</tr>
+							<tr>
+								<td class="table_left">SRF_21415370_CHIP-SEQ_HL-1_MOUSE</td>
+								<td>1.53e-20</td>
+								<td>-2.227</td>
+								<td>101.582</td>
+							</tr>
+							<tr>
+								<td class="table_left">JARID1A_20064375_CHIP-SEQ_MESC_MOUSE</td>
+								<td>1.68e-29</td>
+								<td>-1.444</td>
+								<td>95.697</td>
+							</tr>
+							<tr>
+								<td class="table_left">ZFX_18555785_CHIP-SEQ_MESC_MOUSE</td>
+								<td>2.58e-31</td>
+								<td>-1.354</td>
+								<td>95.386</td>
+							</tr>
+							<tr>
+								<td class="table_left">MYC_18358816_CHIP-CHIP_MESC_MOUSE</td>
+								<td>4.84e-29</td>
+								<td>-1.423</td>
+								<td>92.767</td>
+							</tr>
+							<tr>
+								<td class="table_left">TRIM28_19339689_CHIP-CHIP_MESC_MOUSE</td>
+								<td>1.43e-25</td>
+								<td>-1.421</td>
+								<td>81.309</td>
+							</tr>
+							<tr>
+								<td class="table_left">GATA4_21415370_CHIP-SEQ_HL-1_MOUSE</td>
+								<td>1.96e-16</td>
+								<td>-1.897</td>
+								<td>68.625</td>
+							</tr>
+							<tr>
+								<td class="table_left">PPARG_23326641_CHIP-SEQ_C3H10T1-2_MOUSE</td>
+								<td>1.52e-11</td>
+								<td>-2.602</td>
+								<td>64.834</td>
+							</tr>
+							<tr>
+								<td class="table_left">ESRRB_18555785_CHIP-SEQ_MESC_MOUSE</td>
+								<td>7.80e-16</td>
+								<td>-1.832</td>
+								<td>63.722</td>
+							</tr>
+							<tr>
+								<td class="table_left">TBP_23326641_CHIP-SEQ_C3H10T1-2_MOUSE</td>
+								<td>3.63e-11</td>
+								<td>-2.504</td>
+								<td>60.198</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- g2n -->
+		<div id="tabs-g2n" style="display: none">
+			<ul>
+				<li><a href="#network-g2n">Network</a></li>
+			</ul>
+
+			<!-- network -->
+			<div id="network-g2n">
+				<img src="./img/g2n.png" height=550px>
+			</div>
+		</div>
+
+		<!-- kea -->
+		<div id="tabs-kea" style="display: none">
+			<ul>
+				<li><a href="#bargraph-kea">Bargraph</a></li>
+				<li><a href="#table-kea">Table</a></li>
+			</ul>
+
+			<!-- bargraph -->
+			<div id="bargraph-kea">
+				<img src="./img/kea.png" height=550px>
+			</div>
+
+			<!-- table -->
+			<div id="table-kea">
+				<div id="Table" class="tabcontent">
+
+					<table id="data_table">
+						<colgroup>
+							<col width="400">
+							<col width="90">
+							<col width="90">
+							<col width="90">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th class="table_left">Name</th>
+								<th>P-Value</th>
+								<th>Z-Score</th>
+								<th>Combined Score</th>
+							</tr>
+
+							<tr>
+								<td class="table_left">CDK5</td>
+								<td>0.000411</td>
+								<td>-2.072</td>
+								<td>16.154</td>
+							</tr>
+							<tr>
+								<td class="table_left">MAPK10</td>
+								<td>0.0206</td>
+								<td>-1.935</td>
+								<td>7.509</td>
+							</tr>
+							<tr>
+								<td class="table_left">PDPK1</td>
+								<td>0.0260</td>
+								<td>-1.909</td>
+								<td>6.969</td>
+							</tr>
+							<tr>
+								<td class="table_left">PDK1</td>
+								<td>0.0645</td>
+								<td>-1.661</td>
+								<td>4.553</td>
+							</tr>
+							<tr>
+								<td class="table_left">TRIM24</td>
+								<td>0.126</td>
+								<td>-1.410</td>
+								<td>2.921</td>
+							</tr>
+							<tr>
+								<td class="table_left">ATM</td>
+								<td>0.194</td>
+								<td>-1.521</td>
+								<td>2.495</td>
+							</tr>
+							<tr>
+								<td class="table_left">FYN</td>
+								<td>0.302</td>
+								<td>-0.764</td>
+								<td>0.915</td>
+							</tr>
+							<tr>
+								<td class="table_left">UHMK1</td>
+								<td>0.163</td>
+								<td>-0.446</td>
+								<td>0.809</td>
+							</tr>
+							<tr>
+								<td class="table_left">FLT4</td>
+								<td>0.153</td>
+								<td>-0.385</td>
+								<td>0.724</td>
+							</tr>
+							<tr>
+								<td class="table_left">PRKDC</td>
+								<td>0.334</td>
+								<td>-0.651</td>
+								<td>0.715</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

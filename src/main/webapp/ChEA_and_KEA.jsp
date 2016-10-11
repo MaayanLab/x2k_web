@@ -22,7 +22,7 @@
 
 <div id="page">
 
-    <%@ include file="templates/logo.html" %>
+    <%@ include file="templates/frame/header.html" %>
 
     <div id="top_container">
 
@@ -36,12 +36,6 @@
         </div>
 
         <div id=pagetop_spacer></div>
-
-        <div>
-            <a href="/X2K">
-                <button class="back_button">New X2K analysis</button>
-            </a>
-        </div>
 
     </div>
     <div class="clear"></div>

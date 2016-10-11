@@ -37,11 +37,9 @@
         console.log(json_file);
     </script>
 
-    <%@ include file="templates/logo.html" %>
+    <%@ include file="templates/frame/header.html" %>
 
     <div id="top_container">
-        <a href="/X2K"><img id="logo" src="x2k_logo_v4.png" alt="HTML5 Icon" width="150" height="90"></a>
-
         <div id="download_buttons">
             Download results:
             <br>
@@ -59,72 +57,33 @@
         </div>
 
         <div id="legend">
-            Network legend:
             <ul class="no_bullet">
+
                 <li class="legend">
                     <svg height="12" width="12">
-                        <circle cx="6" cy="6" r="6" fill=#46494C/>
-                    </svg>
-                    Protein
-                </li>
-                <li class="legend">
-                    <svg height="12" width="12">
-                        <circle cx="6" cy="6" r="6" fill=#086788/>
-                    </svg>
-                    Kinase
-                </li>
-                <li class="legend">
-                    <svg height="12" width="12">
-                        <circle cx="6" cy="6" r="6" fill=#00CC99/>
+                        <circle cx="6" cy="6" r="6" fill="#DD4484"/>
                     </svg>
                     Transcription Factor
                 </li>
+                                <li class="legend">
+                    <svg height="12" width="12">
+                        <circle cx="6" cy="6" r="6" fill="#C490D1"/>
+                    </svg>
+                    Intermediate protein                    
+                </li>
+                                <li class="legend">
+                    <svg height="12" width="12">
+                        <circle cx="6" cy="6" r="6" fill="#ABDAFC"/>
+                    </svg>
+                    Kinase
+                </li>
             </ul>
-        </div>
-        <div>
-            <a href="/X2K">
-                <button class="back_button">New X2K analysis</button>
-            </a>
         </div>
 
     </div>
 
     <div id="graph"></div>
-
-    <div id="footer">
-        <div class="container">
-            <div id="affiliations">
-                <h4>Affiliations</h4>
-                <ul id="affiliations_list">
-                    <li><a href="http://icahn.mssm.edu/research/labs/maayan-laboratory" target="_blank">The Ma'ayan
-                        Lab</a></li>
-                    <li><a href="http://www.lincs-dcic.org/" target="_blank">BD2K-LINCS Data Coordination and
-                        Integration Center (DCIC)</a></li>
-                    <li><a href="http://www.lincsproject.org/">NIH LINCS program</a></li>
-                    <li><a href="http://bd2k.nih.gov/" target="_blank">NIH Big Data to Knowledge (BD2K)</a></li>
-                    <li><a href="https://commonfund.nih.gov/idg/index" target="_blank">NIH Illuminating the Druggable
-                        Genome (IDG) Program</a></li>
-                    <li><a href="http://icahn.mssm.edu/" target="_blank">Icahn School of Medicine at Mount Sinai</a>
-                    </li>
-                </ul>
-            </div>
-            <div id="social_media">
-
-                <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                <div id="social_buttons" class="addthis_sharing_toolbox"></div>
-
-            </div>
-        </div>
-        <div class="clear"></div>
-        <br>
-
-        <div>
-            <h4>Updated from</h4>
-            <a href="http://www.ncbi.nlm.nih.gov/pubmed/22080467"> Chen EY, Xu H, Gordonov S, Lim MP, Perkins MH,
-                Ma'ayan A. Expression2Kinases: mRNA Profiling Linked to Multiple Upstream Regulatory Layers.
-                Bioinformatics. (2012) 28 (1): 105-111</a>
-        </div>
-    </div>
+	 <%@ include file="templates/frame/footer.html" %>
 
 
 </div>

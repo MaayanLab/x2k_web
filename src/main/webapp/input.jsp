@@ -39,16 +39,7 @@
 <body>
 	<div id="page">
 
-		<%@ include file="templates/logo.html"%>
-
-		<p id="description">
-			Welcome to <strong>Expression2Kinases (X2K) web</strong>! Input a
-			gene list either by choosing a file from your computer or by pasting
-			it directly into the input box. Then, customize your analysis through
-			the settings tabs at the top of the page. Finally, run your desired
-			analysis using the run buttons provided. For further information,
-			click on the <strong>Help</strong> tab.
-		</p>
+		<%@ include file="templates/frame/header.html"%>
 
 		<div id="top_bar">
 			<div class="clear"></div>
@@ -305,40 +296,33 @@
 				</p>
 			</div>
 
-			<%--<img id="loading_wheel" src="default.svg" style="display:none;">--%>
-
 			<div id="input-fields" class="section">
 				<div id="text-input">
-					<h4 class="section-label">Input Genes As Text</h4>
+					<h4 class="section-label">Input genes as text</h4>
 					<textarea rows="12" name="text-genes" id="text-genes"></textarea>
 					<button type="button" id="example-gene-list">Example gene
 						list</button>
 				</div>
 				<div id="file-input">
-					<h4 class="section-label">Input Genes As File</h4>
+					<h4 class="section-label">Input genes as file</h4>
 					<input id="file_upload" type="file" name="file-genes">
 				</div>
 			</div>
 
 			<div class="section">
 				<div id="run-buttons">
-					<h4 class="section-label">Analyze Inputs</h4>
 					<ul class="list-unstyled">
 						<li>
-							<button type="submit" id="x2k_submit">Run X2K</button>(All
-							settings)
+							<button type="submit" id="x2k_submit">X2K</button>
 						</li>
 						<li>
-							<button type="submit" id="chea_submit">Run ChEA</button>(Only
-							ChEA settings)
+							<button type="submit" id="chea_submit">ChEA</button>
 						</li>
 						<li>
-							<button type="submit" id="g2n_submit">Run G2N</button>(Only G2N
-							settings)
+							<button type="submit" id="g2n_submit">G2N</button>
 						</li>
 						<li>
-							<button type="submit" id="kea_submit">Run KEA</button>(Only KEA
-							settings)
+							<button type="submit" id="kea_submit">KEA</button>
 						</li>
 					</ul>
 				</div>
