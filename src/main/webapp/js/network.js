@@ -1,6 +1,6 @@
 
 function convertX2KNode(x2k_node){ //convert the style of a node from X2K output to cytoscape
-    cyto_node = {data: {name: x2k_node["name"],
+	cyto_node = {data: {name: x2k_node["name"].split('_')[0],
         id: x2k_node["name"]},
         classes: x2k_node["type"]}
     return cyto_node;
@@ -14,7 +14,7 @@ function convertG2NNode(g2n_node, input_list){ //convert the style of a node fro
     else{
         node_class = "intermediate"
     }
-    cyto_node = {data: {name: g2n_node["name"],
+    cyto_node = {data: {name: g2n_node["name"].split('_')[0],
                         id: g2n_node["name"]},
                  classes: node_class}
     return cyto_node
@@ -116,20 +116,19 @@ window.onload = function(){
                 "selector": "node",
                 "style": {
                     "content": "data(name)",
-                    "font-size": "12px",
+                    "font-size": "14px",
                     "text-valign": "center",
                     "text-halign": "center",
-                    "text-outline-color": "#555",
-                    "text-outline-width": "2px",
-                    "color": "#fff",
-                    "overlay-padding": "6px",
+                    "text-outline-width": "0px",
+                    "color": "#000",
+                    "overlay-padding": "3px",
                     "z-index": "10"
                 }
             },
             {
                 "selector": ".tf",
                 "style": {
-                    "background-color": "#00CC99",
+                    "background-color": "#DD4484",
                     "width": "50",
                     "height": "50"
                 }
@@ -137,7 +136,7 @@ window.onload = function(){
             {
                 "selector": ".kinase",
                 "style": {
-                    "background-color": "#086788",
+                    "background-color": "#ABDAFC",
                     "width": "60",
                     "height": "60"
                 }
@@ -145,7 +144,7 @@ window.onload = function(){
             {
                 "selector": ".other",
                 "style": {
-                    "background-color": "#46494C",
+                    "background-color": "#C490D1",
                     "width": "40",
                     "height": "40"
                 }
@@ -153,7 +152,7 @@ window.onload = function(){
             {
                 "selector": ".input_protein",
                 "style": {
-                    "background-color": "#46494C",
+                    "background-color": "#DD4484",
                     "width": "40",
                     "height": "40"
                 }
@@ -161,7 +160,7 @@ window.onload = function(){
             {
                 "selector": ".intermediate",
                 "style": {
-                    "background-color": "#00CC99",
+                    "background-color": "#C490D1",
                     "width": "40",
                     "height": "40"
                 }
@@ -176,11 +175,11 @@ window.onload = function(){
                 "selector": "edge",
                 "style": {
                     "curve-style": "haystack",
-                    "haystack-radius": "0.5",
-                    "opacity": "0.4",
+                    "haystack-radius": "0",
+                    "opacity": "0.3",
                     "line-color": "#222",
                     "width": "mapData(weight, 0, 1, 1, 8)",
-                    "overlay-padding": "3px"
+                    "overlay-padding": "3px"                	
                 }
             }
         ],
@@ -188,13 +187,16 @@ window.onload = function(){
         layout: {
             name: 'cola',
             maxSimulationTime: 1000,
-            edgeLengthVal: 0,
-            nodeSpacing: 0,
-            randomize: true
+            edgeLengthVal: 50,
+            nodeSpacing: 10,
+            randomize: false,
+            animate: false,
+            edgeJaccardLength: 50,
+            flow: { axis: 'x', minSeparation: 40 }
         }
     });
     cy.nodes().forEach(function(node) {
-        var name = node.data('name');
+        var name = name.split('_')[0];
         node.qtip({
             content: [
 //                    {

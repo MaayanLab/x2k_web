@@ -40,7 +40,7 @@
         console.log(json_file);
     </script>
 
-    <%@ include file="templates/logo.html" %>
+    <%@ include file="templates/frame/header.html" %>
 
     <div id="top_container">
 
@@ -51,14 +51,10 @@
         </div>
 
         <div id="legend">
-            Network legend:
             <ul class="no_bullet">
-                <li class="legend"> <svg height="12" width="12"> <circle cx="6" cy="6" r="6" fill=#46494C /> </svg> Seed Protein</li>
-                <li class="legend"> <svg height="12" width="12"> <circle cx="6" cy="6" r="6" fill=#00CC99 /> </svg> Inermediate Protein</li>
+                <li class="legend"> <svg height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#DD4484" /> </svg> Seed Protein</li>
+                <li class="legend"> <svg height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#C490D1" /> </svg> Inermediate Protein</li>
             </ul>
-        </div>
-        <div>
-            <a href="/X2K"><button class="back_button">New X2K analysis</button></a>
         </div>
 
     </div>
