@@ -136,6 +136,7 @@ function buildHistograms(data, data_type, datasets){
 }
 
 function submitButtonListener(button, endpoint){
+	console.log(button);
     $('#' + button).click(function(evt) {
         evt.preventDefault();
         var $form = $("#settings_form"),
@@ -163,6 +164,18 @@ $(function() {
     submitButtonListener("x2k_submit", "network");
     submitButtonListener("g2n_submit", "G2N");
 
+    // Accordion
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+            this.classList.toggle("active");
+            this.nextElementSibling.classList.toggle("show");
+        }
+    }
+    
+    
     // Display stats
     $.ajax({
         url: 'datasets/dataset_statistics.json',

@@ -36,7 +36,7 @@ input[type="file"] {
 	margin: 20px auto;
 	padding: 20px;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.26);
-	width: 750px;
+	width: 950px;
 }
 
 #logo a {
@@ -52,7 +52,6 @@ input[type="file"] {
 ul#menu {
 	display: table;
 	width: 100%;
-	background-color: #666;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -64,7 +63,7 @@ ul#menu li {
 }
 
 ul#menu li a {
-	color: white;
+	color: black;
 	display: inline-block;
 	font-size: 17px;
 	padding: 10px 10px;
@@ -73,20 +72,20 @@ ul#menu li a {
 	transition: 0.3s;
 }
 
-ul#menu li a.setting {
+/* ul#menu li a.setting {
+	background-color: #0098ff;
+} */
+
+ul#menu li a.setting.active, ul#menu li a.setting:hover {
 	background-color: #0098ff;
 }
 
-ul#menu li a.setting.active, ul#menu li a.setting:hover {
-	background-color: #246EB9;
-}
-
-ul#menu li a.information {
+/* ul#menu li a.information {
 	background-color: #666;
-}
+} */
 
 ul#menu li a.information.active, ul#menu li a.information:hover {
-	background-color: #46494c;
+	background-color: #0098ff;
 }
 
 .tab-content {
@@ -104,7 +103,7 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 }
 
 #input-fields .section-label, #run-buttons .section-label {
-	border-bottom: 2px solid #0098ff;
+	border-bottom: 1px solid #0098ff;
 	color: #0098ff;
 	font-family: 'Lato', sans-serif;
 	font-size: 20px;
@@ -136,7 +135,7 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 #input-fields textarea {
 	padding: 10px;
 	resize: none;
-	width: 353px;
+	width: 350px;
 }
 
 #run-buttons {
@@ -151,7 +150,6 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 #footer {
 	clear: both;
 	margin-top: 20px;
-	background: #f0f0f0;
 }
 
 #footer h3 {
@@ -238,6 +236,46 @@ li.legend {
 	left: 120px;
 	position: relative;
 }
+
+/* accordion */
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+}
+
+div.panel.show {
+    display: block;
+}
+
+button.accordion:after {
+    content: '+';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "-";
+}
+/* accordion */
 
 #info_text {
 	float: left;

@@ -25,14 +25,20 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script',
+			'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-6277639-28', 'auto');
-  ga('send', 'pageview');
-
+	ga('create', 'UA-6277639-28', 'auto');
+	ga('send', 'pageview');
 </script>
 </head>
 
@@ -42,9 +48,6 @@
 		<%@ include file="templates/frame/header.html"%>
 
 		<div id="top_bar">
-			<div class="clear"></div>
-			<h3 id="settings_text" class="top_bar_text">Settings</h3>
-			<h3 id="info_text" class="top_bar_text">Information</h3>
 			<div class="clear"></div>
 		</div>
 
@@ -56,313 +59,341 @@
 			<div>
 				<ul id="menu">
 					<li><a href="#x2k" class="setting tab-link">X2K</a></li>
-					<li><a href="#chea" class="setting tab-link">ChEA</a></li>
-					<li><a href="#g2n" class="setting tab-link">Genes2Networks</a></li>
-					<li><a href="#kea" class="setting tab-link">KEA</a></li>
-
 					<li><a href="#downloads" class="information tab-link">Downloads</a></li>
-					<li><a href="#about" class="information tab-link">About</a></li>
-					<li><a href="#statistics" class="information tab-link">Statistics</a></li>
 					<li><a href="#help" class="information tab-link">Help</a></li>
 				</ul>
 			</div>
 
 			<!-- Tab content -->
-
 			<div id="x2k" class="tab-content">
-				Minimum number of proteins in network: <input type="text"
-					name="${X2K.MINIMUM_NETWORK_SIZE}" size="3" value="50">
-			</div>
 
-			<div id="chea" class="tab-content">
-				Sort by: <input type="radio" name="${ChEA.SORT_BY}"
-					value="${ChEA.PVALUE}"> p-value <input type="radio"
-					name="${ChEA.SORT_BY}" value="${ChEA.RANK}"> rank <input
-					type="radio" name="${ChEA.SORT_BY}" value="${ChEA.COMBINED_SCORE}"
-					checked="checked"> combined score<br>
-				<br> Background organism: <input type="radio"
-					name="${ChEA.INCLUDED_ORGANISMS}" value="${ChEA.MOUSE_ONLY}">
-				mouse <input type="radio" name="${ChEA.INCLUDED_ORGANISMS}"
-					value="${ChEA.HUMAN_ONLY}"> human <input type="radio"
-					name="${ChEA.INCLUDED_ORGANISMS}" value="${ChEA.BOTH}"
-					checked="checked"> both<br>
-				<br> Transcription factor database:<br> <input
-					type="radio" name="${ChEA.BACKGROUND_DATABASE}"
-					value="${ChEA.CHEA_2015}" checked="checked"> ChEA 2015 <br>
-				<input type="radio" name="${ChEA.BACKGROUND_DATABASE}"
-					value="${ChEA.ENCODE_2015}"> ENCODE 2015 <br> <input
-					type="radio" name="${ChEA.BACKGROUND_DATABASE}"
-					value="${ChEA.CONSENSUS}"> ChEA & ENCODE Consensus <br>
-				<input type="radio" name="${ChEA.BACKGROUND_DATABASE}"
-					value="${ChEA.TRANS_JASP}"> Transfac & Jaspar<br>
-			</div>
+				<div id="input-fields" class="section">
+					<div id="text-input">
+						<h4 class="section-label">Input genes as text</h4>
+						<textarea rows="12" name="text-genes" id="text-genes"></textarea>
+						<button type="button" id="example-gene-list">Example gene
+							list</button>
+					</div>
+					<div id="file-input">
+						<h4 class="section-label">Input genes as file</h4>
+						<input id="file_upload" type="file" name="file-genes">
+					</div>
+				</div>
 
-			<div id="g2n" class="tab-content">
-				<input type="text" name="${Genes2Networks.PATH_LENGTH}" size="5"
-					value="2"> Path Length<br> <input type="text"
-					name="${Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES}" size="5"
-					value="2"> Minimum Number of Articles<br> <input
-					type="text" name="${Genes2Networks.MAXIMUM_NUMBER_OF_EDGES}"
-					size="5" value="200"> Maximum Number of Edges per Node<br>
-				<input type="text"
-					name="${Genes2Networks.MAXIMUM_NUMBER_OF_INTERACTIONS}" size="5"
-					value="100"> Maximum Number of Interactions per Article<br>
+				<div class="section">
+					<div id="run-buttons">
+						<ul class="list-unstyled">
+							<li>
+								<button type="submit" id="x2k_submit">X2K</button>
+							</li>
+							<li>
+								<button type="submit" id="chea_submit">ChEA</button>
+							</li>
+							<li>
+								<button type="submit" id="g2n_submit">G2N</button>
+							</li>
+							<li>
+								<button type="submit" id="kea_submit">KEA</button>
+							</li>
+						</ul>
+					</div>
+				</div>
 
-				<!-- experiment -i've been told this works even though its shady  -->
+				<button class="accordion">Settings</button>
+				<div id="settings" class="panel">
+					<button class="accordion">X2K</button>
+					<div id="x2k-settings" class="panel">
+						Minimum number of proteins in network: <input type="text"
+							name="${X2K.MINIMUM_NETWORK_SIZE}" size="3" value="50">
+					</div>
 
-				<br> Use the following PPI Networks: <br> <input
-					type="checkbox" name="${Genes2Networks.ENABLE_BIOCARTA}"
-					value="true" checked> Biocarta <input type="hidden"
-					name="${Genes2Networks.ENABLE_BIOCARTA}" value="false"> <input
-					type="checkbox" name="${Genes2Networks.ENABLE_BIOGRID}"
-					value="true" checked> BioGRID <input type="hidden"
-					name="${Genes2Networks.ENABLE_BIOGRID}" value="false"> <input
-					type="checkbox" name="${Genes2Networks.ENABLE_DIP}" value="true"
-					checked> DIP <input type="hidden"
-					name="${Genes2Networks.ENABLE_DIP}" value="false"> <input
-					type="checkbox" name="${Genes2Networks.ENABLE_INNATEDB}"
-					value="true" checked> InnateDB <input type="hidden"
-					name="${Genes2Networks.ENABLE_INNATEDB}" value="false"> <br>
+					<button class="accordion">ChEA</button>
+					<div id="chea-settings" class="panel">
+						Sort by: <input type="radio" name="${ChEA.SORT_BY}"
+							value="${ChEA.PVALUE}"> p-value <input type="radio"
+							name="${ChEA.SORT_BY}" value="${ChEA.RANK}"> rank <input
+							type="radio" name="${ChEA.SORT_BY}"
+							value="${ChEA.COMBINED_SCORE}" checked="checked">
+						combined score<br> <br> Background organism: <input
+							type="radio" name="${ChEA.INCLUDED_ORGANISMS}"
+							value="${ChEA.MOUSE_ONLY}"> mouse <input type="radio"
+							name="${ChEA.INCLUDED_ORGANISMS}" value="${ChEA.HUMAN_ONLY}">
+						human <input type="radio" name="${ChEA.INCLUDED_ORGANISMS}"
+							value="${ChEA.BOTH}" checked="checked"> both<br> <br>
+						Transcription factor database:<br> <input type="radio"
+							name="${ChEA.BACKGROUND_DATABASE}" value="${ChEA.CHEA_2015}"
+							checked="checked"> ChEA 2015 <br> <input
+							type="radio" name="${ChEA.BACKGROUND_DATABASE}"
+							value="${ChEA.ENCODE_2015}"> ENCODE 2015 <br> <input
+							type="radio" name="${ChEA.BACKGROUND_DATABASE}"
+							value="${ChEA.CONSENSUS}"> ChEA & ENCODE Consensus <br>
+						<input type="radio" name="${ChEA.BACKGROUND_DATABASE}"
+							value="${ChEA.TRANS_JASP}"> Transfac & Jaspar<br>
+					</div>
 
-				<input type="checkbox" name="${Genes2Networks.ENABLE_INTACT}"
-					value="true" checked> IntAct <input type="hidden"
-					name="${Genes2Networks.ENABLE_INTACT}" value="false"> <input
-					type="checkbox" name="${Genes2Networks.ENABLE_KEGG}" value="true"
-					checked> KEGG <input type="hidden"
-					name="${Genes2Networks.ENABLE_KEGG}" value="false"> <input
-					type="checkbox" name="${Genes2Networks.ENABLE_MINT}" value="true"
-					checked> MINT <input type="hidden"
-					name="${Genes2Networks.ENABLE_MINT}" value="false"> <input
-					type="checkbox" name="${Genes2Networks.ENABLE_PPID}" value="true"
-					checked> ppid <input type="hidden"
-					name="${Genes2Networks.ENABLE_PPID}" value="false"> <input
-					type="checkbox" name="${Genes2Networks.ENABLE_SNAVI}" value="true"
-					checked> SNAVI <input type="hidden"
-					name="${Genes2Networks.ENABLE_SNAVI}" value="false">
-			</div>
+					<button class="accordion">G2N</button>
+					<div id="g2n-settings" class="panel">
+						<input type="text" name="${Genes2Networks.PATH_LENGTH}" size="5"
+							value="2"> Path Length<br> <input type="text"
+							name="${Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES}" size="5"
+							value="2"> Minimum Number of Articles<br> <input
+							type="text" name="${Genes2Networks.MAXIMUM_NUMBER_OF_EDGES}"
+							size="5" value="200"> Maximum Number of Edges per Node<br>
+						<input type="text"
+							name="${Genes2Networks.MAXIMUM_NUMBER_OF_INTERACTIONS}" size="5"
+							value="100"> Maximum Number of Interactions per Article<br>
 
-			<div id="kea" class="tab-content">
-				<input type="radio" name="${KEA.SORT_BY}" value="${KEA.PVALUE}"
-					checked="checked"> p-value <input type="radio"
-					name="${KEA.SORT_BY}" value="${KEA.RANK}"> rank <input
-					type="radio" name="${KEA.SORT_BY}" value="${KEA.COMBINED_SCORE}"
-					checked="checked"> combined score<br>
+						<!-- experiment -i've been told this works even though its shady  -->
+
+						<br> Use the following PPI Networks: <br> <input
+							type="checkbox" name="${Genes2Networks.ENABLE_BIOCARTA}"
+							value="true" checked> Biocarta <input type="hidden"
+							name="${Genes2Networks.ENABLE_BIOCARTA}" value="false"> <input
+							type="checkbox" name="${Genes2Networks.ENABLE_BIOGRID}"
+							value="true" checked> BioGRID <input type="hidden"
+							name="${Genes2Networks.ENABLE_BIOGRID}" value="false"> <input
+							type="checkbox" name="${Genes2Networks.ENABLE_DIP}" value="true"
+							checked> DIP <input type="hidden"
+							name="${Genes2Networks.ENABLE_DIP}" value="false"> <input
+							type="checkbox" name="${Genes2Networks.ENABLE_INNATEDB}"
+							value="true" checked> InnateDB <input type="hidden"
+							name="${Genes2Networks.ENABLE_INNATEDB}" value="false"> <br>
+
+						<input type="checkbox" name="${Genes2Networks.ENABLE_INTACT}"
+							value="true" checked> IntAct <input type="hidden"
+							name="${Genes2Networks.ENABLE_INTACT}" value="false"> <input
+							type="checkbox" name="${Genes2Networks.ENABLE_KEGG}" value="true"
+							checked> KEGG <input type="hidden"
+							name="${Genes2Networks.ENABLE_KEGG}" value="false"> <input
+							type="checkbox" name="${Genes2Networks.ENABLE_MINT}" value="true"
+							checked> MINT <input type="hidden"
+							name="${Genes2Networks.ENABLE_MINT}" value="false"> <input
+							type="checkbox" name="${Genes2Networks.ENABLE_PPID}" value="true"
+							checked> ppid <input type="hidden"
+							name="${Genes2Networks.ENABLE_PPID}" value="false"> <input
+							type="checkbox" name="${Genes2Networks.ENABLE_SNAVI}"
+							value="true" checked> SNAVI <input type="hidden"
+							name="${Genes2Networks.ENABLE_SNAVI}" value="false">
+					</div>
+
+					<button class="accordion">KEA</button>
+					<div id="kea-settings" class="panel">
+						<input type="radio" name="${KEA.SORT_BY}" value="${KEA.PVALUE}"
+							checked="checked"> p-value <input type="radio"
+							name="${KEA.SORT_BY}" value="${KEA.RANK}"> rank <input
+							type="radio" name="${KEA.SORT_BY}" value="${KEA.COMBINED_SCORE}"
+							checked="checked"> combined score<br>
+					</div>
+				</div>
 			</div>
 
 			<div id="downloads" class="tab-content">
+				<h3>Older versions</h3>
+				You can download older standalone versions of tools in JAR format.
+				Code under links shows suggested use of applications:
+				<p>
+					<a
+						href=http://wvn1.pharm.mssm.edu/maayan-lab/download/install_X2K.jar>X2K
+						with source code (61.3 MB)</a>
+					<code>java -jar X2K.jar genelist output.xml</code>
+				</p>
+				<p>
+					<a
+						href=http://www.maayanlab.net/X2K/download/X2K-1.5-SNAPSHOT-jar-with-dependencies.jar>X2K
+						only binary (28.9 MB)</a>
+					<code>java -jar X2K.jar genelist output.xml</code>
+				</p>
+				<p>
+					<a
+						href=http://www.maayanlab.net/X2K/download/ChEA-1.5-SNAPSHOT-jar-with-dependencies.jar>ChEA
+						(8.1 MB)</a>
+					<code>java -jar ChEA.jar [background] genelist output.csv</code>
+				</p>
+				<p>
+					<a
+						href=http://www.maayanlab.net/X2K/download/G2N-1.5-SNAPSHOT-jar-with-dependencies.jar>G2N
+						(3.6 MB)</a>
+					<code>java -jar G2N.jar input output.sig
+						[backgroundSigFiles...]</code>
+				</p>
+				<p>
+					<a
+						href=http://www.maayanlab.net/X2K/download/KEA-1.5-SNAPSHOT-jar-with-dependencies.jar>KEA
+						(188 KB)</a>
+					<code>java -jar KEA.jar [background] genelist output.csv</code>
+				</p>
+				<p>
+					<a
+						href=http://www.maayanlab.net/X2K/download/List2Networks-1.0-SNAPSHOT-jar-with-dependencies.jar>L2N
+						(2 MB)</a>
+					<code>java -jar L2N.jar gene_list [background_file...]
+						output.xml</code>
+				</p>
 
+				<h3>Datasets</h3>
 				Download the datasets used in X2K analysis:
 
 				<dl>
 					<dt>Transcription Factor Datasets</dt>
-					<dd>
+					<p>
 						<a href="datasets/ChEA2015.zip"> ChEA 2015 </a>
-					</dd>
-					<dd>
+					</p>
+					<p>
 						<a href="datasets/ENCODE2015.zip"> ENCODE 2015 </a>
-					</dd>
-					<dd>
+					</p>
+					<p>
 						<a href="datasets/Consensus.zip"> ChEA & ENCODE Consensus </a>
-					</dd>
-					<dd>
+					</p>
+					<p>
 						<a href="datasets/TransfacAndJaspar.zip"> Transfac & Jaspar </a>
-					</dd>
+					</p>
 				</dl>
 
 				<dl>
 					<dt>Protein-Protein Interaction Datasets</dt>
-					<dd>
+					<p>
 						<a href="datasets/Biocarta.sig"> Biocarta </a>
-					</dd>
-					<dd>
+					<p>
 						<a href="datasets/BioGrid.sig"> BioGrid </a>
-					</dd>
-					<dd>
+					<p>
 						<a href="datasets/DIP.sig"> DIP </a>
-					</dd>
-					<dd>
+					</p>
+					<p>
 						<a href="datasets/innateDB.sig"> innateDB </a>
-					</dd>
-					<dd>
+					</p>
+					<p>
 						<a href="datasets/IntAct.sig"> IntAct </a>
-					</dd>
-					<dd>
+					</p>
+					<p>
 						<a href="datasets/KEGG.sig"> KEGG </a>
-					</dd>
-					<dd>
+					</p>
+					<p>
 						<a href="datasets/MINT.sig"> MINT </a>
-					</dd>
-					<dd>
+					</p>
+					<p>
 						<a href="datasets/ppid.sig"> ppid </a>
-					</dd>
-					<dd>
+					</p>
+					<p>
 						<a href="datasets/SNAVI.sig"> SNAVI </a>
-					</dd>
+					</p>
 				</dl>
 
 				<dl>
 					<dt>Kinase Dataset</dt>
-					<dd>
+					<p>
 						<a href="datasets/KEA.zip"> KEA </a>
-					</dd>
+					</p>
 				</dl>
 			</div>
 
-			<div id="about" class="tab-content">
-				<p>
-					X2K Web is an online tool used to infer upstream regulatory
-					networks from differentially expressed genes. Combining the <a
-						href="http://amp.pharm.mssm.edu/lib/chea.jsp">ChEA</a>, <a
-						href="http://amp.pharm.mssm.edu/genes2networks/">Genes2Networks</a>,
-					and <a href="http://amp.pharm.mssm.edu/lib/kea.jsp">KEA</a> apps
-					together, X2K Web produces inferred networks of transcription
-					factors, proteins, and kinases which take part in the upstream
-					regulation of the inputted gene list. X2K web also allows users to
-					analyze their differentially expressed gene lists using ChEA, G2N,
-					and KEA individually. To read more about the concept of X2K, you
-					can read about it <a href="http://www.maayanlab.net/X2K/">here</a>.
-					To learn how to use X2K web, please click on the Help tab.
-				</p>
-			</div>
-
-			<div id="statistics" class="tab-content">
-				<div id="ChEA_stats">
-					<h3 class="stat_category">ChEA Datasets</h3>
-					<p>Histograms for each of the ChEA datasets depicting the
-						number of nodes with certain numbers of interactions per node in
-						the Transcription Factor-Transcription Factor network.</p>
-				</div>
-				<div class="clear"></div>
-
-				<div id="G2N_stats">
-					<h3 class="stat_category">G2N Datasets</h3>
-					<p>Histograms for each of the Genes2Networks datasets depicting
-						the number of nodes with certain numbers of interactions per node
-						in the Protein-Protein Interaction Netowork.</p>
-				</div>
-				<div class="clear"></div>
-
-				<div id="KEA_stats">
-					<h3 class="stat_category">KEA Datasets</h3>
-					<p>Histograms for each of the KEA datasets depicting the number
-						of nodes with certain numbers of interactions per node in the
-						Kinase-Kinase network.</p>
-				</div>
-				<div class="clear"></div>
-			</div>
-
 			<div id="help" class="tab-content">
-				<p>X2K Web offers four different analysis options: ChEA,
-					Genes2Networks, KEA, and the full X2K pipeline. Despite producing
-					different analyses, their usage is relatively similar. All of them
-					require 3 main steps:
-				<ol>
-					<li><b>Input your gene list.</b> You can input your list of
-						differentially expressed gene list either by copy pasting the
-						genes into the "Input Genes as Text" box bellow. Make sure that it
-						is formatted such that there is a single gene name per line with
-						no other separators (e.g. no commas). Alternatively you can select
-						a file from your computer using the "Choose File" button. In this
-						case, make sure that the genes in that file follow the format of a
-						single gene name per line with no additional separators.</li>
-					<li><b>Configure your settings.</b> Now, you can browse
-						through the various settings in the blue settings tabs at the top
-						of the page. If you want to run the full X2K pipeline, all of the
-						settings tabs will be taken into account. However, if you want to
-						run just ChEA, Genes2Networks, or KEA, then you should only
-						configure the settings in that specific tab. It's OK if you change
-						other ones, but they just won't be taken into account when the
-						analysis is conducted.</li>
-					<li><b>Run the analysis.</b> Now that your gene list is
-						inputted and your settings configured, you should be ready to
-						actually run your analysis. Click the run button you want under
-						"Analyze Inputs" and wait for the results page to load!</li>
-				</ol>
-				You can download older standalone versions of tools in JAR format. Code under links shows suggested use of applications:
-				<ol>
-					<li><a href=http://wvn1.pharm.mssm.edu/maayan-lab/download/install_X2K.jar>X2K with source code (61.3 MB)</a>
-					<p><code>java -jar X2K.jar genelist output.xml</code></p></li>
-					<li><a href=http://www.maayanlab.net/X2K/download/X2K-1.5-SNAPSHOT-jar-with-dependencies.jar>X2K only binary (28.9 MB)</a>
-					<p><code>java -jar X2K.jar genelist output.xml</code></p></li>
-					<li><a href=http://www.maayanlab.net/X2K/download/ChEA-1.5-SNAPSHOT-jar-with-dependencies.jar>ChEA (8.1 MB)</a>
-					<p><code>java -jar ChEA.jar [background] genelist output.csv</code></p></li>
-					<li><a href=http://www.maayanlab.net/X2K/download/G2N-1.5-SNAPSHOT-jar-with-dependencies.jar>G2N (3.6 MB)</a>
-					<p><code>java -jar G2N.jar input output.sig [backgroundSigFiles...]</code></p></li>
-					<li><a href=http://www.maayanlab.net/X2K/download/KEA-1.5-SNAPSHOT-jar-with-dependencies.jar>KEA (188 KB)</a>
-					<p><code>java -jar KEA.jar [background] genelist output.csv</code></p></li>
-					<li><a href=http://www.maayanlab.net/X2K/download/List2Networks-1.0-SNAPSHOT-jar-with-dependencies.jar>L2N (2 MB)</a>
-					<p><code>java -jar L2N.jar gene_list [background_file...] output.xml</code></p></li>
-				</ol>
-				</p>
-			</div>
+				<h3>Manual</h3>
+				<div id="manual">
+					<p>X2K Web offers four different analysis options: ChEA,
+						Genes2Networks, KEA, and the full X2K pipeline. Despite producing
+						different analyses, their usage is relatively similar. All of them
+						require 3 main steps:
+					<ol>
+						<li><b>Input your gene list.</b> You can input your list of
+							differentially expressed gene list either by copy pasting the
+							genes into the "Input Genes as Text" box bellow. Make sure that
+							it is formatted such that there is a single gene name per line
+							with no other separators (e.g. no commas). Alternatively you can
+							select a file from your computer using the "Choose File" button.
+							In this case, make sure that the genes in that file follow the
+							format of a single gene name per line with no additional
+							separators.</li>
+						<li><b>Configure your settings.</b> Now, you can browse
+							through the various settings in the blue settings tabs at the top
+							of the page. If you want to run the full X2K pipeline, all of the
+							settings tabs will be taken into account. However, if you want to
+							run just ChEA, Genes2Networks, or KEA, then you should only
+							configure the settings in that specific tab. It's OK if you
+							change other ones, but they just won't be taken into account when
+							the analysis is conducted.</li>
+						<li><b>Run the analysis.</b> Now that your gene list is
+							inputted and your settings configured, you should be ready to
+							actually run your analysis. Click the run button you want under
+							"Analyze Inputs" and wait for the results page to load!</li>
+					</ol>
+					</p>
+				</div>
 
-			<div id="input-fields" class="section">
-				<div id="text-input">
-					<h4 class="section-label">Input genes as text</h4>
-					<textarea rows="12" name="text-genes" id="text-genes"></textarea>
-					<button type="button" id="example-gene-list">Example gene
-						list</button>
+				<h3>About</h3>
+				<div id="about">
+					<p>
+						X2K Web is an online tool used to infer upstream regulatory
+						networks from differentially expressed genes. Combining the <a
+							href="http://amp.pharm.mssm.edu/lib/chea.jsp">ChEA</a>, <a
+							href="http://amp.pharm.mssm.edu/genes2networks/">Genes2Networks</a>,
+						and <a href="http://amp.pharm.mssm.edu/lib/kea.jsp">KEA</a> apps
+						together, X2K Web produces inferred networks of transcription
+						factors, proteins, and kinases which take part in the upstream
+						regulation of the inputted gene list. X2K web also allows users to
+						analyze their differentially expressed gene lists using ChEA, G2N,
+						and KEA individually. To read more about the concept of X2K, you
+						can read about it <a href="http://www.maayanlab.net/X2K/">here</a>.
+						To learn how to use X2K web, please click on the Help tab.
+					</p>
 				</div>
-				<div id="file-input">
-					<h4 class="section-label">Input genes as file</h4>
-					<input id="file_upload" type="file" name="file-genes">
-				</div>
-			</div>
 
-			<div class="section">
-				<div id="run-buttons">
-					<ul class="list-unstyled">
-						<li>
-							<button type="submit" id="x2k_submit">X2K</button>
-						</li>
-						<li>
-							<button type="submit" id="chea_submit">ChEA</button>
-						</li>
-						<li>
-							<button type="submit" id="g2n_submit">G2N</button>
-						</li>
-						<li>
-							<button type="submit" id="kea_submit">KEA</button>
-						</li>
-					</ul>
+				<h3>Statistics</h3>
+				<div id="statistics">
+					<div id="ChEA_stats">
+						<h3 class="stat_category">ChEA Datasets</h3>
+						<p>Histograms for each of the ChEA datasets depicting the
+							number of nodes with certain numbers of interactions per node in
+							the Transcription Factor-Transcription Factor network.</p>
+					</div>
+					<div class="clear"></div>
+
+					<div id="G2N_stats">
+						<h3 class="stat_category">G2N Datasets</h3>
+						<p>Histograms for each of the Genes2Networks datasets
+							depicting the number of nodes with certain numbers of
+							interactions per node in the Protein-Protein Interaction
+							Netowork.</p>
+					</div>
+					<div class="clear"></div>
+
+					<div id="KEA_stats">
+						<h3 class="stat_category">KEA Datasets</h3>
+						<p>Histograms for each of the KEA datasets depicting the
+							number of nodes with certain numbers of interactions per node in
+							the Kinase-Kinase network.</p>
+					</div>
+					<div class="clear"></div>
 				</div>
+
+				<div id="affiliations">
+					<h3>Affiliations</h3>
+					<div id="affiliations">
+						<ul id="affiliations_list">
+							<li><a
+								href="http://icahn.mssm.edu/research/labs/maayan-laboratory"
+								target="_blank">The Ma'ayan Lab</a></li>
+							<li><a href="http://www.lincs-dcic.org/" target="_blank">BD2K-LINCS
+									Data Coordination and Integration Center (DCIC)</a></li>
+							<li><a href="http://www.lincsproject.org/">NIH LINCS
+									program</a></li>
+							<li><a href="http://bd2k.nih.gov/" target="_blank">NIH
+									Big Data to Knowledge (BD2K)</a></li>
+							<li><a href="https://commonfund.nih.gov/idg/index"
+								target="_blank">NIH Illuminating the Druggable Genome (IDG)
+									Program</a></li>
+							<li><a href="http://icahn.mssm.edu/" target="_blank">Icahn
+									School of Medicine at Mount Sinai</a></li>
+						</ul>
+					</div>
+				</div>
+
+
 			</div>
 
 		</form>
 
 		<div class="clear"></div>
-
-		<div id="footer" class="section">
-			<div id="affiliations">
-				<div>
-					<h3>Affiliations</h3>
-					<ul class="list-unstyled">
-						<li><a
-							href="http://icahn.mssm.edu/research/labs/maayan-laboratory"
-							target="_blank">The Ma'ayan Lab</a></li>
-						<li><a href="http://www.lincs-dcic.org/" target="_blank">BD2K-LINCS
-								Data Coordination and Integration Center (DCIC)</a></li>
-						<li><a href="http://www.lincsproject.org/">NIH LINCS
-								program</a></li>
-						<li><a href="http://bd2k.nih.gov/" target="_blank">NIH
-								Big Data to Knowledge (BD2K)</a></li>
-						<li><a href="https://commonfund.nih.gov/idg/index"
-							target="_blank">NIH Illuminating the Druggable Genome (IDG)
-								Program</a></li>
-						<li><a href="http://icahn.mssm.edu/" target="_blank">Icahn
-								School of Medicine at Mount Sinai</a></li>
-					</ul>
-				</div>
-				<div>
-					<h3>Updated from</h3>
-					<a href="http://www.ncbi.nlm.nih.gov/pubmed/22080467"
-						target="_blank"> Chen EY, Xu H, Gordonov S, Lim MP, Perkins
-						MH, Ma'ayan A. Expression2Kinases: mRNA Profiling Linked to
-						Multiple Upstream Regulatory Layers. Bioinformatics. (2012) 28
-						(1): 105-111 </a>
-				</div>
-			</div>
-		</div>
+		<%@ include file="templates/frame/footer.html"%>
 	</div>
 </body>
 </html>
