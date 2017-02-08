@@ -169,7 +169,9 @@ $(function() {
     var i;
 
     for (i = 0; i < acc.length; i++) {
-        acc[i].onclick = function(){
+    	console.log(acc[i]);
+        acc[i].onclick = function(e){
+        	e.preventDefault();
             this.classList.toggle("active");
             this.nextElementSibling.classList.toggle("show");
         }

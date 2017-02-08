@@ -82,32 +82,22 @@
 
 				<div class="section">
 					<div id="run-buttons">
-						<ul class="list-unstyled">
-							<li>
 								<button type="submit" id="x2k_submit">X2K</button>
-							</li>
-							<li>
 								<button type="submit" id="chea_submit">ChEA</button>
-							</li>
-							<li>
 								<button type="submit" id="g2n_submit">G2N</button>
-							</li>
-							<li>
 								<button type="submit" id="kea_submit">KEA</button>
-							</li>
-						</ul>
 					</div>
 				</div>
 
-				<button class="accordion">Settings</button>
+				<button class="accordion" id="acc_settings"></button>
 				<div id="settings" class="panel">
-					<button class="accordion">X2K</button>
+					<button class="accordion" id="acc_x2k"></button>
 					<div id="x2k-settings" class="panel">
 						Minimum number of proteins in network: <input type="text"
 							name="${X2K.MINIMUM_NETWORK_SIZE}" size="3" value="50">
 					</div>
 
-					<button class="accordion">ChEA</button>
+					<button class="accordion" id="acc_chea"></button>
 					<div id="chea-settings" class="panel">
 						Sort by: <input type="radio" name="${ChEA.SORT_BY}"
 							value="${ChEA.PVALUE}"> p-value <input type="radio"
@@ -131,7 +121,7 @@
 							value="${ChEA.TRANS_JASP}"> Transfac & Jaspar<br>
 					</div>
 
-					<button class="accordion">G2N</button>
+					<button class="accordion" id="acc_g2n"></button>
 					<div id="g2n-settings" class="panel">
 						<input type="text" name="${Genes2Networks.PATH_LENGTH}" size="5"
 							value="2"> Path Length<br> <input type="text"
@@ -176,7 +166,7 @@
 							name="${Genes2Networks.ENABLE_SNAVI}" value="false">
 					</div>
 
-					<button class="accordion">KEA</button>
+					<button class="accordion" id="acc_kea"></button>
 					<div id="kea-settings" class="panel">
 						<input type="radio" name="${KEA.SORT_BY}" value="${KEA.PVALUE}"
 							checked="checked"> p-value <input type="radio"
