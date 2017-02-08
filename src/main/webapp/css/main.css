@@ -32,10 +32,9 @@ input[type="file"] {
 }
 
 #page {
-	border: 1px solid #f9f9f9;
+	border: 1px solid #ddd;
 	margin: 20px auto;
 	padding: 20px;
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.26);
 	width: 950px;
 }
 
@@ -77,7 +76,7 @@ ul#menu li a {
 } */
 
 ul#menu li a.setting.active, ul#menu li a.setting:hover {
-	background-color: #0098ff;
+	background-color: #2baaff;
 }
 
 /* ul#menu li a.information {
@@ -85,7 +84,7 @@ ul#menu li a.setting.active, ul#menu li a.setting:hover {
 } */
 
 ul#menu li a.information.active, ul#menu li a.information:hover {
-	background-color: #0098ff;
+	background-color: #2baaff;
 }
 
 .tab-content {
@@ -98,7 +97,6 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 }
 
 .section {
-	border-top: 1px solid #eee;
 	margin-bottom: 20px;
 }
 
@@ -144,7 +142,7 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 
 #run-buttons button {
 	margin: 0 10px 10px 0;
-	width: 100px;
+	width: 50px;
 }
 
 #footer {
@@ -239,24 +237,30 @@ li.legend {
 
 /* accordion */
 button.accordion {
-    background-color: #eee;
-    color: #444;
+    background-color: #fff;
+    display:block;
     cursor: pointer;
-    padding: 18px;
-    width: 100%;
+    /* width: 100%; */
     text-align: left;
-    border: 1px solid #ddd;
+    border: 0px;
     outline: none;
     transition: 0.4s;
 }
 
-button.accordion.active, button.accordion:hover {
-    background-color: #ddd;
+button.accordion.active {
+    background-color: #fff;
+    
+}
+
+/* ??? */
+button.accordion:hover
+{
+	text-decoration: underline; 
 }
 
 div.panel {
     padding: 0 18px;
-    background-color: white;
+    background-color: #fff;
     display: none;
 }
 
@@ -264,16 +268,76 @@ div.panel.show {
     display: block;
 }
 
-button.accordion:after {
-    content: '+';
+???
+#x2k-settings{
+	border: 1px black;
+}
+
+#chea-settings{
+	border: 1px black;
+}
+
+#g2n-settings{
+	border: 1px black;
+}
+
+#kea-settings{
+	border: 1px black;
+}
+
+#acc_settings:after {
+    content: 'Settings	+';
     font-size: 13px;
-    color: #777;
     float: right;
     margin-left: 5px;
 }
 
-button.accordion.active:after {
-    content: "-";
+#acc_settings.active:after {
+    content: "Settings	-";
+}
+
+#acc_x2k:after {
+    content: 'X2K	+';
+    font-size: 13px;
+    float: right;
+    margin-left: 5px;
+}
+
+#acc_x2k.active:after {
+    content: "X2K	-";
+}
+
+#acc_chea:after {
+    content: 'ChEA	+';
+    font-size: 13px;
+    float: right;
+    margin-left: 5px;
+}
+
+#acc_chea.active:after {
+    content: "ChEA	-";
+}
+
+#acc_g2n:after {
+    content: 'G2N	+';
+    font-size: 13px;
+    float: right;
+    margin-left: 5px;
+}
+
+#acc_g2n.active:after {
+    content: "G2N	-";
+}
+
+#acc_kea:after {
+    content: 'KEA	+';
+    font-size: 13px;
+    float: right;
+    margin-left: 5px;
+}
+
+#acc_kea.active:after {
+    content: "KEA	-";
 }
 /* accordion */
 
