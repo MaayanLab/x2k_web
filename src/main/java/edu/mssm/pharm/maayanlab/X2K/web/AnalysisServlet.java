@@ -25,7 +25,11 @@ import edu.mssm.pharm.maayanlab.common.web.PartReader;
 public class AnalysisServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 6063942151226647232L;
-
+	private String chEA;
+	private String g2n;
+	private String kEA;
+	private String x2k;
+	
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("GET request - Analysis");
@@ -35,7 +39,7 @@ public class AnalysisServlet extends HttpServlet {
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
 		json.add("availableSettings", availableSettings);
-		req.getRequestDispatcher("/network.jsp").forward(req, resp);
+		req.getRequestDispatcher("/analysis.jsp").forward(req, resp);
     }
 	
 	@Override
@@ -46,59 +50,65 @@ public class AnalysisServlet extends HttpServlet {
 	    Part geneChunk = req.getPart("text-genes");
 	    ArrayList<String> textGenes = PartReader.readLines(geneChunk);
 
-		// ChEA
-	    System.out.println("POST request - ChEA");
+		System.out.println("POST request - ChEA");
 	    if (inputList.size() > 0) {
 	        System.out.println("Using files genes:");
 	        System.out.println(inputList);
-	        runChEA(inputList, req, resp);
+	        setChEA(runChEA(inputList, req, resp));
 	    } else if (textGenes.size() > 0) {
 	        System.out.println("Using text genes:");
 	        System.out.println(textGenes);
-	        runChEA(textGenes, req, resp);
+	        setChEA(runChEA(textGenes, req, resp));
 	    } else {
 	        System.out.println("no lists received - error");
 	    }
 
-	    // G2N
 	    System.out.println("POST request - G2N");
 	    if(inputList.size() > 0){
-	        runG2N(inputList, req, resp);
+	        setG2n(runG2N(inputList, req, resp));
 	    }
 	    else if(textGenes.size() > 0){
-	        runG2N(textGenes, req, resp);
+	        setG2n(runG2N(textGenes, req, resp));
 	    }
 	    else{
 	        System.out.println("no lists received - error");
 	    }
 
-	    // KEA
 	    System.out.println("POST request - KEA");
 	    if(inputList.size() > 0){ //from file selection
-	        runKEA(inputList, req, resp);
+	        setkEA(runKEA(inputList, req, resp));
 	    }
 	    else if(textGenes.size() > 0){ //as text
-	        runKEA(textGenes, req, resp);
+	        setkEA(runKEA(textGenes, req, resp));
 	    }
 	    else{
 	        System.out.println("no lists received - error");
 	    }
 
-	    // X2K
 	    System.out.println("POST request - X2K");
 	    if(inputList.size() > 0){
-	        enrichList(inputList, req, resp);
+	        setX2k(enrichList(inputList, req, resp));
 	    }
 	    else if(textGenes.size() > 0){
-	        enrichList(textGenes, req, resp);
+	        setX2k(enrichList(textGenes, req, resp));
 	    }
 	    else{
 	        System.out.println("no lists received - error");
 	    }
+	    
+        JSONify json = Context.getJSONConverter();
+        json.add("ChEA", chEA);
+        json.add("G2N", g2n);
+        json.add("KEA", kEA);
+        json.add("X2K", x2k);
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        req.setAttribute("json", json);
+        req.getRequestDispatcher("/analysis.jsp").forward(req, resp);
 	}
 	
 	// ChEA procedures
-    public static void runChEA(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public static String runChEA(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Run enrichment
         ChEA app = new ChEA();
         System.out.println(app);
@@ -124,8 +134,7 @@ public class AnalysisServlet extends HttpServlet {
         json.add("type", "ChEA");
         json.add("tfs", app.getTopRanked(10));
         json.add(ChEA.SORT_BY, req.getParameter(ChEA.SORT_BY));
-        req.setAttribute("json", json);
-        req.getRequestDispatcher("/ChEA_and_KEA.jsp").forward(req, resp);
+        return json.toString();
     }
 
     // G2N procedures
@@ -148,7 +157,7 @@ public class AnalysisServlet extends HttpServlet {
         return network;
     }
 
-    public static void runG2N(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public static String runG2N(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Run enrichment
         Genes2Networks app = new Genes2Networks();
         app.setSetting(Genes2Networks.PATH_LENGTH, req.getParameter(Genes2Networks.PATH_LENGTH));
@@ -175,12 +184,12 @@ public class AnalysisServlet extends HttpServlet {
         json.add("type","G2N");
         json.add("network",makeNetwork(app));
         json.add("input_list",inputList);
-        req.setAttribute("json",json);
-        req.getRequestDispatcher("/G2N.jsp").forward(req, resp);
+        
+        return json.toString();
     }
 
     // KEA procedures
-    public static void runKEA(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public static String runKEA(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Run enrichment
         KEA app = new KEA();
         app. setSetting(KEA.SORT_BY, req.getParameter(KEA.SORT_BY));
@@ -197,8 +206,7 @@ public class AnalysisServlet extends HttpServlet {
         json.add("type","KEA");
         json.add("kinases", app.getTopRanked(10));
         json.add(KEA.SORT_BY, req.getParameter(KEA.SORT_BY));
-        req.setAttribute("json",json);
-        req.getRequestDispatcher("/ChEA_and_KEA.jsp").forward(req, resp);
+        return json.toString();
     }
     
     // X2K procedures
@@ -230,7 +238,7 @@ public class AnalysisServlet extends HttpServlet {
 		//availableSettings.put(X2K.NUMBER_OF_TOP_KINASES, new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" });
 	}
 
-	public static void enrichList(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public static String enrichList(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Run enrichment
 		X2K app = new X2K();
 
@@ -255,8 +263,7 @@ public class AnalysisServlet extends HttpServlet {
 		json.add("transcriptionFactors", app.getRankedTFs());
 		json.add("kinases", app.getRankedKinases());
 		// json.write(resp.getWriter());
-		req.setAttribute("json",json);
-		req.getRequestDispatcher("/network.jsp").forward(req, resp);
+		return json.toString();
 	}
 
 	private static void readAndSetSettings(HttpServletRequest req, X2K app) {
@@ -269,6 +276,39 @@ public class AnalysisServlet extends HttpServlet {
 	
 	public static HashMap<String, String[]> getAvailablesettings() {
 		return availableSettings;
+	}
+	
+	// Fields getters and setters
+	public String getChEA() {
+		return chEA;
+	}
+
+	public void setChEA(String chEA) {
+		this.chEA = chEA;
+	}
+
+	public String getG2n() {
+		return g2n;
+	}
+
+	public void setG2n(String g2n) {
+		this.g2n = g2n;
+	}
+
+	public String getkEA() {
+		return kEA;
+	}
+
+	public void setkEA(String kEA) {
+		this.kEA = kEA;
+	}
+
+	public String getX2k() {
+		return x2k;
+	}
+
+	public void setX2k(String x2k) {
+		this.x2k = x2k;
 	}
 }
 
