@@ -18,16 +18,16 @@
     <location>/error.jsp</location>
   </error-page>
   <servlet>
-    <servlet-name>input.jsp</servlet-name>
-    <jsp-file>/input.jsp</jsp-file>
+    <servlet-name>index.jsp</servlet-name>
+    <jsp-file>/index.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>input.jsp</servlet-name>
-    <url-pattern>/input</url-pattern>
+    <servlet-name>index.jsp</servlet-name>
+    <url-pattern>/index</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>input</welcome-file>
-    <welcome-file>input.jsp</welcome-file>
+    <welcome-file>index</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
 </web-app>

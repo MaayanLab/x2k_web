@@ -2,7 +2,7 @@
 <head>
     <title>Results</title>
 
-    <script type="text/javascript" src="js/chea_and_kea.js"></script>
+    <script type="text/javascript" src="js/analysis.js"></script>
     <script src="js/exportJson.js"></script>
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
@@ -27,7 +27,7 @@
         <div id="download_buttons">
             Download results:
             <br>
-            <a id="exportData" onclick="exportJson(this,json_file.type,JSON.stringify(json_file));">
+            <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file));">
                 <button type="button">Download Data as CSV</button>
             </a>
             <br>
@@ -36,5 +36,13 @@
         <div id=pagetop_spacer></div>
 
     </div>
-    <div class="clear"></div>
+
+    <!-- ChEA -->
+    <!-- KEA -->
+    
+	<div class="clear"></div>
+    <%@ include file="templates/frame/footer.html" %>
+    
 </div>
+</body>
+</html>

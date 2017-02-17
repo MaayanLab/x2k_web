@@ -14,7 +14,6 @@ function opentab(evt, tabName) {
 
 
 function getData(sorting_style, data_list){
-    console.log(data_list);
     score_array = []
     label_array = []
     if(sorting_style == "p-value"){
