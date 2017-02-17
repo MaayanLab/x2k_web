@@ -136,7 +136,6 @@ function buildHistograms(data, data_type, datasets){
 }
 
 function submitButtonListener(button, endpoint){
-	console.log(button);
     $('#' + button).click(function(evt) {
         evt.preventDefault();
         var $form = $("#settings_form"),
@@ -170,7 +169,6 @@ $(function() {
     var i;
 
     for (i = 0; i < acc.length; i++) {
-    	console.log(acc[i]);
         acc[i].onclick = function(e){
         	e.preventDefault();
             this.classList.toggle("active");

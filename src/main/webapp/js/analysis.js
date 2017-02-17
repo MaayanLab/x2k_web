@@ -15,7 +15,6 @@ function opentab(evt, tabName) {
 
 
 function getData(sorting_style, data_list){
-    console.log(data_list);
     score_array = []
     label_array = []
     if(sorting_style == "p-value"){
@@ -46,7 +45,6 @@ function getData(sorting_style, data_list){
 
 //parses ChEA data into a format ready to be charted
 function parseChEA(json_file){
-    console.log(json_file);
     tfs = json_file["tfs"];
     sort_by = json_file["sort transcription factors by"];
     return getData(sort_by, tfs);
@@ -61,7 +59,6 @@ function parseKEA(json_file){
 
 //makes a chart of either KEA or ChEA data
 function makeChart(graph_info){
-    console.log(graph_info);
     var ctx = document.getElementById("chart_canvas").getContext("2d");
     ctx.canvas.width = 650;
     ctx.canvas.height = 500;
@@ -120,7 +117,6 @@ function makeChart(graph_info){
 }
 
 function makeTable(data_array){
-    console.log(data_array);
     for(i = 0; i < data_array.length; i++){
         entry = data_array[i];
         table_row = "<tr>" +
@@ -201,17 +197,12 @@ function cleanNetwork(network){
 // main
 
 window.onload = function(){
-	// ChEA & KEA
-    type = json_file["type"];
-    if(type == "ChEA"){
-        graph_info = parseChEA(json_file);
-        makeTable(json_file.tfs);
-    }
-    else{ //type == "KEA"
-        graph_info = parseKEA(json_file);
-        makeTable(json_file.kinases);
-    }
-    makeChart(graph_info);
+    graph_info_chea = parseChEA(json_file['ChEA']);
+    makeTable(json_file['ChEA'].tfs);
+    graph_info_kea = parseKEA(json_file['KEA']);
+    makeTable(json_file['KEA'].kinases);
+    makeChart(graph_info_chea);
+    makeChart(graph_info_kea);
     
     // G2N & X2K
 
