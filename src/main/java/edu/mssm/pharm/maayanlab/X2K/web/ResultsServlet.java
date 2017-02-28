@@ -20,9 +20,9 @@ import edu.mssm.pharm.maayanlab.common.web.JSONify;
 import edu.mssm.pharm.maayanlab.common.web.PartReader;
 
 
-@WebServlet(urlPatterns = { "/analysis" })
+@WebServlet(urlPatterns = { "/results" })
 @MultipartConfig
-public class AnalysisServlet extends HttpServlet {
+public class ResultsServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 6063942151226647232L;
 	private String chEA;
@@ -32,14 +32,14 @@ public class AnalysisServlet extends HttpServlet {
 	
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("GET request - Analysis");
+        System.out.println("GET request - Results");
         
 		// X2K
 		JSONify json = Context.getJSONConverter();
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
 		json.add("availableSettings", availableSettings);
-		req.getRequestDispatcher("/analysis.jsp").forward(req, resp);
+		req.getRequestDispatcher("/results.jsp").forward(req, resp);
     }
 	
 	@Override
@@ -104,7 +104,7 @@ public class AnalysisServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         req.setAttribute("json", json);
-        req.getRequestDispatcher("/analysis.jsp").forward(req, resp);
+        req.getRequestDispatcher("/results.jsp").forward(req, resp);
 	}
 	
 	// ChEA procedures

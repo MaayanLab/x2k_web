@@ -86,7 +86,7 @@
 								<button type="submit" id="chea_submit">ChEA</button>
 								<button type="submit" id="g2n_submit">G2N</button>
 								<button type="submit" id="kea_submit">KEA</button>
-								<button type="submit" id="analysis_submit">Submit</button>
+								<button type="submit" id="results_submit">Submit</button>
 					</div>
 				</div>
 
