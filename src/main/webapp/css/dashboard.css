@@ -1,0 +1,39 @@
+.buttons-panel {
+	
+}
+
+#buttons-panel {
+/* 	position: fixed;
+	width: 160px;
+	height: 640px;
+	margin-left: -320px;
+	bottom: 0px;
+	right: 25%;
+	left: 50%;
+ */}
+
+button {
+	position: relative;
+	display: inline-block;
+	float: left;
+	width: 150px;
+	height: 150px;
+	font-weight: bold;
+	color: #000000;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	font-size: 36px;
+	line-height: 1.25;
+	margin-top: 0;
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.15);
+}
+
+button.selected {
+	background-color: #0f0f0f;
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.0);
+}
+
+#results {
+	display: inline-block;
+	float:left;
+}
