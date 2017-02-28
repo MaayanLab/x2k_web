@@ -162,7 +162,7 @@ $(function() {
     submitButtonListener("kea_submit", "KEA");
     submitButtonListener("x2k_submit", "network");
     submitButtonListener("g2n_submit", "G2N");
-    submitButtonListener("analysis_submit", "analysis");
+    submitButtonListener("results_submit", "results");
 
     // Accordion
     var acc = document.getElementsByClassName("accordion");
