@@ -71,21 +71,14 @@
 					<div id="text-input">
 						<h4 class="section-label">Input genes as text</h4>
 						<textarea rows="12" name="text-genes" id="text-genes"></textarea>
-						<button type="button" id="example-gene-list">Example gene
-							list</button>
-					</div>
-					<div id="file-input">
-						<h4 class="section-label">Input genes as file</h4>
-						<input id="file_upload" type="file" name="file-genes">
+						<button type="button" id="example-gene-list">Example gene list</button>
+						<input id="file" type="file" name="file" class="inputfile"/>
+						<label for="file" id="download-label">Input genes as file</label>
 					</div>
 				</div>
 
 				<div class="section">
 					<div id="run-buttons">
-								<button type="submit" id="x2k_submit">X2K</button>
-								<button type="submit" id="chea_submit">ChEA</button>
-								<button type="submit" id="g2n_submit">G2N</button>
-								<button type="submit" id="kea_submit">KEA</button>
 								<button type="submit" id="results_submit">Submit</button>
 					</div>
 				</div>
