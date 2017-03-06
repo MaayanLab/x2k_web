@@ -44,7 +44,7 @@ public class ResultsServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	    Part fileChunk = req.getPart("file-genes");
+	    Part fileChunk = req.getPart("file");
 	    ArrayList<String> inputList = PartReader.readLines(fileChunk);
 
 	    Part geneChunk = req.getPart("text-genes");

@@ -58,12 +58,6 @@
 	<div id="results">
 		<!-- x2k -->
 		<div id="tabs-x2k" style="display: block">
-		    <div id="download_buttons">
-		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['X2K']));">
-		            <button type="button" id="download-button">Download Data as CSV</button>
-		        </a>
-		        <br>
-		    </div>
 			<ul>
 				<li><a href="#x2k-network">Network</a></li>
 			</ul>
@@ -71,16 +65,15 @@
 			<!-- network -->
 			<div id="x2k-network">
 			</div>
+		    <div id="download_buttons">
+		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['X2K']));">
+		            <button type="button" id="download-button">Download Data as CSV</button>
+		        </a>
+		    </div>			
 		</div>
 
 		<!-- chea -->
 		<div id="tabs-chea" style="display: none">
-		    <div id="download_buttons">
-		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['ChEA']));">
-		            <button type="button" id="download-button">Download Data as CSV</button>
-		        </a>
-		        <br>
-		    </div>
 			<ul>
 				<li><a href="#bargraph-chea">Bargraph</a></li>
 				<li><a href="#table-chea">Table</a></li>
@@ -101,41 +94,37 @@
 			    	</tr>
 			    </table>
 		    </div>
+		    <div id="download_buttons">
+		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['ChEA']));">
+		            <button type="button" id="download-button">Download Data as CSV</button>
+		        </a>
+		    </div>		    
 		</div>
 
 		<!-- g2n -->
 		<div id="tabs-g2n" style="display: none">
-		    <div id="download_buttons">
-		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['G2N']));">
-		            <button type="button" id="download-button">Download Data as CSV</button>
-		        </a>
-		        <br>
-		    </div>		
 			<ul>
 				<li><a href="#network-g2n">Network</a></li>
 			</ul>
 
 			<!-- network -->
-			<div id="network-g2n">
-			</div>
+			<div id="network-g2n"></div>
+		    <div id="download_buttons">
+		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['G2N']));">
+		            <button type="button" id="download-button">Download Data as CSV</button>
+		        </a>
+		    </div>			
 		</div>
 
 		<!-- kea -->
-		<div id="tabs-kea" style="display: none">
-		    <div id="download_buttons">
-		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['KEA']));">
-		            <button type="button" id="download-button">Download Data as CSV</button>
-		        </a>
-		        <br>
-		    </div>		
+		<div id="tabs-kea" style="display: none">	
 			<ul>
 				<li><a href="#bargraph-kea">Bargraph</a></li>
 				<li><a href="#table-kea">Table</a></li>
 			</ul>
 
 			<!-- bargraph -->
-			<div id="bargraph-kea">
-			</div>
+			<div id="bargraph-kea"></div>
 
 			<!-- table -->
 		    <div id="kea" class="results-table">
@@ -148,6 +137,11 @@
 			    	</tr>
 			    </table>
 		    </div>
+		    <div id="download_buttons">
+		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['KEA']));">
+		            <button type="button" id="download-button">Download Data as CSV</button>
+		        </a>
+		    </div>		    
 		</div>
 	</div>
 
