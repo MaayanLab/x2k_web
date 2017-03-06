@@ -258,7 +258,14 @@ li.legend {
 	background-color: #eee;
     border: 1px solid #ddd;
     border-radius: 2px;
-    font-size: 12px;
+    display: block;
+    padding-top: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 3px;
+    font-size: 11px;
+	width: 93px;
+    height: 12px;
 }
 
 /* accordion */
@@ -388,10 +395,6 @@ ol li {
 
 #data_table {
 	text-align: center;
-}
-
-.table_left {
-	text-align: left;
 }
 
 th {
