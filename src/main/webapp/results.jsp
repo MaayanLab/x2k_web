@@ -77,7 +77,7 @@
 		<div id="tabs-chea" style="display: none">
 			<ul>
 				<li><a href="#bargraph-chea">Bargraph</a></li>
-				<li><a href="#table-chea">Table</a></li>
+				<li><a href="#chea-table">Table</a></li>
 			</ul>
 
 			<!-- bargraph -->
@@ -121,7 +121,7 @@
 		<div id="tabs-kea" style="display: none">	
 			<ul>
 				<li><a href="#bargraph-kea">Bargraph</a></li>
-				<li><a href="#table-kea">Table</a></li>
+				<li><a href="#kea-table">Table</a></li>
 			</ul>
 
 			<!-- bargraph -->
