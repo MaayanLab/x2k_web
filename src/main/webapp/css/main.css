@@ -38,14 +38,18 @@ input[type="file"] {
 	width: 950px;
 }
 
+#logo {
+  display: table;
+  margin: 0 auto;
+}
+
 #logo a {
 	display: inline-block;
 }
 
 #logo a img {
-	width: 350px;
+	width: 200px;
 	cursor: pointer;
-	cursor: hand;
 }
 
 ul#menu {

@@ -1,7 +1,4 @@
 $(function() {
-	var x2k = $.parseJSON(json_file['X2K']);
-	var g2n = $.parseJSON(json_file['G2N']);
-
 	var tr;
 	
 	// Draw ChEA table
@@ -127,8 +124,6 @@ $(function() {
 					+ (height - axisMargin - margin) + ")").call(xAxis);
 	
 	// Draw ChEA bargraph
-	// Draw KEA bargraph	
-
 	data_chea = chea["tfs"];
 	
 	var type = "pvalue";
@@ -198,4 +193,109 @@ $(function() {
 			"transform",
 			"translate(" + (margin + labelWidth) + ","
 					+ (height - axisMargin - margin) + ")").call(xAxis);
+	
+	// Networks functions
+	function convertX2KNode(x2k_node){ //convert the style of a node from X2K output to cytoscape
+		cyto_node = {data: {name: x2k_node["name"].split('_')[0],
+	        id: x2k_node["name"]},
+	        classes: x2k_node["type"]}
+	    return cyto_node;
+
+	}
+
+	function convertG2NNode(g2n_node, input_list){ //convert the style of a node from G2N output to cytoscape
+	    if(input_list.indexOf(g2n_node["name"]) > -1){
+	        node_class = "input_protein";
+	    }
+	    else{
+	        node_class = "intermediate"
+	    }
+	    cyto_node = {data: {name: g2n_node["name"].split('_')[0],
+	                        id: g2n_node["name"]},
+	                 classes: node_class}
+	    return cyto_node
+	}
+
+
+	function containsInteraction(json_file, interaction, array){ //check if the interacitons list already contains an interaciton
+	    //used against duplicates
+	    for(y = 0; y < array.length; y++){
+	        a = array[y];
+	        source_a = a.data.source;
+	        target_a = a.data.target;
+	        source_b = json_file.network.nodes[interaction.source].name;
+	        target_b = json_file.network.nodes[interaction.target].name;
+	        if((source_a == source_b && target_a == target_b) ||
+	            source_a == target_b && target_a == source_b){
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+
+	//clean up a network - remove unused nodes, remove duplicate interactions, self-loops
+	function cleanNetwork(json_file, network){
+	    clean_interactions = [];
+	    connected_nodes = [];
+	    for(i = 0; i < network.interactions.length; i++){
+	        interaction = network.interactions[i];
+	        if(!containsInteraction(json_file, interaction, clean_interactions) && interaction.target != interaction.source) {
+	            cyto_interaction = {data: {
+	                source: network.nodes[interaction.source]["name"],
+	                target: network.nodes[interaction.target]["name"]
+	            }};
+	            clean_interactions.push(cyto_interaction);
+	            connected_nodes.push(interaction.source);
+	            connected_nodes.push(interaction.target);
+	        }
+	    }
+	    clean_nodes = [];
+	    for(i = 0; i < network.nodes.length; i++){
+	        if(connected_nodes.indexOf(i) > -1){
+	            clean_nodes.push(network.nodes[i]);
+	        }
+	    }
+	    return [clean_interactions, clean_nodes];
+	}
+	
+	// X2K Processing
+	var x2k = $.parseJSON(json_file["X2K"]);
+    network = x2k.network;
+    clean_network = cleanNetwork(x2k, network);
+    clean_nodes = clean_network[1];
+    clean_interactions = clean_network[0];
+    
+    network_string = JSON.stringify(network);
+    tf_string = JSON.stringify(x2k.transcriptionFactors);
+    kinase_string = JSON.stringify(x2k.kinases);
+    cytoscape_array = [];
+
+    for(i = 0; i < clean_nodes.length; i++){
+        cytoscape_array.push(convertX2KNode(clean_nodes[i]));
+    }
+    for(i = 0; i < clean_interactions.length; i++){
+        cytoscape_array.push(clean_interactions[i]);
+    }
+
+    console.log(cytoscape_array);
+	
+	// G2N Processing
+    var g2n = $.parseJSON(json_file["G2N"]);
+    network = g2n.network;
+    clean_network = cleanNetwork(g2n, network);
+    clean_nodes = clean_network[1];
+    clean_interactions = clean_network[0];
+
+    input_list = [];
+    for(i = 0; i < g2n.input_list.length; i++) input_list.push(g2n.input_list[i].toUpperCase());
+    cytoscape_array = [];
+    for(i = 0; i < clean_nodes.length; i++){
+        cytoscape_array.push(convertG2NNode(clean_nodes[i],input_list));
+    }
+    for(i = 0; i < clean_interactions.length; i++){
+        cytoscape_array.push(clean_interactions[i]);
+    }
+
+    network_string = JSON.stringify(network);
+    console.log(cytoscape_array);
 });

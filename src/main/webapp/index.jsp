@@ -56,13 +56,13 @@
 			enctype="multipart/form-data">
 
 			<!-- Tab selector -->
-			<div>
+<!-- 			<div>
 				<ul id="menu">
 					<li><a href="#x2k" class="setting tab-link">X2K</a></li>
 					<li><a href="#downloads" class="information tab-link">Downloads</a></li>
 					<li><a href="#help" class="information tab-link">Help</a></li>
 				</ul>
-			</div>
+			</div> -->
 
 			<!-- Tab content -->
 			<div id="x2k" class="tab-content">
