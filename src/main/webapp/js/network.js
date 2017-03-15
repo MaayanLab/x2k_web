@@ -64,7 +64,8 @@ function cleanNetwork(network){
 
 //main function
 window.onload = function(){
-
+	var json_file = json["X2K"]
+	
     network = json_file.network;
     clean_network = cleanNetwork(network);
     clean_nodes = clean_network[1];
@@ -100,7 +101,8 @@ window.onload = function(){
 
     }
 
-
+    console.log(cytoscape_array);
+    
     var cy = cytoscape({
         container: $('#graph'),
         style: [
