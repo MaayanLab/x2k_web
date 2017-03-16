@@ -46,7 +46,13 @@
 	<div id="page">
 
 		<%@ include file="templates/frame/header.html"%>
-
+			<div>
+				<ul id="menu">
+					<li><a href="#x2k" class="setting tab-link">X2K</a></li>
+					<li><a href="#downloads" class="information tab-link">Downloads</a></li>
+					<li><a href="#help" class="information tab-link">Help</a></li>
+				</ul>
+			</div>
 		<div id="top_bar">
 			<div class="clear"></div>
 		</div>

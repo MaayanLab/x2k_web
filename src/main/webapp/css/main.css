@@ -3,6 +3,15 @@ body {
 	font-size: 13px;
 }
 
+#x2k_title {
+	text-align: center;
+	color: #0c89e2;
+	margin-top: 5px;
+	font-size: 16px;
+	letter-spacing: -0.2px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
 a:link, a:visited {
 	color: #0098ff;
 }
