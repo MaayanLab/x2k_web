@@ -268,13 +268,13 @@ $(function() {
     network_string = JSON.stringify(network);
     tf_string = JSON.stringify(x2k.transcriptionFactors);
     kinase_string = JSON.stringify(x2k.kinases);
-    cytoscape_array = [];
+    cytoscape_array = {"nodes": [], "interactions": []};
 
     for(i = 0; i < clean_nodes.length; i++){
-        cytoscape_array.push(convertX2KNode(clean_nodes[i]));
+        cytoscape_array["nodes"].push(convertX2KNode(clean_nodes[i]));
     }
     for(i = 0; i < clean_interactions.length; i++){
-        cytoscape_array.push(clean_interactions[i]);
+        cytoscape_array["interactions"].push(clean_interactions[i]);
     }
 
     console.log(cytoscape_array);
@@ -288,12 +288,12 @@ $(function() {
 
     input_list = [];
     for(i = 0; i < g2n.input_list.length; i++) input_list.push(g2n.input_list[i].toUpperCase());
-    cytoscape_array = [];
+    cytoscape_array = {"nodes": [], "interactions": []};
     for(i = 0; i < clean_nodes.length; i++){
-        cytoscape_array.push(convertG2NNode(clean_nodes[i],input_list));
+        cytoscape_array["nodes"].push(convertG2NNode(clean_nodes[i],input_list));
     }
     for(i = 0; i < clean_interactions.length; i++){
-        cytoscape_array.push(clean_interactions[i]);
+        cytoscape_array["interactions"].push(clean_interactions[i]);
     }
 
     network_string = JSON.stringify(network);
