@@ -24,20 +24,31 @@
 
     var json = {
   		  "nodes": [
+  		            {"id": "0", "group": 1},
   		            {"id": "1", "group": 1},
-  		            {"id": "2", "group": 1},
-  		            {"id": "3", "group": 2},
+  		            {"id": "2", "group": 2},
+  		            {"id": "3", "group": 3},
   		            {"id": "4", "group": 3},
-  		            {"id": "5", "group": 3},
   		          ],
   		          "links": [
-  		            {"source": 2, "target": 0, "value": 1},
-  		            {"source": 2, "target": 1, "value": 8},
-  		            {"source": 2, "target": 3, "value": 10},
-  		            {"source": 2, "target": 4, "value": 8},
-  		            {"source": 0, "target": 2, "value": 3},
+  		  		    {"source": "0", "target": "2", "value": 1},
+  		            {"source": "2", "target": "0", "value": 1},
+  		            {"source": "2", "target": "1", "value": 1},
+  		            {"source": "2", "target": "3", "value": 1},
+  		            {"source": "2", "target": "4", "value": 1}
   		          ]
   		        };
+
+    // Convert ids to indices in links
+    var nodeMap = {};
+    json.nodes.forEach(function(x) { nodeMap[x.id] = x; });
+    json.links = json.links.map(function(x) {
+      return {
+        source: nodeMap[x.source],
+        target: nodeMap[x.target],
+        value: x.weight
+      };
+    });
     
     var width = 1024,
         height = 768;
