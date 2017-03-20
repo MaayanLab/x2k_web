@@ -18,6 +18,7 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="http://www.w3schools.com/lib/w3data.js"></script>
 	<script src="js/results.js"></script>
+	<script src="js/network.js"></script>
 
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
@@ -25,6 +26,7 @@
     <link rel="stylesheet" href="css/results.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bargraph.css">
+    <link rel="stylesheet" href="css/network.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
 

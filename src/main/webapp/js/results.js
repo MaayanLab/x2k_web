@@ -196,11 +196,8 @@ $(function() {
 	
 	// Networks functions
 	function convertX2KNode(x2k_node){ //convert the style of a node from X2K output to cytoscape
-		cyto_node = {data: {name: x2k_node["name"].split('_')[0],
-	        id: x2k_node["name"]},
-	        classes: x2k_node["type"]}
+		cyto_node = {id: x2k_node["name"].split('_')[0], group: x2k_node["type"]}
 	    return cyto_node;
-
 	}
 
 	function convertG2NNode(g2n_node, input_list){ //convert the style of a node from G2N output to cytoscape
@@ -210,9 +207,7 @@ $(function() {
 	    else{
 	        node_class = "intermediate"
 	    }
-	    cyto_node = {data: {name: g2n_node["name"].split('_')[0],
-	                        id: g2n_node["name"]},
-	                 classes: node_class}
+	    cyto_node = {id: g2n_node["name"].split('_')[0], group: node_class};
 	    return cyto_node
 	}
 
@@ -268,16 +263,16 @@ $(function() {
     network_string = JSON.stringify(network);
     tf_string = JSON.stringify(x2k.transcriptionFactors);
     kinase_string = JSON.stringify(x2k.kinases);
-    cytoscape_array = {"nodes": [], "interactions": []};
+    x2k_d3_array = {"nodes": [], "links": []};
 
     for(i = 0; i < clean_nodes.length; i++){
-        cytoscape_array["nodes"].push(convertX2KNode(clean_nodes[i]));
+    	x2k_d3_array["nodes"].push(convertX2KNode(clean_nodes[i]));
     }
     for(i = 0; i < clean_interactions.length; i++){
-        cytoscape_array["interactions"].push(clean_interactions[i]);
+    	x2k_d3_array["links"].push(clean_interactions[i]);
     }
-
-    console.log(cytoscape_array);
+    
+    draw_network(x2k_d3_array);
 	
 	// G2N Processing
     var g2n = $.parseJSON(json_file["G2N"]);
@@ -288,14 +283,13 @@ $(function() {
 
     input_list = [];
     for(i = 0; i < g2n.input_list.length; i++) input_list.push(g2n.input_list[i].toUpperCase());
-    cytoscape_array = {"nodes": [], "interactions": []};
+    g2n_d3_array = {"nodes": [], "links": []};
     for(i = 0; i < clean_nodes.length; i++){
-        cytoscape_array["nodes"].push(convertG2NNode(clean_nodes[i],input_list));
+    	g2n_d3_array["nodes"].push(convertG2NNode(clean_nodes[i],input_list));
     }
     for(i = 0; i < clean_interactions.length; i++){
-        cytoscape_array["interactions"].push(clean_interactions[i]);
+    	g2n_d3_array["links"].push(clean_interactions[i]);
     }
 
     network_string = JSON.stringify(network);
-    console.log(cytoscape_array);
 });
