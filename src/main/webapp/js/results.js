@@ -196,7 +196,7 @@ $(function() {
 	
 	// Networks functions
 	function convertX2KNode(x2k_node){ //convert the style of a node from X2K output to cytoscape
-		cyto_node = {id: x2k_node["name"].split('_')[0], group: x2k_node["type"]}
+		cyto_node = {id: x2k_node["name"], group: x2k_node["type"]}
 	    return cyto_node;
 	}
 
@@ -207,7 +207,7 @@ $(function() {
 	    else{
 	        node_class = "intermediate"
 	    }
-	    cyto_node = {id: g2n_node["name"].split('_')[0], group: node_class};
+	    cyto_node = {id: g2n_node["name"], group: node_class};
 	    return cyto_node
 	}
 
