@@ -5,9 +5,9 @@ function draw_network(json){
     json.nodes.forEach(function(x) { nodeMap[x.id] = x; });
     json.links = json.links.map(function(x) {
       return {
-        source: nodeMap[x.source],
-        target: nodeMap[x.target],
-        value: x.weight
+        source: nodeMap[x.data.source],
+        target: nodeMap[x.data.target],
+        value: 1
       };
     });
     
@@ -17,8 +17,19 @@ function draw_network(json){
     var color = d3.scale.category20();
 
     var force = d3.layout.force()
-        .charge(-120)
-        .linkDistance(50)
+	    .charge(function(node) {
+	        if (node.group === 'kinase') {return -30;}
+	        else if (node.group === 'tf') {return -30;}
+	        else if (node.group === 'other') {return -1000;};
+	    })
+	    .linkStrength(0.5)
+//	    .linkStrength(function(node) {
+//	        if (node.group === 'kinase')  {return 1.0;}
+//	        else if (node.group === 'tf')  {return 1.0;}
+//	        else if (node.group === 'other')  {return 1.0;}
+//        })
+        .linkDistance(width/5)
+//        .gravity(1)
         .size([width, height]);
 
     var svg = d3.select("body").append("svg")
@@ -26,12 +37,12 @@ function draw_network(json){
         .attr("height", height);
 	
     graph = json;
-
+    
       force
           .nodes(graph.nodes)
           .links(graph.links)
           .start();
-
+      
       var link = svg.selectAll("line.link")
           .data(graph.links)
         .enter().append("line")
@@ -43,7 +54,7 @@ function draw_network(json){
 
         .enter().append("circle")
           .attr("class", "node")
-          .attr("r", 10)
+          .attr("r", width/50)
           .style("fill", function(d) { return color(d.group); })
           .call(force.drag);
 
