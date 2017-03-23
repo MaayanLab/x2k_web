@@ -272,7 +272,7 @@ $(function() {
     	x2k_d3_array["links"].push(clean_interactions[i]);
     }
     
-    draw_network(x2k_d3_array);
+    draw_network(x2k_d3_array, "#x2k-network");
 	
 	// G2N Processing
     var g2n = $.parseJSON(json_file["G2N"]);
@@ -285,11 +285,12 @@ $(function() {
     for(i = 0; i < g2n.input_list.length; i++) input_list.push(g2n.input_list[i].toUpperCase());
     g2n_d3_array = {"nodes": [], "links": []};
     for(i = 0; i < clean_nodes.length; i++){
-    	g2n_d3_array["nodes"].push(convertG2NNode(clean_nodes[i],input_list));
+    	g2n_d3_array["nodes"].push(convertG2NNode(clean_nodes[i], input_list));
     }
     for(i = 0; i < clean_interactions.length; i++){
     	g2n_d3_array["links"].push(clean_interactions[i]);
     }
-
+    
     network_string = JSON.stringify(network);
+    draw_network(g2n_d3_array, "#network-g2n");
 });

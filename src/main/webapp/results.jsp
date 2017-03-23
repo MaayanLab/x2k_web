@@ -37,8 +37,6 @@
 	<script>
 		w3IncludeHTML();
 	</script>
-	
-	<div id=pagetop_spacer></div>
 
 	<!-- buttons -->
 	<div id="buttons-panel" style="float: left; width: 160px;">

@@ -38,8 +38,7 @@ button.selected {
 }
 
 #results {
-	display: inline-block;
-	float:left;
+	display: table;
 }
 
 #download-button{

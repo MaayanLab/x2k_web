@@ -1,6 +1,6 @@
-function draw_network(json){
-	console.log(json);
+function draw_network(json, tab){
     // Convert ids to indices in links
+	console.log(json)
     var nodeMap = {};
     json.nodes.forEach(function(x) { nodeMap[x.id] = x; });
     json.links = json.links.map(function(x) {
@@ -20,19 +20,16 @@ function draw_network(json){
 	    .charge(function(node) {
 	        if (node.group === 'kinase') {return -30;}
 	        else if (node.group === 'tf') {return -30;}
-	        else if (node.group === 'other') {return -1000;};
-	    })
-	    .linkStrength(0.5)
-//	    .linkStrength(function(node) {
-//	        if (node.group === 'kinase')  {return 1.0;}
-//	        else if (node.group === 'tf')  {return 1.0;}
-//	        else if (node.group === 'other')  {return 1.0;}
-//        })
-        .linkDistance(width/5)
-//        .gravity(1)
+	        else {return -500;};})
+	    .linkStrength(function(link) {
+	    	if (link.source.group === link.target.group) {return 1.0;}
+	    	else if ((link.source.group !== 'other')&&(link.target.group !== 'other')) {return 1.0;}
+	        else {return 0.1;}
+        })
+        .linkDistance(width/10)
         .size([width, height]);
 
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select(tab).append("svg")
         .attr("width", width)
         .attr("height", height);
 	
@@ -65,10 +62,10 @@ function draw_network(json){
          .data(graph.nodes)
          .enter().append("text")
          .attr("class", "label")
-         .attr("fill", "white")
-         .attr("dx", -3)
+         .attr("fill", "black")
+         .attr("dx", -10)
       	.attr("dy", ".35em")
-         .text(function(d) {  return d.id;  });
+         .text(function(d) {  return d.id.split('_')[0];  });
          
 
       force.on("tick", function() {

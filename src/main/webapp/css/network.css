@@ -1,15 +1,15 @@
 .node {
   fill: #555;
-  stroke: #999;
-  stroke-width: 1.5px;
+  stroke: #fff;
+  stroke-width: 0.5px;
 }
 
 .link {
-  stroke: #999;
+  stroke: #bbb;
   stroke-opacity: .6;
 }
 
 .label {
   pointer-events: none;
-  font: 10px sans-serif;
+  font: 8px sans-serif;
  }
