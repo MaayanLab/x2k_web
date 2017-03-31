@@ -406,22 +406,6 @@ ol li {
 	margin: 10px 0;
 }
 
-#data_table {
-	text-align: center;
-}
-
-th {
-	border-bottom: 1px solid #dddddd;
-	padding-bottom: 5px;
-	padding-top: 5px;
-}
-
-td {
-	border-bottom: 1px solid #dddddd;
-	padding-bottom: 5px;
-	padding-top: 5px;
-}
-
 #statistics h3 {
 	background-color: #eee;
 	color: black;

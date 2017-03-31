@@ -41,6 +41,39 @@ button.selected {
 	display: table;
 }
 
+#chea-table,
+#kea-table
+{
+ 	border-collapse: collapse;
+	/* border: none; */
+	width: 1024px;
+	height: 450px;
+}
+
+
+#data_table {
+	text-align: center;
+}
+
+th {
+	border-bottom: 1px solid #dddddd;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+td
+{
+    text-align: left;
+}
+
+td + td {
+	border-bottom: 1px solid #dddddd;
+	padding-bottom: 5px;
+	padding-left: 15px;
+	padding-top: 5px;
+	text-align: right;
+}
+
 #download-button{
 	width: 180px;
     background-color: #eee;
