@@ -12,7 +12,7 @@ function draw_network(json, tab){
     });
     
     var width = 1024,
-        height = 768;
+        height = 560;
 
     var color = d3.scale.category20();
 
@@ -24,7 +24,7 @@ function draw_network(json, tab){
 	    .linkStrength(function(link) {
 	    	if (link.source.group === link.target.group) {return 1.0;}
 	    	else if ((link.source.group !== 'other')&&(link.target.group !== 'other')) {return 1.0;}
-	        else {return 0.1;}
+	        else {return 0.5;}
         })
         .linkDistance(width/10)
         .size([width, height]);
@@ -63,9 +63,13 @@ function draw_network(json, tab){
          .enter().append("text")
          .attr("class", "label")
          .attr("fill", "black")
-         .attr("dx", -10)
+         .attr("dx", -12)
       	.attr("dy", ".35em")
-         .text(function(d) {  return d.id.split('_')[0];  });
+         .text(function(d) {  return d.id.split('_')[0];  })
+         .style("font-size", function(d){
+        	 if(d.id.split('_')[0].length > 5){return "6px";}
+        	 else return "8px";
+         });
          
 
       force.on("tick", function() {
