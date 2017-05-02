@@ -75,9 +75,9 @@ td + td {
 }
 
 #download-button{
-	width: 180px;
-    background-color: #eee;
-    border: 1px solid #ddd;
-    border-radius: 2px;
+    background-color: #fff;
+    border: 1px solid #777;
+    border-radius: 15px;
     cursor: pointer;
+    font-size: 0.8em;
 }

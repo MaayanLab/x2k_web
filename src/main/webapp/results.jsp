@@ -59,6 +59,9 @@
 	<div id="results">
 		<!-- x2k -->
 		<div id="tabs-x2k" style="display: block">
+			<div id="x2k-desc">
+				<p>The Expression2Kinases (X2K) algorithm computationally predicts involvement of upstream cell signaling pathways, given a signature of differentially expressed genes.</p>
+			</div>
 			<ul>
 				<li><a href="#x2k-network">Network</a></li>
 			</ul>
@@ -66,15 +69,25 @@
 			<!-- network -->
 			<div id="x2k-network">
 			</div>
+			<div id="legend">
+			  <ul class="no_bullet">
+			    <li class="legend"><svg height="12" width="12"><circle cx="6" cy="6" r="6" fill="#1F77B4"/></svg>Transcription Factor</li>
+			    <li class="legend"><svg height="12" width="12"><circle cx="6" cy="6" r="6" fill="#FF7F0E"/></svg>Intermediate protein</li>
+			    <li class="legend"><svg height="12" width="12"><circle cx="6" cy="6" r="6" fill="#AEC7E8"/></svg>Kinase</li>
+			  </ul>
+			</div>			
 		    <div id="download_buttons">
 		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['X2K']));">
-		            <button type="button" id="download-button">Download Data as CSV</button>
+		            <button type="button" id="download-button">JSON</button>
 		        </a>
 		    </div>			
 		</div>
 
 		<!-- chea -->
 		<div id="tabs-chea" style="display: none">
+			<div id="chea-desc">
+				<p>ChIP Enrichment Analysis (ChEA) tool that integrates data from ChIP-X experiments to specify transcription factors binding to DNA in a genome-wide scale.</p>
+			</div>
 			<ul>
 				<li><a href="#bargraph-chea">Bargraph</a></li>
 				<li><a href="#chea-table">Table</a></li>
@@ -97,28 +110,40 @@
 		    </div>
 		    <div id="download_buttons">
 		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['ChEA']));">
-		            <button type="button" id="download-button">Download Data as CSV</button>
+		            <button type="button" id="download-button">JSON</button>
 		        </a>
 		    </div>		    
 		</div>
 
 		<!-- g2n -->
 		<div id="tabs-g2n" style="display: none">
+			<div id="g2n-desc">
+			<p>Genes2Networks (G2N) integrates the content of ten mammalian protein-protein interaction network datasets to create interaction subnetworks from an input list of human genes and predicted genes or proteins from relevant pathways or protein complexes.</p>
+			</div>
 			<ul>
 				<li><a href="#network-g2n">Network</a></li>
 			</ul>
 
 			<!-- network -->
 			<div id="network-g2n"></div>
+			<div id="legend">
+				<ul class="no_bullet">
+					<li class="legend"> <svg height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#AEC7E8" /> </svg> Seed Protein</li>
+					<li class="legend"> <svg height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#1F77B4" /> </svg> Inermediate Protein</li>
+				</ul>
+			</div>			
 		    <div id="download_buttons">
 		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['G2N']));">
-		            <button type="button" id="download-button">Download Data as CSV</button>
+		            <button type="button" id="download-button">JSON</button>
 		        </a>
 		    </div>			
 		</div>
 
 		<!-- kea -->
-		<div id="tabs-kea" style="display: none">	
+		<div id="tabs-kea" style="display: none">
+			<div id="kea-desc">
+				<p>Kinase enrichment analysis (KEA) tool utilizing kinase-substrate databases to calculate enrichment probability for lists of genes with kinases.</p>
+			</div>
 			<ul>
 				<li><a href="#bargraph-kea">Bargraph</a></li>
 				<li><a href="#kea-table">Table</a></li>
@@ -140,7 +165,7 @@
 		    </div>
 		    <div id="download_buttons">
 		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['KEA']));">
-		            <button type="button" id="download-button">Download Data as CSV</button>
+		            <button type="button" id="download-button">JSON</button>
 		        </a>
 		    </div>		    
 		</div>
