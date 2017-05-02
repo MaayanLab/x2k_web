@@ -311,6 +311,7 @@
 
 				<h3>About</h3>
 				<div id="about">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/ipchvqQhdpc" frameborder="0" allowfullscreen></iframe>
 					<p>
 						X2K Web is an online tool used to infer upstream regulatory
 						networks from differentially expressed genes. Combining the <a
