@@ -23,8 +23,8 @@
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
-    <link rel="stylesheet" href="css/results.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/results.css">
     <link rel="stylesheet" href="css/bargraph.css">
     <link rel="stylesheet" href="css/network.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -32,6 +32,7 @@
 
 </head>
 <body>
+<div id="page">
 	<!-- header -->
     <%@ include file="templates/frame/header.html" %>
 	<script>
@@ -100,12 +101,15 @@
 			<!-- table -->
 		    <div id="chea" class="results-table">
 			    <table border="1"  id="chea-table">
-			    	<tr>
-				    	<th>Term</th>
-				    	<th>P-value</th>
-				    	<th>Z-score</th>
-				    	<th>Combined Score</th>
-			    	</tr>
+				    <thead>
+				    	<tr>
+					    	<th>Term</th>
+					    	<th>P-value</th>
+					    	<th>Z-score</th>
+					    	<th>Combined Score</th>
+				    	</tr>
+				    </thead>
+				    <tbody/>
 			    </table>
 		    </div>
 		    <div id="download_buttons">
@@ -155,12 +159,15 @@
 			<!-- table -->
 		    <div id="kea" class="results-table">
 			    <table border="1" id="kea-table">
-			    	<tr>
-				    	<th>Term</th>
-				    	<th>P-value</th>
-				    	<th>Z-score</th>
-				    	<th>Combined Score</th>
-			    	</tr>
+				    <thead>
+				    	<tr>
+					    	<th>Term</th>
+					    	<th>P-value</th>
+					    	<th>Z-score</th>
+					    	<th>Combined Score</th>
+				    	</tr>
+				    </thead>
+			    <tbody/>
 			    </table>
 		    </div>
 		    <div id="download_buttons">
@@ -173,7 +180,6 @@
 
 	<div class="clear"></div>
     <%@ include file="templates/frame/footer.html" %>
-    
-</div>	
+    </div>
 </body>
 </html>

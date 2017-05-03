@@ -5,10 +5,16 @@ $(function() {
 	var chea = $.parseJSON(json_file['ChEA']);
 	for (var i = 0; i < chea.tfs.length; i++) {
 		tr = $('<tr/>');
-		tr.append("<td>" + chea.tfs[i].name + "</td>");
-		tr.append("<td>" + chea.tfs[i].pvalue + "</td>");
-		tr.append("<td>" + chea.tfs[i].zscore + "</td>");
-		tr.append("<td>" + chea.tfs[i].combinedScore + "</td>");
+		tr.append("<td>" + chea.tfs[i].name.replace(/_/g, " ") + "</td>");		
+		if (chea.tfs[i].pvalue < 0.01) {
+			pval = chea.tfs[i].pvalue.toExponential(3);
+		}
+		else{
+			pval = chea.tfs[i].pvalue.toFixed(3);
+		};
+		tr.append("<td>" + pval + "</td>");
+		tr.append("<td>" + chea.tfs[i].zscore.toFixed(3) + "</td>");
+		tr.append("<td>" + chea.tfs[i].combinedScore.toFixed(3) + "</td>");
 		$('#chea-table').append(tr);
 	};
 
@@ -16,10 +22,16 @@ $(function() {
 	var kea = $.parseJSON(json_file['KEA']);
 	for (var i = 0; i < kea.kinases.length; i++) {
 		tr = $('<tr/>');
-		tr.append("<td>" + kea.kinases[i].name + "</td>");
-		tr.append("<td>" + kea.kinases[i].pvalue + "</td>");
-		tr.append("<td>" + kea.kinases[i].zscore + "</td>");
-		tr.append("<td>" + kea.kinases[i].combinedScore + "</td>");
+		tr.append("<td>" + kea.kinases[i].name.replace(/_/g, " ") + "</td>");
+		if (kea.kinases[i].pvalue < 0.01){
+			pval = kea.kinases[i].pvalue.toExponential(3);
+		}
+		else{
+			pval = kea.kinases[i].pvalue.toFixed(3);
+		};
+		tr.append("<td>" + pval + "</td>");
+		tr.append("<td>" + kea.kinases[i].zscore.toFixed(3) + "</td>");
+		tr.append("<td>" + kea.kinases[i].combinedScore.toFixed(3) + "</td>");
 		$('#kea-table').append(tr);
 	};
 	
