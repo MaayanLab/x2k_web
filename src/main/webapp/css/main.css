@@ -175,8 +175,7 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 }
 
 #legend {
-	float: left;
-	height: 110px;
+	height: 90px;
 	padding: 5px;
 	top: 0;
 }
@@ -191,7 +190,7 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 ul.no_bullet {
 	list-style-type: none;
 	margin: 0;
-	padding: 10px 30px;
+	padding: 10px 10px;
 }
 
 li.legend {
