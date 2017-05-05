@@ -61,14 +61,6 @@
 		<form id="settings_form" action="network" method="POST"
 			enctype="multipart/form-data">
 
-			<!-- Tab selector -->
-<!-- 			<div>
-				<ul id="menu">
-					<li><a href="#x2k" class="setting tab-link">X2K</a></li>
-					<li><a href="#downloads" class="information tab-link">Downloads</a></li>
-					<li><a href="#help" class="information tab-link">Help</a></li>
-				</ul>
-			</div> -->
 
 			<!-- Tab content -->
 			<div id="x2k" class="tab-content">
@@ -77,15 +69,23 @@
 					<div id="text-input">
 						<h4 class="section-label">Input genes as text</h4>
 						<textarea rows="12" name="text-genes" id="text-genes"></textarea>
-						<button type="button" id="example-gene-list">Example gene list</button>
-						<input id="file" type="file" name="file" class="inputfile"/>
-						<label for="file" id="download-label">Input genes as file</label>
-					</div>
-				</div>
-
-				<div class="section">
+						
+<table>
+<tbody>
+<tr>
+<td><button type="button" id="example-gene-list">Example gene list</button>
+</td>
+<td><input id="file" type="file" name="file" class="inputfile"/><label for="file" id="download-label">Input genes as file</label>
+</td>
+<td>			
 					<div id="run-buttons">
 								<button type="submit" id="results_submit">Submit</button>
+					</div>				
+</td>
+</tr>
+</tbody>
+</table>						
+						
 					</div>
 				</div>
 
@@ -173,8 +173,10 @@
 							name="${KEA.SORT_BY}" value="${KEA.RANK}"> rank <input
 							type="radio" name="${KEA.SORT_BY}" value="${KEA.COMBINED_SCORE}"
 							checked="checked"> combined score<br>
-					</div>
+					</div>			
 				</div>
+
+
 			</div>
 
 			<div id="downloads" class="tab-content">
@@ -183,7 +185,7 @@
 				Code under links shows suggested use of applications:
 				<p>
 					<a
-						href=http://wvn1.pharm.mssm.edu/maayan-lab/download/install_X2K.jar>X2K
+						href=http://www.maayanlab.net/X2K/download/install_X2K.jar>X2K
 						with source code (61.3 MB)</a>
 					<code>java -jar X2K.jar genelist output.xml</code>
 				</p>

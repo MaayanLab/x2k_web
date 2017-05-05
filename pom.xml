@@ -8,7 +8,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.mssm.pharm.maayanlab.x2k</groupId>
 	<artifactId>X2K</artifactId>
-	<version>1.1</version>
+	<version>1.6</version>
 	<packaging>war</packaging>
 	<name>X2K</name>
 
@@ -322,4 +322,5 @@
 			</build>
 		</profile>
 	</profiles>
+	<url>https://amp.pharm.mssm.edu/X2K_dev</url>
 </project>
