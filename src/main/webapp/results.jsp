@@ -87,7 +87,7 @@
 		<!-- chea -->
 		<div id="tabs-chea" style="display: none">
 			<div id="chea-desc">
-				<p>ChIP Enrichment Analysis (ChEA) tool that integrates data from ChIP-X experiments to specify transcription factors binding to DNA in a genome-wide scale.</p>
+				<p>ChIP Enrichment Analysis (ChEA) integrates data from ChIP-X experiments to specify transcription factors binding to DNA in a genome-wide scale.</p>
 			</div>
 			<ul>
 				<li><a href="#bargraph-chea">Bargraph</a></li>
@@ -122,7 +122,7 @@
 		<!-- g2n -->
 		<div id="tabs-g2n" style="display: none">
 			<div id="g2n-desc">
-			<p>Genes2Networks (G2N) integrates the content of ten mammalian protein-protein interaction network datasets to create interaction subnetworks from an input list of human genes and predicted genes or proteins from relevant pathways or protein complexes.</p>
+			<p>Genes2Networks creates interaction subnetworks from the input list and predicted genes or proteins from protein-protein interaction databases.</p>
 			</div>
 			<ul>
 				<li><a href="#network-g2n">Network</a></li>
@@ -146,7 +146,7 @@
 		<!-- kea -->
 		<div id="tabs-kea" style="display: none">
 			<div id="kea-desc">
-				<p>Kinase enrichment analysis (KEA) tool utilizing kinase-substrate databases to calculate enrichment probability for lists of genes with kinases.</p>
+				<p>Kinase enrichment analysis (KEA) calculates enrichment probability for lists of genes with kinases.</p>
 			</div>
 			<ul>
 				<li><a href="#bargraph-kea">Bargraph</a></li>
