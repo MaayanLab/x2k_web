@@ -7,10 +7,10 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.mssm.pharm.maayanlab.x2k</groupId>
-	<artifactId>X2K</artifactId>
-	<version>1.6</version>
+	<artifactId>X2K_dev</artifactId>
+	<version>1.9</version>
 	<packaging>war</packaging>
-	<name>X2K</name>
+	<name>X2K_dev</name>
 
 
 	<repositories>

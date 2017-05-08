@@ -317,9 +317,8 @@
 					<p>
 						X2K Web is an online tool used to infer upstream regulatory
 						networks from differentially expressed genes. Combining the <a
-							href="http://amp.pharm.mssm.edu/lib/chea.jsp">ChEA</a>, <a
-							href="http://amp.pharm.mssm.edu/genes2networks/">Genes2Networks</a>,
-						and <a href="http://amp.pharm.mssm.edu/lib/kea.jsp">KEA</a> apps
+							href="http://amp.pharm.mssm.edu/Enrichr">ChEA</a>, Genes2Networks,
+						and <a href="http://www.maayanlab.net/KEA2/">KEA</a> apps
 						together, X2K Web produces inferred networks of transcription
 						factors, proteins, and kinases which take part in the upstream
 						regulation of the inputted gene list. X2K web also allows users to
@@ -330,7 +329,7 @@
 					</p>
 				</div>
 
-				<h3>Statistics</h3>
+<!-- 				<h3>Statistics</h3>
 				<div id="statistics">
 					<div id="ChEA_stats">
 						<h3 class="stat_category">ChEA Datasets</h3>
@@ -380,7 +379,7 @@
 					</div>
 				</div>
 
-
+ -->
 			</div>
 
 		</form>

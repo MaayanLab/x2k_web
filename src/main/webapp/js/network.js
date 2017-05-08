@@ -15,18 +15,19 @@ function draw_network(json, tab){
         height = 560;
 
     var color = d3.scale.category20();
-
+// x2k - -180/-180/-600, 0.8/0.8/0.8
     var force = d3.layout.force()
 	    .charge(function(node) {
-	        if (node.group === 'kinase') {return -30;}
-	        else if (node.group === 'tf') {return -30;}
-	        else {return -500;};})
+	        if (node.group === 'kinase') {return -180;}
+	        else if (node.group === 'tf') {return -180;}
+	        else {return -600;};})
 	    .linkStrength(function(link) {
-	    	if (link.source.group === link.target.group) {return 1.0;}
-	    	else if ((link.source.group !== 'other')&&(link.target.group !== 'other')) {return 1.0;}
-	        else {return 0.5;}
+	    	if (link.source.group === link.target.group) {return 0.8;}
+	    	else if ((link.source.group !== 'other')&&(link.target.group !== 'other')) {return 0.8;}
+	        else {return 0.8;}
         })
-        .linkDistance(width/10)
+// x2k - 4.3
+        .linkDistance(width/4.3)
         .size([width, height]);
 
     var svg = d3.select(tab).append("svg")
@@ -51,7 +52,7 @@ function draw_network(json, tab){
 
         .enter().append("circle")
           .attr("class", "node")
-          .attr("r", width/50)
+          .attr("r", width/65)
           .style("fill", function(d) { return color(d.group); })
           .call(force.drag);
 
@@ -63,12 +64,15 @@ function draw_network(json, tab){
          .enter().append("text")
          .attr("class", "label")
          .attr("fill", "black")
-         .attr("dx", -12)
+         .attr("dx", function(d){
+        	 if(d.id.split('_')[0].length < 5){return -6;}
+        	 else return -12;
+         })
       	.attr("dy", ".35em")
          .text(function(d) {  return d.id.split('_')[0];  })
          .style("font-size", function(d){
-        	 if(d.id.split('_')[0].length > 5){return "6px";}
-        	 else return "8px";
+        	 if(d.id.split('_')[0].length < 7){return "6px";}
+        	 else return "5px";
          });
          
 

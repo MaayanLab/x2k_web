@@ -81,7 +81,7 @@ $(function() {
 		barPadding = (height - axisMargin - margin * 2) * 0.6 / data_kea.length,
 		data_kea, bar, svg, scale, xAxis, labelWidth = 0;
 	
-	max = d3.max(data_kea, function(d) {return d["pvalue"];});
+	max = d3.max(data_kea, function(d) {return -1*Math.log10(d["pvalue"]);});
 	
 	svg = d3.select("#bargraph-kea").append("svg").attr("width", width).attr("height", height);
 	bar = svg.selectAll("g").data(data_kea).enter().append("g");
@@ -107,7 +107,7 @@ $(function() {
 	bar.append("rect")
 			.attr("transform", "translate(" + labelWidth + ", 0)")
 			.attr("height", barHeight).attr("width", function(d) {
-				return scale(d["pvalue"]);
+				return scale(-1*Math.log10(d["pvalue"]));
 			});
 	
 	bar.append("text").attr("class", "value").attr("y", barHeight / 2)
@@ -152,7 +152,7 @@ $(function() {
 		barPadding = (height - axisMargin - margin * 2) * 0.6 / data_chea.length,
 		data_chea, bar, svg, scale, xAxis, labelWidth = 0;
 	
-	max = d3.max(data_chea, function(d) {return d["pvalue"];});
+	max = d3.max(data_chea, function(d) {return -1*Math.log10(d["pvalue"]);});
 	
 	svg = d3.select("#bargraph-chea").append("svg").attr("width", width).attr("height", height);
 	bar = svg.selectAll("g").data(data_chea).enter().append("g");
@@ -178,7 +178,7 @@ $(function() {
 	bar.append("rect")
 			.attr("transform", "translate(" + labelWidth + ", 0)")
 			.attr("height", barHeight).attr("width", function(d) {
-				return scale(d["pvalue"]);
+				return scale(-1*Math.log10(d["pvalue"]));
 			});
 	
 	bar.append("text").attr("class", "value").attr("y", barHeight / 2)

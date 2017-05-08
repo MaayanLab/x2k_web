@@ -27,11 +27,7 @@
 	text-align: center;
 }
 
-.bargraph-kea {
-	width: 960px;
-	height: 500px;
-}
-
+.bargraph-kea,
 .bargraph-chea {
 	width: 960px;
 	height: 500px;
@@ -39,12 +35,12 @@
 
 text {
 	font: 12px sans-serif;
-	color: white;
+	color: pink;
 }
 
 text.value {
 	font-size: 80%;
-	fill: white;
+	fill: black;
 }
 
 .axisHorizontal path {
