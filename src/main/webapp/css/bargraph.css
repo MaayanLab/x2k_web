@@ -33,9 +33,16 @@
 	height: 500px;
 }
 
+
+.label {
+  pointer-events: none;
+  font: 10px sans-serif;
+  fill: black;
+ }
+
 text {
 	font: 12px sans-serif;
-	color: pink;
+	color: black;
 }
 
 text.value {
@@ -54,5 +61,5 @@ text.value {
 
 .bar {
 	fill: steelblue;
-	fill-opacity: .9;
+	/* fill-opacity: .5; */
 }

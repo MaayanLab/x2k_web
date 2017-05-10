@@ -11,10 +11,5 @@
 
 .label {
   pointer-events: none;
-  font: 8px sans-serif;
- }
- 
- #x2k-network > svg,
- #network-g2n > svg {
- height: 363px;
+  font: 10px sans-serif;
  }

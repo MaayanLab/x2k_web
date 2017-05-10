@@ -68,8 +68,10 @@ $(function() {
 	data_kea = kea["kinases"];
 	
 	var type = "pvalue";
+
 	data_kea.sort(compare);
 	var div = d3.select("#bargraph-kea").append("div").attr("class", "toolTip");
+	
 	var axisMargin = 20,
 		margin = 40,
 		valueMargin = 4,
@@ -80,10 +82,18 @@ $(function() {
 		barHeight = (height - axisMargin - margin * 2) * 0.4 / data_kea.length,
 		barPadding = (height - axisMargin - margin * 2) * 0.6 / data_kea.length,
 		data_kea, bar, svg, scale, xAxis, labelWidth = 0;
+
 	
 	max = d3.max(data_kea, function(d) {return -1*Math.log10(d["pvalue"]);});
 	
 	svg = d3.select("#bargraph-kea").append("svg").attr("width", width).attr("height", height);
+	
+	svg.append("text")
+    .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+    .attr("transform", "translate("+ (width/2) +","+(height-10)+")")  // centre below axis
+    .text("-log10(p-value)");
+	
+	
 	bar = svg.selectAll("g").data(data_kea).enter().append("g");
 	
 	bar
@@ -94,14 +104,17 @@ $(function() {
 					return "translate(" + margin + "," + (i * (barHeight + barPadding) + barPadding) + ")";
 				});
 	
-	bar.append("text").attr("class", "label").attr("y", barHeight / 2)
-			.attr("dy", ".35em") //vertical align middle
+	bar.append("text").attr("class", "label")
+			.attr("x", -40)
+			.attr("y", barHeight / 2)
+			.attr("dy", ".35em") //vertical align middle			
 			.text(function(d) {return d["name"];})
 			.each(
 					function() {
 						labelWidth = Math.ceil(Math.max(labelWidth, this.getBBox().width));
 					});
-	scale = d3.scale.linear().domain([ 0, max ]).range([0, width - margin * 2 - labelWidth]);
+	
+	scale = d3.scale.linear().domain([0, max]).range([0, width - margin * 2 - labelWidth]);
 	xAxis = d3.svg.axis().scale(scale).tickSize(-height + 2 * margin + axisMargin).orient("bottom");
 	
 	bar.append("rect")
@@ -113,10 +126,16 @@ $(function() {
 	bar.append("text").attr("class", "value").attr("y", barHeight / 2)
 			.attr("dx", -valueMargin + labelWidth) //margin right
 			.attr("dy", ".35em") //vertical align middle
-			.attr("text-anchor", "end").text(function(d) {return (d["pvalue"]);})
+			.attr("text-anchor", "end").text(function(d) {
+				if (d["pvalue"] < 0.01) {
+					return d["pvalue"].toExponential(3);
+				}
+				else{
+					return d["pvalue"].toFixed(3);
+				};})
 			.attr("x", function(d) {
 				var width = this.getBBox().width;
-				return Math.max(width + valueMargin, scale(d["pvalue"]));
+				return Math.max(width + valueMargin, scale(-1*Math.log10(d["pvalue"]))) + 40;
 			});
 	
 	bar.on("mousemove", function(d) {
@@ -165,7 +184,8 @@ $(function() {
 					return "translate(" + margin + "," + (i * (barHeight + barPadding) + barPadding) + ")";
 				});
 	
-	bar.append("text").attr("class", "label").attr("y", barHeight / 2)
+	bar.append("text").attr("class", "label")
+			.attr("y", barHeight / 2)
 			.attr("dy", ".35em") //vertical align middle
 			.text(function(d) {return d["name"];})
 			.each(
@@ -184,10 +204,16 @@ $(function() {
 	bar.append("text").attr("class", "value").attr("y", barHeight / 2)
 			.attr("dx", -valueMargin + labelWidth) //margin right
 			.attr("dy", ".35em") //vertical align middle
-			.attr("text-anchor", "end").text(function(d) {return (d["pvalue"]);})
+			.attr("text-anchor", "end").text(function(d) {
+				if (d["pvalue"] < 0.01) {
+					return d["pvalue"].toExponential(3);
+				}
+				else{
+					return d["pvalue"].toFixed(3);
+				};})
 			.attr("x", function(d) {
 				var width = this.getBBox().width;
-				return Math.max(width + valueMargin, scale(d["pvalue"]));
+				return Math.max(width + valueMargin, scale(-1*Math.log10(d["pvalue"]))) + 50;
 			});
 	
 	bar.on("mousemove", function(d) {
