@@ -87,7 +87,7 @@
 		<!-- chea -->
 		<div id="tabs-chea" style="display: none">
 			<div id="chea-desc">
-				<p>ChIP Enrichment Analysis (ChEA) integrates data from ChIP-X experiments to specify transcription factors binding to DNA in a genome-wide scale.</p>
+				<p>ChIP Enrichment Analysis (ChEA) integrates data from ChIP-X experiments to predict transcription factor regulation of a list of input genes.</p>
 			</div>
 			<ul>
 				<li><a href="#bargraph-chea">Bargraph</a></li>
@@ -146,7 +146,7 @@
 		<!-- kea -->
 		<div id="tabs-kea" style="display: none">
 			<div id="kea-desc">
-				<p>Kinase enrichment analysis (KEA) calculates enrichment probability for lists of genes with kinases.</p>
+				<p>Kinase enrichment analysis (KEA) shows probability for the involvement of protein kinases in regulating the function of the proteins in the subnetwork created by the G2N step.</p>
 			</div>
 			<ul>
 				<li><a href="#bargraph-kea">Bargraph</a></li>

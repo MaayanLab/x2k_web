@@ -1,6 +1,5 @@
 function draw_network(json, tab){
     // Convert ids to indices in links
-	console.log(json)
     var nodeMap = {};
     json.nodes.forEach(function(x) { nodeMap[x.id] = x; });
     json.links = json.links.map(function(x) {
@@ -11,24 +10,37 @@ function draw_network(json, tab){
       };
     });
     
-    var width = 1024,
-        height = 560;
+    var width = 1000,
+        height = 600;
 
     var color = d3.scale.category20();
-// x2k - -180/-180/-600, 0.8/0.8/0.8
+
+    if (tab === '#x2k-network'){
     var force = d3.layout.force()
 	    .charge(function(node) {
-	        if (node.group === 'kinase') {return -180;}
-	        else if (node.group === 'tf') {return -180;}
+	        if (node.group === 'kinase') {return -500;}
+	        else if (node.group === 'tf') {return -500;}
 	        else {return -600;};})
 	    .linkStrength(function(link) {
-	    	if (link.source.group === link.target.group) {return 0.8;}
-	    	else if ((link.source.group !== 'other')&&(link.target.group !== 'other')) {return 0.8;}
-	        else {return 0.8;}
+	    	if (link.source.group === link.target.group) {return 1.0;}
+	    	else if ((link.source.group !== 'other')&&(link.target.group !== 'other')) {return 0.0;}
+	        else {return 0.05;}
         })
-// x2k - 4.3
-        .linkDistance(width/4.3)
-        .size([width, height]);
+        .linkDistance(width/60)
+        .size([width, height]);}
+    else if (tab === '#network-g2n'){
+        var force = d3.layout.force()
+	    .charge(function(node) {
+	        if (node.group === 'kinase') {return -400;}
+	        else if (node.group === 'tf') {return -400;}
+	        else {return -400;};})
+	    .linkStrength(function(link) {
+	    	if (link.source.group === link.target.group) {return 1.0;}
+	    	else if ((link.source.group !== 'other')&&(link.target.group !== 'other')) {return 1.0;}
+	        else {return 0;}
+        })
+        .linkDistance(width/80)
+        .size([width, height]);}
 
     var svg = d3.select(tab).append("svg")
         .attr("width", width)
@@ -49,25 +61,21 @@ function draw_network(json, tab){
 
      var node = svg.selectAll("circle.node")
           .data(graph.nodes)
-
-        .enter().append("circle")
-          .attr("class", "node")
-          .attr("r", width/65)
-          .style("fill", function(d) { return color(d.group); })
-          .call(force.drag);
+          .enter().append("circle")
+	          .attr("class", "node")
+	          .attr("r", width/70)
+	          .style("fill", function(d) { return color(d.group); })
+	          .call(force.drag);
 
      node.append("title")
-     .text(function(d) { return d.id; });
-
-         var texts = svg.selectAll("text.label")
+     	.text(function(d) { return d.id; });
+     
+     var texts = svg.selectAll("text.label")
          .data(graph.nodes)
          .enter().append("text")
          .attr("class", "label")
          .attr("fill", "black")
-         .attr("dx", function(d){
-        	 if(d.id.split('_')[0].length < 5){return -6;}
-        	 else return -12;
-         })
+         .style("text-anchor", "middle")
       	.attr("dy", ".35em")
          .text(function(d) {  return d.id.split('_')[0];  })
          .style("font-size", function(d){
