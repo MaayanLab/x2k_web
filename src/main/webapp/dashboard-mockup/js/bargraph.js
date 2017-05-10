@@ -122,8 +122,10 @@ $(document).ready(function() {
 			.attr("dy", ".35em") //vertical align middle
 			.text(function(d) {return d["name"];})
 			.each(
-					function() {
+					function(d) {
+						
 						labelWidth = Math.ceil(Math.max(labelWidth, this.getBBox().width));
+						console.log(this.getBBox().width/d["name"].length);
 					});
 	scale = d3.scale.linear().domain([ 0, max ]).range([0, width - margin * 2 - labelWidth]);
 	xAxis = d3.svg.axis().scale(scale).tickSize(-height + 2 * margin + axisMargin).orient("bottom");

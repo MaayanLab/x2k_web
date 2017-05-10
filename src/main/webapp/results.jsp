@@ -17,6 +17,7 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="http://www.w3schools.com/lib/w3data.js"></script>
+	<script src="js/bargraph.js"></script>
 	<script src="js/results.js"></script>
 	<script src="js/network.js"></script>
 
@@ -95,7 +96,7 @@
 			</ul>
 
 			<!-- bargraph -->
-			<div id="bargraph-chea">
+			<div id="bargraph-chea" class="bargraph">
 			</div>
 
 			<!-- table -->
@@ -154,7 +155,7 @@
 			</ul>
 
 			<!-- bargraph -->
-			<div id="bargraph-kea"></div>
+			<div id="bargraph-kea" class="bargraph"></div>
 
 			<!-- table -->
 		    <div id="kea" class="results-table">

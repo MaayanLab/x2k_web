@@ -1,17 +1,4 @@
-/* body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	width: 960px;
-	height: 500px;
-	position: relative;
-} */
-
-#bargraph-chea > svg,
-#bargraph-kea > svg {
-	width: 1024px;
-	height: 100%;
-}
-
-.toolTip {
+.bargraph .toolTip {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	position: absolute;
 	display: none;
@@ -27,39 +14,26 @@
 	text-align: center;
 }
 
-.bargraph-kea,
-.bargraph-chea {
-	width: 960px;
-	height: 500px;
-}
-
-
-.label {
-  pointer-events: none;
-  font: 10px sans-serif;
-  fill: black;
- }
-
-text {
+.bargraph text {
 	font: 12px sans-serif;
-	color: black;
+	color: white;
 }
 
-text.value {
+.bargraph text.value {
 	font-size: 80%;
-	fill: black;
+	fill: white;
 }
 
-.axisHorizontal path {
+.bargraph .axisHorizontal path {
 	fill: none;
 }
 
-.axisHorizontal .tick line {
+.bargraph .axisHorizontal .tick line {
 	stroke-width: 1;
 	stroke: rgba(0, 0, 0, 0.2);
 }
 
-.bar {
+.bargraph .bar {
 	fill: steelblue;
-	/* fill-opacity: .5; */
+	fill-opacity: .9;
 }
