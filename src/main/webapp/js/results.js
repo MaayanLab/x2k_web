@@ -1,5 +1,5 @@
 function exportJson(anchor, name, export_json) {
-    var data = "application/octet-stream;charset=utf-8," + encodeURIComponent(export_json);
+    var data = "application/octet-stream;charset=utf-16," + encodeURIComponent(export_json);
     anchor.setAttribute("href", "data:" + data);
     anchor.setAttribute("download", name + ".json");
 }

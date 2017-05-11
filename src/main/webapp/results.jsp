@@ -78,7 +78,7 @@
 			  </ul>
 			</div>			
 		    <div id="download_buttons">
-		        <a id="exportData" onclick="exportJson(this, 'X2K', JSON.stringify(json_file['X2K']));">
+		        <a id="exportData" onclick="exportJson(this, 'X2K', json_file['X2K']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
 		    </div>			
@@ -113,7 +113,7 @@
 			    </table>
 		    </div>
 		    <div id="download_buttons">
-		        <a id="exportData" onclick="exportJson(this, 'ChEA', JSON.stringify(json_file['ChEA']));">
+		        <a id="exportData" onclick="exportJson(this, 'ChEA', json_file['ChEA']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
 		    </div>		    
@@ -137,7 +137,7 @@
 				</ul>
 			</div>			
 		    <div id="download_buttons">
-		        <a id="exportData" onclick="exportJson(this, 'G2N', JSON.stringify(json_file['G2N']));">
+		        <a id="exportData" onclick="exportJson(this, 'G2N', json_file['G2N']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
 		    </div>			
@@ -171,7 +171,7 @@
 			    </table>
 		    </div>
 		    <div id="download_buttons">
-		        <a id="exportData" onclick="exportJson(this, 'KEA', JSON.stringify(json_file['KEA']));">
+		        <a id="exportData" onclick="exportJson(this, 'KEA', json_file['KEA']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
 		    </div>		    
