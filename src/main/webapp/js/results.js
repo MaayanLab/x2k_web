@@ -1,3 +1,9 @@
+function exportJson(anchor, name, export_json) {
+    var data = "application/octet-stream;charset=utf-8," + encodeURIComponent(export_json);
+    anchor.setAttribute("href", "data:" + data);
+    anchor.setAttribute("download", name + ".json");
+}
+
 $(function() {
 	var tr;
 	
@@ -38,8 +44,10 @@ $(function() {
 	// Dashboard buttons
 	$("button[id*='button']").click(function() {
 		id = $(this).attr("id").split("-")[0];
-		$("div[id*='tabs']").hide();
-		$("div#tabs-" + id).show();
+		if (id !== "download"){
+			$("div[id*='tabs']").hide();
+			$("div#tabs-" + id).show();
+		}
 	});
 
 	$('button').on('click', function() {

@@ -10,7 +10,6 @@
 	    var json_file = ${json};
 	</script>
 
-    <script src="js/exportJson.js"></script>
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
@@ -79,7 +78,7 @@
 			  </ul>
 			</div>			
 		    <div id="download_buttons">
-		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['X2K']));">
+		        <a id="exportData" onclick="exportJson(this, 'X2K', JSON.stringify(json_file['X2K']));">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
 		    </div>			
@@ -114,7 +113,7 @@
 			    </table>
 		    </div>
 		    <div id="download_buttons">
-		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['ChEA']));">
+		        <a id="exportData" onclick="exportJson(this, 'ChEA', JSON.stringify(json_file['ChEA']));">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
 		    </div>		    
@@ -138,7 +137,7 @@
 				</ul>
 			</div>			
 		    <div id="download_buttons">
-		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['G2N']));">
+		        <a id="exportData" onclick="exportJson(this, 'G2N', JSON.stringify(json_file['G2N']));">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
 		    </div>			
@@ -172,7 +171,7 @@
 			    </table>
 		    </div>
 		    <div id="download_buttons">
-		        <a id="exportData" onclick="exportJson(this,'results',JSON.stringify(json_file['KEA']));">
+		        <a id="exportData" onclick="exportJson(this, 'KEA', JSON.stringify(json_file['KEA']));">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
 		    </div>		    
