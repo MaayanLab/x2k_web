@@ -23,7 +23,7 @@ function drawBargraph(tab, data) {
 	
 	var type = "pvalue";
 	data.sort(compare);
-	var div = d3.select(tab).append("div").attr("class", "toolTip");
+//	var div = d3.select(tab).append("div").attr("class", "toolTip");
 	var axisMargin = 20,
 		margin = 40,
 		valueMargin = 4,
