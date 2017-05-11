@@ -90,16 +90,16 @@ function drawBargraph(tab, data) {
 				return Math.max(width + valueMargin, scale(-1*Math.log10(d["pvalue"])));
 			});
 	
-	bar.on("mousemove", function(d) {
-		div.style("left", d3.event.pageX + 10 + "px");
-		div.style("top", d3.event.pageY - 25 + "px");
-		div.style("display", "inline-block");
-		div.html((d["name"]) + "<br>" + (d["pvalue"]));
-	});
-	
-	bar.on("mouseout", function(d) {
-		div.style("display", "none");
-	});
+//	bar.on("mousemove", function(d) {
+//		div.style("left", d3.event.pageX + 10 + "px");
+//		div.style("top", d3.event.pageY - 25 + "px");
+//		div.style("display", "inline-block");
+//		div.html((d["name"]) + "<br>" + (d["pvalue"]));
+//	});
+//	
+//	bar.on("mouseout", function(d) {
+//		div.style("display", "none");
+//	});
 	
 	svg.insert("g", ":first-child").attr("class", "axisHorizontal").attr(
 			"transform",
