@@ -65,75 +65,75 @@ function insertExample() {
     return false;
 }
 
-var GRAPH_WIDTH = 300;
-var GRAPH_HEIGHT = 290;
-
-function histogram(data, labels, title, canvas, width, height) {
-    var ctx = document.getElementById(canvas).getContext("2d");
-    ctx.canvas.height = height;
-    ctx.canvas.width = width;
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels.slice(1,labels.length),
-            datasets: [
-                {
-                    lineTension: .1,
-                    pointHoverBackgroundColor: "rgba(0, 152, 255, 1)",
-                    pointHoverBorderColor: "rgba(0, 152, 255, 1)",
-                    backgroundColor: "rgba(154, 214, 255, 1)",
-                    borderColor: "rgba(0, 152, 255, 1)",
-                    label: title,
-                    data: data
-                }
-            ]
-        },
-        options: {
-            maintainAspectRatio: true,
-            responsive: false,
-            legend: {
-                display: false},
-            scales: {
-                yAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Nodes'
-                    }
-                }],
-                xAxes: [{
-                    scaleLabel:{
-                        display: true,
-                        labelString: "Interactions per Node "
-                    }
-                }]
-            }
-        }
-    });
-}
-
-function statsDiv(dataset_name, data) {
-    dataset = data[dataset_name];
-    div_string = '<div id=' + dataset_name + ' class="stats">' +
-        '<h4 class="stats_name">' + dataset_name.replace(/_/g, ' ') + '</h4>' +
-        'Total Interactions: ' + dataset.count +
-        '<canvas id=' + dataset_name + '_graph></canvas>' +
-        '</div>';
-    return div_string;
-}
-
-//data type refers to KEA, ChEA, or G2N
-function buildHistograms(data, data_type, datasets){
-    for(i = 0; i < datasets.length; i++){
-        dataset_name = datasets[i];
-        $( "#" + data_type + "_stats" ).append(statsDiv(dataset_name,data[data_type]));
-        histogram(data[data_type][dataset_name].data,
-            data[data_type][dataset_name].labels,
-            "Number of interactors",
-            dataset_name + "_graph",
-            GRAPH_WIDTH,
-            GRAPH_HEIGHT);
-    }
-}
+//var GRAPH_WIDTH = 300;
+//var GRAPH_HEIGHT = 290;
+//
+//function histogram(data, labels, title, canvas, width, height) {
+//    var ctx = document.getElementById(canvas).getContext("2d");
+//    ctx.canvas.height = height;
+//    ctx.canvas.width = width;
+//    var myChart = new Chart(ctx, {
+//        type: 'line',
+//        data: {
+//            labels: labels.slice(1,labels.length),
+//            datasets: [
+//                {
+//                    lineTension: .1,
+//                    pointHoverBackgroundColor: "rgba(0, 152, 255, 1)",
+//                    pointHoverBorderColor: "rgba(0, 152, 255, 1)",
+//                    backgroundColor: "rgba(154, 214, 255, 1)",
+//                    borderColor: "rgba(0, 152, 255, 1)",
+//                    label: title,
+//                    data: data
+//                }
+//            ]
+//        },
+//        options: {
+//            maintainAspectRatio: true,
+//            responsive: false,
+//            legend: {
+//                display: false},
+//            scales: {
+//                yAxes: [{
+//                    scaleLabel: {
+//                        display: true,
+//                        labelString: 'Nodes'
+//                    }
+//                }],
+//                xAxes: [{
+//                    scaleLabel:{
+//                        display: true,
+//                        labelString: "Interactions per Node "
+//                    }
+//                }]
+//            }
+//        }
+//    });
+//}
+//
+//function statsDiv(dataset_name, data) {
+//    dataset = data[dataset_name];
+//    div_string = '<div id=' + dataset_name + ' class="stats">' +
+//        '<h4 class="stats_name">' + dataset_name.replace(/_/g, ' ') + '</h4>' +
+//        'Total Interactions: ' + dataset.count +
+//        '<canvas id=' + dataset_name + '_graph></canvas>' +
+//        '</div>';
+//    return div_string;
+//}
+//
+////data type refers to KEA, ChEA, or G2N
+//function buildHistograms(data, data_type, datasets){
+//    for(i = 0; i < datasets.length; i++){
+//        dataset_name = datasets[i];
+//        $( "#" + data_type + "_stats" ).append(statsDiv(dataset_name,data[data_type]));
+//        histogram(data[data_type][dataset_name].data,
+//            data[data_type][dataset_name].labels,
+//            "Number of interactors",
+//            dataset_name + "_graph",
+//            GRAPH_WIDTH,
+//            GRAPH_HEIGHT);
+//    }
+//}
 
 function submitButtonListener(button, endpoint){
     $('#' + button).click(function(evt) {
@@ -177,25 +177,25 @@ $(function() {
     }
     
     
-    // Display stats
-    $.ajax({
-        url: 'datasets/dataset_statistics.json',
-        success: function(data) {
-            buildHistograms(
-                data,
-                "ChEA",
-                ["ChEA_2015", "ENCODE_2015", "ChEA_&_ENCODE_Consensus", "Transfac_&_Jaspar"]
-            );
-            buildHistograms(
-                data,
-                "G2N",
-                ["Biocarta", "BioGrid", "DIP", "innateDB", "IntAct", "KEGG", "MINT", "ppid", "SNAVI"]
-            );
-            buildHistograms(
-                data,
-                "KEA",
-                ["Kinase-Protein", "Phosphorylation"]
-            );
-        }
-    })
+//    // Display stats
+//    $.ajax({
+//        url: 'datasets/dataset_statistics.json',
+//        success: function(data) {
+//            buildHistograms(
+//                data,
+//                "ChEA",
+//                ["ChEA_2015", "ENCODE_2015", "ChEA_&_ENCODE_Consensus", "Transfac_&_Jaspar"]
+//            );
+//            buildHistograms(
+//                data,
+//                "G2N",
+//                ["Biocarta", "BioGrid", "DIP", "innateDB", "IntAct", "KEGG", "MINT", "ppid", "SNAVI"]
+//            );
+//            buildHistograms(
+//                data,
+//                "KEA",
+//                ["Kinase-Protein", "Phosphorylation"]
+//            );
+//        }
+//    })
 });

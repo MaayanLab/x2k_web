@@ -67,17 +67,16 @@
 
 				<div id="input-fields" class="section">
 					<div id="text-input">
-						<h4 class="section-label">Input genes as text</h4>
-						<textarea rows="12" name="text-genes" id="text-genes"></textarea>
-						
+						<h4 class="section-label">Enter a list of human or mouse Entrez gene symbols here:</h4>
+						<textarea rows="12" name="text-genes" id="text-genes"></textarea>			
 <table>
 <tbody>
 <tr>
-<td><button type="button" id="example-gene-list">Example gene list</button>
+<td><button type="button" id="example-gene-list">Example</button>
 </td>
-<td><input id="file" type="file" name="file" class="inputfile"/><label for="file" id="download-label">Input genes as file</label>
+<!-- <td><input id="file" type="file" name="file" class="inputfile"/><label for="file" id="download-label">Input genes as file</label>
 </td>
-<td>			
+ --><td>			
 					<div id="run-buttons">
 								<button type="submit" id="results_submit">Submit</button>
 					</div>				
@@ -93,7 +92,7 @@
 				<div id="settings" class="panel">
 					<button class="accordion" id="acc_x2k"></button>
 					<div id="x2k-settings" class="panel">
-						Minimum number of proteins in network: <input type="text"
+						Minimum number of proteins in subnetwork: <input type="text"
 							name="${X2K.MINIMUM_NETWORK_SIZE}" size="3" value="50">
 					</div>
 
@@ -168,6 +167,7 @@
 
 					<button class="accordion" id="acc_kea"></button>
 					<div id="kea-settings" class="panel">
+						<br> Sort by: <br>
 						<input type="radio" name="${KEA.SORT_BY}" value="${KEA.PVALUE}"
 							checked="checked"> p-value <input type="radio"
 							name="${KEA.SORT_BY}" value="${KEA.RANK}"> rank <input
@@ -180,9 +180,9 @@
 			</div>
 
 			<div id="downloads" class="tab-content">
-				<h3>Older versions</h3>
-				You can download older standalone versions of tools in JAR format.
-				Code under links shows suggested use of applications:
+				<h3>Command-line versions</h3>
+				You can download command line standalone versions of the X2K tools in JAR format.
+				Command near each download link suggests usage:
 				<p>
 					<a
 						href=http://www.maayanlab.net/X2K/download/install_X2K.jar>X2K
@@ -223,10 +223,8 @@
 				</p>
 
 				<h3>Datasets</h3>
-				Download the datasets used in X2K analysis:
-
 				<dl>
-					<dt>Transcription Factor Datasets</dt>
+					<dt>Transcriptional Regulation</dt>
 					<p>
 						<a href="datasets/ChEA2015.zip"> ChEA 2015 </a>
 					</p>
@@ -242,7 +240,7 @@
 				</dl>
 
 				<dl>
-					<dt>Protein-Protein Interaction Datasets</dt>
+					<dt>Protein-Protein Interaction</dt>
 					<p>
 						<a href="datasets/Biocarta.sig"> Biocarta </a>
 					<p>
@@ -271,15 +269,15 @@
 				</dl>
 
 				<dl>
-					<dt>Kinase Dataset</dt>
+					<dt>Kinome Regulation</dt>
 					<p>
-						<a href="datasets/KEA.zip"> KEA </a>
+						<a href="datasets/KEA.zip"> KEA 2015 </a>
 					</p>
 				</dl>
 			</div>
 
 			<div id="help" class="tab-content">
-				<h3>Manual</h3>
+				<h3>Instruction</h3>
 				<div id="manual">
 					<p>X2K Web offers four different analysis options: ChEA,
 						Genes2Networks, KEA, and the full X2K pipeline. Despite producing
@@ -311,7 +309,7 @@
 					</p>
 				</div>
 
-				<h3>About</h3>
+				<h3>Instructional video</h3>
 				<div id="about">
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/ipchvqQhdpc" frameborder="0" allowfullscreen></iframe>
 					<p>
@@ -325,7 +323,6 @@
 						analyze their differentially expressed gene lists using ChEA, G2N,
 						and KEA individually. To read more about the concept of X2K, you
 						can read about it <a href="http://www.maayanlab.net/X2K/">here</a>.
-						To learn how to use X2K web, please click on the Help tab.
 					</p>
 				</div>
 
