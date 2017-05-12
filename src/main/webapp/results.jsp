@@ -61,10 +61,10 @@
 		<!-- x2k -->
 		<div id="tabs-x2k" style="display: block">
 			<div id="x2k-desc">
-				<p>The Expression2Kinases (X2K) algorithm computationally predicts involvement of upstream cell signaling pathways, given a signature of differentially expressed genes.</p>
+				<p>Subnetwork of upstream transcription factors, intermediate proteins, and protein kinases.</p>
 			</div>
 			<ul>
-				<li><a href="#x2k-network">Network</a></li>
+				<li><a href="#x2k-network">Subnetwork</a></li>
 			</ul>
 
 			<!-- network -->
@@ -87,7 +87,7 @@
 		<!-- chea -->
 		<div id="tabs-chea" style="display: none">
 			<div id="chea-desc">
-				<p>ChIP Enrichment Analysis (ChEA) integrates data from ChIP-X experiments to predict transcription factor regulation of a list of input genes.</p>
+				<p>Top ten most enriched transcription factors as determined by ChEA or ENCODE.</p>
 			</div>
 			<ul>
 				<li><a href="#bargraph-chea">Bargraph</a></li>
@@ -122,10 +122,10 @@
 		<!-- g2n -->
 		<div id="tabs-g2n" style="display: none">
 			<div id="g2n-desc">
-			<p>Genes2Networks creates interaction subnetworks from the input list and predicted genes or proteins from protein-protein interaction databases.</p>
+			<p>Subnetwork that connects the transcription factors using known protein-protein interactions.</p>
 			</div>
 			<ul>
-				<li><a href="#network-g2n">Network</a></li>
+				<li><a href="#network-g2n">Subnetwork</a></li>
 			</ul>
 
 			<!-- network -->
@@ -146,7 +146,7 @@
 		<!-- kea -->
 		<div id="tabs-kea" style="display: none">
 			<div id="kea-desc">
-				<p>Kinase enrichment analysis (KEA) shows probability for the involvement of protein kinases in regulating the function of the proteins in the subnetwork created by the G2N step.</p>
+				<p>Top ten most enriched protein kinases to regulate the subnetwork as determined by KEA.</p>
 			</div>
 			<ul>
 				<li><a href="#bargraph-kea">Bargraph</a></li>
