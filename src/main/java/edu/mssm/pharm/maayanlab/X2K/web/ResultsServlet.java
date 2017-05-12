@@ -44,18 +44,19 @@ public class ResultsServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	    Part fileChunk = req.getPart("file");
-	    ArrayList<String> inputList = PartReader.readLines(fileChunk);
+//	    Part fileChunk = req.getPart("file");
+//	    ArrayList<String> inputList = PartReader.readLines(fileChunk);
 
 	    Part geneChunk = req.getPart("text-genes");
 	    ArrayList<String> textGenes = PartReader.readLines(geneChunk);
 
 		System.out.println("POST request - ChEA");
-	    if (inputList.size() > 0) {
-	        System.out.println("Using files genes:");
-	        System.out.println(inputList);
-	        setChEA(runChEA(inputList, req, resp));
-	    } else if (textGenes.size() > 0) {
+//	    if (inputList.size() > 0) {
+//	        System.out.println("Using files genes:");
+//	        System.out.println(inputList);
+//	        setChEA(runChEA(inputList, req, resp));
+//	    } else 
+		if (textGenes.size() > 0) {
 	        System.out.println("Using text genes:");
 	        System.out.println(textGenes);
 	        setChEA(runChEA(textGenes, req, resp));
@@ -64,10 +65,11 @@ public class ResultsServlet extends HttpServlet {
 	    }
 
 	    System.out.println("POST request - G2N");
-	    if(inputList.size() > 0){
-	        setG2n(runG2N(inputList, req, resp));
-	    }
-	    else if(textGenes.size() > 0){
+//	    if(inputList.size() > 0){
+//	        setG2n(runG2N(inputList, req, resp));
+//	    }
+//	    else 
+	    if(textGenes.size() > 0){
 	        setG2n(runG2N(textGenes, req, resp));
 	    }
 	    else{
@@ -75,10 +77,11 @@ public class ResultsServlet extends HttpServlet {
 	    }
 
 	    System.out.println("POST request - KEA");
-	    if(inputList.size() > 0){ //from file selection
-	        setkEA(runKEA(inputList, req, resp));
-	    }
-	    else if(textGenes.size() > 0){ //as text
+//	    if(inputList.size() > 0){ //from file selection
+//	        setkEA(runKEA(inputList, req, resp));
+//	    }
+//	    else 
+	    if(textGenes.size() > 0){ //as text
 	        setkEA(runKEA(textGenes, req, resp));
 	    }
 	    else{
@@ -86,10 +89,11 @@ public class ResultsServlet extends HttpServlet {
 	    }
 
 	    System.out.println("POST request - X2K");
-	    if(inputList.size() > 0){
-	        setX2k(enrichList(inputList, req, resp));
-	    }
-	    else if(textGenes.size() > 0){
+//	    if(inputList.size() > 0){
+//	        setX2k(enrichList(inputList, req, resp));
+//	    }
+//	    else 
+	    if(textGenes.size() > 0){
 	        setX2k(enrichList(textGenes, req, resp));
 	    }
 	    else{
