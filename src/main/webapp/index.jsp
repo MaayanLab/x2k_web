@@ -277,41 +277,8 @@
 			</div>
 
 			<div id="help" class="tab-content">
-				<h3>Instruction</h3>
+				<h3>About</h3>
 				<div id="manual">
-					<p>X2K Web offers four different analysis options: ChEA,
-						Genes2Networks, KEA, and the full X2K pipeline. Despite producing
-						different analyses, their usage is relatively similar. All of them
-						require 3 main steps:
-					<ol>
-						<li><b>Input your gene list.</b> You can input your list of
-							differentially expressed gene list either by copy pasting the
-							genes into the "Input Genes as Text" box bellow. Make sure that
-							it is formatted such that there is a single gene name per line
-							with no other separators (e.g. no commas). Alternatively you can
-							select a file from your computer using the "Choose File" button.
-							In this case, make sure that the genes in that file follow the
-							format of a single gene name per line with no additional
-							separators.</li>
-						<li><b>Configure your settings.</b> Now, you can browse
-							through the various settings in the blue settings tabs at the top
-							of the page. If you want to run the full X2K pipeline, all of the
-							settings tabs will be taken into account. However, if you want to
-							run just ChEA, Genes2Networks, or KEA, then you should only
-							configure the settings in that specific tab. It's OK if you
-							change other ones, but they just won't be taken into account when
-							the analysis is conducted.</li>
-						<li><b>Run the analysis.</b> Now that your gene list is
-							inputted and your settings configured, you should be ready to
-							actually run your analysis. Click the run button you want under
-							"Analyze Inputs" and wait for the results page to load!</li>
-					</ol>
-					</p>
-				</div>
-
-				<h3>Instructional video</h3>
-				<div id="about">
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/ipchvqQhdpc" frameborder="0" allowfullscreen></iframe>
 					<p>
 						X2K Web is an online tool used to infer upstream regulatory
 						networks from differentially expressed genes. Combining the <a
@@ -324,6 +291,11 @@
 						and KEA individually. To read more about the concept of X2K, you
 						can read about it <a href="http://www.maayanlab.net/X2K/">here</a>.
 					</p>
+				</div>
+
+				<h3>Instructional Video</h3>
+				<div id="about">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/ipchvqQhdpc" frameborder="0" allowfullscreen></iframe>
 				</div>
 
 <!-- 				<h3>Statistics</h3>
