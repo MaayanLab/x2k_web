@@ -81,7 +81,16 @@
 		        <a id="exportData" onclick="exportJson(this, 'X2K', json_file['X2K']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
-		    </div>			
+		        <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'jpg'); return false;">
+		            <button type="button" id="download-button">JPG</button>
+		        </a>
+		        <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'png'); return false;">
+		            <button type="button" id="download-button">PNG</button>
+		        </a>
+		        <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'svg'); return false;">
+		            <button type="button" id="download-button">SVG</button>
+		        </a>
+		    </div>
 		</div>
 
 		<!-- chea -->
@@ -116,6 +125,15 @@
 		        <a id="exportData" onclick="exportJson(this, 'ChEA', json_file['ChEA']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
+		        <a id="exportData" onclick="svgExport('#bargraph-chea', 'ChEA_bargraph', 'jpg'); return false;">
+		            <button type="button" id="download-button">JPG</button>
+		        </a>
+		        <a id="exportData" onclick="svgExport('#bargraph-chea', 'ChEA_bargraph', 'png'); return false;">
+		            <button type="button" id="download-button">PNG</button>
+		        </a>
+		        <a id="exportData" onclick="svgExport('bargraph-chea', 'ChEA_bargraph', 'svg'); return false;">
+		            <button type="button" id="download-button">SVG</button>
+		        </a>		        
 		    </div>		    
 		</div>
 
@@ -140,6 +158,15 @@
 		        <a id="exportData" onclick="exportJson(this, 'G2N', json_file['G2N']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
+		        <a id="exportData" onclick="svgExport('#g2n-network', 'G2N_network', 'jpg'); return false;">
+		            <button type="button" id="download-button">JPG</button>
+		        </a>
+		        <a id="exportData" onclick="svgExport('#g2n-netwok', 'G2N_network', 'png'); return false;">
+		            <button type="button" id="download-button">PNG</button>
+		        </a>
+		        <a id="exportData" onclick="svgExport('#g2n-network', 'G2N_network', 'svg'); return false;">
+		            <button type="button" id="download-button">SVG</button>
+		        </a>			        
 		    </div>			
 		</div>
 
@@ -174,6 +201,15 @@
 		        <a id="exportData" onclick="exportJson(this, 'KEA', json_file['KEA']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
+		        <a id="exportData" onclick="svgExport('#bargraph-kea', 'KEA_bargraph', 'jpg'); return false;">
+		            <button type="button" id="download-button">JPG</button>
+		        </a>
+		        <a id="exportData" onclick="svgExport('#bargraph-kea', 'KEA_bargraph', 'png'); return false;">
+		            <button type="button" id="download-button">PNG</button>
+		        </a>
+		        <a id="exportData" onclick="svgExport('#bargraph-kea', 'KEA_bargraph', 'svg'); return false;">
+		            <button type="button" id="download-button">SVG</button>
+		        </a>		        
 		    </div>		    
 		</div>
 	</div>

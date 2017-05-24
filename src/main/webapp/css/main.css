@@ -63,6 +63,7 @@ input[type="file"] {
 
 #logo a {
 	display: inline-block;
+	margin-left: 100px;
 }
 
 #logo a img {
