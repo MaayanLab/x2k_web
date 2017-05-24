@@ -74,6 +74,7 @@ public class APIServlet extends HttpServlet {
 	        System.out.println("no lists received - error");
 	    }
 	    
+	    System.out.println("Result");
         JSONify json = Context.getJSONConverter();
         json.add("ChEA", chEA);
         json.add("G2N", g2n);
@@ -81,8 +82,7 @@ public class APIServlet extends HttpServlet {
         json.add("X2K", x2k);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        req.setAttribute("json", json);
-        req.getRequestDispatcher("/api/results").forward(req, resp);
+        resp.getWriter().print(json);
 	}
 	
 	// ChEA procedures
@@ -91,14 +91,14 @@ public class APIServlet extends HttpServlet {
         ChEA app = new ChEA();
         System.out.println(app);
         System.out.println(ChEA.SORT_BY);
-        System.out.println(req.getParameter(ChEA.SORT_BY));
+        System.out.println(req.getParameter("sort_tfs_by"));
         System.out.println(ChEA.INCLUDED_ORGANISMS);
-        System.out.println(req.getParameter(ChEA.INCLUDED_ORGANISMS));
+        System.out.println(req.getParameter("included_organisms"));
         System.out.println(ChEA.BACKGROUND_DATABASE);
-        System.out.println(req.getParameter(ChEA.BACKGROUND_DATABASE));
-        app.setSetting(ChEA.SORT_BY, req.getParameter(ChEA.SORT_BY));
-        app.setSetting(ChEA.INCLUDED_ORGANISMS, req.getParameter(ChEA.INCLUDED_ORGANISMS));
-        app.setSetting(ChEA.BACKGROUND_DATABASE, req.getParameter(ChEA.BACKGROUND_DATABASE));
+        System.out.println(req.getParameter("included_database"));
+        app.setSetting(ChEA.SORT_BY, req.getParameter("sort_tfs_by"));
+        app.setSetting(ChEA.INCLUDED_ORGANISMS, req.getParameter("included_organisms"));
+        app.setSetting(ChEA.BACKGROUND_DATABASE, req.getParameter("included_database"));
         app.run(inputList);
 
         // Write app to session
@@ -110,8 +110,8 @@ public class APIServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         json.add("type", "ChEA");
-        json.add("tfs", app.getTopRanked(10));
-        json.add(ChEA.SORT_BY, req.getParameter(ChEA.SORT_BY));
+        json.add("tfs", app.getTopRanked(Integer.parseInt(req.getParameter("number_of_results"))));
+        json.add(ChEA.SORT_BY, req.getParameter("sort_tfs_by"));
         return json.toString();
     }
 
@@ -138,19 +138,19 @@ public class APIServlet extends HttpServlet {
     public static String runG2N(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Run enrichment
         Genes2Networks app = new Genes2Networks();
-        app.setSetting(Genes2Networks.PATH_LENGTH, req.getParameter(Genes2Networks.PATH_LENGTH));
-        app.setSetting(Genes2Networks.MAXIMUM_NUMBER_OF_EDGES, req.getParameter(Genes2Networks.MAXIMUM_NUMBER_OF_EDGES));
-        app.setSetting(Genes2Networks.MAXIMUM_NUMBER_OF_INTERACTIONS, req.getParameter(Genes2Networks.MAXIMUM_NUMBER_OF_INTERACTIONS));
-        app.setSetting(Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES, req.getParameter(Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES));
-        app.setSetting(Genes2Networks.ENABLE_BIOCARTA, req.getParameter(Genes2Networks.ENABLE_BIOCARTA));
-        app.setSetting(Genes2Networks.ENABLE_BIOGRID, req.getParameter(Genes2Networks.ENABLE_BIOGRID));
-        app.setSetting(Genes2Networks.ENABLE_DIP, req.getParameter(Genes2Networks.ENABLE_DIP));
-        app.setSetting(Genes2Networks.ENABLE_INNATEDB, req.getParameter(Genes2Networks.ENABLE_INNATEDB));
-        app.setSetting(Genes2Networks.ENABLE_INTACT, req.getParameter(Genes2Networks.ENABLE_INTACT));
-        app.setSetting(Genes2Networks.ENABLE_KEGG, req.getParameter(Genes2Networks.ENABLE_KEGG));
-        app.setSetting(Genes2Networks.ENABLE_MINT, req.getParameter(Genes2Networks.ENABLE_MINT));
-        app.setSetting(Genes2Networks.ENABLE_PPID, req.getParameter(Genes2Networks.ENABLE_PPID));
-        app.setSetting(Genes2Networks.ENABLE_SNAVI, req.getParameter(Genes2Networks.ENABLE_SNAVI));
+        app.setSetting(Genes2Networks.PATH_LENGTH, req.getParameter("path_length"));
+        app.setSetting(Genes2Networks.MAXIMUM_NUMBER_OF_EDGES, req.getParameter("max_number_of_interactions_per_protein"));
+        app.setSetting(Genes2Networks.MAXIMUM_NUMBER_OF_INTERACTIONS, req.getParameter("max_number_of_interactions_per_article"));
+        app.setSetting(Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES, req.getParameter("min_number_of_articles_supporting_interaction"));
+        app.setSetting(Genes2Networks.ENABLE_BIOCARTA, req.getParameter("biocarta"));
+        app.setSetting(Genes2Networks.ENABLE_BIOGRID, req.getParameter("biogrid"));
+        app.setSetting(Genes2Networks.ENABLE_DIP, req.getParameter("dip"));
+        app.setSetting(Genes2Networks.ENABLE_INNATEDB, req.getParameter("innatedb"));
+        app.setSetting(Genes2Networks.ENABLE_INTACT, req.getParameter("intact"));
+        app.setSetting(Genes2Networks.ENABLE_KEGG, req.getParameter("kegg"));
+        app.setSetting(Genes2Networks.ENABLE_MINT, req.getParameter("mint"));
+        app.setSetting(Genes2Networks.ENABLE_PPID, req.getParameter("ppid"));
+        app.setSetting(Genes2Networks.ENABLE_SNAVI, req.getParameter("snavi"));
         app.run(inputList);
         // Write app to session
         HttpSession httpSession = req.getSession();
@@ -170,7 +170,7 @@ public class APIServlet extends HttpServlet {
     public static String runKEA(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Run enrichment
         KEA app = new KEA();
-        app. setSetting(KEA.SORT_BY, req.getParameter(KEA.SORT_BY));
+        app. setSetting(KEA.SORT_BY, req.getParameter("sort_kinases_by"));
         app.run(inputList);
 
         // Write app to session - to be investigated
@@ -182,8 +182,8 @@ public class APIServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         json.add("type","KEA");
-        json.add("kinases", app.getTopRanked(10));
-        json.add(KEA.SORT_BY, req.getParameter(KEA.SORT_BY));
+        json.add("kinases", app.getTopRanked(Integer.parseInt(req.getParameter("number_of_results"))));
+        json.add(KEA.SORT_BY, req.getParameter("sort_kinases_by"));
         return json.toString();
     }
     

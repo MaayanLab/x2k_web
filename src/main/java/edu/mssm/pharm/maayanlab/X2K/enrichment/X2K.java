@@ -73,7 +73,7 @@ public class X2K implements SettingsChanger {
 		}
 	};
 	
-	public final static String MINIMUM_NETWORK_SIZE = "minimum network size";
+	public final static String MINIMUM_NETWORK_SIZE = "min_network_size";
 	public final static String NUMBER_OF_TOP_TFS = "number of top TFs";
 	public final static String NUMBER_OF_TOP_KINASES = "number of top kinases";
 	public final static String ENABLE_YED_OUTPUT = "output results in yEd";
