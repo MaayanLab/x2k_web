@@ -14,6 +14,7 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/api.js"></script>
 <script type="text/javascript"
 	src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-578e939ffe83e029"></script>
 
@@ -24,6 +25,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/api.css">
 <script>
 	(function(i, s, o, g, r, a, m) {
 		i['GoogleAnalyticsObject'] = r;
@@ -296,6 +298,11 @@
 				<h3>Instructional Video</h3>
 				<div id="about">
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/ipchvqQhdpc" frameborder="0" allowfullscreen></iframe>
+				</div>
+				
+				<h3>API</h3>
+				<div id="api">
+					<%@ include file="templates/help/api.html"%>
 				</div>
 
 <!-- 				<h3>Statistics</h3>
