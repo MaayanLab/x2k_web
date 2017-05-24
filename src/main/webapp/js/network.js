@@ -59,14 +59,18 @@ function draw_network(json, tab){
           .attr("class", "link")
           .style("stroke-width", function(d) { return Math.sqrt(d.value); });
 
+      var drag = force.drag()
+      .on("dragstart", dragstart);
+      
      var node = svg.selectAll("circle.node")
           .data(graph.nodes)
           .enter().append("circle")
 	          .attr("class", "node")
 	          .attr("r", width/70)
 	          .style("fill", function(d) { return color(d.group); })
-	          .call(force.drag);
-
+	          .call(drag)
+	          .on("dblclick", dblclick);
+     
      node.append("title")
      	.text(function(d) { return d.id; });
      
@@ -81,19 +85,28 @@ function draw_network(json, tab){
          .style("font-size", function(d){
         	 if(d.id.split('_')[0].length < 7){return "6px";}
         	 else return "5px";
-         });
-         
-
+         });     
+     
       force.on("tick", function() {
         link.attr("x1", function(d) { return d.source.x; })
             .attr("y1", function(d) { return d.source.y; })
             .attr("x2", function(d) { return d.target.x; })
             .attr("y2", function(d) { return d.target.y; });
 
+        
         node.attr("cx", function(d) { return d.x; })
             .attr("cy", function(d) { return d.y; });
         
         texts.attr("transform", function(d) {
             return "translate(" + d.x + "," + d.y + ")"; });
     });
+
 };
+
+function dblclick(d) {
+	  d3.select(this).classed("fixed", d.fixed = false);
+	}
+
+function dragstart(d) {
+	  d3.select(this).classed("fixed", d.fixed = true);
+	}
