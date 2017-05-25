@@ -172,6 +172,7 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 	border: 2px solid #4cb7ff;
 }
 
+
 #footer {
 	clear: both;
 	margin-top: 20px;
@@ -183,12 +184,6 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 
 #download_buttons {
 	float: left;
-	padding: 5px;
-	top: 0;
-}
-
-#legend {
-	height: 90px;
 	padding: 5px;
 	top: 0;
 }
@@ -305,6 +300,7 @@ button.accordion {
     border: 0px;
     outline: none;
     transition: 0.4s;
+    border-bottom: 1px dashed #aaa;
 }
 
 button.accordion.active {

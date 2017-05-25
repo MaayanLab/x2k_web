@@ -16,9 +16,11 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="http://www.w3schools.com/lib/w3data.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 	<script src="js/bargraph.js"></script>
 	<script src="js/results.js"></script>
 	<script src="js/network.js"></script>
+	<script src="js/jquery.atooltip.pack.js"></script>
 
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
@@ -27,6 +29,7 @@
     <link rel="stylesheet" href="css/results.css">
     <link rel="stylesheet" href="css/bargraph.css">
     <link rel="stylesheet" href="css/network.css">
+    <link rel="stylesheet" href="css/atooltip.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
 
@@ -72,9 +75,9 @@
 			</div>
 			<div id="legend">
 			  <ul class="no_bullet">
-			    <li class="legend"><svg height="12" width="12"><circle cx="6" cy="6" r="6" fill="#1F77B4"/></svg>Transcription Factor</li>
-			    <li class="legend"><svg height="12" width="12"><circle cx="6" cy="6" r="6" fill="#FF7F0E"/></svg>Intermediate protein</li>
-			    <li class="legend"><svg height="12" width="12"><circle cx="6" cy="6" r="6" fill="#AEC7E8"/></svg>Kinase</li>
+			    <li class="legend"><svg id="legend-dot" height="12" width="12"><circle cx="6" cy="6" r="6" fill="#1F77B4"/></svg>Transcription Factor</li>
+			    <li class="legend"><svg id="legend-dot" height="12" width="12"><circle cx="6" cy="6" r="6" fill="#FF7F0E"/></svg>Intermediate protein</li>
+			    <li class="legend"><svg id="legend-dot" height="12" width="12"><circle cx="6" cy="6" r="6" fill="#AEC7E8"/></svg>Kinase</li>
 			  </ul>
 			</div>			
 		    <div id="download_buttons">
@@ -100,7 +103,7 @@
 			</div>
 			<ul>
 				<li><a href="#bargraph-chea">Bargraph</a></li>
-				<li><a href="#chea-table">Table</a></li>
+				<li><a href="#chea-table-wrap">Table</a></li>
 			</ul>
 
 			<!-- bargraph -->
@@ -109,17 +112,9 @@
 
 			<!-- table -->
 		    <div id="chea" class="results-table">
-			    <table border="1"  id="chea-table">
-				    <thead>
-				    	<tr>
-					    	<th>Term</th>
-					    	<th>P-value</th>
-					    	<th>Z-score</th>
-					    	<th>Combined Score</th>
-				    	</tr>
-				    </thead>
-				    <tbody/>
-			    </table>
+			    <div id="chea-table-wrap">
+	 			    <table id="chea-table"></table>
+	 			</div>
 		    </div>
 		    <div id="download_buttons">
 		        <a id="exportData" onclick="exportJson(this, 'ChEA', json_file['ChEA']);">
@@ -131,7 +126,7 @@
 		        <a id="exportData" onclick="svgExport('#bargraph-chea', 'ChEA_bargraph', 'png'); return false;">
 		            <button type="button" id="download-button">PNG</button>
 		        </a>
-		        <a id="exportData" onclick="svgExport('bargraph-chea', 'ChEA_bargraph', 'svg'); return false;">
+		        <a id="exportData" onclick="svgExport('#bargraph-chea', 'ChEA_bargraph', 'svg'); return false;">
 		            <button type="button" id="download-button">SVG</button>
 		        </a>		        
 		    </div>		    
@@ -150,21 +145,21 @@
 			<div id="network-g2n"></div>
 			<div id="legend">
 				<ul class="no_bullet">
-					<li class="legend"> <svg height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#AEC7E8" /> </svg> Seed Protein</li>
-					<li class="legend"> <svg height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#1F77B4" /> </svg> Inermediate Protein</li>
+					<li class="legend"> <svg id="legend-dot" height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#AEC7E8" /> </svg> Seed Protein</li>
+					<li class="legend"> <svg id="legend-dot" height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#1F77B4" /> </svg> Inermediate Protein</li>
 				</ul>
 			</div>			
 		    <div id="download_buttons">
 		        <a id="exportData" onclick="exportJson(this, 'G2N', json_file['G2N']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
-		        <a id="exportData" onclick="svgExport('#g2n-network', 'G2N_network', 'jpg'); return false;">
+		        <a id="exportData" onclick="svgExport('#network-g2n', 'G2N_network', 'jpg'); return false;">
 		            <button type="button" id="download-button">JPG</button>
 		        </a>
-		        <a id="exportData" onclick="svgExport('#g2n-netwok', 'G2N_network', 'png'); return false;">
+		        <a id="exportData" onclick="svgExport('#network-g2n', 'G2N_network', 'png'); return false;">
 		            <button type="button" id="download-button">PNG</button>
 		        </a>
-		        <a id="exportData" onclick="svgExport('#g2n-network', 'G2N_network', 'svg'); return false;">
+		        <a id="exportData" onclick="svgExport('#network-g2n', 'G2N_network', 'svg'); return false;">
 		            <button type="button" id="download-button">SVG</button>
 		        </a>			        
 		    </div>			
@@ -177,7 +172,7 @@
 			</div>
 			<ul>
 				<li><a href="#bargraph-kea">Bargraph</a></li>
-				<li><a href="#kea-table">Table</a></li>
+				<li><a href="#kea-table-wrap">Table</a></li>
 			</ul>
 
 			<!-- bargraph -->
@@ -185,17 +180,9 @@
 
 			<!-- table -->
 		    <div id="kea" class="results-table">
-			    <table border="1" id="kea-table">
-				    <thead>
-				    	<tr>
-					    	<th>Term</th>
-					    	<th>P-value</th>
-					    	<th>Z-score</th>
-					    	<th>Combined Score</th>
-				    	</tr>
-				    </thead>
-			    <tbody/>
-			    </table>
+			    <div id="kea-table-wrap">
+				    <table id="kea-table"></table>
+				</div>
 		    </div>
 		    <div id="download_buttons">
 		        <a id="exportData" onclick="exportJson(this, 'KEA', json_file['KEA']);">

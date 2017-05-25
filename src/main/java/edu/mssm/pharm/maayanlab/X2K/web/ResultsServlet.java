@@ -136,7 +136,7 @@ public class ResultsServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         json.add("type", "ChEA");
-        json.add("tfs", app.getTopRanked(10));
+        json.add("tfs", app.getTopRanked(Integer.parseInt(req.getParameter("number_of_results"))));
         json.add(ChEA.SORT_BY, req.getParameter(ChEA.SORT_BY));
         return json.toString();
     }
@@ -208,7 +208,7 @@ public class ResultsServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         json.add("type","KEA");
-        json.add("kinases", app.getTopRanked(10));
+        json.add("kinases", app.getTopRanked(Integer.parseInt(req.getParameter("number_of_results"))));
         json.add(KEA.SORT_BY, req.getParameter(KEA.SORT_BY));
         return json.toString();
     }

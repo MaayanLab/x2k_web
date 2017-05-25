@@ -1,0 +1,96 @@
+#api{
+	display: inline;
+}
+
+#api-table{
+	border-spacing: 25px 0;
+	margin-left: -25px;
+}
+
+#api-descr{
+	margin-left: 20px;
+	margin-top: 4px;
+}
+
+.api-note{
+	font-size: 10px;
+	font-style: italic;
+	color: gray;
+}
+
+#api-table th,
+#api-table td {
+    border-bottom: 1px solid #ddd;
+    height: 23px;
+}
+
+#api-header{
+	background: rgba(97,175,254,.1);
+	border: 1px solid #2baaff;
+	border-radius: 3px;
+	padding: 2px;
+	display: inline-flex;
+	margin-bottom: 20px;
+}
+
+#api-method{
+	background: #2baaff;
+	border-radius: 3px;
+	color: white;
+	font-weight: bold;
+	display: inline;
+	padding: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#api-endpoint{
+	color: black;
+	font-family: monospace;
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 5px;
+	margin-top: 2px;
+}
+
+#api-copy-example{
+	margin-top: 25px;
+	display: block;
+}
+
+.api-example-source{
+	width: 100%;
+}
+
+#api_js:after {
+    content: 'JavaScript	+';
+    font-size: 13px;
+    float: right;
+    margin-left: 5px;
+}
+
+#api_js.active:after {
+    content: "JavaScript	-";
+}
+
+#api_py:after {
+    content: 'Python	+';
+    font-size: 13px;
+    float: right;
+    margin-left: 5px;
+}
+
+#apy_py.active:after {
+    content: "Python	-";
+}
+
+#api_curl:after {
+    content: 'cURL	+';
+    font-size: 13px;
+    float: right;
+    margin-left: 5px;
+}
+
+#api_curl.active:after {
+    content: "cURL	-";
+}
