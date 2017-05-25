@@ -14,7 +14,6 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/api.js"></script>
 <script type="text/javascript"
 	src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-578e939ffe83e029"></script>
 
@@ -71,7 +70,7 @@
 					<div id="text-input">
 						<h4 class="section-label">Enter a list of human or mouse Entrez gene symbols here:</h4>
 						<textarea rows="12" name="text-genes" id="text-genes"></textarea>			
-<table>
+<table id="run-buttons-container">
 <tbody>
 <tr>
 <td><button type="button" id="example-gene-list">Example</button>
@@ -95,7 +94,9 @@
 					<button class="accordion" id="acc_x2k"></button>
 					<div id="x2k-settings" class="panel">
 						Minimum number of proteins in subnetwork: <input type="text"
-							name="${X2K.MINIMUM_NETWORK_SIZE}" size="3" value="50">
+							name="${X2K.MINIMUM_NETWORK_SIZE}" size="3" value="50"></br>
+						Number of results: <input type="text"
+							name="number_of_results" size="3" value="10">							
 					</div>
 
 					<button class="accordion" id="acc_chea"></button>

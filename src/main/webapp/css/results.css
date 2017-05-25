@@ -62,6 +62,17 @@ button.selected {
 	heigth: 800px;
 }
 
+
+#legend {
+	height: 90px;
+	padding: 5px;
+	top: 0;
+}
+
+#legend-dot{
+	margin-right: 10px;
+}
+
 #chea-table,
 #kea-table
 {
@@ -107,4 +118,5 @@ td + td {
     border-radius: 15px;
     cursor: pointer;
     font-size: 0.8em;
+    margin-top: 10px;
 }

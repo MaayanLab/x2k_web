@@ -44,7 +44,9 @@ function draw_network(json, tab){
 
     var svg = d3.select(tab).append("svg")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height)
+        .attr("xmlns", "http://www.w3.org/2000/svg")
+        .attr("version", "1.1");
 	
     graph = json;
     
@@ -57,7 +59,7 @@ function draw_network(json, tab){
           .data(graph.links)
         .enter().append("line")
           .attr("class", "link")
-          .style("stroke-width", function(d) { return Math.sqrt(d.value); });
+          .style("stroke-width", function(d) { return Math.sqrt(d.value);});
 
       var drag = force.drag()
       .on("dragstart", dragstart);

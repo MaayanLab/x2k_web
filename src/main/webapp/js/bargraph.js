@@ -34,7 +34,11 @@ function drawBargraph(tab, data) {
 		data, bar, svg, scale, xAxis, labelWidth = 0;
 	
 	max = d3.max(data, function(d) {return -1*Math.log10(d["pvalue"]);});
-	svg = d3.select(tab).append("svg").attr("width", width).attr("height", height);
+	svg = d3.select(tab).append("svg")
+		.attr("width", width)
+		.attr("height", height)
+		.attr("xmlns", "http://www.w3.org/2000/svg")
+		.attr("version", "1.1");
 	
 	svg.append("text")
 	    .attr("text-anchor", "middle")
@@ -67,7 +71,7 @@ function drawBargraph(tab, data) {
 	labelWidth = labelWidth + 5; 
 	
 	scale = d3.scale.linear().domain([ 0, max ]).range([0, width - margin * 2 - labelWidth]);
-	xAxis = d3.svg.axis().scale(scale).tickSize(-height + 2 * margin + axisMargin).orient("bottom");
+	xAxis = d3.svg.axis().scale(scale).tickSize(-height + 2 * margin + axisMargin).orient("bottom").outerTickSize(0);
 	
 	bar.append("rect")
 			.attr("transform", "translate(" + labelWidth + ", 0)")
