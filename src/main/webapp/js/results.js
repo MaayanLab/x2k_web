@@ -92,8 +92,6 @@ function createTable(dataArray, container) {
 		enriched = "enrichedSubstrates"
 	}
 	
-	console.log(enriched);
-	
 	var dataArray_switch = [];
 	for (i = 0; i < dataArray.length; i++) {
 		dataArray_switch[i] = [i, dataArray[i]["name"], dataArray[i]["pvalue"],
