@@ -1,7 +1,9 @@
 function draw_network(json, tab){
     // Convert ids to indices in links
     var nodeMap = {};
-    json.nodes.forEach(function(x) { nodeMap[x.id] = x; });
+    
+    json.nodes.forEach(function(x) {nodeMap[x.id] = x;});
+    
     json.links = json.links.map(function(x) {
       return {
         source: nodeMap[x.data.source],
@@ -41,7 +43,7 @@ function draw_network(json, tab){
         })
         .linkDistance(width/80)
         .size([width, height]);}
-
+    
     var svg = d3.select(tab).append("svg")
         .attr("width", width)
         .attr("height", height)
@@ -55,11 +57,25 @@ function draw_network(json, tab){
           .links(graph.links)
           .start();
       
+      
+//	   	 if (tab === '#x2k-network') {
+//
+//	   	     Object.keys(nodeMap).forEach(function(node) {
+//	   	         console.log(nodeMap[node]);
+//	   	         if (nodeMap[node].group === 'kinase') {
+//	   	             nodeMap[node].y = nodeMap[node].y - 100;
+//	   	         } else if (nodeMap[node].group === 'tf') {
+//	   	             nodeMap[node].y = nodeMap[node].y + 100;
+//	   	         }
+//	   	         console.log(nodeMap[node]);
+//	   	     });
+//	   	 }
+      
       var link = svg.selectAll("line.link")
           .data(graph.links)
         .enter().append("line")
           .attr("class", "link")
-          .style("stroke-width", function(d) { return Math.sqrt(d.value);});
+          .style("stroke-width", function(d) { return Math.log(d.value);});
 
       var drag = force.drag()
       .on("dragstart", dragstart);
@@ -88,6 +104,7 @@ function draw_network(json, tab){
         	 if(d.id.split('_')[0].length < 7){return "6px";}
         	 else return "5px";
          });     
+
      
       force.on("tick", function() {
         link.attr("x1", function(d) { return d.source.x; })

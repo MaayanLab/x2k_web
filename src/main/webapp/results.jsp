@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="css/bargraph.css">
     <link rel="stylesheet" href="css/network.css">
     <link rel="stylesheet" href="css/atooltip.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
 
@@ -84,7 +85,7 @@
 		        <a id="exportData" onclick="exportJson(this, 'X2K', json_file['X2K']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
-		        <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'jpg'); return false;">
+<!-- 		        <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'jpg'); return false;">
 		            <button type="button" id="download-button">JPG</button>
 		        </a>
 		        <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'png'); return false;">
@@ -92,7 +93,7 @@
 		        </a>
 		        <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'svg'); return false;">
 		            <button type="button" id="download-button">SVG</button>
-		        </a>
+		        </a> -->
 		    </div>
 		</div>
 
@@ -120,7 +121,7 @@
 		        <a id="exportData" onclick="exportJson(this, 'ChEA', json_file['ChEA']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
-		        <a id="exportData" onclick="svgExport('#bargraph-chea', 'ChEA_bargraph', 'jpg'); return false;">
+<!-- 		        <a id="exportData" onclick="svgExport('#bargraph-chea', 'ChEA_bargraph', 'jpg'); return false;">
 		            <button type="button" id="download-button">JPG</button>
 		        </a>
 		        <a id="exportData" onclick="svgExport('#bargraph-chea', 'ChEA_bargraph', 'png'); return false;">
@@ -128,7 +129,7 @@
 		        </a>
 		        <a id="exportData" onclick="svgExport('#bargraph-chea', 'ChEA_bargraph', 'svg'); return false;">
 		            <button type="button" id="download-button">SVG</button>
-		        </a>		        
+		        </a>	 -->	        
 		    </div>		    
 		</div>
 
@@ -146,14 +147,14 @@
 			<div id="legend">
 				<ul class="no_bullet">
 					<li class="legend"> <svg id="legend-dot" height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#AEC7E8" /> </svg> Seed Protein</li>
-					<li class="legend"> <svg id="legend-dot" height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#1F77B4" /> </svg> Inermediate Protein</li>
+					<li class="legend"> <svg id="legend-dot" height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#1F77B4" /> </svg> Intermediate Protein</li>
 				</ul>
 			</div>			
 		    <div id="download_buttons">
 		        <a id="exportData" onclick="exportJson(this, 'G2N', json_file['G2N']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
-		        <a id="exportData" onclick="svgExport('#network-g2n', 'G2N_network', 'jpg'); return false;">
+<!-- 		        <a id="exportData" onclick="svgExport('#network-g2n', 'G2N_network', 'jpg'); return false;">
 		            <button type="button" id="download-button">JPG</button>
 		        </a>
 		        <a id="exportData" onclick="svgExport('#network-g2n', 'G2N_network', 'png'); return false;">
@@ -161,7 +162,7 @@
 		        </a>
 		        <a id="exportData" onclick="svgExport('#network-g2n', 'G2N_network', 'svg'); return false;">
 		            <button type="button" id="download-button">SVG</button>
-		        </a>			        
+		        </a> -->
 		    </div>			
 		</div>
 
@@ -188,14 +189,14 @@
 		        <a id="exportData" onclick="exportJson(this, 'KEA', json_file['KEA']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
-		        <a id="exportData" onclick="svgExport('#bargraph-kea', 'KEA_bargraph', 'jpg'); return false;">
+<!-- 		        <a id="exportData" onclick="svgExport('#bargraph-kea', 'KEA_bargraph', 'jpg'); return false;">
 		            <button type="button" id="download-button">JPG</button>
 		        </a>
 		        <a id="exportData" onclick="svgExport('#bargraph-kea', 'KEA_bargraph', 'png'); return false;">
 		            <button type="button" id="download-button">PNG</button>
 		        </a>
 		        <a id="exportData" onclick="svgExport('#bargraph-kea', 'KEA_bargraph', 'svg'); return false;">
-		            <button type="button" id="download-button">SVG</button>
+		            <button type="button" id="download-button">SVG</button> -->
 		        </a>		        
 		    </div>		    
 		</div>
