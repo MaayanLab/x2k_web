@@ -1,8 +1,39 @@
+body {
+/* 	width: 1230px;
+	height: 800px; */
+	font-family: arial, sans-serif;
+	font-size: 13px;
+}
+
 #page {
 	margin: 20px auto;
 	padding: 20px;
-	width: 1230px;
-	height: 800px;
+	width: 100%;
+	height: 100%;
+}
+
+#logo {
+  display: table;
+  margin: 0 auto;
+}
+
+#logo a {
+	display: inline-block;
+	margin-left: 100px;
+}
+
+#logo a img {
+	width: 200px;
+	cursor: pointer;
+}
+
+#x2k_title {
+    text-align: center;
+    color: #0c89e2;
+    margin-top: 5px;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #x2k-button,
@@ -22,6 +53,10 @@
 	line-height: 1.25;
 	margin-top: 0;
 	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.15);
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    cursor: pointer;	
 }
 
 /* Overwriting jQuery style*/
@@ -48,8 +83,9 @@
 	color: #000 !important;
 }
 
-#button-panel{
-	height: 800px;
+#buttons-panel{
+	height: 12%;
+	float: left
 }
 
 button.selected {
@@ -59,7 +95,8 @@ button.selected {
 
 #results {
 	display: table;
-	heigth: 800px;
+	width: 80%;
+	height: 100%;
 }
 
 
@@ -71,6 +108,10 @@ button.selected {
 
 #legend-dot{
 	margin-right: 10px;
+}
+
+.no_bullet{
+	list-style-type: none;
 }
 
 #chea-table,
@@ -119,4 +160,19 @@ td + td {
     cursor: pointer;
     font-size: 0.8em;
     margin-top: 10px;
+}
+
+#footer > p{
+	margin-bottom: 10px;
+}
+
+#footer {
+	clear: both;
+	width: 79%;
+  	margin: 0 auto;
+	margin-top: 20px;
+}
+
+#footer h3 {
+	margin: 10px 0 5px 0;
 }

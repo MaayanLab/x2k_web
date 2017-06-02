@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="http://www.w3schools.com/lib/w3data.js"></script>
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 	<script src="js/bargraph.js"></script>
@@ -22,17 +22,33 @@
 	<script src="js/network.js"></script>
 	<script src="js/jquery.atooltip.pack.js"></script>
 
-
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/results.css">
-    <link rel="stylesheet" href="css/bargraph.css">
-    <link rel="stylesheet" href="css/network.css">
-    <link rel="stylesheet" href="css/atooltip.css">
-    <link rel="stylesheet" href="css/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/autofill/2.2.0/css/autoFill.bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css"/>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+	<link rel="stylesheet" href="css/results.css">
+	<link rel="stylesheet" href="css/bargraph.css">
+	<link rel="stylesheet" href="css/network.css">
+	<link rel="stylesheet" href="css/atooltip.css">
+	<link rel="stylesheet" href="css/jquery.dataTables.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+	<!-- <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css"> -->
+	 
+	 
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/autofill/2.2.0/js/dataTables.autoFill.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/autofill/2.2.0/js/autoFill.bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.1/js/responsive.bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -44,7 +60,7 @@
 	</script>
 
 	<!-- buttons -->
-	<div id="buttons-panel" style="float: left; width: 160px;">
+	<div id="buttons-panel">
 
 		<div>
 			<button type="button" id="x2k-button" class="selected">X2K</button>
@@ -196,8 +212,8 @@
 		            <button type="button" id="download-button">PNG</button>
 		        </a>
 		        <a id="exportData" onclick="svgExport('#bargraph-kea', 'KEA_bargraph', 'svg'); return false;">
-		            <button type="button" id="download-button">SVG</button> -->
-		        </a>		        
+		            <button type="button" id="download-button">SVG</button>
+		        </a> -->
 		    </div>		    
 		</div>
 	</div>

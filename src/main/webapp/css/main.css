@@ -1,6 +1,13 @@
 body {
 	font-family: arial, sans-serif;
 	font-size: 13px;
+/* 	width: 1000px;
+	height: 600px; */
+}
+
+#content {
+	width: 50%;
+  	margin: 0 auto;	
 }
 
 #x2k_title {
@@ -52,8 +59,8 @@ input[type="file"] {
 #page {
 	margin: 20px auto;
 	padding: 20px;
-	width: 1000px;
-	height: 600px;
+	width: 100%;
+	height: 100%;
 }
 
 #logo {
@@ -134,7 +141,7 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 
 #input-fields {
 	display: inline-block;
-	width: 750px;
+	width: 100%;
 }
 
 #input-fields #example-gene-list {
@@ -144,25 +151,14 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 
 #input-fields #text-input {
 	float: left;
-	width: 370px;
+	width: 100%;
 	margin-right: 5px;
 }
 
-#input-fields #file-input {
-	float: left;
-	width: 370px;
-	margin-left: 5px;
-}
-
 #input-fields textarea {
-	padding: 10px;
 	resize: none;
-	width: 350px;
+	width: 100%;
 }
-
-/* #run-buttons {
-	width: 370px;
-} */
 
 #run-buttons button {
 	margin: 10px 0 0 10px;
@@ -172,9 +168,10 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 	border: 2px solid #4cb7ff;
 }
 
-
 #footer {
 	clear: both;
+	width: 50%;
+  	margin: 0 auto;
 	margin-top: 20px;
 }
 
@@ -194,7 +191,6 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 	height: 700px;
 	width: 700px;
 }
-
 ul.no_bullet {
 	list-style-type: none;
 	margin: 0;
@@ -208,6 +204,7 @@ li.legend {
 #social_buttons {
 	float: right;
 }
+
 
 .clear {
 	clear: both;
