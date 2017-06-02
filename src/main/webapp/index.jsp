@@ -9,6 +9,7 @@
 
 <html>
 <head>
+    <title>X2K Web</title>
 <!-- JavaScript imports -->
 <script src="js/jquery-3.0.0.min.js"></script>
 <script
@@ -47,6 +48,7 @@
 	<div id="page">
 
 		<%@ include file="templates/frame/header.html"%>
+		<div id="content">
 			<div>
 				<ul id="menu">
 					<li><a href="#x2k" class="setting tab-link">X2K</a></li>
@@ -362,6 +364,7 @@
 		</form>
 
 		<div class="clear"></div>
+		</div>
 		<%@ include file="templates/frame/footer.html"%>
 	</div>
 </body>

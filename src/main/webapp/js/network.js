@@ -57,7 +57,7 @@ function draw_network(json, tab){
           .links(graph.links)
           .start();
       
-      
+//      TODO растаскивание
 //	   	 if (tab === '#x2k-network') {
 //
 //	   	     Object.keys(nodeMap).forEach(function(node) {
@@ -75,8 +75,8 @@ function draw_network(json, tab){
           .data(graph.links)
         .enter().append("line")
           .attr("class", "link")
-          .style("stroke-width", function(d) { return Math.log(d.value);});
-
+          .style("stroke-width", function(d) {return 1;});
+// 		TODO сделать толщину-цвет зависимыми от значения p-val
       var drag = force.drag()
       .on("dragstart", dragstart);
       

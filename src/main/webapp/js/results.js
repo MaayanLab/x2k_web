@@ -59,30 +59,7 @@ var Base64 = {
 	}
 }
 
-// Table magic
-
-//Extension to jquery to add a data-type that allows sorting of scientific
-//notation
-jQuery.extend(jQuery.fn.dataTableExt.oSort, {
-	'scientific-pre' : function(a) {
-		return parseFloat(a);
-	},
-
-	'scientific-asc' : function(a, b) {
-		return ((a < b) ? -1 : ((a > b) ? 1 : 0));
-	},
-
-	'scientific-desc' : function(a, b) {
-		return ((a < b) ? 1 : ((a > b) ? -1 : 0));
-	}
-});
-
-function createTable(dataArray, container) {
-	
-	pValDesc = 'The p-value is computed from the Fisher exact test which is a proportion test that assumes a binomial distribution and independence for probability of any gene belonging to any set.';
-	combinedScoreDesc = 'Combined score is computed by taking the log of the p-value from the Fisher exact test and multiplying that by the z-score of the deviation from the expected rank.';
-	zScoreDesc = 'The rank based ranking is derived from running the Fisher exact test for many random gene sets in order to compute a mean rank and standard deviation from the expected rank for each term in the gene-set library and finally calculating a z-score to assess the deviation from the expected rank.';
-	
+function createTable(json, container) {		
 	var enriched;
 	
 	if (container === "#chea-table"){
@@ -92,91 +69,54 @@ function createTable(dataArray, container) {
 		enriched = "enrichedSubstrates"
 	}
 	
-	var dataArray_switch = [];
-	for (i = 0; i < dataArray.length; i++) {
-		dataArray_switch[i] = [i, dataArray[i]["name"], dataArray[i]["pvalue"],
-				dataArray[i]["zscore"], dataArray[i]["combinedScore"], dataArray[i][enriched]];
-	}
-	$(container).dataTable(
-			{
-				'aaData' : dataArray_switch,
-				'fnCreatedRow' : function(nRow, aData, iDataIndex) {
-					$(nRow).attr('title', aData[5].join(', '));
-				},
-				'fnRowCallback' : function(nRow, aData, iDisplayIndex,
-						iDisplayIndexFull) {
-					if (this.fnSettings().oPreviousSearch.sSearch == '') {
-						$('td:first-child', nRow).html(iDisplayIndexFull + 1);
-					}
-					$(nRow).aToolTip({
-						toolTipClass : 'defaultTheme gene-overlap'
-					});
-				},
-				'aoColumnDefs' : [
-						{
-							'aTargets' : [ 0 ],
-							'sTitle' : 'Index',
-							'sClass' : 'center',
-							'sWidth' : '10%',
-							'bSortable' : false,
-							'bSearchable' : false
-						},
-						{
-							'aTargets' : [ 1 ],
-							'sTitle' : 'Name',
-							'sClass' : 'left',
-							'mRender' : function(data, type, full) {
-								// Data - name of term, type - 'display', 'full'
-								// - position, name of term, p-value, z-score,
-								// combined score, overlapping genes, q-value
-								dataout = data.replace(/_/g, ' ');
-								return dataout;
-							}
-						}, {
-							'aTargets' : [ 2 ],
-							'sTitle' : 'P-value',
-							'sClass' : 'right',
-							'sWidth' : '20%',
-							'sType' : 'scientific',
-							// 'asSorting' : [ 'asc' ],
-							'bSearchable' : false,
-							'mRender' : function(data) {
-								return data.toPrecision(4);
-							}
-						}, {
-							'aTargets' : [ 3 ],
-							'sTitle' : 'Z-score',
-							'sClass' : 'right',
-							'sWidth' : '20%',
-							// 'asSorting' : [ 'asc' ],
-							'bSearchable' : false,
-							'mRender' : function(data) {
-								return data.toFixed(2);
-							}
-						}, {
-							'aTargets' : [ 4 ],
-							'sTitle' : 'Combined score',
-							'sClass' : 'right',
-							'sWidth' : '20%',
-							// 'asSorting' : [ 'desc' ],
-							'bSearchable' : false,
-							'mRender' : function(data) {
-								return data.toFixed(2);
-							}
-						} ],
-				'aaSorting' : [ [ 5, 'desc' ] ],
-				'oLanguage' : {
-					'sLengthMenu' : '_MENU_ entries per page'
-				}
-			});
-//	$(container + ' div.dataTables_info').after($(container + ' div.export'));
-	$(container + ' th').eq(2).attr('title', pValDesc);
-	$(container + ' th').eq(3).attr('title', zScoreDesc);
-	$(container + ' th').eq(4).attr('title', combinedScoreDesc);
-//	$(container + ' th[title]').aToolTip({toolTipClass : 'defaultTheme method-desc'});
-}
+	var dataArray = [];
+	for (i = 0; i < json.length; i++) {
+		dataArray[i] = [i, json[i]["name"], json[i]["pvalue"].toPrecision(4), json[i]["zscore"].toFixed(2),
+		                json[i]["combinedScore"].toFixed(2), json[i][enriched].join(", ")];
+	}	
+	
+    var table = $(container).DataTable( {
+        data: dataArray,
+        columns: [
+            {},      
+            {title: "Term" },
+            {title: "P-value" },
+            {title: "Z-score" },
+            {title: "Combined score" }, 
+            {}
+        ],        
+        "columnDefs": [{
+            "targets": [5],
+            "visible": false,
+            "searchable": false
+        	}],
+        buttons: ['copy', 'excel', 'csv'],
+        drawCallback: function(settings){
+        	
+           var api = this.api();
+           
+           api.rows( { page: 'current' } ).every( function () {
+        	    var rowData = this.data();
+        	    api.cell(this.index(), 0).node().setAttribute('title', rowData[5]);
+        	  } );
+           
+            $('tr', api.table().container()).each(function () {
+            	title = this.cells[0].title;
+               $(this).attr('title', title);
+            });
 
-// Table magic
+            $('tr', api.table().container()).tooltip({
+               container: 'body'
+            });  
+        	
+        }
+    } );
+    
+    table.buttons().container()
+    	.appendTo( $('.col-sm-5:eq(0)', table.table().container() ) );
+    
+    table.$('tr').tooltip();
+}
 
 function download(url, data, method) {
 	if (url && data) {
