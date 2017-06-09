@@ -59,8 +59,12 @@
 		w3IncludeHTML();
 	</script>
 
+	<table id ="res_layout_table">
+	<tbody>
+	<tr>
+	<td id="buttons-panel">
 	<!-- buttons -->
-	<div id="buttons-panel">
+	<div >
 
 		<div>
 			<button type="button" id="x2k-button" class="selected">X2K</button>
@@ -74,13 +78,13 @@
 		<div>
 			<button type="button" id="kea-button">KEA</button>
 		</div>
-	</div>
-
+	</div></td>
+	<td id="results-panel">
 	<!-- results -->
 	<div id="results">
 		<!-- x2k -->
 		<div id="tabs-x2k" style="display: block">
-			<div id="x2k-desc">
+			<div class="desc">
 				<p>Subnetwork of upstream transcription factors, intermediate proteins, and protein kinases.</p>
 			</div>
 			<ul>
@@ -89,6 +93,8 @@
 
 			<!-- network -->
 			<div id="x2k-network">
+			<button id="zoom_in">+</button>
+			<button id="zoom_out">-</button>
 			</div>
 			<div id="legend">
 			  <ul class="no_bullet">
@@ -115,7 +121,7 @@
 
 		<!-- chea -->
 		<div id="tabs-chea" style="display: none">
-			<div id="chea-desc">
+			<div class="desc">
 				<p>Top ten most enriched transcription factors as determined by ChEA or ENCODE.</p>
 			</div>
 			<ul>
@@ -151,7 +157,7 @@
 
 		<!-- g2n -->
 		<div id="tabs-g2n" style="display: none">
-			<div id="g2n-desc">
+			<div class="desc">
 			<p>Subnetwork that connects the transcription factors using known protein-protein interactions.</p>
 			</div>
 			<ul>
@@ -184,7 +190,7 @@
 
 		<!-- kea -->
 		<div id="tabs-kea" style="display: none">
-			<div id="kea-desc">
+			<div class="desc">
 				<p>Top ten most enriched protein kinases to regulate the subnetwork as determined by KEA.</p>
 			</div>
 			<ul>
@@ -216,8 +222,10 @@
 		        </a> -->
 		    </div>		    
 		</div>
-	</div>
-
+	</div></td>
+	</tr>
+	</tbody>
+	</table>
 	<div class="clear"></div>
     <%@ include file="templates/frame/footer.html" %>
     </div>

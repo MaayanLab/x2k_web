@@ -139,36 +139,51 @@
 
 						<!-- experiment -i've been told this works even though its shady  -->
 
-						<br> Use the following PPI Networks: <br> <input
-							type="checkbox" name="${Genes2Networks.ENABLE_BIOCARTA}"
-							value="true" checked> Biocarta <input type="hidden"
-							name="${Genes2Networks.ENABLE_BIOCARTA}" value="false"> <input
-							type="checkbox" name="${Genes2Networks.ENABLE_BIOGRID}"
-							value="true" checked> BioGRID <input type="hidden"
-							name="${Genes2Networks.ENABLE_BIOGRID}" value="false"> <input
-							type="checkbox" name="${Genes2Networks.ENABLE_DIP}" value="true"
-							checked> DIP <input type="hidden"
-							name="${Genes2Networks.ENABLE_DIP}" value="false"> <input
-							type="checkbox" name="${Genes2Networks.ENABLE_INNATEDB}"
-							value="true" checked> InnateDB <input type="hidden"
-							name="${Genes2Networks.ENABLE_INNATEDB}" value="false"> <br>
+						<br> Use the following PPI Networks: <br>
+							<input type="checkbox" name="${Genes2Networks.ENABLE_BIOCARTA}" value="true" checked>
+							Biocarta
+							<input type="hidden" name="${Genes2Networks.ENABLE_BIOCARTA}" value="false">
+							
+							<input type="checkbox" name="${Genes2Networks.ENABLE_BIOGRID}" value="true" checked>
+							BioGRID
+							<input type="hidden" name="${Genes2Networks.ENABLE_BIOGRID}" value="false">
 
-						<input type="checkbox" name="${Genes2Networks.ENABLE_INTACT}"
-							value="true" checked> IntAct <input type="hidden"
-							name="${Genes2Networks.ENABLE_INTACT}" value="false"> <input
-							type="checkbox" name="${Genes2Networks.ENABLE_KEGG}" value="true"
-							checked> KEGG <input type="hidden"
-							name="${Genes2Networks.ENABLE_KEGG}" value="false"> <input
-							type="checkbox" name="${Genes2Networks.ENABLE_MINT}" value="true"
-							checked> MINT <input type="hidden"
-							name="${Genes2Networks.ENABLE_MINT}" value="false"> <input
-							type="checkbox" name="${Genes2Networks.ENABLE_PPID}" value="true"
-							checked> ppid <input type="hidden"
-							name="${Genes2Networks.ENABLE_PPID}" value="false"> <input
-							type="checkbox" name="${Genes2Networks.ENABLE_SNAVI}"
-							value="true" checked> SNAVI <input type="hidden"
-							name="${Genes2Networks.ENABLE_SNAVI}" value="false">
-					</div>
+							<input type="checkbox" name="${Genes2Networks.ENABLE_BIOPLEX}" value="true" checked>
+							BioPlex
+							<input type="hidden" name="${Genes2Networks.ENABLE_BIOPLEX}" value="false">
+							
+							<input type="checkbox" name="${Genes2Networks.ENABLE_DIP}" value="true" checked>
+							DIP
+							<input type="hidden" name="${Genes2Networks.ENABLE_DIP}" value="false">
+
+							<input type="checkbox" name="${Genes2Networks.ENABLE_HUMAP}" value="true" checked>
+							huMAP
+							<input type="hidden" name="${Genes2Networks.ENABLE_HUMAP}" value="false">
+							
+							<input type="checkbox" name="${Genes2Networks.ENABLE_INNATEDB}" value="true" checked>
+							InnateDB
+							<input type="hidden" name="${Genes2Networks.ENABLE_INNATEDB}" value="false">
+							<br>
+							<input type="checkbox" name="${Genes2Networks.ENABLE_INTACT}" value="true" checked>
+							IntAct
+							<input type="hidden" name="${Genes2Networks.ENABLE_INTACT}" value="false">
+							
+							<input type="checkbox" name="${Genes2Networks.ENABLE_KEGG}" value="true" checked>
+							KEGG
+							<input type="hidden" name="${Genes2Networks.ENABLE_KEGG}" value="false">
+							
+							<input type="checkbox" name="${Genes2Networks.ENABLE_MINT}" value="true" checked>
+							MINT
+							<input type="hidden" name="${Genes2Networks.ENABLE_MINT}" value="false">
+							
+							<input type="checkbox" name="${Genes2Networks.ENABLE_PPID}" value="true" checked>
+							ppid
+							<input type="hidden" name="${Genes2Networks.ENABLE_PPID}" value="false">
+							
+							<input type="checkbox" name="${Genes2Networks.ENABLE_SNAVI}" value="true" checked>
+							SNAVI
+							<input type="hidden" name="${Genes2Networks.ENABLE_SNAVI}" value="false">
+						</div>
 
 					<button class="accordion" id="acc_kea"></button>
 					<div id="kea-settings" class="panel">
@@ -248,11 +263,19 @@
 					<dt>Protein-Protein Interaction</dt>
 					<p>
 						<a href="datasets/Biocarta.sig"> Biocarta </a>
+					</p>
 					<p>
 						<a href="datasets/BioGrid.sig"> BioGrid </a>
+					</p>
+					<p>
+						<a href="datasets/BioPlex.sig"> BioGrid </a>
+					</p>					
 					<p>
 						<a href="datasets/DIP.sig"> DIP </a>
 					</p>
+					<p>
+						<a href="datasets/huMAP.sig"> huMAP </a>
+					</p>					
 					<p>
 						<a href="datasets/innateDB.sig"> innateDB </a>
 					</p>

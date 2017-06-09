@@ -181,7 +181,7 @@ public class X2K implements SettingsChanger {
 	
 	private void runG2N(int intermediates) {
 		
-		g2n = new Genes2Networks(settings);
+		g2n = new Genes2Networks();
 		
 		do {
 			g2n.setSetting(Genes2Networks.PATH_LENGTH, Integer.toString(intermediates));

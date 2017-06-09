@@ -157,7 +157,7 @@ ul#menu li a.information.active, ul#menu li a.information:hover {
 
 #input-fields textarea {
 	resize: none;
-	width: 100%;
+	width: 99%;
 }
 
 #run-buttons button {
