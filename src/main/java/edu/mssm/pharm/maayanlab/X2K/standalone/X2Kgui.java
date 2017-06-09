@@ -286,7 +286,7 @@ public class X2Kgui extends JPanel {
 						
 						setSettings(app);
 						tfPanel.setSettings(app);
-						networkPanel.setSettings(app);
+						networkPanel.setSettings((edu.mssm.pharm.maayanlab.SettingsChanger) app);
 						kinasePanel.setSettings(app);
 						
 						DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("Please wait while X2K runs.");

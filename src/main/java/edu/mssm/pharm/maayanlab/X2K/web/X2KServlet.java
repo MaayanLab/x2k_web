@@ -37,7 +37,9 @@ public class X2KServlet extends HttpServlet {
 		availableSettings.put(Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES, new String[] { "0", "1", "4", "7", "10" });
 		availableSettings.put(Genes2Networks.ENABLE_BIOCARTA, new String[] { "true", "false" });
 		availableSettings.put(Genes2Networks.ENABLE_BIOGRID, new String[] { "true", "false" });
+		availableSettings.put(Genes2Networks.ENABLE_BIOPLEX, new String[] { "true", "false" });		
 		availableSettings.put(Genes2Networks.ENABLE_DIP, new String[] { "true", "false" });
+		availableSettings.put(Genes2Networks.ENABLE_HUMAP, new String[] { "true", "false" });		
 		availableSettings.put(Genes2Networks.ENABLE_INNATEDB, new String[] { "true", "false" });
 		availableSettings.put(Genes2Networks.ENABLE_INTACT, new String[] { "true", "false" });
 		availableSettings.put(Genes2Networks.ENABLE_KEGG, new String[] { "true", "false" });

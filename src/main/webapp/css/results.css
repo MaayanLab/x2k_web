@@ -1,6 +1,4 @@
 body {
-/* 	width: 1230px;
-	height: 800px; */
 	font-family: arial, sans-serif;
 	font-size: 13px;
 }
@@ -31,34 +29,14 @@ body {
     text-align: center;
     color: #0c89e2;
     margin-top: 5px;
-    font-size: 16px;
+    font-size: 1.23em;
     letter-spacing: -0.2px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#x2k-button,
-#chea-button,
-#g2n-button,
-#kea-button
-{
-	position: relative;
-	display: inline-block;
-	float: left;
-	width: 140px;
-	height: 140px;
-	color: #000000;
-	margin-right: 5px;
-	margin-bottom: 5px;
-	font-size: 28px;
-	line-height: 1.25;
-	margin-top: 0;
-	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.15);
-    background-color: #eee;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    cursor: pointer;	
+.desc{
+	margin: 10px;
 }
-
 /* Overwriting jQuery style*/
 
 .ui-state-active{
@@ -84,8 +62,37 @@ body {
 }
 
 #buttons-panel{
-	height: 12%;
-	float: left
+	float: left;
+	/* width: 150%; */
+	width:140px;
+}
+
+
+#x2k-button,
+#chea-button,
+#g2n-button,
+#kea-button
+{
+	position: relative;
+	display: inline-block;
+	float: left;
+	width: 100%;
+	height: 140px;
+	color: #000000;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	font-size: 2.15em;
+	line-height: 1.25;
+	margin-top: 0;
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.15);
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    cursor: pointer;	
+}
+
+#results-panel{
+	/* float: left; */
 }
 
 button.selected {
@@ -98,7 +105,6 @@ button.selected {
 	width: 80%;
 	height: 100%;
 }
-
 
 #legend {
 	height: 90px;
@@ -124,7 +130,14 @@ button.selected {
 }
 
 
-#data_table {
+/* #res_layout_table{
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	display:flex;
+} */
+
+/* #data_table {
 	text-align: center;
 }
 
@@ -151,7 +164,7 @@ td + td {
 	padding-right: 5px;
 	padding-top: 5px;
 	text-align: right;
-}
+} */
 
 #download-button{
     background-color: #fff;

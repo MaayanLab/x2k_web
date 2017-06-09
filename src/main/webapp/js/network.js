@@ -22,7 +22,8 @@ function draw_network(json, tab){
 	    .charge(function(node) {
 	        if (node.group === 'kinase') {return -500;}
 	        else if (node.group === 'tf') {return -500;}
-	        else {return -600;};})
+	        else {return -600;};	        
+	    })
 	    .linkStrength(function(link) {
 	    	if (link.source.group === link.target.group) {return 1.0;}
 	    	else if ((link.source.group !== 'other')&&(link.target.group !== 'other')) {return 0.0;}
@@ -49,33 +50,22 @@ function draw_network(json, tab){
         .attr("height", height)
         .attr("xmlns", "http://www.w3.org/2000/svg")
         .attr("version", "1.1");
-	
+
+    
     graph = json;
     
-      force
-          .nodes(graph.nodes)
-          .links(graph.links)
-          .start();
-      
-//      TODO растаскивание
-//	   	 if (tab === '#x2k-network') {
-//
-//	   	     Object.keys(nodeMap).forEach(function(node) {
-//	   	         console.log(nodeMap[node]);
-//	   	         if (nodeMap[node].group === 'kinase') {
-//	   	             nodeMap[node].y = nodeMap[node].y - 100;
-//	   	         } else if (nodeMap[node].group === 'tf') {
-//	   	             nodeMap[node].y = nodeMap[node].y + 100;
-//	   	         }
-//	   	         console.log(nodeMap[node]);
-//	   	     });
-//	   	 }
+	force
+		.nodes(graph.nodes)
+		.links(graph.links)
+		.start();
+
       
       var link = svg.selectAll("line.link")
           .data(graph.links)
         .enter().append("line")
           .attr("class", "link")
           .style("stroke-width", function(d) {return 1;});
+      
 // 		TODO сделать толщину-цвет зависимыми от значения p-val
       var drag = force.drag()
       .on("dragstart", dragstart);
@@ -84,7 +74,7 @@ function draw_network(json, tab){
           .data(graph.nodes)
           .enter().append("circle")
 	          .attr("class", "node")
-	          .attr("r", width/70)
+	          .attr("r", function(d) {return d.weight;})
 	          .style("fill", function(d) { return color(d.group); })
 	          .call(drag)
 	          .on("dblclick", dblclick);
@@ -103,8 +93,7 @@ function draw_network(json, tab){
          .style("font-size", function(d){
         	 if(d.id.split('_')[0].length < 7){return "6px";}
         	 else return "5px";
-         });     
-
+         });
      
       force.on("tick", function() {
         link.attr("x1", function(d) { return d.source.x; })
@@ -114,11 +103,13 @@ function draw_network(json, tab){
 
         
         node.attr("cx", function(d) { return d.x; })
-            .attr("cy", function(d) { return d.y; });
+            .attr("cy", function(d) {
+       	   	 return d.y; });
         
         texts.attr("transform", function(d) {
             return "translate(" + d.x + "," + d.y + ")"; });
     });
+      
 
 };
 
