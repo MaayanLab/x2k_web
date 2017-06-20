@@ -10,14 +10,15 @@
 	    var json_file = ${json};
 	</script>
 
-    <script src="js/jquery-3.0.0.min.js"></script>
+    <!-- <script src="js/jquery-3.0.0.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
-	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+<!-- 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="http://www.w3schools.com/lib/w3data.js"></script>
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-	<script src="js/bargraph.js"></script>
+	<!-- <script src="js/bargraph.js"></script> -->
 	<script src="js/results.js"></script>
 	<script src="js/network.js"></script>
 	<script src="js/jquery.atooltip.pack.js"></script>
@@ -93,8 +94,7 @@
 
 			<!-- network -->
 			<div id="x2k-network">
-			<button id="zoom_in">+</button>
-			<button id="zoom_out">-</button>
+				<svg class="x2k-svg" width="960" height="600"></svg>
 			</div>
 			<div id="legend">
 			  <ul class="no_bullet">
@@ -161,11 +161,13 @@
 			<p>Subnetwork that connects the transcription factors using known protein-protein interactions.</p>
 			</div>
 			<ul>
-				<li><a href="#network-g2n">Subnetwork</a></li>
+				<li><a href="#g2n-network">Subnetwork</a></li>
 			</ul>
 
 			<!-- network -->
-			<div id="network-g2n"></div>
+			<div id="network-g2n">
+				<svg class="g2n-svg" width="960" height="600"></svg>
+			</div>
 			<div id="legend">
 				<ul class="no_bullet">
 					<li class="legend"> <svg id="legend-dot" height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#AEC7E8" /> </svg> Seed Protein</li>
