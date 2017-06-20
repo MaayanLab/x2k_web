@@ -164,14 +164,14 @@ $(function() {
 	createTable(chea, "#chea-table");
 	
 	// Draw ChEA bargraph
-	drawBargraph("#bargraph-chea", chea)
+//	drawBargraph("#bargraph-chea", chea);
 	
 	// Draw KEA table
 	var kea = $.parseJSON(json_file['KEA'])["kinases"];
 	createTable(kea, '#kea-table');
 
 	// Draw KEA bargraph	
-	drawBargraph("#bargraph-kea", kea);
+//	drawBargraph("#bargraph-kea", kea);
 	
 	// Dashboard buttons
 	$("button[id*='button']").click(function() {
@@ -193,7 +193,7 @@ $(function() {
 	
 	// Networks functions
 	function convertX2KNode(x2k_node){ //convert the style of a node from X2K output to cytoscape
-		cyto_node = {id: x2k_node["name"], group: x2k_node["type"]}
+		cyto_node = {name: x2k_node["name"], group: x2k_node["type"], pvalue: x2k_node["pvalue"]}
 	    return cyto_node;
 	}
 
@@ -204,12 +204,12 @@ $(function() {
 	    else{
 	        node_class = "intermediate"
 	    }
-	    cyto_node = {id: g2n_node["name"], group: node_class};
+	    cyto_node = {name: g2n_node["name"], group: node_class};
 	    return cyto_node
 	}
 
 
-	function containsInteraction(json_file, interaction, array){ //check if the interacitons list already contains an interaciton
+	function containsInteraction(json_file, interaction, array){ //check if the interactions list already contains an interaction
 	    //used against duplicates
 	    for(y = 0; y < array.length; y++){
 	        a = array[y];
@@ -234,7 +234,8 @@ $(function() {
 	        if(!containsInteraction(json_file, interaction, clean_interactions) && interaction.target != interaction.source) {
 	            cyto_interaction = {data: {
 	                source: network.nodes[interaction.source]["name"],
-	                target: network.nodes[interaction.target]["name"]
+	                target: network.nodes[interaction.target]["name"],
+	                pvalue: network.nodes[interaction.source]["pvalue"],
 	            }};
 	            clean_interactions.push(cyto_interaction);
 	            connected_nodes.push(interaction.source);
@@ -269,7 +270,7 @@ $(function() {
     	x2k_d3_array["links"].push(clean_interactions[i]);
     }
     
-    draw_network(x2k_d3_array, "#x2k-network");
+    draw_network(x2k_d3_array, ".x2k-svg", "#x2k-network");
 	
 	// G2N Processing
     var g2n = $.parseJSON(json_file["G2N"]);
@@ -289,5 +290,5 @@ $(function() {
     }
     
     network_string = JSON.stringify(network);
-    draw_network(g2n_d3_array, "#network-g2n");
+//    draw_network(g2n_d3_array, ".g2n-svg", "#g2n-network");
 });

@@ -70,7 +70,7 @@ function drawBargraph(tab, data) {
 	// Left margin for labels	
 	labelWidth = labelWidth + 5; 
 	
-	scale = d3.scale.linear().domain([ 0, max ]).range([0, width - margin * 2 - labelWidth]);
+	scale = d3.scaleLinear().domain([ 0, max ]).range([0, width - margin * 2 - labelWidth]);
 	xAxis = d3.svg.axis().scale(scale).tickSize(-height + 2 * margin + axisMargin).orient("bottom").outerTickSize(0);
 	
 	bar.append("rect")
