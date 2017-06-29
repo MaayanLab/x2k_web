@@ -1,39 +1,25 @@
-.bargraph .toolTip {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	position: absolute;
-	display: none;
-	width: auto;
-	height: auto;
-	background: none repeat scroll 0 0 white;
-	border: 0 none;
-	border-radius: 8px 8px 8px 8px;
-	box-shadow: -3px 3px 15px #888888;
-	color: black;
-	font: 12px sans-serif;
-	padding: 5px;
-	text-align: center;
-}
+    .bar {
+        fill: steelblue;
+    }
 
-.bargraph text {
-	font: 12px sans-serif;
-	color: white;
-}
+    .bar:hover {
+        fill: brown;
+    }
 
-.bargraph text.value {
-	font-size: 80%;
-	fill: white;
-}
+    .axis--x text {
+        fill: black;
+    }
 
-.bargraph .axisHorizontal path {
-	fill: none;
-}
+    .axis--y path {
+        display: none;
+    }
 
-.bargraph .axisHorizontal .tick line {
-	stroke-width: 1;
-	stroke: rgba(0, 0, 0, 0.2);
-}
+    .axis--y text {
+        fill: black;
+    }
 
-.bargraph .bar {
-	fill: steelblue;
-	fill-opacity: .9;
-}
+    #label {
+        position: relative;
+        top: 10px;
+        right: -50px;
+    }

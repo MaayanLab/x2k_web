@@ -164,14 +164,14 @@ $(function() {
 	createTable(chea, "#chea-table");
 	
 	// Draw ChEA bargraph
-//	drawBargraph("#bargraph-chea", chea);
+	drawBargraph(".chea-chart", chea);
 	
 	// Draw KEA table
 	var kea = $.parseJSON(json_file['KEA'])["kinases"];
 	createTable(kea, '#kea-table');
 
 	// Draw KEA bargraph	
-//	drawBargraph("#bargraph-kea", kea);
+	drawBargraph(".kea-chart", kea);
 	
 	// Dashboard buttons
 	$("button[id*='button']").click(function() {
@@ -290,5 +290,5 @@ $(function() {
     }
     
     network_string = JSON.stringify(network);
-//    draw_network(g2n_d3_array, ".g2n-svg", "#g2n-network");
+    draw_network(g2n_d3_array, ".g2n-svg", "#g2n-network");
 });
