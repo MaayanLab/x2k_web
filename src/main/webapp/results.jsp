@@ -18,7 +18,7 @@
  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="http://www.w3schools.com/lib/w3data.js"></script>
 	<script src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-	<!-- <script src="js/bargraph.js"></script> -->
+	<script src="js/bargraph.js"></script>
 	<script src="js/results.js"></script>
 	<script src="js/network.js"></script>
 	<script src="js/jquery.atooltip.pack.js"></script>
@@ -131,6 +131,12 @@
 
 			<!-- bargraph -->
 			<div id="bargraph-chea" class="bargraph">
+				<div id="label">
+				    <input type="button" class="chea-chart-pvalue" value="P-value"/>
+				    <input type="button" class="chea-chart-zscore" value="Z-score"/>
+				    <input type="button" class="chea-chart-combinedScore" value="Combined score"/>
+				</div>				
+				<svg class="chea-chart" width="960" height="500"></svg>
 			</div>
 
 			<!-- table -->
@@ -201,7 +207,14 @@
 			</ul>
 
 			<!-- bargraph -->
-			<div id="bargraph-kea" class="bargraph"></div>
+			<div id="bargraph-kea" class="bargraph">
+				<div id="label">
+				    <input type="button" class="kea-chart-pvalue" value="P-value" />
+				    <input type="button" class="kea-chart-zscore" value="Z-score" />
+				    <input type="button" class="kea-chart-combinedScore" value="Combined score" />
+				</div>				
+				<svg class="kea-chart" width="960" height="500"></svg>			
+			</div>
 
 			<!-- table -->
 		    <div id="kea" class="results-table">

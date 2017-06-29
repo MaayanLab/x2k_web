@@ -1,112 +1,106 @@
-function drawBargraph(tab, data) {
-		
-	function circulate(sortingtypes) {
-		for (var i = 0, len = sortingtypes.length; i < len; i++) {
-			sortingtypes.push(sortingtypes.shift());
-		}
-		type = sortingtypes[0];
-	};
+function drawBargraph(chart, bargraph_data) {
+	function sortByScore(data, score, dir){
+	    if (dir == "desc"){
+	        data.sort(function(a, b) { return (a[score] > b[score]) ? 1 : ((b[score] > a[score]) ? -1 : 0);} );
+	    } else {
+	        data.sort(function(a, b) { return (a[score] < b[score]) ? 1 : ((b[score] < a[score]) ? -1 : 0);} );
+	    }
+	}
 
-	function compare(a, b) {
-		if (a[type] < b[type])
-			return -1;
-		if (a[type] > b[type])
-			return 1;
-		return 0;
-	};
+	function change(score) {
+	    var range0 = function(d) { return d[score]; };
+	    sortByScore(bargraph_data, score, "asc");
 
-	function sortBarGraph() {
-		circulate(type, sortingtypes);
-		drawBarGraph();
+	    if (score === "combinedScore") {
+	        sortByScore(bargraph_data, score, "desc");
+	        var x0 = x.domain([0, d3.max(bargraph_data, function(d) { return d[score]; })]);
+	        var caption = "Combined score";
+	    }
+	    else if (score === "pvalue") {
+	        var x0 = x.domain([0, d3.max(bargraph_data, function(d) { return -Math.log10(d[score]); })]);
+	        var range0 = function(d) { return -Math.log10(d[score]); }
+	        var caption = "-log₁₀(p-value)";
+	    }
+	    else if (score === "zscore") {
+	        var x0 = x.domain([d3.max(bargraph_data, function(d) { return d[score]; }), d3.min(bargraph_data, function(d) { return d[score]; })]);
+	        var caption = "Z-score"
+	    }
 
-	};
+	    var y0 = y.domain(bargraph_data.map(function(d) { return d.name; }));
+
+	    svg.selectAll(".bar")
+	        .sort(function(a, b) { return y0(a.pvalue) - y0(b.pvalue); });
+
+	    var transition = svg.transition().duration(750),
+	        delay = function(d, i) { return i * 50; };
+
+	    transition.selectAll(".bar")
+	        .delay(delay)
+	        .attr("width", function(d) { return x0(range0(d)); })
+	        .attr("y", function(d) { return y0(d.name); });
+
+	    transition.select(".axis--x")
+	        .call(d3.axisBottom(x0));
+
+	    transition.select(".caption")
+	        .text(caption);
+
+	    transition.select(".axis--y")
+	        .call(d3.axisLeft(y0).tickSize(0))
+	        .selectAll("text")
+	        .text(function(d) {return d.split("_")[0]});
+	}
+
+	sortByScore(bargraph_data, "pvalue", "asc");
+
+	// Change buttons listners
+	var change_pvalue = $(chart + "-pvalue").on("click", function() { change('pvalue'); });
+	var change_zscore = $(chart + "-zscore").on("click", function() { change('zscore'); });
+	var change_combinedScore = $(chart + "-combinedScore").on("click", function() { change('combinedScore'); });
 	
-	var type = "pvalue";
-	data.sort(compare);
-//	var div = d3.select(tab).append("div").attr("class", "toolTip");
-	var axisMargin = 20,
-		margin = 40,
-		valueMargin = 4,
-		width = 960,
-		height = 500,
-		barHeight = (height - axisMargin - margin * 2) * 0.4 / data.length,
-		barPadding = (height - axisMargin - margin * 2) * 0.6 / data.length,
-		data, bar, svg, scale, xAxis, labelWidth = 0;
-	
-	max = d3.max(data, function(d) {return -1*Math.log10(d["pvalue"]);});
-	svg = d3.select(tab).append("svg")
-		.attr("width", width)
-		.attr("height", height)
-		.attr("xmlns", "http://www.w3.org/2000/svg")
-		.attr("version", "1.1");
-	
-	svg.append("text")
-	    .attr("text-anchor", "middle")
-	    .attr("transform", "translate("+ (width/2) +","+(height-10)+")")
-	    .text("-log10(p-value)");
-	
-	bar = svg.selectAll("g").data(data).enter().append("g");
-	
-	bar.attr("class", "bar")
-		.attr("cx", 0)
-		.attr("transform",
-				function(d, i) {
-					return "translate(" + margin + "," + (i * (barHeight + barPadding) + barPadding) + ")";
-				});
-	
-	bar.append("text").attr("class", "label").attr("y", barHeight / 2)
-			.attr("dy", ".35em")
-			.text(function(d) {return d["name"];})
-			.each(
-					function(d) {
-						// i stands for "dirty hack"
-						// For some reason this.getBBox().width returns 0
-						// But label length in pixels to label length in characters ratio is about 7.5-8						
-						var i = 7.5;
-						if (tab =="#bargraph-kea"){i = 8;}
-						
-						labelWidth = Math.ceil(Math.max(labelWidth, d["name"].length*i));
-					});
-	// Left margin for labels	
-	labelWidth = labelWidth + 5; 
-	
-	scale = d3.scaleLinear().domain([ 0, max ]).range([0, width - margin * 2 - labelWidth]);
-	xAxis = d3.svg.axis().scale(scale).tickSize(-height + 2 * margin + axisMargin).orient("bottom").outerTickSize(0);
-	
-	bar.append("rect")
-			.attr("transform", "translate(" + labelWidth + ", 0)")
-			.attr("height", barHeight).attr("width", function(d) {
-				return scale(-1*Math.log10(d["pvalue"]));
-			});
-	
-	bar.append("text").attr("class", "value").attr("y", barHeight / 2)
-			.attr("dx", -valueMargin + labelWidth) //margin right
-			.attr("dy", ".35em") //vertical align middle
-			.attr("text-anchor", "end").text(function(d) {
-				if (d["pvalue"] < 0.01) {
-					return d["pvalue"].toExponential(3);
-				}
-				else{
-					return d["pvalue"].toFixed(3);
-				};})
-			.attr("x", function(d) {
-				var width = this.getBBox().width;
-				return Math.max(width + valueMargin, scale(-1*Math.log10(d["pvalue"])));
-			});
-	
-//	bar.on("mousemove", function(d) {
-//		div.style("left", d3.event.pageX + 10 + "px");
-//		div.style("top", d3.event.pageY - 25 + "px");
-//		div.style("display", "inline-block");
-//		div.html((d["name"]) + "<br>" + (d["pvalue"]));
-//	});
-//	
-//	bar.on("mouseout", function(d) {
-//		div.style("display", "none");
-//	});
-	
-	svg.insert("g", ":first-child").attr("class", "axisHorizontal").attr(
-			"transform",
-			"translate(" + (margin + labelWidth) + ","
-					+ (height - axisMargin - margin) + ")").call(xAxis);
+	var svg = d3.select(chart),
+	    margin = {top: 20, right: 20, bottom: 50, left: 50},
+	    width = +svg.attr("width") - margin.left - margin.right,
+	    height = +svg.attr("height") - margin.top - margin.bottom;
+
+	var x = d3.scaleLinear().rangeRound([0, width]),
+	    y = d3.scaleBand().rangeRound([height, 0]).padding(0.1);
+
+	var g = svg.append("g")
+	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	x.domain([0, d3.max(bargraph_data, function(d) { return -Math.log10(d.pvalue); })]);
+	y.domain(bargraph_data.map(function(d) { return d.name; }));
+
+
+	g.append("g")
+	    .attr("class", "axis axis--x")
+	    .attr("transform", "translate(0," + height + ")")
+	    .call(d3.axisBottom(x));
+
+	g.select(".axis--x")
+	    .append("text")
+	    .attr("class", "caption")
+	    .attr("x", width/2)
+	    .attr("y", margin.bottom/2)
+	    .attr("dy", "0.71em")
+	    .text("-log₁₀(p-value)");
+
+
+	g.append("g")
+	    .attr("class", "axis axis--y")
+	    .call(d3.axisLeft(y).tickSize(0))
+	    .selectAll("text")
+	    .text(function(d) {return d.split("_")[0]});
+
+
+	g.selectAll(".bar")
+	    .data(bargraph_data)
+	    .enter()
+	    .append("rect")
+	        .attr("class", "bar")
+	        .attr("x", 0)
+	        .attr("y", function(d) { return y(d.name); })
+	        .attr("width", function(d) { return x(-Math.log10(d.pvalue)); })
+	        .attr("height", y.bandwidth());
 }

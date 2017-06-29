@@ -12,8 +12,8 @@ function draw_network(json, svg_id, body){
       };
     });
 
-    nodes_data = json.nodes;
-    links_data = json.links
+    var nodes_data = json.nodes;
+    var links_data = json.links
 
     // Size of a node depends linearly on a number of edges
     function radius(d){
@@ -79,7 +79,7 @@ function draw_network(json, svg_id, body){
 
     function box_force() { 
       for (var i = 0, n = nodes_data.length; i < n; i++) {
-	    	  (function (i){
+	    	  (function (i){	    		  
 		    	  curr_node = nodes_data[i];
 		    	  r = radius(curr_node);
 		    	  curr_node.x = Math.max(r, Math.min(width - r, curr_node.x));
@@ -156,12 +156,11 @@ function draw_network(json, svg_id, body){
     function node_mouseout() {
         div.style("display", "none");
 
-        // cancel connectedNodes()
-        node.attr("opacity", 1);;
+        node.attr("opacity", 1);
         toggle = 0;
-      link.attr("stroke-width", 1.2);    
+        link.attr("stroke-width", 1.2);    
         link.attr("stroke", linkColour)
-            .attr("stroke-opacity", function(d) { return linkOpacity(d.value); });    
+            .attr("stroke-opacity", function(d) {return linkOpacity(d.value); });    
     }
 
     function neighboring(a, b) {
@@ -190,7 +189,7 @@ function draw_network(json, svg_id, body){
 
     var simulation = d3.forceSimulation()
             .nodes(nodes_data);
-
+    
     var link = g.append("g")
             .attr("class", "links")
             .selectAll("line")
@@ -216,7 +215,6 @@ function draw_network(json, svg_id, body){
             .on("mouseover", function(d) {return node_mouseover(d); })
             .on("mousemove", function(d) { return node_mousemove(d); })
             .on("mouseout", node_mouseout);
-            // .on("mouseover", connectedNodes);
 
     // Make font size for longer labels smaller
     var font_size = d3.scaleLinear()
@@ -280,18 +278,19 @@ function draw_network(json, svg_id, body){
         degrees.push(d.degree);
     });
 
-    base_radius = Math.floor(d3.max(base_radius)) + 1;
-    min_node_size = Math.PI * Math.pow(base_radius, 2)
-    single_degree_node_size = min_node_size / d3.min(degrees);
+    var base_radius = Math.floor(d3.max(base_radius)) + 1;
+    var min_node_size = Math.PI * Math.pow(base_radius, 2)
+    var single_degree_node_size = min_node_size / d3.min(degrees);
 
     // Coloring links
-    linkOpacity = d3.scaleLinear()
-            .domain([0, d3.max(links_data, function(d) { return -Math.log10(d.value); })])
-            .range([0.5, 1]);
+    var linkOpacity = d3.scaleLinear()
+            .domain([0, d3.max(links_data, function(d) { return -Math.log10(Math.abs(d.value)); })])
+            .range([0.3, 0.8]);
 
     node.attr("r",  function(d){ return radius(d); });
     link.attr("stroke", linkColour)
-        .attr("stroke-opacity", function(d) { return linkOpacity(d.value); });
+        .attr("stroke-opacity", function(d) {
+        	return linkOpacity(d.value); });
 
     // Forces
 
@@ -318,7 +317,7 @@ function draw_network(json, svg_id, body){
             .on("end", drag_end);
 
     var div = d3.select(body).append("div")
-        .attr("class", "tooltip")
+        .attr("class", "d3-tooltip")
         .style("display", "none");
 
     simulation
