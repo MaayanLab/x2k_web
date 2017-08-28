@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
-	background-color: #eee;
+ 	background-color: #eee;
 	border: 1px solid #ddd;
 	border-radius: 2px;
 	cursor: pointer;
