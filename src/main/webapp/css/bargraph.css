@@ -1,25 +1,40 @@
-    .bar {
-        fill: steelblue;
-    }
+.bar {
+    fill: #6B9BC3;
+}
 
-    .bar:hover {
-        fill: brown;
-    }
+.bar:hover {
+    fill: brown;
+}
 
-    .axis--x text {
-        fill: black;
-    }
+.bar-label {
+	fill: white;
+}
 
-    .axis--y path {
-        display: none;
-    }
+.axis--x text {
+    fill: black;
+}
 
-    .axis--y text {
-        fill: black;
-    }
+.axis--y path {
+    display: none;
+}
 
-    #label {
-        position: relative;
-        top: 10px;
-        right: -50px;
-    }
+.axis--y text {
+    fill: black;
+}
+
+#label {
+    position: relative;
+    top: 10px;
+    right: -50px;
+}
+
+input[class*="-chart-"] {
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+.selected {
+	background-color: white;
+}

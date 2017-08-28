@@ -28,14 +28,10 @@ function drawBargraph(chart, bargraph_data) {
 
 	    var y0 = y.domain(bargraph_data.map(function(d) { return d.name; }));
 
-	    svg.selectAll(".bar")
-	        .sort(function(a, b) { return y0(a.pvalue) - y0(b.pvalue); });
-
 	    var transition = svg.transition().duration(750),
 	        delay = function(d, i) { return i * 50; };
 
 	    transition.selectAll(".bar")
-	        .delay(delay)
 	        .attr("width", function(d) { return x0(range0(d)); })
 	        .attr("y", function(d) { return y0(d.name); });
 
@@ -49,14 +45,28 @@ function drawBargraph(chart, bargraph_data) {
 	        .call(d3.axisLeft(y0).tickSize(0))
 	        .selectAll("text")
 	        .text(function(d) {return d.split("_")[0]});
+	    
+		transition.selectAll(".bar-label")
+			.attr("x", function(d) { return x0(range0(d)) - 5; })
+			.attr("y", function(d) { return y0(d.name) + y.bandwidth()/2; })
+		    .text(function(d) {
+		    	if (score === "pvalue"){ return d[score].toExponential(2); }
+		    	else { return d[score].toFixed(3); }
+		    	 
+		    });
 	}
 
+	function onClick(chart, score){
+		$("input[class*='" + chart.substr(1) +  "-']").removeClass("selected");
+		change(score); 
+	}
+	
 	sortByScore(bargraph_data, "pvalue", "asc");
 
-	// Change buttons listners
-	var change_pvalue = $(chart + "-pvalue").on("click", function() { change('pvalue'); });
-	var change_zscore = $(chart + "-zscore").on("click", function() { change('zscore'); });
-	var change_combinedScore = $(chart + "-combinedScore").on("click", function() { change('combinedScore'); });
+	// Change buttons listeners
+	var change_pvalue = $(chart + "-pvalue").on("click", function() { onClick(chart, "pvalue"); $(this).addClass("selected");});
+	var change_zscore = $(chart + "-zscore").on("click", function() { onClick(chart, "zscore"); $(this).addClass("selected");});
+	var change_combinedScore = $(chart + "-combinedScore").on("click", function() { onClick(chart, "combinedScore"); $(this).addClass("selected");});
 	
 	var svg = d3.select(chart),
 	    margin = {top: 20, right: 20, bottom: 50, left: 50},
@@ -64,7 +74,7 @@ function drawBargraph(chart, bargraph_data) {
 	    height = +svg.attr("height") - margin.top - margin.bottom;
 
 	var x = d3.scaleLinear().rangeRound([0, width]),
-	    y = d3.scaleBand().rangeRound([height, 0]).padding(0.1);
+	    y = d3.scaleBand().rangeRound([height, 0]).padding(0.3);
 
 	var g = svg.append("g")
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -97,10 +107,23 @@ function drawBargraph(chart, bargraph_data) {
 	g.selectAll(".bar")
 	    .data(bargraph_data)
 	    .enter()
+	    .append("g")
+	    .attr("class", "bar-container");
+	
+	g.selectAll(".bar-container")
 	    .append("rect")
-	        .attr("class", "bar")
-	        .attr("x", 0)
-	        .attr("y", function(d) { return y(d.name); })
-	        .attr("width", function(d) { return x(-Math.log10(d.pvalue)); })
-	        .attr("height", y.bandwidth());
+        .attr("class", "bar")
+        .attr("x", 0)
+        .attr("y", function(d) { return y(d.name); })
+        .attr("width", function(d) { return x(-Math.log10(d.pvalue)); })
+        .attr("height", y.bandwidth());
+	
+	g.selectAll(".bar-container")
+		.append("text")
+		.attr("class", "bar-label")
+		.attr("text-anchor", "end")
+		.attr("x", function(d) { return x(-Math.log10(d.pvalue)) - 5; })
+		.attr("y", function(d) { return y(d.name) + y.bandwidth()/2; })
+		.attr("dy", ".35em")
+	    .text(function(d) { return d["pvalue"].toExponential(2); });
 }

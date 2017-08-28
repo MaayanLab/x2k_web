@@ -98,9 +98,9 @@
 			</div>
 			<div id="legend">
 			  <ul class="no_bullet">
-			    <li class="legend"><svg id="legend-dot" height="12" width="12"><circle cx="6" cy="6" r="6" fill="#1F77B4"/></svg>Transcription Factor</li>
+			    <li class="legend"><svg id="legend-dot" height="12" width="12"><circle cx="6" cy="6" r="6" fill="#1F77B4"/></svg>Kinase</li>
 			    <li class="legend"><svg id="legend-dot" height="12" width="12"><circle cx="6" cy="6" r="6" fill="#FF7F0E"/></svg>Intermediate protein</li>
-			    <li class="legend"><svg id="legend-dot" height="12" width="12"><circle cx="6" cy="6" r="6" fill="#AEC7E8"/></svg>Kinase</li>
+			    <li class="legend"><svg id="legend-dot" height="12" width="12"><circle cx="6" cy="6" r="6" fill="#FF546D"/></svg>Transcription Factor</li>
 			  </ul>
 			</div>			
 		    <div id="download_buttons">
@@ -132,7 +132,7 @@
 			<!-- bargraph -->
 			<div id="bargraph-chea" class="bargraph">
 				<div id="label">
-				    <input type="button" class="chea-chart-pvalue" value="P-value"/>
+				    <input type="button" class="chea-chart-pvalue selected" value="P-value"/>
 				    <input type="button" class="chea-chart-zscore" value="Z-score"/>
 				    <input type="button" class="chea-chart-combinedScore" value="Combined score"/>
 				</div>				
@@ -145,20 +145,20 @@
 	 			    <table id="chea-table"></table>
 	 			</div>
 		    </div>
-		    <div id="download_buttons">
+<!-- 		    <div id="download_buttons">
 		        <a id="exportData" onclick="exportJson(this, 'ChEA', json_file['ChEA']);">
 		            <button type="button" id="download-button">JSON</button>
 		        </a>
-<!-- 		        <a id="exportData" onclick="svgExport('#bargraph-chea', 'ChEA_bargraph', 'jpg'); return false;">
+ 		        <a id="exportData" onclick="svgExport('.chea-chart', 'ChEA_bargraph', 'jpg'); return false;">
 		            <button type="button" id="download-button">JPG</button>
 		        </a>
-		        <a id="exportData" onclick="svgExport('#bargraph-chea', 'ChEA_bargraph', 'png'); return false;">
+		        <a id="exportData" onclick="svgExport('.chea-chart', 'ChEA_bargraph', 'png'); return false;">
 		            <button type="button" id="download-button">PNG</button>
 		        </a>
-		        <a id="exportData" onclick="svgExport('#bargraph-chea', 'ChEA_bargraph', 'svg'); return false;">
+		        <a id="exportData" onclick="svgExport('.chea-chart', 'ChEA_bargraph', 'svg'); return false;">
 		            <button type="button" id="download-button">SVG</button>
-		        </a>	 -->	        
-		    </div>		    
+		        </a>       
+		    </div>	 -->	    
 		</div>
 
 		<!-- g2n -->
@@ -176,8 +176,8 @@
 			</div>
 			<div id="legend">
 				<ul class="no_bullet">
-					<li class="legend"> <svg id="legend-dot" height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#AEC7E8" /> </svg> Seed Protein</li>
-					<li class="legend"> <svg id="legend-dot" height="12" width="12"> <circle cx="6" cy="6" r="6" fill="#1F77B4" /> </svg> Intermediate Protein</li>
+					<li class="legend"><svg id="legend-dot" height="12" width="12"><circle cx="6" cy="6" r="6" fill="#1F77B4"/></svg>Seed Protein</li>
+					<li class="legend"><svg id="legend-dot" height="12" width="12"><circle cx="6" cy="6" r="6" fill="#FF7F0E"/></svg>Intermediate protein</li>
 				</ul>
 			</div>			
 		    <div id="download_buttons">
@@ -209,7 +209,7 @@
 			<!-- bargraph -->
 			<div id="bargraph-kea" class="bargraph">
 				<div id="label">
-				    <input type="button" class="kea-chart-pvalue" value="P-value" />
+				    <input type="button" class="kea-chart-pvalue selected" value="P-value" />
 				    <input type="button" class="kea-chart-zscore" value="Z-score" />
 				    <input type="button" class="kea-chart-combinedScore" value="Combined score" />
 				</div>				

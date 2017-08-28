@@ -53,7 +53,7 @@ function draw_network(json, svg_id, body){
     function circleColour(d){
       if(d.group =="tf"){
         return "#FF546D";
-      } else if(d.group =="kinase"){
+      } else if((d.group =="kinase")||(d.group =="input_protein")){
         return "#339DCC";
       }
       else {
@@ -62,17 +62,24 @@ function draw_network(json, svg_id, body){
     }
 
     function linkColour(d){
-        if((d.source_type === "tf")&&(d.target_type === "tf")) {
+        var source_tf = (d.source_type === "tf"),
+            source_kinase = ((d.source_type === "kinase")||(d.source_type === "input_protein")),
+            source_other = ((d.source_type === "other")||(d.source_type === "intermediate")),
+            target_tf = (d.target_type === "tf"),
+            target_kinase = ((d.target_type === "kinase")||(d.target_type === "input_protein")),
+            target_other = ((d.target_type === "other")||(d.target_type === "intermediate"));
+
+        if((source_tf)&&(target_tf)) {
             return "#FF546D";
-        } else if((d.source_type === "kinase")&&(d.target_type === "kinase")) {
+        } else if((source_kinase)&&(target_kinase)) {
             return "#339DCC";
-        } else if((d.source_type === "other")&&(d.target_type === "other")) {
+        } else if((source_other)&&(target_other)) {
             return "lightgray";
-        } else if(((d.source_type === "tf")&&(d.target_type === "kinase"))||((d.source_type === "kinase")&&(d.target_type === "tf"))) {
+        } else if(((source_tf)&&(target_kinase))||((source_kinase)&&(target_tf))) {
             return "#339DCC";
-        } else if(((d.source_type === "tf")&&(d.target_type === "other"))||((d.source_type === "other")&&(d.target_type === "tf"))) {
+        } else if(((source_tf)&&(target_other))||((source_other)&&(target_tf))) {
             return "#FF6A3C";
-        } else if(((d.source_type === "kinase")&&(d.target_type === "other"))||((d.source_type === "other")&&(d.target_type === "kinase"))) {
+        } else if(((source_kinase)&&(target_other))||((source_other)&&(target_kinase))) {
             return "#269C26";
         }
     }
@@ -80,10 +87,14 @@ function draw_network(json, svg_id, body){
     function box_force() { 
       for (var i = 0, n = nodes_data.length; i < n; i++) {
 	    	  (function (i){	    		  
-		    	  curr_node = nodes_data[i];
-		    	  r = radius(curr_node);
-		    	  curr_node.x = Math.max(r, Math.min(width - r, curr_node.x));
-		    	  curr_node.y = Math.max(r + r * 2, Math.min(height - r - r * 2, curr_node.y));
+				curr_node = nodes_data[i];
+				r = radius(curr_node);
+				if((curr_node.group == "tf")||(curr_node.group == "kinase")){
+					curr_node.x = Math.max(r, Math.min(width - r, curr_node.x));
+					curr_node.y = Math.max(r + r * 2, Math.min(height - r - r * 2, curr_node.y));
+				} else if(curr_node.group == "other"){
+					curr_node.x = Math.max(r, Math.min(width - r, curr_node.x));
+				}
 	    	  })(i);
     	  }
     }
@@ -92,9 +103,9 @@ function draw_network(json, svg_id, body){
       for (var i = 0, n = nodes_data.length; i < n; i++) {
     	  (function(i){
 		        curr_node = nodes_data[i];
-		        if(curr_node.group == "tf"){
+		        if((curr_node.group == "tf")||(curr_node.group == "intermediate")){
 		            curr_node.y += 10;
-		        } else if(curr_node.group == "kinase"){
+		        } else if((curr_node.group == "kinase")||(curr_node.group == "input_protein")){
 		            curr_node.y -= 10;
 		        }
     	  })(i);
