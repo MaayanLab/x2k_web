@@ -110,9 +110,9 @@ function draw_network(json, svg_id, body){
     		  if(body === "#x2k-network"){
 		        curr_node = nodes_data[i];
 		        if((curr_node.group == "tf")||(curr_node.group == "intermediate")){
-		            curr_node.y += 10;
-		        } else if((curr_node.group == "kinase")||(curr_node.group == "input_protein")){
 		            curr_node.y -= 10;
+		        } else if((curr_node.group == "kinase")||(curr_node.group == "input_protein")){
+		            curr_node.y += 10;
 		        }
     		  }
     	  })(i);
