@@ -19,7 +19,12 @@ function draw_network(json, svg_id, body){
     function radius(d){
         // This one is the most accurate representation
         // return Math.sqrt((single_degree_node_size * d.degree) / Math.PI);
-        return Math.floor(Math.sqrt(20*d.degree));
+    	if (body === "#x2k-network") {
+    		return Math.floor(Math.sqrt(20*d.degree));
+    	}
+    	else{
+    		return 20;
+    	}
     }
 
     function tickActions() {
@@ -102,12 +107,14 @@ function draw_network(json, svg_id, body){
     function splitting_force() { 
       for (var i = 0, n = nodes_data.length; i < n; i++) {
     	  (function(i){
+    		  if(body === "#x2k-network"){
 		        curr_node = nodes_data[i];
 		        if((curr_node.group == "tf")||(curr_node.group == "intermediate")){
 		            curr_node.y += 10;
 		        } else if((curr_node.group == "kinase")||(curr_node.group == "input_protein")){
 		            curr_node.y -= 10;
 		        }
+    		  }
     	  })(i);
       }
     }
@@ -146,11 +153,11 @@ function draw_network(json, svg_id, body){
         }
 
       link.attr("stroke-width", function(l) {
-        if (d === l.source || d === l.target) return 2;
+    	  if (d === l.source || d === l.target) return 2;
         });
       link.attr("stroke-opacity", function(l) {
-        if (d === l.source || d === l.target) return 1;
-        else return 0.05
+    	  if (d === l.source || d === l.target) return 1;
+    	  else return 0.05
         });
     }
 
@@ -171,7 +178,12 @@ function draw_network(json, svg_id, body){
         toggle = 0;
         link.attr("stroke-width", 1.2);    
         link.attr("stroke", linkColour)
-            .attr("stroke-opacity", function(d) {return linkOpacity(d.value); });    
+            .attr("stroke-opacity", function(d) {
+            	if (body === "#x2k-network") {
+            		return linkOpacity(d.value);
+            	}
+            	else { return 0.3; }
+            });    
     }
 
     function neighboring(a, b) {
@@ -301,7 +313,11 @@ function draw_network(json, svg_id, body){
     node.attr("r",  function(d){ return radius(d); });
     link.attr("stroke", linkColour)
         .attr("stroke-opacity", function(d) {
-        	return linkOpacity(d.value); });
+        	if (body === "#x2k-network") {
+        		return linkOpacity(d.value);
+        	}
+        	else { return 0.3; }
+        });
 
     // Forces
 
