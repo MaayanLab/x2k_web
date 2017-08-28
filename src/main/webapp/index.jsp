@@ -268,7 +268,7 @@
 						<a href="datasets/BioGrid.sig"> BioGrid </a>
 					</p>
 					<p>
-						<a href="datasets/BioPlex.sig"> BioGrid </a>
+						<a href="datasets/BioPlex.sig"> BioPlex </a>
 					</p>					
 					<p>
 						<a href="datasets/DIP.sig"> DIP </a>
