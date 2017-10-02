@@ -1,0 +1,46 @@
+/* X2K header and logo */
+#logo {
+    margin: 10px;
+    padding: 0;
+    text-align: center;
+}
+
+#logo-png {
+    width: 250px;
+    height: auto;
+    cursor: pointer;
+}
+
+#x2k_title {
+    text-align: center;
+    color: #0c89e2;
+    margin-top: 5px;
+    font-size: 1rem;
+    letter-spacing: -0.2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#citations {
+    font-size: 0.8rem;
+}
+
+#genelist {
+    height: 300px;
+}
+
+.col-form-label {
+    font-size: 0.9rem;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+}
+
+#footer {
+    bottom: 0;
+    color: #707070;
+    height: 2rem;
+    left: 0;
+    position: relative;
+    width:100%;
+}

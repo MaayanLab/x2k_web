@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>X2K Web</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+
+<div class="tab-content container-fluid" id="nav-tabContent">
+    <!--G2N-->
+    <div class="tab-pane fade show active" id="nav-g2n" role="tabpanel" aria-labelledby="nav-g2n-tab">
+        <div class="row justify-content-center">
+            <div id="g2n" class="col-sm-7 text-left">
+                <form>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6 my-3">
+                                <label for="g2n-genelist">Gene list</label>
+                                <textarea class="form-control form-control-sm" id="g2n-genelist" rows="3"></textarea>
+
+                                <!--Buttons-->
+                                <div class="my-3">
+                                    <button type="submit" class="btn btn-outline-primary btn-sm" >Submit</button>
+                                </div>
+
+                                <!--Settings-->
+                                <div id="settings-accordion" role="tablist" class="my-1">
+                                    <div class="card my-1">
+                                        <div class="card-header py-1 border-0 bg-white" role="tab" id="g2n-settings">
+                                            <a class="collapsed" data-toggle="collapse" href="#g2n-collapse" aria-expanded="false" aria-controls="g2n-collapse">
+                                                Genes2Networks settings
+                                            </a>
+                                        </div>
+                                        <div id="g2n-collapse" class="collapse" role="tabpanel" aria-labelledby="g2n-settings" data-parent="#accordion">
+                                            <div class="card-body">
+
+                                                <div class="form-group row align-items-center">
+                                                    <label for="path_length" class="col-form-label col-sm-9">Path length</label>
+                                                    <div class="col-sm-3">
+                                                        <input class="form-control form-control-sm" type="text" value="2" id="path_length">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row align-items-center">
+                                                    <label for="min_number_of_articles_supporting_interaction" class="col-form-label col-sm-9">Minimum number of articles</label>
+                                                    <div class="col-sm-3">
+                                                        <input class="form-control form-control-sm" type="text" value="2" id="min_number_of_articles_supporting_interaction">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row align-items-center">
+                                                    <label for="max_number_of_interactions_per_protein" class="col-form-label col-sm-9">Maximum number of interactions per protein</label>
+                                                    <div class="col-sm-3">
+                                                        <input class="form-control form-control-sm" type="text" value="200" id="max_number_of_interactions_per_protein">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row align-items-center">
+                                                    <label for="max_number_of_interactions_per_article" class="col-form-label col-sm-9">Maximum number of interactions per article</label>
+                                                    <div class="col-sm-3">
+                                                        <input class="form-control form-control-sm" type="text" value="100" id="max_number_of_interactions_per_article">
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                                <div class="form-group" id="g2n-ppi">
+                                                    <label>PPI Networks</label>
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" name="enable_Biocarta" value="true" checked>
+                                                                    Biocarta
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" name="enable_BioGRID" value="true" checked>
+                                                                    BioGRID
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" name="enable_BioPlex" value="true" checked>
+                                                                    BioPlex
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" name="enable_DIP" value="true" checked>
+                                                                    DIP
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" name="enable_huMAP" value="true" checked>
+                                                                    huMAP
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" name="enable_InnateDB" value="true" checked>
+                                                                    InnateDB
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" name="enable_IntAct" value="true" checked>
+                                                                    IntAct
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" name="enable_KEGG" value="true" checked>
+                                                                    KEGG
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" name="enable_MINT" value="true" checked>
+                                                                    MINT
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" name="enable_ppid" value="true" checked>
+                                                                    ppid
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="checkbox" name="enable_SNAVI" value="true" checked>
+                                                                    SNAVI
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 my-5">
+                                <p>
+                                    X2K Web infers upstream regulatory networks from differentially expressed genes.
+                                    It integrates ChIP-Seq/Chip data, position weight matrices, protein–protein
+                                    interactions and kinase–substrate phosphorylation data from ChEA, KEA and G2N apps.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

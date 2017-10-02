@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>X2K Web</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+
+<div class="tab-content container-fluid" id="nav-tabContent">
+    <!--ChEA-->
+    <div class="tab-pane fade show active" id="nav-chea" role="tabpanel" aria-labelledby="nav-chea-tab">
+        <div class="row justify-content-center">
+            <div id="chea" class="col-sm-7 text-left">
+                <form>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6 my-3">
+                                <label for="chea-genelist">Gene list</label>
+                                <textarea class="form-control form-control-sm" id="chea-genelist" rows="3"></textarea>
+
+                                <!--Buttons-->
+                                <div class="my-3">
+                                    <button type="submit" class="btn btn-outline-primary btn-sm" >Submit</button>
+                                </div>
+
+                                <!--Settings-->
+                                <div id="settings-accordion" role="tablist" class="my-1">
+                                    <div class="card my-1">
+                                        <div class="card-header py-1 border-0 bg-white" role="tab" id="chea-settings">
+                                            <a class="collapsed" data-toggle="collapse" href="#chea-collapse" aria-expanded="false" aria-controls="chea-collapse">
+                                                ChEA settings
+                                            </a>
+                                        </div>
+                                        <div id="chea-collapse" class="collapse" role="tabpanel" aria-labelledby="chea-settings" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <div class="form-group" id="chea-sorting">
+                                                    <div class="row align-items-center">
+                                                        <label class="col-form-label col-sm-5">Sort by</label>
+                                                        <div class="col-sm-7">
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="radio" name="cheaSorting" id="chea-pvalue" value="p-value" checked>
+                                                                    p-value
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="radio" name="cheaSorting" id="chea-rank" value="rank">
+                                                                    rank
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="radio" name="cheaSorting" id="chea-combscore" value="combined score">
+                                                                    combined score
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                                <div class="form-group" id="chea-species">
+                                                    <div class="row align-items-center">
+                                                        <label class="col-form-label col-sm-5">Background organism</label>
+                                                        <div class="col-sm-7">
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="radio" name="cheaSpecies" id="chea-human" value="human">
+                                                                    human
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="radio" name="cheaSpecies" id="chea-mouse" value="mouse">
+                                                                    mouse
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="radio" name="cheaSpecies" id="chea-both" value="both" checked>
+                                                                    both
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                                <div class="form-group" id="chea-tfdb">
+                                                    <div class="row align-items-center">
+                                                        <label class="col-form-label col-sm-5">Transcription factor database</label>
+                                                        <div class="col-sm-7">
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="radio" name="cheaTFdb" id="chea2015" value="ChEA 2015" checked>
+                                                                    ChEA 2015
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="radio" name="cheaTFdb" id="encode2015" value="ENCODE 2015">
+                                                                    ENCODE 2015
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="radio" name="cheaTFdb" id="chea-encode" value="ChEA & ENCODE Consensus">
+                                                                    ChEA & ENCODE Consensus
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="radio" name="cheaTFdb" id="transfac-jaspar" value="Transfac and Jaspar">
+                                                                    Transfac & Jaspar
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 my-5">
+                                <p>
+                                    X2K Web infers upstream regulatory networks from differentially expressed genes.
+                                    It integrates ChIP-Seq/Chip data, position weight matrices, protein–protein
+                                    interactions and kinase–substrate phosphorylation data from ChEA, KEA and G2N apps.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

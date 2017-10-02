@@ -55,7 +55,7 @@ public class ResultsServlet extends HttpServlet {
 //	        System.out.println("Using files genes:");
 //	        System.out.println(inputList);
 //	        setChEA(runChEA(inputList, req, resp));
-//	    } else 
+//	    } else
 		if (textGenes.size() > 0) {
 	        System.out.println("Using text genes:");
 	        System.out.println(textGenes);
