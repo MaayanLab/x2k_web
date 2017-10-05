@@ -50,17 +50,18 @@ public class KEAServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("doing post request - KEA");
-        Part fileChunk = req.getPart("file-genes");
-        ArrayList<String> inputList = PartReader.readLines(fileChunk);
+//        Part fileChunk = req.getPart("file-genes");
+//        ArrayList<String> inputList = PartReader.readLines(fileChunk);
 
         Part geneChunk = req.getPart("text-genes");
         ArrayList<String> textGenes = PartReader.readLines(geneChunk);
 
         //handle both possible types of input
-        if(inputList.size() > 0){ //from file selection
-            runKEA(inputList, req, resp);
-        }
-        else if(textGenes.size() > 0){ //as text
+//        if(inputList.size() > 0){ //from file selection
+//            runKEA(inputList, req, resp);
+//        }
+//        else 
+        if(textGenes.size() > 0){ //as text
             runKEA(textGenes, req, resp);
         }
         else{

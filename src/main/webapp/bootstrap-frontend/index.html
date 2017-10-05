@@ -58,15 +58,32 @@
             <div class="row">
                 <div class="col-sm-6 mt-3">
                     <label for="genelist">Gene list</label>
-                    <textarea class="form-control form-control-sm" id="genelist" rows="3"></textarea>
+                    <textarea class="form-control form-control-sm" id="genelist" rows="3" name="text-genes"></textarea>
                 </div>
                 <div class="col-sm-6 my-5">
-                    <p>
+                    <p id="x2k-desc" class="desc">
                         X2K Web infers upstream regulatory networks from differentially expressed genes.
                         It integrates ChIP-Seq/Chip data, position weight matrices, protein–protein
                         interactions and kinase–substrate phosphorylation data from ChEA, KEA and G2N apps.
-                        <a href="#" id="tryX2kExample" onclick="return insertExample('genelist');">Try an example gene list.</a>
+                        <a href="#" onclick="return insertExample('genelist');">Try an example gene list.</a>
                     </p>
+                    <p id="chea-desc" class="desc">
+                    	ChEA identifies upstream transcription factors. It uses
+                     	gene set enrichment for transcription factors likely to bind at the promoters of the
+                      	differentilly expressed genes based on integration of publicly available ChIP-seq data.
+                      	<a href="#" onclick="return insertExample('genelist');">Try an example gene list.</a>
+                      </p>
+                    <p id="g2n-desc" class="desc">
+                    	G2N generates protein-protein interaction network of input transcription factors
+                     	connected with each other by using known protein-protein interactions.
+                     	<a href="#" onclick="return insertExample('genelist');">Try an example gene list.</a>
+                     </p>
+                    <p id="kea-desc" class="desc">
+                    	KEA uses kinase-substrate libraries to predict
+                     	protein kinases connected to intermediate proteins and transcription factors
+                      	that putatively regulate the observed changes in mRNA expression and perform kinase enrichment analysis.
+                      	<a href="#" onclick="return insertExample('genelist');">Try an example gene list.</a>
+                      </p>                                                                                
                 </div>
             </div>
         </div>
@@ -75,7 +92,7 @@
     <div class="tab-pane fade show active" id="nav-x2k" role="tabpanel" aria-labelledby="nav-x2k-tab">
         <div class="row justify-content-center">
             <div id="x2k" class="col-sm-7 text-left">
-                <form id="x2k-form">
+                <form id="x2k-form" enctype="multipart/form-data" method="POST">
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-6 my-3">
@@ -390,7 +407,7 @@
     <div class="tab-pane fade" id="nav-chea" role="tabpanel" aria-labelledby="nav-chea-tab">
         <div class="row justify-content-center">
             <div id="chea" class="col-sm-7 text-left">
-                <form id="chea-form">
+                <form id="chea-form" enctype="multipart/form-data" method="POST">
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-6 my-3">
@@ -508,7 +525,7 @@
     <div class="tab-pane fade" id="nav-g2n" role="tabpanel" aria-labelledby="nav-g2n-tab">
         <div class="row justify-content-center">
             <div id="g2n" class="col-sm-7 text-left">
-                <form id="g2n-form">
+                <form id="g2n-form" enctype="multipart/form-data" method="POST">
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-6 my-3">
@@ -647,7 +664,7 @@
     <div class="tab-pane fade" id="nav-kea" role="tabpanel" aria-labelledby="nav-kea-tab">
         <div class="row justify-content-center">
             <div id="kea" class="col-sm-7 text-left">
-                <form id="kea-form">
+                <form id="kea-form" enctype="multipart/form-data" method="POST">
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-6 my-3">

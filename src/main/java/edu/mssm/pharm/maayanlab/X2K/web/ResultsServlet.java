@@ -46,10 +46,8 @@ public class ResultsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //	    Part fileChunk = req.getPart("file");
 //	    ArrayList<String> inputList = PartReader.readLines(fileChunk);
-
 	    Part geneChunk = req.getPart("text-genes");
 	    ArrayList<String> textGenes = PartReader.readLines(geneChunk);
-
 		System.out.println("POST request - ChEA");
 //	    if (inputList.size() > 0) {
 //	        System.out.println("Using files genes:");

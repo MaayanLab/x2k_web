@@ -28,8 +28,8 @@ public class ChEAServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("doing post request - ChEA");
-        Part fileChunk = req.getPart("file-genes");
-        ArrayList<String> fileGenes = PartReader.readLines(fileChunk);
+//        Part fileChunk = req.getPart("file-genes");
+//        ArrayList<String> fileGenes = PartReader.readLines(fileChunk);
 
         Part geneChunk = req.getPart("text-genes");
         ArrayList<String> textGenes = PartReader.readLines(geneChunk);
@@ -37,11 +37,12 @@ public class ChEAServlet extends HttpServlet {
         System.out.println(textGenes.size());
 
         //handle both possible types of input
-        if (fileGenes.size() > 0) {
-            System.out.println("Using files genes:");
-            System.out.println(fileGenes);
-            runChEA(fileGenes, req, resp);
-        } else if (textGenes.size() > 0) {
+//        if (fileGenes.size() > 0) {
+//            System.out.println("Using files genes:");
+//            System.out.println(fileGenes);
+//            runChEA(fileGenes, req, resp);
+//        } else
+        if (textGenes.size() > 0) {
             System.out.println("Using text genes:");
             System.out.println(textGenes);
             runChEA(textGenes, req, resp);

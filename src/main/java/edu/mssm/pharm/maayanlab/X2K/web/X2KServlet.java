@@ -67,15 +67,16 @@ public class X2KServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("doing post request - X2K");
-		Part fileChunk = req.getPart("file-genes");
-		ArrayList<String> inputList = PartReader.readLines(fileChunk);
+//		Part fileChunk = req.getPart("file-genes");
+//		ArrayList<String> inputList = PartReader.readLines(fileChunk);
 		Part geneChunk = req.getPart("text-genes");
 		ArrayList<String> textGenes = PartReader.readLines(geneChunk);
 		//handle both possible types of input
-		if(inputList.size() > 0){
-			enrichList(inputList, req, resp);
-		}
-		else if(textGenes.size() > 0){
+//		if(inputList.size() > 0){
+//			enrichList(inputList, req, resp);
+//		}
+//		else
+		if(textGenes.size() > 0){
 			enrichList(textGenes, req, resp);
 		}
 		else{

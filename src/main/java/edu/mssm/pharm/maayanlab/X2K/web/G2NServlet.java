@@ -82,8 +82,8 @@ public class G2NServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("doing post request - G2N");
-        Part fileChunk = req.getPart("file-genes");
-        ArrayList<String> inputList = PartReader.readLines(fileChunk);
+//        Part fileChunk = req.getPart("file-genes");
+//        ArrayList<String> inputList = PartReader.readLines(fileChunk);
 
         Part geneChunk = req.getPart("text-genes");
 
@@ -91,10 +91,11 @@ public class G2NServlet extends HttpServlet {
         ArrayList<String> textGenes = PartReader.readLines(geneChunk);
 
         //handle both possible types of input
-        if(inputList.size() > 0){
-            runG2N(inputList, req, resp);
-        }
-        else if(textGenes.size() > 0){
+//        if(inputList.size() > 0){
+//            runG2N(inputList, req, resp);
+//        }
+//        else 
+        if(textGenes.size() > 0){
             runG2N(textGenes, req, resp);
         }
         else{
