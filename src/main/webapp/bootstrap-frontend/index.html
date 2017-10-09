@@ -11,7 +11,23 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    
+    <!--Datatables imports-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.bootstrap4.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.bootstrap4.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap4.css"/>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.bootstrap4.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.js"></script>
+
+    <!--Own-->
     <script src="js/index.js"></script>
+    <script src="js/ljp.js"></script>
 </head>
 
 <body>
@@ -41,6 +57,8 @@
                aria-controls="nav-about">About</a>
             <a class="dropdown-item" id="nav-api-tab" href="#nav-api" role="tab" data-toggle="tab"
                aria-controls="nav-api">API</a>
+            <a class="dropdown-item" id="nav-case-tab" href="#nav-case" role="tab" data-toggle="tab"
+               aria-controls="nav-case">Case studies</a>               
             <a class="dropdown-item" id="nav-commandline-tab" href="#nav-commandline" role="tab" data-toggle="tab"
                aria-controls="nav-commandline">Download command line versions</a>
             <a class="dropdown-item" id="nav-datasets-tab" href="#nav-datasets" role="tab" data-toggle="tab"
@@ -65,25 +83,28 @@
                         X2K Web infers upstream regulatory networks from differentially expressed genes.
                         It integrates ChIP-Seq/Chip data, position weight matrices, protein–protein
                         interactions and kinase–substrate phosphorylation data from ChEA, KEA and G2N apps.
-                        <a href="#" onclick="return insertExample('genelist');">Try an example gene list.</a>
+                        <a href="#" onclick="return insertExample();">Try an example gene list.</a>
                     </p>
                     <p id="chea-desc" class="desc">
                     	ChEA identifies upstream transcription factors. It uses
                      	gene set enrichment for transcription factors likely to bind at the promoters of the
                       	differentilly expressed genes based on integration of publicly available ChIP-seq data.
-                      	<a href="#" onclick="return insertExample('genelist');">Try an example gene list.</a>
+                      	<a href="#" onclick="return insertExample();">Try an example gene list.</a>
                       </p>
                     <p id="g2n-desc" class="desc">
                     	G2N generates protein-protein interaction network of input transcription factors
                      	connected with each other by using known protein-protein interactions.
-                     	<a href="#" onclick="return insertExample('genelist');">Try an example gene list.</a>
+                     	<a href="#" onclick="return insertExample();">Try an example gene list.</a>
                      </p>
                     <p id="kea-desc" class="desc">
                     	KEA uses kinase-substrate libraries to predict
                      	protein kinases connected to intermediate proteins and transcription factors
                       	that putatively regulate the observed changes in mRNA expression and perform kinase enrichment analysis.
-                      	<a href="#" onclick="return insertExample('genelist');">Try an example gene list.</a>
-                      </p>                                                                                
+                      	<a href="#" onclick="return insertExample();">Try an example gene list.</a>
+                     </p>
+                     <div id="case-desc" class="desc">
+                     	<p>LINCS Joint Project (LJP)</p>                   
+                     </div>                                                                                
                 </div>
             </div>
         </div>
@@ -751,6 +772,36 @@
         <div class="row justify-content-center">
             <div id="api" class="col-sm-7 text-left my-5">
                 <p>API</p>
+            </div>
+        </div>
+    </div>
+
+    <!--Case studies-->
+    <div class="tab-pane fade" id="nav-case" role="tabpanel" aria-labelledby="nav-case-tab">
+        <div class="row justify-content-center">
+            <div id="ljp" class="col-sm-7 text-left my-5">
+	            <table id="ljp-table" class="table table-striped table-bordered" width="100%">
+	                <thead>
+	                <tr>
+	                    <th>Signature</th>
+	                    <th>Perturbation</th>
+	                    <th>Dose, μM</th>
+	                    <th>Time, hours</th>
+	                    <th>Celline</th>
+	                    <th>Analysis</th>
+	                </tr>
+	                </thead>
+	                <tfoot>
+	                <tr>
+	                    <th></th>
+	                    <th>Perturbation</th>
+	                    <th>Dose, μM</th>
+	                    <th>Time, hours</th>
+	                    <th>Celline</th>
+	                    <th></th>
+	                </tr>
+	                </tfoot>
+	            </table>              
             </div>
         </div>
     </div>
