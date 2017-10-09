@@ -1,6 +1,6 @@
-function insertExample(genelist_id) {
+function insertExample() {
     $.get('static/example_list.txt', function (data) {
-        $('textarea#' + genelist_id).val(data);
+        $('textarea#genelist').val(data);
     });
     return false;
 }
@@ -38,5 +38,6 @@ $(function () {
     $("#nav-chea-tab").on("click", function(){$(".desc").hide(); $("#chea-desc").show();})
     $("#nav-g2n-tab").on("click", function(){$(".desc").hide(); $("#g2n-desc").show();})
     $("#nav-kea-tab").on("click", function(){$(".desc").hide(); $("#kea-desc").show();})
+    $("#nav-case-tab").on("click", function(){$(".desc").hide(); $("#case-desc").show();})
     
 });
