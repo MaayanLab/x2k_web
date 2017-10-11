@@ -34,13 +34,13 @@ function showHelpDesc(page){
 }
 
 $(function () {
-	$(".desc").hide();
-	$("#x2k-desc").show();
 	submitButtonListener("results_submit", "http://localhost:8080/X2K/results", "#x2k-form");
+	submitButtonListener("results_submit_ljp", "http://localhost:8080/X2K/results", "#x2k-ljp-form");
     // submitButtonListener("x2k_submit", "http://localhost:8080/X2K/network");
     submitButtonListener("chea_submit", "http://localhost:8080/X2K/ChEA", "#chea-form");
     submitButtonListener("kea_submit", "http://localhost:8080/X2K/KEA", "#kea-form");
     submitButtonListener("g2n_submit", "http://localhost:8080/X2K/G2N", "#g2n-form");
+    
     
     showToolDesc("x2k");
     showToolDesc("chea");
