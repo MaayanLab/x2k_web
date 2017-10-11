@@ -71,7 +71,7 @@
 <div class="tab-content container-fluid" id="nav-tabContent">
     <!--X2K-->
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" id="analysis-row">
         <div class="col-sm-7 text-left">
             <div class="row">
                 <div class="col-sm-6 mt-3">
@@ -103,14 +103,14 @@
                       	<a href="#" onclick="return insertExample();">Try an example gene list.</a>
                      </p>
                      <div id="case-desc" class="desc">
-                     	<p>LINCS Joint Project (LJP)</p>                   
+                     	<p>LINCS Joint Project (LJP)</p>
                      </div>                                                                                
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="tab-pane fade show active" id="nav-x2k" role="tabpanel" aria-labelledby="nav-x2k-tab">
+    <div class="tab-pane fade show active settings" id="nav-x2k" role="tabpanel" aria-labelledby="nav-x2k-tab">
         <div class="row justify-content-center">
             <div id="x2k" class="col-sm-7 text-left">
                 <form id="x2k-form" enctype="multipart/form-data" method="POST">
@@ -425,7 +425,7 @@
         </div>
     </div>
     <!--ChEA-->
-    <div class="tab-pane fade" id="nav-chea" role="tabpanel" aria-labelledby="nav-chea-tab">
+    <div class="tab-pane fade settings" id="nav-chea" role="tabpanel" aria-labelledby="nav-chea-tab">
         <div class="row justify-content-center">
             <div id="chea" class="col-sm-7 text-left">
                 <form id="chea-form" enctype="multipart/form-data" method="POST">
@@ -543,7 +543,7 @@
         </div>
     </div>
     <!--G2N-->
-    <div class="tab-pane fade" id="nav-g2n" role="tabpanel" aria-labelledby="nav-g2n-tab">
+    <div class="tab-pane fade settings" id="nav-g2n" role="tabpanel" aria-labelledby="nav-g2n-tab">
         <div class="row justify-content-center">
             <div id="g2n" class="col-sm-7 text-left">
                 <form id="g2n-form" enctype="multipart/form-data" method="POST">
@@ -682,7 +682,7 @@
         </div>
     </div>
     <!--KEA-->
-    <div class="tab-pane fade" id="nav-kea" role="tabpanel" aria-labelledby="nav-kea-tab">
+    <div class="tab-pane fade settings" id="nav-kea" role="tabpanel" aria-labelledby="nav-kea-tab">
         <div class="row justify-content-center">
             <div id="kea" class="col-sm-7 text-left">
                 <form id="kea-form" enctype="multipart/form-data" method="POST">
@@ -745,7 +745,7 @@
     <!--Help-->
     <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
         <div class="row justify-content-center">
-            <div id="about" class="col-sm-7 text-left my-5">
+            <div id="about" class="col-sm-7 text-left my-3">
                 <p>
                     X2K Web is an online tool used to infer upstream regulatory
                     networks from differentially expressed genes. Combining the <a
@@ -770,7 +770,7 @@
     <!--API-->
     <div class="tab-pane fade" id="nav-api" role="tabpanel" aria-labelledby="nav-api-tab">
         <div class="row justify-content-center">
-            <div id="api" class="col-sm-7 text-left my-5">
+            <div id="api" class="col-sm-7 text-left my-3">
                 <p>API</p>
             </div>
         </div>
@@ -779,8 +779,8 @@
     <!--Case studies-->
     <div class="tab-pane fade" id="nav-case" role="tabpanel" aria-labelledby="nav-case-tab">
         <div class="row justify-content-center">
-            <div id="ljp" class="col-sm-7 text-left my-5">
-	            <table id="ljp-table" class="table table-striped table-bordered" width="100%">
+             <div id="ljp" class="col-sm-7 text-left my-3">
+	            <table id="ljp-table" class="table table-striped table-bordered table-sm">
 	                <thead>
 	                <tr>
 	                    <th>Signature</th>
@@ -809,7 +809,7 @@
     <!--Commandline-->
     <div class="tab-pane fade" id="nav-commandline" role="tabpanel" aria-labelledby="nav-commandline-tab">
         <div class="row justify-content-center">
-            <div id="commandline" class="col-sm-7 text-left my-5">
+            <div id="commandline" class="col-sm-7 text-left my-3">
                 You can download command line standalone versions of the X2K tools in JAR format.
                 Command near each download link suggests usage:
                 <p>
@@ -849,7 +849,7 @@
     <!--Datasets-->
     <div class="tab-pane fade" id="nav-datasets" role="tabpanel" aria-labelledby="nav-datasets-tab">
         <div class="row justify-content-center">
-            <div id="datasets" class="col-sm-7 text-left my-5">
+            <div id="datasets" class="col-sm-7 text-left my-3">
                 <div class="row">
                     <div class="col-sm-4">
                         <h5>Protein-Protein Interaction</h5>

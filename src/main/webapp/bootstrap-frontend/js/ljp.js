@@ -27,7 +27,6 @@ $(function () {
                                 var val = $.fn.dataTable.util.escapeRegex(
                                     $(this).val()
                                 );
-
                                 column
                                     .search(val ? '^' + val + '$' : '', true, false)
                                     .draw();
@@ -44,7 +43,6 @@ $(function () {
                             column.data().unique().sort().each(function (d, j) {
                                 select.append('<option value="' + d + '">' + d + '</option>')
                             });
-
                         }
                     }
                 });

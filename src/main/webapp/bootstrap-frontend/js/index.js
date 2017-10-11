@@ -25,19 +25,32 @@ function submitButtonListener(button, endpoint, settings_form) {
     });
 }
 
+function showToolDesc(tool){
+	$("#nav-"+tool+"-tab").on("click", function(){$(".desc").hide(); $("#"+tool+"-desc").show(); $("#analysis-row").show();})
+}
+
+function showHelpDesc(page){
+	$("#nav-"+page+"-tab").on("click", function(){$(".desc").hide(); $("#analysis-row").hide();});
+}
+
 $(function () {
 	$(".desc").hide();
 	$("#x2k-desc").show();
+	submitButtonListener("results_submit", "http://localhost:8080/X2K/results", "#x2k-form");
+    // submitButtonListener("x2k_submit", "http://localhost:8080/X2K/network");
     submitButtonListener("chea_submit", "http://localhost:8080/X2K/ChEA", "#chea-form");
     submitButtonListener("kea_submit", "http://localhost:8080/X2K/KEA", "#kea-form");
-    // submitButtonListener("x2k_submit", "http://localhost:8080/X2K/network");
     submitButtonListener("g2n_submit", "http://localhost:8080/X2K/G2N", "#g2n-form");
-    submitButtonListener("results_submit", "http://localhost:8080/X2K/results", "#x2k-form");
     
-    $("#nav-x2k-tab").on("click", function(){$(".desc").hide(); $("#x2k-desc").show();})
-    $("#nav-chea-tab").on("click", function(){$(".desc").hide(); $("#chea-desc").show();})
-    $("#nav-g2n-tab").on("click", function(){$(".desc").hide(); $("#g2n-desc").show();})
-    $("#nav-kea-tab").on("click", function(){$(".desc").hide(); $("#kea-desc").show();})
-    $("#nav-case-tab").on("click", function(){$(".desc").hide(); $("#case-desc").show();})
+    showToolDesc("x2k");
+    showToolDesc("chea");
+    showToolDesc("g2n");
+    showToolDesc("kea");
     
+    showHelpDesc("about");
+    showHelpDesc("api");
+    showHelpDesc("commandline");
+    showHelpDesc("datasets");
+    
+    $("#nav-case-tab").on("click", function(){$(".desc").hide(); $("#case-desc").show(); $("#analysis-row").show();})
 });
