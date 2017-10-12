@@ -1,6 +1,6 @@
 function sendToX2K(sig, dir) {
-    var file = 'static/ljp/'+dir+'/'+sig.split('.')[0]+'.json';
-    $.getJSON(file, function(data) {
+    var file = 'static/ljp/' + dir + '/' + sig.split('.')[0] + '.json';
+    $.getJSON(file, function (data) {
         $('textarea#genelist').val(data[sig].join('\n'));
     });
 }
@@ -20,7 +20,7 @@ $(function () {
             initComplete: function () {
                 this.api().columns().every(function () {
                     var column = this;
-                    if ((column.index() >= 1)&&(column.index() <= 4)) {
+                    if ((column.index() >= 1) && (column.index() <= 4)) {
                         var select = $('<select><option value=""></option></select>')
                             .appendTo($(column.footer()).empty())
                             .on('change', function () {

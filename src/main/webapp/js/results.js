@@ -186,10 +186,6 @@ $(function() {
 		$('button').removeClass('selected');
 		$(this).addClass('selected');
 	});
-
-	// Dashboard tabs
-	$("div[id*='tabs']").tabs();
-
 	
 	// Networks functions
 	function convertX2KNode(x2k_node){ //convert the style of a node from X2K output to cytoscape
