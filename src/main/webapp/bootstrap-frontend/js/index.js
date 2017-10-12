@@ -12,45 +12,58 @@ function submitButtonListener(button, endpoint, settings_form) {
             text_input = $("#genelist").val();
 
         $form.attr("action", endpoint);
-        
-        // Hack that works like a charm        
+
+        // Hack that works like a charm
         var input = $("<input>")
-        	.attr("type", "hidden")
-        	.attr("name", "text-genes").val(text_input);
+            .attr("type", "hidden")
+            .attr("name", "text-genes").val(text_input);
         $form.append($(input));
-        
+
         if (text_input.length > 0) {
             $form.submit();
         }
     });
 }
 
-function showToolDesc(tool){
-	$("#nav-"+tool+"-tab").on("click", function(){$(".desc").hide(); $("#"+tool+"-desc").show(); $("#analysis-row").show();})
+function showToolDesc(tool) {
+    $("#nav-" + tool + "-tab").on("click", function () {
+        $(".desc").hide();
+        $("#" + tool + "-desc").show();
+        $("#analysis-row").show();
+    })
 }
 
-function showHelpDesc(page){
-	$("#nav-"+page+"-tab").on("click", function(){$(".desc").hide(); $("#analysis-row").hide();});
+function showHelpDesc(page) {
+    $("#nav-" + page + "-tab").on("click", function () {
+        $(".desc").hide();
+        $("#analysis-row").hide();
+    });
 }
 
 $(function () {
-	submitButtonListener("results_submit", "http://localhost:8080/X2K/results", "#x2k-form");
-	submitButtonListener("results_submit_ljp", "http://localhost:8080/X2K/results", "#x2k-ljp-form");
+    submitButtonListener("results_submit", "http://localhost:8080/X2K/results", "#x2k-form");
+    submitButtonListener("results_submit_ljp", "http://localhost:8080/X2K/results", "#x2k-ljp-form");
     // submitButtonListener("x2k_submit", "http://localhost:8080/X2K/network");
     submitButtonListener("chea_submit", "http://localhost:8080/X2K/ChEA", "#chea-form");
     submitButtonListener("kea_submit", "http://localhost:8080/X2K/KEA", "#kea-form");
     submitButtonListener("g2n_submit", "http://localhost:8080/X2K/G2N", "#g2n-form");
-    
-    
+
+
     showToolDesc("x2k");
     showToolDesc("chea");
     showToolDesc("g2n");
     showToolDesc("kea");
-    
+
     showHelpDesc("about");
     showHelpDesc("api");
     showHelpDesc("commandline");
     showHelpDesc("datasets");
-    
-    $("#nav-case-tab").on("click", function(){$(".desc").hide(); $("#case-desc").show(); $("#analysis-row").show();})
+
+    $("#nav-case-tab").on("click", function () {
+        $(".desc").hide();
+        $("#case-desc").show();
+        $("#analysis-row").show();
+        $('#nav-x2k').show();
+        $('#nav-x2k').css("opacity", 0)
+    })
 });
