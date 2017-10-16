@@ -1,123 +1,31 @@
-body {
-	font-family: arial, sans-serif;
-	font-size: 13px;
-}
-
-#page {
-	margin: 20px auto;
-	padding: 20px;
-	width: 100%;
-	height: 100%;
-}
-
+/* X2K header and logo */
 #logo {
-  display: table;
-  margin: 0 auto;
+    margin: 10px;
+    padding: 0;
+    text-align: center;
 }
 
-#logo a {
-	display: inline-block;
-	margin-left: 100px;
-}
-
-#logo a img {
-	width: 200px;
-	cursor: pointer;
+#logo-png {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
 }
 
 #x2k_title {
     text-align: center;
     color: #0c89e2;
     margin-top: 5px;
-    font-size: 1.23em;
+    font-size: 0.8rem;
     letter-spacing: -0.2px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.desc{
-	margin: 10px;
-}
-/* Overwriting jQuery style*/
-
-.ui-state-active{
-	border: 1px solid #c5c5c5 !important;
-	border-bottom: 1px solid #fff !important;
-	background: #fff !important;
-	
+.legend {
+	font-size: 0.7rem;
 }
 
-.ui-widget-header {
-	border: none !important;
-    border-bottom: 1px solid #dddddd !important;
-    background: #fff !important;
-}
-
-#ui-id-1,
-#ui-id-2,
-#ui-id-3,
-#ui-id-4,
-#ui-id-5,
-#ui-id-6{
-	color: #000 !important;
-}
-
-#buttons-panel{
-	float: left;
-	/* width: 150%; */
-	width:140px;
-}
-
-
-#x2k-button,
-#chea-button,
-#g2n-button,
-#kea-button
-{
-	position: relative;
-	display: inline-block;
-	float: left;
-	width: 100%;
-	height: 140px;
-	color: #000000;
-	margin-right: 5px;
-	margin-bottom: 5px;
-	font-size: 2.15em;
-	line-height: 1.25;
-	margin-top: 0;
-	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.15);
-    background-color: #eee;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    cursor: pointer;	
-}
-
-#results-panel{
-	/* float: left; */
-}
-
-button.selected {
-	background-color:  #a0a0a0;
-	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.0);
-}
-
-#results {
-	display: table;
-	width: 80%;
-	height: 100%;
-}
-
-#legend {
-	height: 90px;
-	padding: 5px;
-	top: 0;
-}
-
-#legend-dot{
-	margin-right: 10px;
-}
-
-.no_bullet{
-	list-style-type: none;
+#citations {
+    font-size: 0.7rem;
 }
 
 #chea-table,
@@ -128,64 +36,25 @@ button.selected {
 	width: 100%;
 	height: 100%;
 }
-
-
-/* #res_layout_table{
-	background-color: #fff;
+ 
+.img-fluid {
 	width: 100%;
-	height: 100%;
-	display:flex;
-} */
-
-/* #data_table {
-	text-align: center;
+	height: auto;
 }
 
-th {
-	border-bottom: 1px solid #dddddd;
-	background-color: #fff;
-	padding-bottom: 5px;
-	padding-top: 5px;
+.table {
+	max-width: 100%;
+	height: auto;
 }
 
-tr:nth-child(odd) {
-	background-color: #f1f1f1;
+.btn {
+	font-size: 0.7rem;
 }
 
-td
-{
-    text-align: left;
-    padding-left: 5px;
+.nav {
+	font-size: 0.8rem;
 }
 
-td + td {
-	padding-bottom: 5px;
-	padding-left: 15px;
-	padding-right: 5px;
-	padding-top: 5px;
-	text-align: right;
-} */
-
-#download-button{
-    background-color: #fff;
-    border: 1px solid #777;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 0.8em;
-    margin-top: 10px;
-}
-
-#footer > p{
-	margin-bottom: 10px;
-}
-
-#footer {
-	clear: both;
-	width: 79%;
-  	margin: 0 auto;
-	margin-top: 20px;
-}
-
-#footer h3 {
-	margin: 10px 0 5px 0;
+.btn-outline-secondary.selected {
+	color: black
 }

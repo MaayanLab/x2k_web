@@ -62,8 +62,8 @@ $(function () {
     $("#nav-case-tab").on("click", function () {
         $(".desc").hide();
         $("#case-desc").show();
-        $("#analysis-row").show();
-        $('#nav-x2k').show();
-        $('#nav-x2k').css("opacity", 0)
+        $("#analysis-row").hide();
+//        $('#nav-x2k').show();
+//        $('#nav-x2k').css("opacity", 1)
     })
 });

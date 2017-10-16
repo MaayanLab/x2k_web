@@ -4,9 +4,9 @@
     <title>Results</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 
@@ -18,12 +18,12 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <!--Datatables-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.bootstrap4.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.bootstrap4.css">
     <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.bootstrap4.css"/>
+          href="https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.bootstrap4.css">
     <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap4.css"/>
+          href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap4.css">
 
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.js"></script>
@@ -34,222 +34,195 @@
     <script type="text/javascript"
             src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.js"></script>
 
-    <!--From old results-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!--Own-->
+    <link rel="stylesheet" href="css/bargraph.css">
+    <link rel="stylesheet" href="css/network.css">
+    <link rel="stylesheet" href="css/atooltip.css">
+    <link rel="stylesheet" href="css/results.css">
+
 
     <script src="js/bargraph.js"></script>
     <script src="js/results.js"></script>
     <script src="js/network.js"></script>
     <script src="js/jquery.atooltip.pack.js"></script>
-
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
-    <link rel="stylesheet" href="css/results.css">
-    <link rel="stylesheet" href="css/bargraph.css">
-    <link rel="stylesheet" href="css/network.css">
-    <link rel="stylesheet" href="css/atooltip.css">
-
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-    <!--Own-->
     <script> var json_file = ${json}; </script>
-    <link rel="stylesheet" href="css/results.css">
-
 </head>
 <body>
-
-
 <!--Header-->
 <div id="logo">
-    <a href="/X2K"><img id="logo-png" class="img-fluid mx-auto" src="static/logo.png"/></a>
+    <a href="/X2K"><img id="logo-png" class="img-fluid mx-auto" src="resources/logo.png"></a>
     <p id="x2k_title">A web interface for the Expression to Kinases application</p>
 </div>
 
-
-<div class="container" id="results-dashboard">
-    <div class="row justify-content-center">
+<!--Body-->
+<div class="container-fluid" id="results-dashboard">
+    <div class="row justify-content-center align-items-start">
         <!--X2K-->
-        <div class="col-sm-6" id="tabs-x2k">
-            <div class="desc">
-                <p>Subnetwork of upstream transcription factors, intermediate proteins, and protein kinases.</p>
-            </div>
-            <ul>
-                <li><a href="#x2k-network">Subnetwork</a></li>
-            </ul>
-
-            <!-- network -->
-            <div id="x2k-network">
-                <svg class="x2k-svg" width="480" height="300"></svg>
-            </div>
-            <div id="legend">
-                <ul class="no_bullet">
-                    <li class="legend">
-                        <svg id="legend-dot" height="12" width="12">
-                            <circle cx="6" cy="6" r="6" fill="#1F77B4"/>
-                        </svg>
-                        Kinase
-                    </li>
-                    <li class="legend">
-                        <svg id="legend-dot" height="12" width="12">
-                            <circle cx="6" cy="6" r="6" fill="#FF7F0E"/>
-                        </svg>
-                        Intermediate protein
-                    </li>
-                    <li class="legend">
-                        <svg id="legend-dot" height="12" width="12">
-                            <circle cx="6" cy="6" r="6" fill="#FF546D"/>
-                        </svg>
-                        Transcription Factor
-                    </li>
-                </ul>
-            </div>
-            <div id="download_buttons">
-                <a id="exportData" onclick="exportJson(this, 'X2K', json_file['X2K']);">
-                    <button type="button" id="download-button">JSON</button>
-                </a>
-                <!-- 		        <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'jpg'); return false;">
-                                    <button type="button" id="download-button">JPG</button>
-                                </a>
-                                <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'png'); return false;">
-                                    <button type="button" id="download-button">PNG</button>
-                                </a>
-                                <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'svg'); return false;">
-                                    <button type="button" id="download-button">SVG</button>
-                                </a> -->
+        <div class="col-sm-5 mx-2" id="x2k">
+            <div class="card">
+                <div class="card-header text-center">X2K</div>
+                <div id="x2k-network" class="card-body">
+                    <svg class="x2k-svg" width="500" height="320"></svg>
+                </div>
+                <div class="card-footer">
+                    <div class="row justify-content-between">
+                        <div class="legend col-sm-8">
+                            <div class="btn-group" role="group" aria-label="X2K Legend">
+                                <button type="button" class="btn btn-outline-secondary btn-sm">
+                                    <svg id="legend-dot" height="12" width="12">
+                                        <circle cx="6" cy="6" r="6" fill="#1F77B4"></circle>
+                                    </svg>
+                                    Kinase
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm">
+                                    <svg id="legend-dot" height="12" width="12">
+                                        <circle cx="6" cy="6" r="6" fill="#FF7F0E"></circle>
+                                    </svg>
+                                    Intermediate protein
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm">
+                                    <svg id="legend-dot" height="12" width="12">
+                                        <circle cx="6" cy="6" r="6" fill="#FF546D"></circle>
+                                    </svg>
+                                    Transcription Factor
+                                </button>
+                            </div>
+                        </div>
+                        <div class="download-buttons col-sm-4">
+                            <a onclick="exportJson(this, 'X2K', json_file['X2K']);">
+                                <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!--ChEA-->
-        <div class="col-sm-6" id="tabs-chea">
-            <div class="desc">
-                <p>Top ten most enriched transcription factors as determined by ChEA or ENCODE.</p>
-            </div>
-            <ul>
-                <li><a href="#bargraph-chea">Bargraph</a></li>
-                <li><a href="#chea-table-wrap">Table</a></li>
-            </ul>
+        <div class="col-sm-5 mx-2" id="chea">
+            <div class="card">
+                <div class="card-header text-center">ChEA</div>
+                <div class="card-body">
+                    <nav class="nav nav-tabs" id="chea-tabs" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-chea-bar-tab" data-toggle="tab" href="#nav-chea-bar"
+                           role="tab" aria-controls="nav-chea-bar" aria-expanded="true">Bargraph</a>
+                        <a class="nav-item nav-link" id="nav-chea-table-tab" data-toggle="tab" href="#nav-chea-table"
+                           role="tab"
+                           aria-controls="nav-chae-table">Table</a>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent-chea">
+                        <div class="tab-pane fade show active" id="nav-chea-bar" role="tabpanel"
+                             aria-labelledby="nav-chea-bar-tab">
+                            <div id="bargraph-chea" class="bargraph">
+                                <div class="mt-1">
+                                    <input type="button" class="selected btn btn-outline-secondary btn-sm"
+                                           value="P-value">
+                                    <input type="button" class="btn btn-outline-secondary btn-sm" value="Z-score">
+                                    <input type="button" class="btn btn-outline-secondary btn-sm"
+                                           value="Combined score">
+                                </div>
+                                <svg class="chea-chart" width="500" height="250"></svg>
+                            </div>
+                        </div>
 
-            <!-- bargraph -->
-            <div id="bargraph-chea" class="bargraph">
-                <div id="label">
-                    <input type="button" class="chea-chart-pvalue selected" value="P-value"/>
-                    <input type="button" class="chea-chart-zscore" value="Z-score"/>
-                    <input type="button" class="chea-chart-combinedScore" value="Combined score"/>
+                        <div class="tab-pane fade" id="nav-chea-table" role="tabpanel"
+                             aria-labelledby="nav-chea-table-tab">
+                            <table class="table table-striped table-bordered table-sm" id="chea-table"></table>
+                        </div>
+                    </div>
                 </div>
-                <svg class="chea-chart" width="480" height="300"></svg>
-            </div>
-
-            <!-- table -->
-            <div id="chea" class="results-table">
-                <div id="chea-table-wrap">
-                    <table id="chea-table"></table>
+                <div class="download-buttons card-footer">
+                    <div class="row justify-content-end">
+                        <a onclick="exportJson(this, 'ChEA', json_file['ChEA']);">
+                            <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div id="download_buttons">
-                <a id="exportData" onclick="exportJson(this, 'ChEA', json_file['ChEA']);">
-                    <button type="button" id="download-button">JSON</button>
-                </a>
-                <!--  		        <a id="exportData" onclick="svgExport('.chea-chart', 'ChEA_bargraph', 'jpg'); return false;">
-                                    <button type="button" id="download-button">JPG</button>
-                                </a>
-                                <a id="exportData" onclick="svgExport('.chea-chart', 'ChEA_bargraph', 'png'); return false;">
-                                    <button type="button" id="download-button">PNG</button>
-                                </a>
-                                <a id="exportData" onclick="svgExport('.chea-chart', 'ChEA_bargraph', 'svg'); return false;">
-                                    <button type="button" id="download-button">SVG</button>
-                                </a>     -->
             </div>
         </div>
     </div>
-    <!--G2N-->
-    <div class="row">
-        <div class="col-sm-6" id="tabs-g2n">
-            <div class="desc">
-                <p>Subnetwork that connects the transcription factors using known protein-protein interactions.</p>
-            </div>
-            <ul>
-                <li><a href="#g2n-network">Subnetwork</a></li>
-            </ul>
 
-            <!-- network -->
-            <div id="network-g2n">
-                <svg class="g2n-svg" width="480" height="300"></svg>
-            </div>
-            <div id="legend">
-                <ul class="no_bullet">
-                    <li class="legend">
-                        <svg id="legend-dot" height="12" width="12">
-                            <circle cx="6" cy="6" r="6" fill="#1F77B4"/>
-                        </svg>
-                        Seed Protein
-                    </li>
-                    <li class="legend">
-                        <svg id="legend-dot" height="12" width="12">
-                            <circle cx="6" cy="6" r="6" fill="#FF7F0E"/>
-                        </svg>
-                        Intermediate protein
-                    </li>
-                </ul>
-            </div>
-            <div id="download_buttons">
-                <a id="exportData" onclick="exportJson(this, 'G2N', json_file['G2N']);">
-                    <button type="button" id="download-button">JSON</button>
-                </a>
-                <!--  		        <a id="exportData" onclick="svgExport('#network-g2n', 'G2N_network', 'jpg'); return false;">
-                                    <button type="button" id="download-button">JPG</button>
-                                </a>
-                                <a id="exportData" onclick="svgExport('#network-g2n', 'G2N_network', 'png'); return false;">
-                                    <button type="button" id="download-button">PNG</button>
-                                </a>
-                                <a id="exportData" onclick="svgExport('#network-g2n', 'G2N_network', 'svg'); return false;">
-                                    <button type="button" id="download-button">SVG</button> -->
-                </a>
+    <!--G2N-->
+    <div class="row justify-content-center align-items-start">
+        <div class="col-sm-5 mx-2" id="g2n">
+            <div class="card">
+                <div class="card-header text-center">G2N</div>
+                <div id="network-g2n" class="card-body">
+                    <svg class="g2n-svg" width="500" height="320"></svg>
+                </div>
+                <div class="card-footer">
+                    <div class="row justify-content-between">
+                        <div class="legend col-sm-8">
+                            <div class="btn-group" role="group" aria-label="X2K Legend">
+                                <button type="button" class="btn btn-outline-secondary btn-sm">
+                                    <svg id="legend-dot" height="12" width="12">
+                                        <circle cx="6" cy="6" r="6" fill="#1F77B4"></circle>
+                                    </svg>
+                                    Seed Protein
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm">
+                                    <svg id="legend-dot" height="12" width="12">
+                                        <circle cx="6" cy="6" r="6" fill="#FF7F0E"></circle>
+                                    </svg>
+                                    Intermediate protein
+                                </button>
+                            </div>
+                        </div>
+                        <div class="download-buttons col-sm-4">
+                            <a onclick="exportJson(this, 'G2N', json_file['G2N']);">
+                                <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!--KEA-->
-        <div class="col-sm-6" id="tabs-kea">
-            <div class="desc">
-                <p>Top ten most enriched protein kinases to regulate the subnetwork as determined by KEA.</p>
-            </div>
-            <ul>
-                <li><a href="#bargraph-kea">Bargraph</a></li>
-                <li><a href="#kea-table-wrap">Table</a></li>
-            </ul>
+        <div class="col-sm-5 mx-2" id="kea">
+            <div class="card">
+                <div class="card-header text-center">KEA</div>
+                <div class="card-body">
+                    <nav class="nav nav-tabs" id="kea-tabs" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-kea-bar-tab" data-toggle="tab" href="#nav-kea-bar"
+                           role="tab" aria-controls="nav-kea-bar" aria-expanded="true">Bargraph</a>
+                        <a class="nav-item nav-link" id="nav-kea-table-tab" data-toggle="tab" href="#nav-kea-table"
+                           role="tab"
+                           aria-controls="nav-chae-table">Table</a>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent-kea">
+                        <div class="tab-pane fade show active" id="nav-kea-bar" role="tabpanel"
+                             aria-labelledby="nav-kea-bar-tab">
+                            <div id="bargraph-kea" class="bargraph">
+                                <div class="mt-1">
+                                    <input type="button" class="selected btn btn-outline-secondary btn-sm"
+                                           value="P-value">
+                                    <input type="button" class="btn btn-outline-secondary btn-sm" value="Z-score">
+                                    <input type="button" class="btn btn-outline-secondary btn-sm"
+                                           value="Combined score">
+                                </div>
+                                <svg class="kea-chart" width="500" height="250"></svg>
+                            </div>
 
-            <!-- bargraph -->
-            <div id="bargraph-kea" class="bargraph">
-                <div id="label">
-                    <input type="button" class="kea-chart-pvalue selected" value="P-value"/>
-                    <input type="button" class="kea-chart-zscore" value="Z-score"/>
-                    <input type="button" class="kea-chart-combinedScore" value="Combined score"/>
+                        </div>
+                        <div class="tab-pane fade" id="nav-kea-table" role="tabpanel"
+                             aria-labelledby="nav-kea-table-tab">
+                            <table class="table table-striped table-bordered table-sm" id="kea-table"></table>
+                        </div>
+                    </div>
                 </div>
-                <svg class="kea-chart" width="480" height="300"></svg>
-            </div>
-
-            <!-- table -->
-            <div id="kea" class="results-table">
-                <div id="kea-table-wrap">
-                    <table id="kea-table"></table>
+                <div class="download-buttons card-footer">
+                    <div class="row justify-content-end">
+                        <a onclick="exportJson(this, 'KEA', json_file['KEA']);">
+                            <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div id="download_buttons">
-                <a id="exportData" onclick="exportJson(this, 'KEA', json_file['KEA']);">
-                    <button type="button" id="download-button">JSON</button>
-                </a>
-                <!--  		        <a id="exportData" onclick="svgExport('#bargraph-kea', 'KEA_bargraph', 'jpg'); return false;">
-                                    <button type="button" id="download-button">JPG</button>
-                                </a>
-                                <a id="exportData" onclick="svgExport('#bargraph-kea', 'KEA_bargraph', 'png'); return false;">
-                                    <button type="button" id="download-button">PNG</button>
-                                </a>
-                                <a id="exportData" onclick="svgExport('#bargraph-kea', 'KEA_bargraph', 'svg'); return false;">
-                                    <button type="button" id="download-button">SVG</button>
-                                </a> -->
-            </div>
-
         </div>
     </div>
-</div>
 </div>
 
 <!--Footer-->
@@ -264,6 +237,5 @@
         </div>
     </div>
 </footer>
-
 </body>
 </html>

@@ -10,7 +10,9 @@ $(function () {
         $('#ljp-table').DataTable({
             data: meta_json,
             columns: [
-                {data: 'sig_id'},
+//                {data: 'sig_id'},
+                {data: 'batch'},
+                {data: 'pert'},
                 {data: 'pert_desc'},
                 {data: 'dose'},
                 {data: 'time'},
@@ -20,7 +22,7 @@ $(function () {
             initComplete: function () {
                 this.api().columns().every(function () {
                     var column = this;
-                    if ((column.index() >= 1) && (column.index() <= 4)) {
+                    if (column.index() <= 5) {
                         var select = $('<select><option value=""></option></select>')
                             .appendTo($(column.footer()).empty())
                             .on('change', function () {
@@ -32,7 +34,7 @@ $(function () {
                                     .draw();
                             });
                         // Default sort is alphabetical and it doesn't work for numerical columns, so
-                        if ((column.index() === 2) || (column.index() === 3)) {
+                        if ((column.index() === 3) || (column.index() === 4)) {
                             column.data().unique().sort(function (a, b) {
                                 return a - b;
                             }).each(function (d, j) {
