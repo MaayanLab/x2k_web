@@ -64,31 +64,31 @@
             <div class="card">
                 <div class="card-header text-center">X2K</div>
                 <div id="x2k-network" class="card-body">
-                    <svg class="x2k-svg" width="500" height="320"></svg>
+                    <svg class="x2k-svg" width="500" height="370"></svg>
                 </div>
-                <div class="card-footer">
+                <div class="btn-group" role="group" aria-label="X2K Legend">
+                    <button type="button" class="btn btn-outline-secondary btn-sm">
+                        <svg id="legend-dot" height="12" width="12">
+                            <circle cx="6" cy="6" r="6" fill="#1F77B4"></circle>
+                        </svg>
+                        Kinase
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm">
+                        <svg id="legend-dot" height="12" width="12">
+                            <circle cx="6" cy="6" r="6" fill="#FF7F0E"></circle>
+                        </svg>
+                        Intermediate protein
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm">
+                        <svg id="legend-dot" height="12" width="12">
+                            <circle cx="6" cy="6" r="6" fill="#FF546D"></circle>
+                        </svg>
+                        Transcription Factor
+                    </button>
+                </div>                
+<!--                 <div class="card-footer">
                     <div class="row justify-content-between">
                         <div class="legend col-sm-8">
-                            <div class="btn-group" role="group" aria-label="X2K Legend">
-                                <button type="button" class="btn btn-outline-secondary btn-sm">
-                                    <svg id="legend-dot" height="12" width="12">
-                                        <circle cx="6" cy="6" r="6" fill="#1F77B4"></circle>
-                                    </svg>
-                                    Kinase
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary btn-sm">
-                                    <svg id="legend-dot" height="12" width="12">
-                                        <circle cx="6" cy="6" r="6" fill="#FF7F0E"></circle>
-                                    </svg>
-                                    Intermediate protein
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary btn-sm">
-                                    <svg id="legend-dot" height="12" width="12">
-                                        <circle cx="6" cy="6" r="6" fill="#FF546D"></circle>
-                                    </svg>
-                                    Transcription Factor
-                                </button>
-                            </div>
                         </div>
                         <div class="download-buttons col-sm-4">
                             <a onclick="exportJson(this, 'X2K', json_file['X2K']);">
@@ -96,7 +96,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -117,13 +117,14 @@
                              aria-labelledby="nav-chea-bar-tab">
                             <div id="bargraph-chea" class="bargraph">
                                 <div class="mt-1">
-                                    <input type="button" class="selected btn btn-outline-secondary btn-sm"
+                                	<!-- Classes like 'chea-chart-zscore' define sorting type in bargraph.js-->
+                                    <input type="button" class="selected btn btn-outline-secondary btn-sm chea-chart-pvalue"
                                            value="P-value">
-                                    <input type="button" class="btn btn-outline-secondary btn-sm" value="Z-score">
-                                    <input type="button" class="btn btn-outline-secondary btn-sm"
+                                    <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-zscore" value="Z-score">
+                                    <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-combinedScore"
                                            value="Combined score">
                                 </div>
-                                <svg class="chea-chart" width="500" height="250"></svg>
+                                <svg class="chea-chart" width="500" height="300"></svg>
                             </div>
                         </div>
 
@@ -133,13 +134,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="download-buttons card-footer">
+<!--                 <div class="download-buttons card-footer">
                     <div class="row justify-content-end">
                         <a onclick="exportJson(this, 'ChEA', json_file['ChEA']);">
                             <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -150,25 +151,25 @@
             <div class="card">
                 <div class="card-header text-center">G2N</div>
                 <div id="network-g2n" class="card-body">
-                    <svg class="g2n-svg" width="500" height="320"></svg>
+                    <svg class="g2n-svg" width="500" height="370"></svg>
                 </div>
-                <div class="card-footer">
+                <div class="btn-group" role="group" aria-label="X2K Legend">
+                    <button type="button" class="btn btn-outline-secondary btn-sm">
+                        <svg id="legend-dot" height="12" width="12">
+                            <circle cx="6" cy="6" r="6" fill="#1F77B4"></circle>
+                        </svg>
+                        Seed Protein
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm">
+                        <svg id="legend-dot" height="12" width="12">
+                            <circle cx="6" cy="6" r="6" fill="#FF7F0E"></circle>
+                        </svg>
+                        Intermediate protein
+                    </button>
+                </div>                
+<!--                 <div class="card-footer">
                     <div class="row justify-content-between">
                         <div class="legend col-sm-8">
-                            <div class="btn-group" role="group" aria-label="X2K Legend">
-                                <button type="button" class="btn btn-outline-secondary btn-sm">
-                                    <svg id="legend-dot" height="12" width="12">
-                                        <circle cx="6" cy="6" r="6" fill="#1F77B4"></circle>
-                                    </svg>
-                                    Seed Protein
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary btn-sm">
-                                    <svg id="legend-dot" height="12" width="12">
-                                        <circle cx="6" cy="6" r="6" fill="#FF7F0E"></circle>
-                                    </svg>
-                                    Intermediate protein
-                                </button>
-                            </div>
                         </div>
                         <div class="download-buttons col-sm-4">
                             <a onclick="exportJson(this, 'G2N', json_file['G2N']);">
@@ -176,7 +177,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -197,13 +198,14 @@
                              aria-labelledby="nav-kea-bar-tab">
                             <div id="bargraph-kea" class="bargraph">
                                 <div class="mt-1">
-                                    <input type="button" class="selected btn btn-outline-secondary btn-sm"
+                                	<!-- Classes like 'kea-chart-zscore' define sorting type in bargraph.js-->
+                                    <input type="button" class="selected btn btn-outline-secondary btn-sm kea-chart-pvalue"
                                            value="P-value">
-                                    <input type="button" class="btn btn-outline-secondary btn-sm" value="Z-score">
-                                    <input type="button" class="btn btn-outline-secondary btn-sm"
+                                    <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-zscore" value="Z-score">
+                                    <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-combinedScore"
                                            value="Combined score">
                                 </div>
-                                <svg class="kea-chart" width="500" height="250"></svg>
+                                <svg class="kea-chart" width="500" height="300"></svg>
                             </div>
 
                         </div>
@@ -213,13 +215,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="download-buttons card-footer">
+<!--                 <div class="download-buttons card-footer">
                     <div class="row justify-content-end">
                         <a onclick="exportJson(this, 'KEA', json_file['KEA']);">
                             <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
