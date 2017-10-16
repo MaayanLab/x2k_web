@@ -1,7 +1,8 @@
 function sendToX2K(sig, dir) {
     var file = 'static/ljp/' + dir + '/' + sig.split('.')[0] + '.json';
     $.getJSON(file, function (data) {
-        $('textarea#genelist').val(data[sig].join('\n'));
+    	var uniques = new Set(data[sig]);
+        $('textarea#ljp-genelist').val(Array.from(uniques).join('\n'));
     });
 }
 
@@ -10,7 +11,6 @@ $(function () {
         $('#ljp-table').DataTable({
             data: meta_json,
             columns: [
-//                {data: 'sig_id'},
                 {data: 'batch'},
                 {data: 'pert'},
                 {data: 'pert_desc'},
