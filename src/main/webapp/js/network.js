@@ -89,7 +89,7 @@ function draw_network(json, svg_id, body){
         }
     }
 
-    function box_force() { 
+    function box_force() {
       for (var i = 0, n = nodes_data.length; i < n; i++) {
 	    	  (function (i){	    		  
 				curr_node = nodes_data[i];
@@ -104,7 +104,7 @@ function draw_network(json, svg_id, body){
     	  }
     }
 
-    function splitting_force() { 
+    function splitting_force() {
       for (var i = 0, n = nodes_data.length; i < n; i++) {
     	  (function(i){
     		  if(body === "#x2k-network"){
@@ -205,8 +205,11 @@ function draw_network(json, svg_id, body){
     }
 
     var svg = d3.select(svg_id),
-        width = +svg.attr("width"),
-        height = +svg.attr("height");
+	    width = 1000,
+	    height = 600;
+    
+//        width = +svg.attr("width"),
+//        height = +svg.attr("height");
      
     var g = svg.append("g");
 
