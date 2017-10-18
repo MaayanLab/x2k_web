@@ -64,7 +64,7 @@
             <div class="card">
                 <div class="card-header text-center">X2K</div>
                 <div id="x2k-network" class="card-body">
-                    <svg class="x2k-svg" width="500" height="370"></svg>
+                    <svg class="x2k-svg" width="100%" height="100%"  viewBox="0 0 1000 600"></svg>
                 </div>
                 <div class="btn-group" role="group" aria-label="X2K Legend">
                     <button type="button" class="btn btn-outline-secondary btn-sm">
@@ -151,7 +151,7 @@
             <div class="card">
                 <div class="card-header text-center">G2N</div>
                 <div id="network-g2n" class="card-body">
-                    <svg class="g2n-svg" width="500" height="370"></svg>
+                    <svg class="g2n-svg" width="100%" height="100%"  viewBox="0 0 1000 600"></svg>
                 </div>
                 <div class="btn-group" role="group" aria-label="X2K Legend">
                     <button type="button" class="btn btn-outline-secondary btn-sm">
