@@ -69,10 +69,12 @@ function drawBargraph(chart, bargraph_data) {
 	var change_combinedScore = $(chart + "-combinedScore").on("click", function() { onClick(chart, "combinedScore"); $(this).addClass("selected");});
 	
 	var svg = d3.select(chart),
-	    margin = {top: 20, right: 20, bottom: 50, left: 50},
-	    width = +svg.attr("width") - margin.left - margin.right,
-	    height = +svg.attr("height") - margin.top - margin.bottom;
-
+	    margin = {top: 10, right: 10, bottom: 50, left: 50},
+	    width = 600 - margin.left - margin.right,
+	    height = 300 - margin.top - margin.bottom;
+	    
+//	    width = +svg.attr("width") - margin.left - margin.right,
+//	    height = +svg.attr("height") - margin.top - margin.bottom;
 	var x = d3.scaleLinear().rangeRound([0, width]),
 	    y = d3.scaleBand().rangeRound([height, 0]).padding(0.3);
 
@@ -81,7 +83,6 @@ function drawBargraph(chart, bargraph_data) {
 
 	x.domain([0, d3.max(bargraph_data, function(d) { return -Math.log10(d.pvalue); })]);
 	y.domain(bargraph_data.map(function(d) { return d.name; }));
-
 
 	g.append("g")
 	    .attr("class", "axis axis--x")
