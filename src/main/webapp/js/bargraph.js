@@ -70,8 +70,8 @@ function drawBargraph(chart, bargraph_data) {
 	
 	var svg = d3.select(chart),
 	    margin = {top: 10, right: 10, bottom: 50, left: 50},
-	    width = 600 - margin.left - margin.right,
-	    height = 300 - margin.top - margin.bottom;
+	    width = 1000 - margin.left - margin.right,
+	    height = 600 - margin.top - margin.bottom;
 	    
 //	    width = +svg.attr("width") - margin.left - margin.right,
 //	    height = +svg.attr("height") - margin.top - margin.bottom;
