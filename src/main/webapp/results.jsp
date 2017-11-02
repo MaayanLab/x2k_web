@@ -62,30 +62,10 @@
         <!--X2K-->
         <div class="col-sm-5 mx-2" id="x2k">
             <div class="card">
-                <div class="card-header text-center">X2K</div>
+                <div class="card-header text-start"><p class="tabs-card-title">X2K</p></div>
                 <div id="x2k-network" class="card-body">
                     <svg class="x2k-svg" width="100%" height="100%"  viewBox="0 0 1000 600"></svg>
                 </div>
-                <div class="btn-group" role="group" aria-label="X2K Legend">
-                    <button type="button" class="btn btn-outline-secondary btn-sm">
-                        <svg id="legend-dot" height="12" width="12">
-                            <circle cx="6" cy="6" r="6" fill="#1F77B4"></circle>
-                        </svg>
-                        Kinase
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm">
-                        <svg id="legend-dot" height="12" width="12">
-                            <circle cx="6" cy="6" r="6" fill="#FF7F0E"></circle>
-                        </svg>
-                        Intermediate protein
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm">
-                        <svg id="legend-dot" height="12" width="12">
-                            <circle cx="6" cy="6" r="6" fill="#FF546D"></circle>
-                        </svg>
-                        Transcription Factor
-                    </button>
-                </div>                
 <!--                 <div class="card-footer">
                     <div class="row justify-content-between">
                         <div class="legend col-sm-8">
@@ -103,28 +83,37 @@
         <!--ChEA-->
         <div class="col-sm-5 mx-2" id="chea">
             <div class="card">
-                <div class="card-header text-center">ChEA</div>
-                <div class="card-body">
-                    <nav class="nav nav-tabs" id="chea-tabs" role="tablist">
+                <div class="card-header text-start tabs-card-header">
+                <div class="row">
+                <div class="col-sm-4">
+                	<p class="tabs-card-title">ChEA</p>
+                </div>
+                <div class="col-sm-8">
+                    <nav class="nav nav-tabs justify-content-end" id="chea-tabs" role="tablist">
                         <a class="nav-item nav-link active" id="nav-chea-bar-tab" data-toggle="tab" href="#nav-chea-bar"
                            role="tab" aria-controls="nav-chea-bar" aria-expanded="true">Bargraph</a>
                         <a class="nav-item nav-link" id="nav-chea-table-tab" data-toggle="tab" href="#nav-chea-table"
                            role="tab"
                            aria-controls="nav-chae-table">Table</a>
                     </nav>
+                </div>
+                </div>
+                </div>
+                <div class="card-body">
+
                     <div class="tab-content" id="nav-tabContent-chea">
                         <div class="tab-pane fade show active" id="nav-chea-bar" role="tabpanel"
                              aria-labelledby="nav-chea-bar-tab">
                             <div id="bargraph-chea" class="bargraph">
-                                <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
-                                	<!-- Classes like 'chea-chart-zscore' define sorting type in bargraph.js-->
+<!--                                 <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
+                                	Classes like 'chea-chart-zscore' define sorting type in bargraph.js
                                     <input type="button" class="selected btn btn-outline-secondary btn-sm chea-chart-pvalue"
                                            value="P-value">
                                     <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-zscore" value="Z-score">
                                     <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-combinedScore"
                                            value="Combined score">
                                 </div>
-                                <svg class="chea-chart" width="100%" height="100%" viewBox="0 0 600 300"></svg>
+ -->                                <svg class="chea-chart" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
                             </div>
                         </div>
 
@@ -149,24 +138,10 @@
     <div class="row justify-content-center align-items-start">
         <div class="col-sm-5 mx-2" id="g2n">
             <div class="card">
-                <div class="card-header text-center">G2N</div>
+                <div class="card-header text-start"><p class="tabs-card-title">G2N</p></div>
                 <div id="network-g2n" class="card-body">
                     <svg class="g2n-svg" width="100%" height="100%"  viewBox="0 0 1000 600"></svg>
                 </div>
-                <div class="btn-group" role="group" aria-label="X2K Legend">
-                    <button type="button" class="btn btn-outline-secondary btn-sm">
-                        <svg id="legend-dot" height="12" width="12">
-                            <circle cx="6" cy="6" r="6" fill="#1F77B4"></circle>
-                        </svg>
-                        Seed Protein
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm">
-                        <svg id="legend-dot" height="12" width="12">
-                            <circle cx="6" cy="6" r="6" fill="#FF7F0E"></circle>
-                        </svg>
-                        Intermediate protein
-                    </button>
-                </div>                
 <!--                 <div class="card-footer">
                     <div class="row justify-content-between">
                         <div class="legend col-sm-8">
@@ -184,28 +159,36 @@
         <!--KEA-->
         <div class="col-sm-5 mx-2" id="kea">
             <div class="card">
-                <div class="card-header text-center">KEA</div>
-                <div class="card-body">
-                    <nav class="nav nav-tabs" id="kea-tabs" role="tablist">
+                <div class="card-header text-start tabs-card-header">
+                <div class="row">
+                <div class="col-sm-4">
+                	<p class="tabs-card-title">KEA</p>
+                </div>
+                <div class="col-sm-8">
+                    <nav class="nav nav-tabs justify-content-end" id="kea-tabs" role="tablist">
                         <a class="nav-item nav-link active" id="nav-kea-bar-tab" data-toggle="tab" href="#nav-kea-bar"
                            role="tab" aria-controls="nav-kea-bar" aria-expanded="true">Bargraph</a>
                         <a class="nav-item nav-link" id="nav-kea-table-tab" data-toggle="tab" href="#nav-kea-table"
                            role="tab"
                            aria-controls="nav-chae-table">Table</a>
                     </nav>
+                </div> 
+                </div>               
+                </div>
+                <div class="card-body">
                     <div class="tab-content" id="nav-tabContent-kea">
                         <div class="tab-pane fade show active" id="nav-kea-bar" role="tabpanel"
                              aria-labelledby="nav-kea-bar-tab">
                             <div id="bargraph-kea" class="bargraph">
-                                <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
-                                	<!-- Classes like 'kea-chart-zscore' define sorting type in bargraph.js-->
+<!--                                 <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
+                                	Classes like 'kea-chart-zscore' define sorting type in bargraph.js
                                     <input type="button" class="selected btn btn-outline-secondary btn-sm kea-chart-pvalue"
                                            value="P-value">
                                     <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-zscore" value="Z-score">
                                     <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-combinedScore"
                                            value="Combined score">
                                 </div>
-                                <svg class="kea-chart" width="100%" height="100%" viewBox="0 0 600 300"></svg>
+ -->                                <svg class="kea-chart" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
                             </div>
 
                         </div>
