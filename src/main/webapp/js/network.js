@@ -365,7 +365,7 @@ function draw_network(json, svg_id, body){
 
     drag_handler(node);
     
-    var x2k_legend = [["Kinase", "#1F77B4"], ["TF", "#FF7F0E"], ["Intermediate protein", "#FF546D"]],
+    var x2k_legend = [["Transcription factor", "#FF546D"], ["Intermediate protein", "#FF7F0E"], ["Kinase", "#1F77B4"]],
     g2n_legend = [["Seed protein", "#1F77B4"], ["Intermediate protein", "#FF7F0E"]];
     
     if (body === "#x2k-network") {

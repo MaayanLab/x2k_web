@@ -60,7 +60,7 @@
 <div class="container-fluid" id="results-dashboard">
     <div class="row justify-content-center align-items-start">
         <!--X2K-->
-        <div class="col-sm-5 mx-2" id="x2k">
+        <div class="col-sm-6" id="x2k">
             <div class="card">
                 <div class="card-header text-start"><p class="tabs-card-title">X2K</p></div>
                 <div id="x2k-network" class="card-body">
@@ -81,7 +81,7 @@
         </div>
 
         <!--ChEA-->
-        <div class="col-sm-5 mx-2" id="chea">
+        <div class="col-sm-6" id="chea">
             <div class="card">
                 <div class="card-header text-start tabs-card-header">
                 <div class="row">
@@ -136,7 +136,7 @@
 
     <!--G2N-->
     <div class="row justify-content-center align-items-start">
-        <div class="col-sm-5 mx-2" id="g2n">
+        <div class="col-sm-6" id="g2n">
             <div class="card">
                 <div class="card-header text-start"><p class="tabs-card-title">G2N</p></div>
                 <div id="network-g2n" class="card-body">
@@ -157,7 +157,7 @@
         </div>
 
         <!--KEA-->
-        <div class="col-sm-5 mx-2" id="kea">
+        <div class="col-sm-6" id="kea">
             <div class="card">
                 <div class="card-header text-start tabs-card-header">
                 <div class="row">
@@ -212,7 +212,7 @@
 
 <!--Footer-->
 <footer class="container-fluid" id="footer">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-2">
         <div class="col-sm-7" id="citations">
             <p>Please cite this paper if you are using X2K for your publication:
                 <a href="http://www.ncbi.nlm.nih.gov/pubmed/22080467"> Chen EY, Xu
