@@ -28,13 +28,23 @@
     font-size: 0.7rem;
 }
 
+#x2k,
+#chea,
+#g2n,
+#kea {
+	padding-top: 0.1rem;
+	padding-bottom: 0.1rem;
+	padding-right: 0.1rem;
+    padding-left: 0.1rem;
+}
+
 #chea-tabs,
 #kea-tabs {
 	border-bottom: none;
 }
 
 .tabs-card-header {
-	padding-top: 1rem;
+	padding-top: 1.15rem;
     padding-right: 1.25rem;
     padding-bottom: 0rem;
     padding-left: 1.25rem;
