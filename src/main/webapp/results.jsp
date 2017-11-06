@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/1aa9a9820c.js"></script>
 
 
     <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -58,153 +59,190 @@
 
 <!--Body-->
 <div class="container-fluid" id="results-dashboard">
-    <div class="row justify-content-center align-items-start">
-        <!--X2K-->
-        <div class="col-sm-6" id="x2k">
-            <div class="card">
-                <div class="card-header text-start"><p class="tabs-card-title">X2K</p></div>
-                <div id="x2k-network" class="card-body">
-                    <svg class="x2k-svg" width="100%" height="100%"  viewBox="0 0 1000 600"></svg>
-                </div>
-<!--                 <div class="card-footer">
-                    <div class="row justify-content-between">
-                        <div class="legend col-sm-8">
+    <div class="row justify-content-center">
+        <div class="col-sm-11">
+
+            <div class="row justify-content-center align-items-start">
+                <!--X2K-->
+                <div class="col-sm-6" id="x2k">
+                    <div class="card">
+                        <div class="card-header text-start">                        
+                        <p class="tabs-card-title"><button type="button" data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network X2K"><i class="fa fa-expand" aria-hidden="true"></i></button>X2K</p>
                         </div>
-                        <div class="download-buttons col-sm-4">
-                            <a onclick="exportJson(this, 'X2K', json_file['X2K']);">
-                                <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
-                            </a>
+                        <div id="x2k-network" class="card-body">
+                            <svg class="x2k-svg" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
                         </div>
+                        <!--                 <div class="card-footer">
+                                            <div class="row justify-content-between">
+                                                <div class="legend col-sm-8">
+                                                </div>
+                                                <div class="download-buttons col-sm-4">
+                                                    <a onclick="exportJson(this, 'X2K', json_file['X2K']);">
+                                                        <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div> -->
                     </div>
-                </div> -->
-            </div>
-        </div>
+                </div>
 
-        <!--ChEA-->
-        <div class="col-sm-6" id="chea">
-            <div class="card">
-                <div class="card-header text-start tabs-card-header">
-                <div class="row">
-                <div class="col-sm-4">
-                	<p class="tabs-card-title">ChEA</p>
-                </div>
-                <div class="col-sm-8">
-                    <nav class="nav nav-tabs justify-content-end" id="chea-tabs" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-chea-bar-tab" data-toggle="tab" href="#nav-chea-bar"
-                           role="tab" aria-controls="nav-chea-bar" aria-expanded="true">Bargraph</a>
-                        <a class="nav-item nav-link" id="nav-chea-table-tab" data-toggle="tab" href="#nav-chea-table"
-                           role="tab"
-                           aria-controls="nav-chae-table">Table</a>
-                    </nav>
-                </div>
-                </div>
-                </div>
-                <div class="card-body">
-
-                    <div class="tab-content" id="nav-tabContent-chea">
-                        <div class="tab-pane fade show active" id="nav-chea-bar" role="tabpanel"
-                             aria-labelledby="nav-chea-bar-tab">
-                            <div id="bargraph-chea" class="bargraph">
-<!--                                 <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
-                                	Classes like 'chea-chart-zscore' define sorting type in bargraph.js
-                                    <input type="button" class="selected btn btn-outline-secondary btn-sm chea-chart-pvalue"
-                                           value="P-value">
-                                    <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-zscore" value="Z-score">
-                                    <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-combinedScore"
-                                           value="Combined score">
+                <!--ChEA-->
+                <div class="col-sm-6" id="chea">
+                    <div class="card">
+                        <div class="card-header text-start tabs-card-header">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <p class="tabs-card-title"><button type="button" data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#chea-results ChEA"><i class="fa fa-expand" aria-hidden="true"></i></button>ChEA</p>
                                 </div>
- -->                                <svg class="chea-chart" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
+                                <div class="col-sm-8">
+                                    <nav class="nav nav-tabs justify-content-end" id="chea-tabs" role="tablist">
+                                        <a class="nav-item nav-link active" id="nav-chea-bar-tab" data-toggle="tab"
+                                           href="#nav-chea-bar"
+                                           role="tab" aria-controls="nav-chea-bar" aria-expanded="true">Bargraph</a>
+                                        <a class="nav-item nav-link" id="nav-chea-table-tab" data-toggle="tab"
+                                           href="#nav-chea-table"
+                                           role="tab"
+                                           aria-controls="nav-chae-table">Table</a>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
+                        <div id="chea-results" class="card-body">
+                            <div class="tab-content" id="nav-tabContent-chea">
+                                <div class="tab-pane fade show active" id="nav-chea-bar" role="tabpanel"
+                                     aria-labelledby="nav-chea-bar-tab">
+                                    <div id="bargraph-chea" class="bargraph">
+                                        <!--                                 <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
+                                                                            Classes like 'chea-chart-zscore' define sorting type in bargraph.js
+                                                                            <input type="button" class="selected btn btn-outline-secondary btn-sm chea-chart-pvalue"
+                                                                                   value="P-value">
+                                                                            <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-zscore" value="Z-score">
+                                                                            <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-combinedScore"
+                                                                                   value="Combined score">
+                                                                        </div>
+                                         -->
+                                        <svg class="chea-chart" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
+                                    </div>
+                                </div>
 
-                        <div class="tab-pane fade" id="nav-chea-table" role="tabpanel"
-                             aria-labelledby="nav-chea-table-tab">
-                            <table class="table table-striped table-bordered table-sm" id="chea-table"></table>
+                                <div class="tab-pane fade" id="nav-chea-table" role="tabpanel"
+                                     aria-labelledby="nav-chea-table-tab">
+                                    <table class="table table-striped table-bordered table-sm" id="chea-table"></table>
+                                </div>
+                            </div>
                         </div>
+                        <!--                 <div class="download-buttons card-footer">
+                                            <div class="row justify-content-end">
+                                                <a onclick="exportJson(this, 'ChEA', json_file['ChEA']);">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
+                                                </a>
+                                            </div>
+                                        </div> -->
                     </div>
                 </div>
-<!--                 <div class="download-buttons card-footer">
-                    <div class="row justify-content-end">
-                        <a onclick="exportJson(this, 'ChEA', json_file['ChEA']);">
-                            <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
-                        </a>
+            </div>
+
+            <!--G2N-->
+            <div class="row justify-content-center align-items-start">
+                <div class="col-sm-6" id="g2n">
+                    <div class="card">
+                        <div class="card-header text-start">
+                        <p class="tabs-card-title"><button type="button" data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#network-g2n G2N"><i class="fa fa-expand" aria-hidden="true"></i></button>G2N</p>
+                        </div>
+                        <div id="network-g2n" class="card-body">
+                            <svg class="g2n-svg" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
+                        </div>
+                        <!--                 <div class="card-footer">
+                                            <div class="row justify-content-between">
+                                                <div class="legend col-sm-8">
+                                                </div>
+                                                <div class="download-buttons col-sm-4">
+                                                    <a onclick="exportJson(this, 'G2N', json_file['G2N']);">
+                                                        <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div> -->
                     </div>
-                </div> -->
+                </div>
+
+                <!--KEA-->
+                <div class="col-sm-6" id="kea">
+                    <div class="card">
+                        <div class="card-header text-start tabs-card-header">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <p class="tabs-card-title"><button type="button" data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#kea-results KEA"><i class="fa fa-expand" aria-hidden="true"></i></button>KEA</p>
+                                </div>
+                                <div class="col-sm-8">
+                                    <nav class="nav nav-tabs justify-content-end" id="kea-tabs" role="tablist">
+                                        <a class="nav-item nav-link active" id="nav-kea-bar-tab" data-toggle="tab"
+                                           href="#nav-kea-bar"
+                                           role="tab" aria-controls="nav-kea-bar" aria-expanded="true">Bargraph</a>
+                                        <a class="nav-item nav-link" id="nav-kea-table-tab" data-toggle="tab"
+                                           href="#nav-kea-table"
+                                           role="tab"
+                                           aria-controls="nav-chae-table">Table</a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="kea-results" class="card-body">
+                            <div class="tab-content" id="nav-tabContent-kea">
+                                <div class="tab-pane fade show active" id="nav-kea-bar" role="tabpanel"
+                                     aria-labelledby="nav-kea-bar-tab">
+                                    <div id="bargraph-kea" class="bargraph">
+                                        <!--                                 <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
+                                                                            Classes like 'kea-chart-zscore' define sorting type in bargraph.js
+                                                                            <input type="button" class="selected btn btn-outline-secondary btn-sm kea-chart-pvalue"
+                                                                                   value="P-value">
+                                                                            <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-zscore" value="Z-score">
+                                                                            <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-combinedScore"
+                                                                                   value="Combined score">
+                                                                        </div>
+                                         -->
+                                        <svg class="kea-chart" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="nav-kea-table" role="tabpanel"
+                                     aria-labelledby="nav-kea-table-tab">
+                                    <table class="table table-striped table-bordered table-sm" id="kea-table"></table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--                 <div class="download-buttons card-footer">
+                                            <div class="row justify-content-end">
+                                                <a onclick="exportJson(this, 'KEA', json_file['KEA']);">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
+                                                </a>
+                                            </div>
+                                        </div> -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!--G2N-->
-    <div class="row justify-content-center align-items-start">
-        <div class="col-sm-6" id="g2n">
-            <div class="card">
-                <div class="card-header text-start"><p class="tabs-card-title">G2N</p></div>
-                <div id="network-g2n" class="card-body">
-                    <svg class="g2n-svg" width="100%" height="100%"  viewBox="0 0 1000 600"></svg>
-                </div>
-<!--                 <div class="card-footer">
-                    <div class="row justify-content-between">
-                        <div class="legend col-sm-8">
-                        </div>
-                        <div class="download-buttons col-sm-4">
-                            <a onclick="exportJson(this, 'G2N', json_file['G2N']);">
-                                <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
+<!--Modals-->
+<div class="modal fade" id="dashboardFullModal" tabindex="-1" role="dialog" aria-labelledby="dashboardFullModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">X2K</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        </div>
-
-        <!--KEA-->
-        <div class="col-sm-6" id="kea">
-            <div class="card">
-                <div class="card-header text-start tabs-card-header">
-                <div class="row">
-                <div class="col-sm-4">
-                	<p class="tabs-card-title">KEA</p>
+            <div class="modal-body">
+                <div id="blank">
                 </div>
-                <div class="col-sm-8">
-                    <nav class="nav nav-tabs justify-content-end" id="kea-tabs" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-kea-bar-tab" data-toggle="tab" href="#nav-kea-bar"
-                           role="tab" aria-controls="nav-kea-bar" aria-expanded="true">Bargraph</a>
-                        <a class="nav-item nav-link" id="nav-kea-table-tab" data-toggle="tab" href="#nav-kea-table"
-                           role="tab"
-                           aria-controls="nav-chae-table">Table</a>
-                    </nav>
-                </div> 
-                </div>               
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">JSON</button>
+                    <button type="button" class="btn btn-primary">SVG</button>
                 </div>
-                <div class="card-body">
-                    <div class="tab-content" id="nav-tabContent-kea">
-                        <div class="tab-pane fade show active" id="nav-kea-bar" role="tabpanel"
-                             aria-labelledby="nav-kea-bar-tab">
-                            <div id="bargraph-kea" class="bargraph">
-<!--                                 <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
-                                	Classes like 'kea-chart-zscore' define sorting type in bargraph.js
-                                    <input type="button" class="selected btn btn-outline-secondary btn-sm kea-chart-pvalue"
-                                           value="P-value">
-                                    <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-zscore" value="Z-score">
-                                    <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-combinedScore"
-                                           value="Combined score">
-                                </div>
- -->                                <svg class="kea-chart" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
-                            </div>
-
-                        </div>
-                        <div class="tab-pane fade" id="nav-kea-table" role="tabpanel"
-                             aria-labelledby="nav-kea-table-tab">
-                            <table class="table table-striped table-bordered table-sm" id="kea-table"></table>
-                        </div>
-                    </div>
-                </div>
-<!--                 <div class="download-buttons card-footer">
-                    <div class="row justify-content-end">
-                        <a onclick="exportJson(this, 'KEA', json_file['KEA']);">
-                            <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
-                        </a>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>

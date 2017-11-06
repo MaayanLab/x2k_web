@@ -157,6 +157,23 @@ function svgExport(container, filename, outputType) {
 }
 
 $(function() {
+	
+	// Modals
+	$("#dashboardFullModal").on("show.bs.modal", function (event) {
+		var button = $(event.relatedTarget), // Button that triggered the modal
+			recipient = button.data('whatever'), // Extract info from data-* attributes
+			modal = $(this),
+			name = recipient.split(" ")[1],
+			div_name = recipient.split(" ")[0];
+		
+		modal.find('.modal-title').text(name)
+		var content = $(div_name).clone().appendTo(modal.find('.modal-body'));
+		})
+	
+	$('#dashboardFullModal').on('hide.bs.modal', function (e) {
+		console.log('hide')
+		})
+		
 	var tr;
 	
 	// Draw ChEA table
@@ -172,20 +189,6 @@ $(function() {
 
 	// Draw KEA bargraph	
 	drawBargraph(".kea-chart", kea);
-	
-	// Dashboard buttons
-	$("button[id*='button']").click(function() {
-		id = $(this).attr("id").split("-")[0];
-		if (id !== "download"){
-			$("div[id*='tabs']").hide();
-			$("div#tabs-" + id).show();
-		}
-	});
-
-	$('button').on('click', function() {
-		$('button').removeClass('selected');
-		$(this).addClass('selected');
-	});
 	
 	// Networks functions
 	function convertX2KNode(x2k_node){ //convert the style of a node from X2K output to cytoscape
