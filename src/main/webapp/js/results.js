@@ -137,16 +137,18 @@ function download(url, data, method) {
 	}
 }
 
-function exportJson(anchor, name, export_json) {
+function exportJson(name, export_json) {
     var data = "application/octet-stream;charset=utf-16," + encodeURIComponent(export_json);
+    var anchor = document.getElementById("json-anchor")
     anchor.setAttribute("href", "data:" + data);
     anchor.setAttribute("download", name + ".json");
 }
 
-function svgExport(container, filename, outputType) {
-	var b64 = $(container).html();
-	b64 = b64.replace(/<br>/g, "&lt;br&gt;")
-	b64 = b64.replace(/<br\/>/g, "&lt;br&gt;&#47;")
+function svgExport(container, filename, outputType) {	
+	var b64 = $(container).html().split("<div")[0].trim();
+	b64 = b64.replace(/<br>/g, "&lt;br&gt;");
+	b64 = b64.replace(/<br\/>/g, "&lt;br&gt;&#47;");
+	console.log(b64);
 	b64 = encodeURIComponent(Base64.encode(b64));
 	download('http://amp.pharm.mssm.edu/Convertr/convert', {
 		filename : filename,
@@ -157,7 +159,6 @@ function svgExport(container, filename, outputType) {
 }
 
 $(function() {
-	
 	// Modals
 	$("#dashboardFullModal").on("show.bs.modal", function (event) {
 		var button = $(event.relatedTarget), // Button that triggered the modal
@@ -166,14 +167,23 @@ $(function() {
 			name = recipient.split(" ")[1],
 			div_name = recipient.split(" ")[0];
 		
-		modal.find('.modal-title').text(name)
-		var content = $(div_name).clone().appendTo(modal.find('.modal-body'));
+		modal.find(".modal-title").text(name);
+		var content = $(div_name).clone().appendTo(modal.find(".modal-body"));
 		})
 	
-	$('#dashboardFullModal').on('hide.bs.modal', function (e) {
-		console.log('hide')
-		})
+	$(".json-button").on("click", function(){
+			var modal = $("#dashboardFullModal"),
+				name = modal.find(".modal-title").text();
+			exportJson(name, json_file[name]);
+		});		
 		
+	$("#dashboardFullModal").on("hide.bs.modal", function (event) {
+		var button = $(event.relatedTarget),
+		recipient = button.data("whatever"),
+		modal = $(this);
+		
+		modal.find(".modal-body").empty();
+		})
 	var tr;
 	
 	// Draw ChEA table

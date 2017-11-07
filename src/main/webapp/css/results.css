@@ -62,11 +62,20 @@
 	height: 100%;
 }
 
+/* I need a larger modal for expanded view */
 @media (min-width: 768px) {
 	.modal-xl {
 		width: 90%;
-		max-width:900px;
+		max-width: 1000px;
 		}
+}
+
+.expand {
+	border: none;
+	background: transparent;
+	float: right;
+    line-height: 1;
+    opacity: .5;
 }
 
 .table {

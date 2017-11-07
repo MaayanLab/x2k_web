@@ -66,11 +66,17 @@
                 <!--X2K-->
                 <div class="col-sm-6" id="x2k">
                     <div class="card">
-                        <div class="card-header text-start">                        
-                        <p class="tabs-card-title"><button type="button" data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network X2K"><i class="fa fa-expand" aria-hidden="true"></i></button>X2K</p>
+                        <div class="card-header text-start">
+                            <p class="tabs-card-title">
+                                <button type="button" class="expand" data-toggle="modal"
+                                        data-target="#dashboardFullModal"
+                                        data-whatever="#x2k-network X2K"><i class="fa fa-expand" aria-hidden="true"></i>
+                                </button>
+                                X2K
+                            </p>
                         </div>
                         <div id="x2k-network" class="card-body">
-                            <svg class="x2k-svg" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
                         </div>
                         <!--                 <div class="card-footer">
                                             <div class="row justify-content-between">
@@ -92,9 +98,13 @@
                         <div class="card-header text-start tabs-card-header">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <p class="tabs-card-title"><button type="button" data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#chea-results ChEA"><i class="fa fa-expand" aria-hidden="true"></i></button>ChEA</p>
+                                    <p class="tabs-card-title">ChEA</p>
                                 </div>
                                 <div class="col-sm-8">
+                                    <button type="button" class="expand" data-toggle="modal"
+                                            data-target="#dashboardFullModal"
+                                            data-whatever="#chea-results ChEA"><i class="fa fa-expand"
+                                                                                  aria-hidden="true"></i></button>
                                     <nav class="nav nav-tabs justify-content-end" id="chea-tabs" role="tablist">
                                         <a class="nav-item nav-link active" id="nav-chea-bar-tab" data-toggle="tab"
                                            href="#nav-chea-bar"
@@ -121,7 +131,7 @@
                                                                                    value="Combined score">
                                                                         </div>
                                          -->
-                                        <svg class="chea-chart" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="chea-chart" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
                                     </div>
                                 </div>
 
@@ -147,10 +157,16 @@
                 <div class="col-sm-6" id="g2n">
                     <div class="card">
                         <div class="card-header text-start">
-                        <p class="tabs-card-title"><button type="button" data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#network-g2n G2N"><i class="fa fa-expand" aria-hidden="true"></i></button>G2N</p>
+                            <p class="tabs-card-title">
+                                <button type="button" class="expand" data-toggle="modal"
+                                        data-target="#dashboardFullModal"
+                                        data-whatever="#network-g2n G2N"><i class="fa fa-expand" aria-hidden="true"></i>
+                                </button>
+                                G2N
+                            </p>
                         </div>
                         <div id="network-g2n" class="card-body">
-                            <svg class="g2n-svg" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
                         </div>
                         <!--                 <div class="card-footer">
                                             <div class="row justify-content-between">
@@ -172,9 +188,13 @@
                         <div class="card-header text-start tabs-card-header">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <p class="tabs-card-title"><button type="button" data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#kea-results KEA"><i class="fa fa-expand" aria-hidden="true"></i></button>KEA</p>
+                                    <p class="tabs-card-title">KEA</p>
                                 </div>
                                 <div class="col-sm-8">
+                                    <button type="button" class="expand" data-toggle="modal"
+                                            data-target="#dashboardFullModal"
+                                            data-whatever="#kea-results KEA"><i class="fa fa-expand"
+                                                                                aria-hidden="true"></i></button>
                                     <nav class="nav nav-tabs justify-content-end" id="kea-tabs" role="tablist">
                                         <a class="nav-item nav-link active" id="nav-kea-bar-tab" data-toggle="tab"
                                            href="#nav-kea-bar"
@@ -201,7 +221,7 @@
                                                                                    value="Combined score">
                                                                         </div>
                                          -->
-                                        <svg class="kea-chart" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="kea-chart" width="100%" height="100%" viewBox="0 0 1000 600"></svg>
                                     </div>
 
                                 </div>
@@ -231,18 +251,26 @@
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">X2K</h5>
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div id="blank">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">JSON</button>
-                    <button type="button" class="btn btn-primary">SVG</button>
-                </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <a id="json-anchor"><button type="button" class="btn btn-primary json-button">JSON</button></a>
+                <button type="button" class="btn btn-primary svg-button">SVG</button>
+                
+                		        <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'jpg'); return false;">
+		            <button type="button" id="download-button">JPG</button>
+		        </a>
+		        <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'png'); return false;">
+		            <button type="button" id="download-button">PNG</button>
+		        </a>
+		        <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'svg'); return false;">
+		            <button type="button" id="download-button">SVG</button>
+		        </a>
+                
             </div>
         </div>
     </div>
