@@ -17,17 +17,17 @@
     <error-code>404</error-code>
     <location>/error.jsp</location>
   </error-page>
-  <servlet>
+<!--   <servlet>
     <servlet-name>index.jsp</servlet-name>
     <jsp-file>/index.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
     <servlet-name>index.jsp</servlet-name>
     <url-pattern>/index</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   <welcome-file-list>
     <welcome-file>index</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
   </welcome-file-list>
 
 </web-app>

@@ -51,6 +51,7 @@
 
 .tabs-card-title {
 	margin-bottom: 0rem;
+	float: left;
 }
 
 #chea-table,
@@ -76,6 +77,7 @@
 	float: right;
     line-height: 1;
     opacity: .5;
+    font-size: 0.8rem;
 }
 
 .table {
