@@ -148,7 +148,6 @@ function svgExport(container, filename, outputType) {
 	var b64 = $(container).html().split("<div")[0].trim();
 	b64 = b64.replace(/<br>/g, "&lt;br&gt;");
 	b64 = b64.replace(/<br\/>/g, "&lt;br&gt;&#47;");
-	console.log(b64);
 	b64 = encodeURIComponent(Base64.encode(b64));
 	download('http://amp.pharm.mssm.edu/Convertr/convert', {
 		filename : filename,

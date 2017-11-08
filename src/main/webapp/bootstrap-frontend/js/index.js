@@ -37,16 +37,20 @@ function showHelpDesc(page) {
     $("#nav-" + page + "-tab").on("click", function () {
         $(".desc").hide();
         $("#analysis-row").hide();
+        
+        if (page === "datasets") {
+        	
+        }
     });
 }
 
 $(function () {
-    submitButtonListener("results_submit", "http://localhost:8080/X2K/results", "#x2k-form");
-    submitButtonListener("results_submit_ljp", "http://localhost:8080/X2K/results", "#x2k-ljp-form");
+    submitButtonListener("results_submit", "/results", "#x2k-form");
+    submitButtonListener("results_submit_ljp", "/results", "#x2k-ljp-form");
     // submitButtonListener("x2k_submit", "http://localhost:8080/X2K/network");
-    submitButtonListener("chea_submit", "http://localhost:8080/X2K/ChEA", "#chea-form");
-    submitButtonListener("kea_submit", "http://localhost:8080/X2K/KEA", "#kea-form");
-    submitButtonListener("g2n_submit", "http://localhost:8080/X2K/G2N", "#g2n-form");
+    submitButtonListener("chea_submit", "/ChEA", "#chea-form");
+    submitButtonListener("kea_submit", "/KEA", "#kea-form");
+    submitButtonListener("g2n_submit", "/G2N", "#g2n-form");
 
 
     showToolDesc("x2k");
@@ -63,7 +67,5 @@ $(function () {
         $(".desc").hide();
         $("#case-desc").show();
         $("#analysis-row").hide();
-//        $('#nav-x2k').show();
-//        $('#nav-x2k').css("opacity", 1)
     })
 });
