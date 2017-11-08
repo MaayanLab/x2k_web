@@ -71,8 +71,12 @@ function createTable(json, container) {
 	
 	var dataArray = [];
 	for (i = 0; i < json.length; i++) {
-		dataArray[i] = [i, json[i]["name"], json[i]["pvalue"].toPrecision(4), json[i]["zscore"].toFixed(2),
-		                json[i]["combinedScore"].toFixed(2), json[i][enriched].join(", ")];
+		dataArray[i] = [i,
+		                json[i]["name"],
+		                json[i]["pvalue"].toPrecision(4),
+		                json[i]["zscore"].toFixed(2),
+		                json[i]["combinedScore"].toFixed(2),
+		                json[i][enriched].join(", ")];
 	}	
 	
     var table = $(container).DataTable( {
@@ -88,7 +92,7 @@ function createTable(json, container) {
         "columnDefs": [{
             "targets": [5],
             "visible": false,
-            "searchable": false
+            "searchable": true
         	}],
         buttons: ['copy', 'excel', 'csv'],
         drawCallback: function(settings){
