@@ -110,9 +110,9 @@ function draw_network(json, svg_id, body){
     		  if(body === "#x2k-network"){
 		        curr_node = nodes_data[i];
 		        if((curr_node.group == "tf")||(curr_node.group == "intermediate")){
-		            curr_node.y -= 10;
-		        } else if((curr_node.group == "kinase")||(curr_node.group == "input_protein")){
 		            curr_node.y += 10;
+		        } else if((curr_node.group == "kinase")||(curr_node.group == "input_protein")){
+		            curr_node.y -= 10;
 		        }
     		  }
     	  })(i);
@@ -371,7 +371,7 @@ function draw_network(json, svg_id, body){
     if (body === "#x2k-network") {
     var legend = g.append("g")
 		    .attr("font-family", "sans-serif")
-		    .attr("font-size", 10)
+		    .attr("font-size", 14)
 		    .attr("text-anchor", "end")
 		  .selectAll("g")
 		  .data(x2k_legend)
@@ -380,7 +380,7 @@ function draw_network(json, svg_id, body){
     else{
         var legend = g.append("g")
 	    .attr("font-family", "sans-serif")
-	    .attr("font-size", 10)
+	    .attr("font-size", 14)
 	    .attr("text-anchor", "end")
 	  .selectAll("g")
 	  .data(g2n_legend)

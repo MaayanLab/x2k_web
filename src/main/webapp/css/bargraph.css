@@ -8,11 +8,12 @@
 
 .bar-label {
 	fill: white;
-	font-size: 10px;
+	font-size: 1rem;
 }
 
 .axis--x text {
     fill: black;
+    font-size: 1rem;
 }
 
 .axis--y path {
