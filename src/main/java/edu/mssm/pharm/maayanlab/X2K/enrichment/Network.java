@@ -36,7 +36,6 @@ public class Network {
 	}
 
 	public void addNode(nodeTypes type, Object o, String name) {
-//		System.out.println("Adding " + name);
 		nodeLocation.put(name, nodes.size());
 		nodes.add(new Node(type, o, name));
 	}

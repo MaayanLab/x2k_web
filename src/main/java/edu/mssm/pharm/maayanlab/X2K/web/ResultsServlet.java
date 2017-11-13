@@ -146,14 +146,27 @@ public class ResultsServlet extends HttpServlet {
 
         HashSet<NetworkNode> networkSet = app.getNetworkSet();
         for (NetworkNode node : networkSet) {
-            network.addNode(Network.nodeTypes.networkNode, node, node.getName().split("-")[0]);
+        	String nodeName = node.getName();
+        	if (nodeName.length() > 1) {
+        		nodeName = nodeName.split("-")[0];
+        	};
+            network.addNode(Network.nodeTypes.networkNode, node, nodeName);
         }
 
         for (NetworkNode node : networkSet) {
             HashSet<NetworkNode> neighbors = node.getNeighbors();
             for (NetworkNode neighbor : neighbors)
-                if (network.contains(neighbor.getName()))
-                    network.addInteraction(node.getName().split("-")[0], neighbor.getName().split("-")[0]);
+                if (network.contains(neighbor.getName())){
+                	String nodeName = node.getName();
+                	if (nodeName.length() > 1) {
+                		nodeName = nodeName.split("-")[0];
+                	};                	
+            		String neighborName = neighbor.getName();
+                	if (neighborName.length() > 1) {
+                		neighborName = neighborName.split("-")[0];
+                	};
+                    network.addInteraction(nodeName, neighborName);
+                }
         }
 
         return network;
