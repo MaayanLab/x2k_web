@@ -37,21 +37,8 @@
     padding-left: 0.1rem;
 }
 
-#chea-tabs,
-#kea-tabs {
-	border-bottom: none;
-}
-
-.tabs-card-header {
-	padding-top: 1.15rem;
-    padding-right: 1.25rem;
-    padding-bottom: 0rem;
-    padding-left: 1.25rem;
-}
-
-.tabs-card-title {
-	margin-bottom: 0rem;
-	float: left;
+.navbar-brand {
+	font-size: 1rem;
 }
 
 #chea-table,
@@ -95,9 +82,15 @@
 
 .nav {
 	font-size: 0.8rem;
+	border-top-left-radius: 0.15rem;
+    border-top-right-radius: 0.15rem;
 }
 
 .nav-link {
     display: block;
-    padding: .3rem .7rem;
+    padding: .25rem .7rem;
+}
+
+.nav-item {
+	margin-top: 0.25rem;
 }
