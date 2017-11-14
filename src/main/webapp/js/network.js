@@ -139,6 +139,7 @@ function draw_network(json, svg_id, body){
     }
 
     function node_mouseover(d) {
+    	console.log('node_mouseover');
         div.style("display", "inline");
         
         // connectedNodes()
@@ -162,6 +163,7 @@ function draw_network(json, svg_id, body){
     }
 
     function node_mousemove(d) {
+    	console.log('node_mousemove');
         if (d.group === "tf"){
             div
                 .text(d.name)
@@ -172,6 +174,7 @@ function draw_network(json, svg_id, body){
     }
 
     function node_mouseout() {
+    	console.log('node_mouseout');
         div.style("display", "none");
 
         node.attr("opacity", 1);
@@ -238,7 +241,7 @@ function draw_network(json, svg_id, body){
             .attr("stroke", circleColour)
             .attr("stroke-width", 0.5)
             .attr("fill", circleColour)
-            .on("mouseover", function(d) {return node_mouseover(d); })
+            .on("mouseover", function(d) { return node_mouseover(d); })
             .on("mousemove", function(d) { return node_mousemove(d); })
             .on("mouseout", node_mouseout);
 
