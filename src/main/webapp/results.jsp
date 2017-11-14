@@ -19,23 +19,13 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <!--Datatables-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.bootstrap4.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.bootstrap4.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap4.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap4.css"/>
+	 
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.js"></script>
 
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.bootstrap4.js"></script>
-    <script type="text/javascript"
-            src="https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.js"></script>
-    <script type="text/javascript"
-            src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.js"></script>
-
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!--Own-->
     <link rel="stylesheet" href="css/bargraph.css">
@@ -132,7 +122,7 @@
 
                                 <div class="tab-pane fade" id="nav-chea-table" role="tabpanel"
                                      aria-labelledby="nav-chea-table-tab">
-                                    <table class="table table-striped table-bordered table-sm" id="chea-table"></table>
+                                    <table class="display table table-striped table-bordered table-sm" cellspacing="0" id="chea-table"></table>
                                 </div>
                             </div>
                         </div>
@@ -193,7 +183,7 @@
                             <a class="nav-item nav-link" id="nav-kea-table-tab" data-toggle="tab"
                                href="#nav-kea-table"
                                role="tab"
-                               aria-controls="nav-chae-table">Table</a>
+                               aria-controls="nav-kea-table">Table</a>
 
                         </nav>
 
@@ -218,7 +208,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="nav-kea-table" role="tabpanel"
                                      aria-labelledby="nav-kea-table-tab">
-                                    <table class="table table-striped table-bordered table-sm" id="kea-table"></table>
+                                    <table class="display table table-striped table-bordered table-sm" cellspacing="0" id="kea-table"></table>
                                 </div>
                             </div>
                         </div>

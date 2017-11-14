@@ -71,7 +71,7 @@ function createTable(json, container) {
 	
 	var dataArray = [];
 	for (i = 0; i < json.length; i++) {
-		dataArray[i] = [i,
+		dataArray[i] = [i+1,
 		                json[i]["name"],
 		                json[i]["pvalue"].toPrecision(4),
 		                json[i]["zscore"].toFixed(2),
@@ -81,8 +81,9 @@ function createTable(json, container) {
 	
     var table = $(container).DataTable( {
         data: dataArray,
+        responsive: true,
         columns: [
-            {},      
+            {title: "Rank"},      
             {title: "Term" },
             {title: "P-value" },
             {title: "Z-score" },
@@ -94,7 +95,6 @@ function createTable(json, container) {
             "visible": false,
             "searchable": true
         	}],
-        buttons: ['copy', 'excel', 'csv'],
         drawCallback: function(settings){
         	
            var api = this.api();
@@ -115,9 +115,6 @@ function createTable(json, container) {
         	
         }
     } );
-    
-    table.buttons().container()
-    	.appendTo( $('.col-sm-5:eq(0)', table.table().container() ) );
     
     table.$('tr').tooltip();
 }
