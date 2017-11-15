@@ -26,7 +26,6 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.js"></script>
 
-
     <!--Own-->
     <link rel="stylesheet" href="css/bargraph.css">
     <link rel="stylesheet" href="css/network.css">
