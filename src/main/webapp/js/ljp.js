@@ -3,6 +3,7 @@ function sendToX2K(sig, dir) {
     $.getJSON(file, function (data) {
     	var uniques = new Set(data[sig]);
         $('textarea#ljp-genelist').val(Array.from(uniques).join('\n'));
+        $('textarea#genelist').val(Array.from(uniques).join('\n'));
     });
 }
 

@@ -53,19 +53,19 @@ $(function () {
     submitButtonListener("g2n_submit", "/X2K/G2N", "#g2n-form");
 
 
-    showToolDesc("x2k");
-    showToolDesc("chea");
-    showToolDesc("g2n");
-    showToolDesc("kea");
-
-    showHelpDesc("about");
-    showHelpDesc("api");
-    showHelpDesc("commandline");
-    showHelpDesc("datasets");
-
-    $("#nav-case-tab").on("click", function () {
-        $(".desc").hide();
-        $("#case-desc").show();
-        $("#analysis-row").hide();
-    })
+//    showToolDesc("x2k");
+//    showToolDesc("chea");
+//    showToolDesc("g2n");
+//    showToolDesc("kea");
+//
+//    showHelpDesc("about");
+//    showHelpDesc("api");
+//    showHelpDesc("commandline");
+//    showHelpDesc("datasets");
+//
+//    $("#nav-case-tab").on("click", function () {
+//        $(".desc").hide();
+//        $("#case-desc").show();
+//        $("#analysis-row").hide();
+//    })
 });
