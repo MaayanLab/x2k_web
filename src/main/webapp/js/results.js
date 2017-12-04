@@ -145,8 +145,13 @@ function exportJson(name, export_json) {
     anchor.setAttribute("download", name + ".json");
 }
 
-function svgExport(container, filename, outputType) {	
-	var b64 = $(container).html().split("<div")[0].trim();
+function svgExport(container, filename, outputType) {
+	if ((container === ".chea-chart")||(container === ".kea-chart")){
+		var b64 = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="'+container.slice(1)+'" width="100%" height="100%">' + $(container).html().trim() + '</svg>';
+	}
+	else{
+		var b64 = $(container).html().split("<div")[0].trim();
+	}
 	b64 = b64.replace(/<br>/g, "&lt;br&gt;");
 	b64 = b64.replace(/<br\/>/g, "&lt;br&gt;&#47;");
 	b64 = encodeURIComponent(Base64.encode(b64));
@@ -176,7 +181,26 @@ $(function() {
 				name = modal.find(".modal-title").text();
 			exportJson(name, json_file[name]);
 		});		
+	
+	$(".svg-button").on("click", function(){
+		var modal = $("#dashboardFullModal"),
+			name = modal.find(".modal-title").text();
+		if (name === 'X2K'){
+			console.log(name.toLowerCase());
+			svgExport('#'+name.toLowerCase()+'-network', name+'_network', 'svg');
+		}
+		else if (name === 'G2N'){
+			console.log(name.toLowerCase());
+			svgExport('#network-'+name.toLowerCase(), name+'_network', 'svg');
+		}
+		else{
+			console.log(name.toLowerCase());
+			svgExport('.'+name.toLowerCase() + '-chart', name+'_bargraph', 'svg');			
+		}
 		
+	});		
+	
+	
 	$("#dashboardFullModal").on("hide.bs.modal", function (event) {
 		var button = $(event.relatedTarget),
 		recipient = button.data("whatever"),
