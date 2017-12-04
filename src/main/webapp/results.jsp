@@ -241,7 +241,7 @@
                 <a id="json-anchor">
                     <button type="button" class="btn btn-outline-primary json-button">JSON</button>
                 </a>
-                <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'svg'); return false;">
+                <a id="exportData">
                     <button type="button" class="btn btn-outline-primary svg-button">SVG</button>
                 </a>
                 <!--                 <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'jpg'); return false;">
