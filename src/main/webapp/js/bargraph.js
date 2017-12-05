@@ -95,16 +95,25 @@ function drawBargraph(chart, bargraph_data) {
 	    .attr("x", width/2)
 	    .attr("y", margin.bottom/2)
 	    .attr("dy", "0.71em")
+	    .attr("font-size", "1rem")
 	    .text("-log₁₀(p-value)");
 
-
+	g.selectAll(".axis--x text")
+    	.attr("fill", "black")
+    	.attr("font-size", "1rem");
+	
 	g.append("g")
 	    .attr("class", "axis axis--y")
+	    .attr("fill", "none")
 	    .call(d3.axisLeft(y).tickSize(0))
 	    .selectAll("text")
+	    .attr("fill", "black")
+	    .attr("font-size", "1rem")
 	    .text(function(d) {return d.split("_")[0]});
 
-
+	g.select(".axis--y path")
+		.attr("display", "none");
+	
 	g.selectAll(".bar")
 	    .data(bargraph_data)
 	    .enter()
@@ -117,7 +126,8 @@ function drawBargraph(chart, bargraph_data) {
         .attr("x", 0)
         .attr("y", function(d) { return y(d.name); })
         .attr("width", function(d) { return x(-Math.log10(d.pvalue)); })
-        .attr("height", y.bandwidth());
+        .attr("height", y.bandwidth())
+        .attr("fill", "#6B9BC3");
 	
 	g.selectAll(".bar-container")
 		.append("text")
@@ -126,5 +136,7 @@ function drawBargraph(chart, bargraph_data) {
 		.attr("x", function(d) { return x(-Math.log10(d.pvalue)) - 5; })
 		.attr("y", function(d) { return y(d.name) + y.bandwidth()/2; })
 		.attr("dy", ".35em")
+		.attr("fill", "white")
+		.attr("font-size", "1rem")
 	    .text(function(d) { return d["pvalue"].toExponential(2); });
 }
