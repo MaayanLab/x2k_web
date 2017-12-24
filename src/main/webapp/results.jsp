@@ -183,7 +183,6 @@
                                href="#nav-kea-table"
                                role="tab"
                                aria-controls="nav-kea-table">Table</a>
-
                         </nav>
 
                         <div id="kea-results" class="card-body">

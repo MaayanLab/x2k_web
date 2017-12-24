@@ -7,6 +7,9 @@ function insertExample() {
 
 function submitButtonListener(button, endpoint, settings_form) {
     $('#' + button).click(function (evt) {
+    	$("#blocker").show();
+    	$("#loader").show();
+    	
         // evt.preventDefault();
         var $form = $(settings_form),
             text_input = $("#genelist").val();
