@@ -89,7 +89,14 @@ function createTable(json, container) {
             {title: "Z-score" },
             {title: "Combined score" }, 
             {}
-        ],        
+        ],
+        dom: 'Bfrtip',
+        buttons: [
+            'copy',
+            'excel',
+            'csv',
+            'print'
+        ],
         "columnDefs": [{
             "targets": [5],
             "visible": false,
@@ -115,6 +122,8 @@ function createTable(json, container) {
         	
         }
     } );
+    console.log(container);
+    table.buttons().container().appendTo(container+'_wrapper .col-sm-6:eq(0)' );
     
     table.$('tr').tooltip();
 }
@@ -143,6 +152,31 @@ function exportJson(name, export_json) {
     var anchor = document.getElementById("json-anchor")
     anchor.setAttribute("href", "data:" + data);
     anchor.setAttribute("download", name + ".json");
+}
+
+function exportCsv(name, export_json) {
+
+    
+    var array = typeof objArray != 'object' ? export_json : objArray;
+    var str = '';
+
+    for (var i = 0; i < array.length; i++) {
+        var line = '';
+        for (var index in array[i]) {
+            if (line != '') line += ','
+
+            line += array[i][index];
+        }
+
+        str += line + '\r\n';
+    }
+
+    console.log(str);
+
+    var data = "application/octet-stream;charset=utf-16," + encodeURIComponent(export_json);
+    var anchor = document.getElementById("csv-anchor");
+    anchor.setAttribute("href", "data:" + data);
+    anchor.setAttribute("download", name + ".csv");
 }
 
 function svgExport(container, filename, outputType) {
@@ -181,6 +215,12 @@ $(function() {
 				name = modal.find(".modal-title").text();
 			exportJson(name, json_file[name]);
 		});		
+	
+	$(".csv-button").on("click", function(){
+		var modal = $("#dashboardFullModal"),
+			name = modal.find(".modal-title").text();
+		exportCvs(name, json_file[name]);
+	});
 	
 	$(".svg-button").on("click", function(){
 		var modal = $("#dashboardFullModal"),

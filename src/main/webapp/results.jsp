@@ -21,10 +21,23 @@
     <!--Datatables-->
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.css"/>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap4.css"/>
+
 	 
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.js"></script>
+	
+	<!--Datatables buttons-->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap4.min.css"/>
+	
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap4.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 
     <!--Own-->
     <link rel="stylesheet" href="css/bargraph.css">
@@ -240,6 +253,9 @@
                 <a id="json-anchor">
                     <button type="button" class="btn btn-outline-primary json-button">JSON</button>
                 </a>
+                <a id="csv-anchor">
+                    <button type="button" class="btn btn-outline-primary csv-button">CSV</button>
+                </a>  
                 <a id="exportData">
                     <button type="button" class="btn btn-outline-primary svg-button">SVG</button>
                 </a>
@@ -258,11 +274,11 @@
 <footer class="container-fluid" id="footer">
     <div class="row justify-content-center mt-2">
         <div class="col-sm-7" id="citations">
-            <p>Please cite this paper if you are using X2K for your publication:
+<!--             <p>Please cite this paper if you are using X2K for your publication:
                 <a href="http://www.ncbi.nlm.nih.gov/pubmed/22080467"> Chen EY, Xu
                     H, Gordonov S, Lim MP, Perkins MH, Ma'ayan A. Expression2Kinases:
                     mRNA Profiling Linked to Multiple Upstream Regulatory Layers.
-                    Bioinformatics. (2012) 28 (1): 105-111</a></p>
+                    Bioinformatics. (2012) 28 (1): 105-111</a></p> -->
         </div>
     </div>
 </footer>

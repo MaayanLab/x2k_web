@@ -1,4 +1,5 @@
 function drawBargraph(chart, bargraph_data) {
+	bargraph_data = bargraph_data.slice(0,10);
 	function sortByScore(data, score, dir){
 	    if (dir == "desc"){
 	        data.sort(function(a, b) { return (a[score] > b[score]) ? 1 : ((b[score] > a[score]) ? -1 : 0);} );
@@ -62,7 +63,7 @@ function drawBargraph(chart, bargraph_data) {
 	}
 	
 	sortByScore(bargraph_data, "pvalue", "asc");
-
+	
 	// Change buttons listeners
 	var change_pvalue = $(chart + "-pvalue").on("click", function() { onClick(chart, "pvalue"); $(this).addClass("selected");});
 	var change_zscore = $(chart + "-zscore").on("click", function() { onClick(chart, "zscore"); $(this).addClass("selected");});
