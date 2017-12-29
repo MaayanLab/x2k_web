@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 
@@ -13,10 +13,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 
-	<!-- Highlight JS -->
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
+    <!-- Highlight JS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
     <!--Datatables imports-->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.css"/>
@@ -53,12 +53,12 @@
 <nav class="nav nav-tabs justify-content-center" id="x2k-navbar" role="tablist">
     <a class="nav-item nav-link active" id="nav-x2k-tab" data-toggle="tab" href="#nav-x2k" role="tab"
        aria-controls="nav-x2k" aria-expanded="true">X2K</a>
-<!--     <a class="nav-item nav-link" id="nav-chea-tab" data-toggle="tab" href="#nav-chea" role="tab"
-       aria-controls="nav-chea">ChEA</a>
-    <a class="nav-item nav-link" id="nav-g2n-tab" data-toggle="tab" href="#nav-g2n" role="tab"
-       aria-controls="nav-g2n">G2N</a>
-    <a class="nav-item nav-link" id="nav-kea-tab" data-toggle="tab" href="#nav-kea" role="tab"
-       aria-controls="nav-kea">KEA</a> -->
+    <!--     <a class="nav-item nav-link" id="nav-chea-tab" data-toggle="tab" href="#nav-chea" role="tab"
+           aria-controls="nav-chea">ChEA</a>
+        <a class="nav-item nav-link" id="nav-g2n-tab" data-toggle="tab" href="#nav-g2n" role="tab"
+           aria-controls="nav-g2n">G2N</a>
+        <a class="nav-item nav-link" id="nav-kea-tab" data-toggle="tab" href="#nav-kea" role="tab"
+           aria-controls="nav-kea">KEA</a> -->
     <div class="dropdown">
         <a class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
            aria-expanded="false">
@@ -82,39 +82,39 @@
 <!--Body-->
 <div class="tab-content container-fluid" id="nav-tabContent">
     <!--X2K-->
-<!--     <div class="row justify-content-center" id="analysis-row">
-        <div class="col-sm-7 text-left">
-            <div class="row">
-                <div class="col-sm-6 mt-3">
-                    <label for="genelist">Gene list (<a href="#" onclick="return insertExample();" id="example-link">insert
-                        an example</a>)</label>
-                    <textarea class="form-control form-control-sm" id="genelist" rows="12" name="text-genes"></textarea>
-                </div>
-                <div class="col-sm-6 my-5">
-                    <p id="x2k-desc" class="desc">
-                        X2K Web infers upstream regulatory networks from differentially expressed genes.
-                        It integrates ChIP-Seq/Chip data, position weight matrices, protein–protein
-                        interactions and kinase–substrate phosphorylation data from ChEA, KEA and G2N apps.
-                    </p>
-                    <p id="chea-desc" class="desc" style="display: none;">
-                        ChEA identifies upstream transcription factors. It uses
-                        gene set enrichment for transcription factors likely to bind at the promoters of the
-                        differentilly expressed genes based on integration of publicly available ChIP-seq data.
-                    </p>
-                    <p id="g2n-desc" class="desc" style="display: none;">
-                        G2N generates protein-protein interaction network of input transcription factors
-                        connected with each other by using known protein-protein interactions.
-                    </p>
-                    <p id="kea-desc" class="desc" style="display: none;">
-                        KEA uses kinase-substrate libraries to predict
-                        protein kinases connected to intermediate proteins and transcription factors
-                        that putatively regulate the observed changes in mRNA expression and perform kinase enrichment
-                        analysis.
-                    </p>
+    <!--     <div class="row justify-content-center" id="analysis-row">
+            <div class="col-sm-7 text-left">
+                <div class="row">
+                    <div class="col-sm-6 mt-3">
+                        <label for="genelist">Gene list (<a href="#" onclick="return insertExample();" id="example-link">insert
+                            an example</a>)</label>
+                        <textarea class="form-control form-control-sm" id="genelist" rows="12" name="text-genes"></textarea>
+                    </div>
+                    <div class="col-sm-6 my-5">
+                        <p id="x2k-desc" class="desc">
+                            X2K Web infers upstream regulatory networks from differentially expressed genes.
+                            It integrates ChIP-Seq/Chip data, position weight matrices, protein–protein
+                            interactions and kinase–substrate phosphorylation data from ChEA, KEA and G2N apps.
+                        </p>
+                        <p id="chea-desc" class="desc" style="display: none;">
+                            ChEA identifies upstream transcription factors. It uses
+                            gene set enrichment for transcription factors likely to bind at the promoters of the
+                            differentilly expressed genes based on integration of publicly available ChIP-seq data.
+                        </p>
+                        <p id="g2n-desc" class="desc" style="display: none;">
+                            G2N generates protein-protein interaction network of input transcription factors
+                            connected with each other by using known protein-protein interactions.
+                        </p>
+                        <p id="kea-desc" class="desc" style="display: none;">
+                            KEA uses kinase-substrate libraries to predict
+                            protein kinases connected to intermediate proteins and transcription factors
+                            that putatively regulate the observed changes in mRNA expression and perform kinase enrichment
+                            analysis.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div> -->
+        </div> -->
 
     <div class="tab-pane fade show active settings" id="nav-x2k" role="tabpanel" aria-labelledby="nav-x2k-tab">
         <div class="row justify-content-center">
@@ -122,36 +122,12 @@
                 <form id="x2k-form" enctype="multipart/form-data" method="POST">
                     <div class="form-group">
                         <div class="row">
-
-                <div class="col-sm-6 mt-3">
-                    <label for="genelist">Gene list (<a href="#" onclick="return insertExample();" id="example-link">insert
-                        an example</a>)</label>
-                    <textarea class="form-control form-control-sm" id="genelist" rows="12" name="text-genes"></textarea>
-                </div>
-                <div class="col-sm-6 my-5">
-                    <p id="x2k-desc" class="desc">
-                        X2K Web infers upstream regulatory networks from differentially expressed genes.
-                        It integrates ChIP-Seq/Chip data, position weight matrices, protein–protein
-                        interactions and kinase–substrate phosphorylation data from ChEA, KEA and G2N apps.
-                    </p>
-                    <p id="chea-desc" class="desc" style="display: none;">
-                        ChEA identifies upstream transcription factors. It uses
-                        gene set enrichment for transcription factors likely to bind at the promoters of the
-                        differentilly expressed genes based on integration of publicly available ChIP-seq data.
-                    </p>
-                    <p id="g2n-desc" class="desc" style="display: none;">
-                        G2N generates protein-protein interaction network of input transcription factors
-                        connected with each other by using known protein-protein interactions.
-                    </p>
-                    <p id="kea-desc" class="desc" style="display: none;">
-                        KEA uses kinase-substrate libraries to predict
-                        protein kinases connected to intermediate proteins and transcription factors
-                        that putatively regulate the observed changes in mRNA expression and perform kinase enrichment
-                        analysis.
-                    </p>
-                </div>
-                        
                             <div class="col-sm-6 my-3">
+                                                            <label for="genelist">Gene list (<a href="#" onclick="return insertExample();"
+                                                                    id="example-link">insert
+                                    an example</a>)</label>
+                                <textarea class="form-control form-control-sm" id="genelist" rows="12"
+                                          name="text-genes"></textarea>
                                 <!--Buttons-->
                                 <div class="my-3">
                                     <button type="submit" class="btn btn-outline-primary btn-sm" id="results_submit">
@@ -197,7 +173,8 @@
                                                                                name="min_network_size">
                                                                     </div>
                                                                 </div>
-                                                                <div class="form-group row align-items-center" style="display:none">
+                                                                <div class="form-group row align-items-center"
+                                                                     style="display:none">
                                                                     <label for="number_of_results"
                                                                            class="col-form-label col-sm-9">Number of
                                                                         results</label>
@@ -591,6 +568,35 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="col-sm-6 my-5">
+                                <p id="x2k-desc" class="desc">
+									Enter a list of differentially expressed genes to receive results for:
+									<ol>
+									<li>Putative enriched transcription factors through <a href="https://www.ncbi.nlm.nih.gov/pubmed/20709693">ChIP-x enrichment analysis (ChEA)</a>.</li>
+									<li>Protein–protein interactions subnetwork that connect the input genes using <a href="https://www.ncbi.nlm.nih.gov/pubmed/17916244">Genes2Networks (G2N)</a>.</li>
+									<li>Ranked list of kinases based on known kinase–substrate phosphorylation data from <a href="https://www.ncbi.nlm.nih.gov/pubmed/19176546">kinase enrichment analysis (KEA)</a>.</li>
+									<li>Complete upstream pathway that connects the enriched transcription factors to kinases through known protein-protein interactions via <a href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">the Expression2Kinases (X2K) algorithm</a>.</li>
+									</ol>                                
+                                </p>
+                                <p id="chea-desc" class="desc" style="display: none;">
+                                    ChEA identifies upstream transcription factors. It uses
+                                    gene set enrichment for transcription factors likely to bind at the promoters of the
+                                    differentilly expressed genes based on integration of publicly available ChIP-seq
+                                    data.
+                                </p>
+                                <p id="g2n-desc" class="desc" style="display: none;">
+                                    G2N generates protein-protein interaction network of input transcription factors
+                                    connected with each other by using known protein-protein interactions.
+                                </p>
+                                <p id="kea-desc" class="desc" style="display: none;">
+                                    KEA uses kinase-substrate libraries to predict
+                                    protein kinases connected to intermediate proteins and transcription factors
+                                    that putatively regulate the observed changes in mRNA expression and perform kinase
+                                    enrichment
+                                    analysis.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -992,7 +998,7 @@
     <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
         <div class="row justify-content-center">
             <div id="about" class="col-sm-7 text-left my-3">
-            <h4 class="text-center my-3">About</h4>
+                <h4 class="text-center my-3">About</h4>
                 <p>
                     X2K Web is an online tool used to infer upstream regulatory
                     networks from differentially expressed genes. Combining the <a
@@ -1018,7 +1024,7 @@
     <div class="tab-pane fade" id="nav-api" role="tabpanel" aria-labelledby="nav-api-tab">
         <div class="row justify-content-center">
             <div id="api" class="col-sm-7 text-left my-3">
-            <h4 class="text-center my-3">API</h4>
+                <h4 class="text-center my-3">API</h4>
                 <table class="table table-responsive table-sm">
                     <thead>
                     <tr>
@@ -2103,7 +2109,7 @@ C1d' \
     <div class="tab-pane fade" id="nav-commandline" role="tabpanel" aria-labelledby="nav-commandline-tab">
         <div class="row justify-content-center">
             <div id="commandline" class="col-sm-7 text-left my-3">
-            <h4 class="text-center my-3">Command line tools</h4>
+                <h4 class="text-center my-3">Command line tools</h4>
                 You can download command line standalone versions of the X2K tools in JAR format.
                 Command near each download link suggests usage:
                 <p>
@@ -2145,7 +2151,7 @@ C1d' \
     <div class="tab-pane fade" id="nav-datasets" role="tabpanel" aria-labelledby="nav-datasets-tab">
         <div class="row justify-content-center">
             <div id="datasets" class="col-sm-7 text-left my-3">
-            <h4 class="text-center my-3">Datasets</h4>
+                <h4 class="text-center my-3">Datasets</h4>
                 <div class="row">
                     <div class="col-sm-4">
                         <h5>Protein-Protein Interaction</h5>
@@ -2186,11 +2192,37 @@ C1d' \
 <footer class="container-fluid" id="footer">
     <div class="row justify-content-center">
         <div class="col-sm-7" id="citations">
-<!--             <p>Please cite this paper if you are using X2K for your publication:
-                <a href="http://www.ncbi.nlm.nih.gov/pubmed/22080467"> Chen EY, Xu
-                    H, Gordonov S, Lim MP, Perkins MH, Ma'ayan A. Expression2Kinases:
-                    mRNA Profiling Linked to Multiple Upstream Regulatory Layers.
-                    Bioinformatics. (2012) 28 (1): 105-111</a></p> -->
+            <div class="row">
+                <div class="col-sm-6">
+                    <h6>Affiliations</h6>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="http://lincs-dcic.org/#/" target="_blank">BD2K-LINCS DCIC</a>
+                        </li>
+                        <li>
+                            <a href="http://www.lincsproject.org/" target="_blank">NIH LINCS Program</a>
+                        </li>
+                        <li>
+                            <a href="https://commonfund.nih.gov/idg/overview" target="_blank">NIH IDG program</a>
+                        </li>
+                        <li>
+                            <a href="http://commonfund.nih.gov/lincs/" target="_blank">NIH Common Fund</a>
+                        </li>
+                        <li>
+                            <a href="http://icahn.mssm.edu/research/bioinformatics" target="_blank">Mount Sinai Center
+                                for Bioinformatics</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <h6>Contact</h6>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="mailto:avi.maayan@mssm.edu">Avi Ma'ayan</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
