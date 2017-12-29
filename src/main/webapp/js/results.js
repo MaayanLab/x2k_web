@@ -155,25 +155,53 @@ function exportJson(name, export_json) {
 }
 
 function exportCsv(name, export_json) {
-
+	if(name ==="X2K"){
+	    var tfs = typeof objArray != 'object' ? JSON.parse(export_json)["transcriptionFactors"] : objArray;
+	    var kinases = typeof objArray != 'object' ? JSON.parse(export_json)["kinases"] : objArray;
+	    var array = tfs.concat(kinases);
+	    
     
-    var array = typeof objArray != 'object' ? export_json : objArray;
-    var str = '';
+	    var str = "Name,Simple name,P-value,Z-score,Combined score,Targets\n";
+	
+	    for (var i = 0; i < array.length; i++) {
+	        var line = '';
+	        for (var index in array[i]) {
+	            if (line != '') line += ','
+	
+	            line += array[i][index];
+	        }
+	
+	        str += line + '\r\n';
+	    }
+	}
+	else{
+		var array = typeof objArray != 'object' ? JSON.parse(export_json)["network"] : objArray;
+		var nodes = array["nodes"]
+		var interactions = array["interactions"];
+		var inputList = typeof objArray != 'object' ? JSON.parse(export_json)["input_list"] : objArray;
+		var str = "Source, Source type,Target,Target type\n";
+		
+		
+		var line = "";
+		for (var i = 0; i < interactions.length; i++) {
+			var sourceIndex = interactions[i]["source"];
+			var targetIndex = interactions[i]["target"];
+			var source = nodes[sourceIndex]["name"];
+			var sourceType = "Intermediate protein";
+			if(inputList.includes(source)) {
+				sourceType = "Seed protein";
+			}
+						
+			var target = nodes[targetIndex]["name"];
+			var targetType = "Intermediate protein";
+			if(inputList.includes(target)) {
+				targetType = "Seed protein";
+			}
+			str += source + "," + sourceType + "," + target + "," + targetType + "\n";
+		}
+	}
 
-    for (var i = 0; i < array.length; i++) {
-        var line = '';
-        for (var index in array[i]) {
-            if (line != '') line += ','
-
-            line += array[i][index];
-        }
-
-        str += line + '\r\n';
-    }
-
-    console.log(str);
-
-    var data = "application/octet-stream;charset=utf-16," + encodeURIComponent(export_json);
+    var data = "application/octet-stream;charset=utf-16," + encodeURIComponent(str);
     var anchor = document.getElementById("csv-anchor");
     anchor.setAttribute("href", "data:" + data);
     anchor.setAttribute("download", name + ".csv");
@@ -219,7 +247,7 @@ $(function() {
 	$(".csv-button").on("click", function(){
 		var modal = $("#dashboardFullModal"),
 			name = modal.find(".modal-title").text();
-		exportCvs(name, json_file[name]);
+		exportCsv(name, json_file[name]);
 	});
 	
 	$(".svg-button").on("click", function(){
