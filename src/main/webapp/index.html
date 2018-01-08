@@ -40,13 +40,31 @@
 
     <script src="js/index.js"></script>
     <script src="js/ljp.js"></script>
+    
+    <!--GA-->
+    
+	<script>
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script',
+				'https://www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-6277639-28', 'auto');
+		ga('send', 'pageview');
+	</script>
 </head>
 
 <body>
 <!--Header-->
 <div id="logo">
     <a href="/X2K"><img id="logo-png" class="img-fluid mx-auto" src="static/logo.png"/></a>
-    <p id="x2k_title">A web interface for the Expression to Kinases application</p>
+    <p id="x2k_title">A web interface for the Expression2Kinases algorithm</p>
 </div>
 
 <!--Navbar-->
@@ -70,7 +88,7 @@
             <a class="dropdown-item" id="nav-api-tab" href="#nav-api" role="tab" data-toggle="tab"
                aria-controls="nav-api">API</a>
             <a class="dropdown-item" id="nav-case-tab" href="#nav-case" role="tab" data-toggle="tab"
-               aria-controls="nav-case">Case studies</a>
+               aria-controls="nav-case">Case study</a>
             <a class="dropdown-item" id="nav-commandline-tab" href="#nav-commandline" role="tab" data-toggle="tab"
                aria-controls="nav-commandline">Download command line versions</a>
             <a class="dropdown-item" id="nav-datasets-tab" href="#nav-datasets" role="tab" data-toggle="tab"
@@ -123,7 +141,7 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-6 my-3">
-                                                            <label for="genelist">Gene list (<a href="#" onclick="return insertExample();"
+                                <label for="genelist">Gene list (<a href="#" onclick="return insertExample();"
                                                                     id="example-link">insert
                                     an example</a>)</label>
                                 <textarea class="form-control form-control-sm" id="genelist" rows="12"
@@ -572,13 +590,25 @@
 
                             <div class="col-sm-6 my-5">
                                 <p id="x2k-desc" class="desc">
-									Enter a list of differentially expressed genes to receive results for:
-									<ol>
-									<li>Putative enriched transcription factors through <a href="https://www.ncbi.nlm.nih.gov/pubmed/20709693">ChIP-x enrichment analysis (ChEA)</a>.</li>
-									<li>Protein–protein interactions subnetwork that connect the input genes using <a href="https://www.ncbi.nlm.nih.gov/pubmed/17916244">Genes2Networks (G2N)</a>.</li>
-									<li>Ranked list of kinases based on known kinase–substrate phosphorylation data from <a href="https://www.ncbi.nlm.nih.gov/pubmed/19176546">kinase enrichment analysis (KEA)</a>.</li>
-									<li>Complete upstream pathway that connects the enriched transcription factors to kinases through known protein-protein interactions via <a href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">the Expression2Kinases (X2K) algorithm</a>.</li>
-									</ol>                                
+                                    Enter a list of differentially expressed genes to receive results for:
+                                <ol>
+                                    <li>Putative enriched transcription factors through <a
+                                            href="https://www.ncbi.nlm.nih.gov/pubmed/20709693">ChIP-x enrichment
+                                        analysis (ChEA)</a>.
+                                    </li>
+                                    <li>Protein–protein interactions subnetwork that connects the input genes using <a
+                                            href="https://www.ncbi.nlm.nih.gov/pubmed/17916244">Genes2Networks (G2N)</a>.
+                                    </li>
+                                    <li>Ranked list of kinases based on known kinase–substrate phosphorylation data from
+                                        <a href="https://www.ncbi.nlm.nih.gov/pubmed/19176546">kinase enrichment
+                                            analysis (KEA)</a>.
+                                    </li>
+                                    <li>Complete upstream pathway that connects the enriched transcription factors to
+                                        kinases through known protein-protein interactions via <a
+                                                href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">the
+                                            Expression2Kinases (X2K) algorithm</a>.
+                                    </li>
+                                </ol>
                                 </p>
                                 <p id="chea-desc" class="desc" style="display: none;">
                                     ChEA identifies upstream transcription factors. It uses
@@ -2065,9 +2095,12 @@ C1d' \
 
     <!--Case studies-->
     <div class="tab-pane fade" id="nav-case" role="tabpanel" aria-labelledby="nav-case-tab">
-        <h4 class="text-center my-3"><a href="http://www.lincsproject.org/LINCS/ljp">LINCS Joint Project</a></h4>
+        <h4 class="text-center my-3"><a href="http://www.lincsproject.org/LINCS/ljp">The LINCS Joint Project Case Study</a></h4>
         <div class="row justify-content-center">
             <div id="ljp" class="col-sm-7 text-left my-3">
+                <p>In a recent study published in <a href="https://www.ncbi.nlm.nih.gov/pubmed/29084964">Nature Communications, Niepel et al. (2017)</a> combined L1000
+                    expression signatures together with cell growth phenotypes for over 600 drug-cell line combinations utilizing over hundred drugs, many of them kinase inhibitors.
+                    The case study provides the up and down differentially expressed genes after drug perturbations by these kinase inhibitors. Using the X2K pipeline it is possible to recover the targeted kinase as a highly ranked entry within the last KEA step.</p>
                 <table id="ljp-table" class="display table table-striped table-bordered table-sm" cellspacing="0">
                     <thead>
                     <tr>
@@ -2117,7 +2150,7 @@ C1d' \
                     <code>java -jar X2K.jar genelist output.xml</code>
                 </p>
                 <p>
-                    <a href=http://www.maayanlab.net/X2K/download/X2K-1.5-SNAPSHOT-jar-with-dependencies.jar>X2Konly
+                    <a href=http://www.maayanlab.net/X2K/download/X2K-1.5-SNAPSHOT-jar-with-dependencies.jar>X2K only
                         binary
                         (28.9 MB)</a>
                     <code>java -jar X2K.jar genelist output.xml</code>
