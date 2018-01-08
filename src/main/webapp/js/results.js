@@ -90,7 +90,7 @@ function createTable(json, container) {
             {title: "Combined score" }, 
             {}
         ],
-        dom: 'Bfrtip',
+        dom: 'B<"small"f>rt<"small row"ip>',
         buttons: [
             'copy',
             'excel',
@@ -116,16 +116,16 @@ function createTable(json, container) {
                $(this).attr('title', title);
             });
 
-            $('tr', api.table().container()).tooltip({
-               container: 'body'
-            });  
+//            $('tr', api.table().container()).tooltip({
+//               container: 'body'
+//            });  
         	
         }
     } );
-    console.log(container);
-    table.buttons().container().appendTo(container+'_wrapper .col-sm-6:eq(0)' );
+
+//    table.buttons().container().appendTo(container+'_wrapper .col-sm-6:eq(0)' );
     
-    table.$('tr').tooltip();
+//    table.$('tr').tooltip();
 }
 
 function download(url, data, method) {
@@ -254,15 +254,12 @@ $(function() {
 		var modal = $("#dashboardFullModal"),
 			name = modal.find(".modal-title").text();
 		if (name === 'X2K'){
-			console.log(name.toLowerCase());
 			svgExport('#'+name.toLowerCase()+'-network', name+'_network', 'svg');
 		}
 		else if (name === 'G2N'){
-			console.log(name.toLowerCase());
 			svgExport('#network-'+name.toLowerCase(), name+'_network', 'svg');
 		}
 		else{
-			console.log(name.toLowerCase());
 			svgExport('.'+name.toLowerCase() + '-chart', name+'_bargraph', 'svg');			
 		}
 		

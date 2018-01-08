@@ -1,0 +1,72 @@
+#x2k-dash,
+#chea-dash,
+#g2n-dash,
+#kea-dash {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    padding-right: 0.1rem;
+    padding-left: 0.1rem;
+}
+
+#chea-table,
+#kea-table
+{
+    font-size: 0.6rem;
+}
+
+/* I need a larger modal for expanded view */
+@media (min-width: 768px) {
+    .modal-xl {
+        width: 90%;
+        max-width: 1000px;
+    }
+}
+
+.expand {
+    border: none;
+    background: transparent;
+    float: right;
+    line-height: 1;
+    opacity: .5;
+    font-size: 0.8rem;
+}
+
+.table {
+    max-width: 100%;
+    height: auto;
+}
+
+thead th {
+    white-space: nowrap;
+}
+
+.dataTables_info {
+    float: left;
+}
+
+.dataTables_paginate paging_simple_numbers {
+    float: right;
+}
+
+.btn {
+    font-size: 0.7rem;
+}
+
+.btn-outline-secondary.selected {
+    color: black
+}
+
+.dash-nav {
+    font-size: 0.8rem;
+    border-top-left-radius: 0.15rem;
+    border-top-right-radius: 0.15rem;
+}
+
+.dash-nav-link {
+    display: block;
+    padding: .25rem .7rem;
+}
+
+.dash-nav-item {
+    margin-top: 0.25rem;
+}

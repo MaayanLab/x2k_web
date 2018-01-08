@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/1aa9a9820c.js"></script>
+
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!--Datatables-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap4.css"/>
+
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.js"></script>
+
+    <!--Datatables buttons-->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap4.min.css"/>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+    <!--Own-->
+    <link rel="stylesheet" href="css/bargraph.css">
+    <link rel="stylesheet" href="css/network.css">
+    <link rel="stylesheet" href="css/atooltip.css">
+    <link rel="stylesheet" href="css/results_index.css">
+
+
+    <script src="js/bargraph.js"></script>
+    <script src="js/results_index.js"></script>
+    <script src="js/network.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="js/index.js"></script>
+    <script src="js/ljp.js"></script>
+
+    <!--GA-->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script',
+            'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-6277639-28', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <style>
+        body {
+            position: relative;
+        }
+
+        div.col-8 div {
+            height: 500px;
+        }
+    </style>
+
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+<nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" id="x2k_title" href="/X2K">
+            <img src="static/logo.png" width="250" class="d-inline-block align-bottom" alt="">
+            A web interface for the Expression to Kinases application
+        </a>
+    </nav>
+</nav>
+
+<!--Navbar-->
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-2 bg-light" id="myScrollspy">
+            <ul class="nav nav-pills flex-column sticky-top">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#x2k">X2K Web</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#example">Example</a>
+                </li>
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#about">About</a>-->
+                <!--</li>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#api">API</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#case-studies">Case study</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#command-line">Command line versions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#datasets">Datasets</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="col-sm-8">
+            <div id="x2k">
+                <div id="about" class="my-3 mx-2">
+                    <p>
+                        X2K Web is an online tool used to infer upstream regulatory
+                        networks from differentially expressed genes. Combining the <a
+                            href="http://amp.pharm.mssm.edu/Enrichr">ChEA</a>, Genes2Networks,
+                        and <a href="http://www.maayanlab.net/KEA2/">KEA</a> apps
+                        together, X2K Web produces inferred networks of transcription
+                        factors, proteins, and kinases which take part in the upstream
+                        regulation of the inputted gene list. X2K web also allows users to
+                        analyze their differentially expressed gene lists using ChEA, G2N,
+                        and KEA individually. To read more about the concept of X2K, you
+                        can read about it <a href="http://www.maayanlab.net/X2K/">here</a>.
+                    </p>
+                </div>
+                <form id="x2k-form" enctype="multipart/form-data" method="POST">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6 my-2">
+                                <label for="genelist">Gene list (<a href="#" onclick="return insertExample();"
+                                                                    id="example-link">insert
+                                    an example</a>)</label>
+                                <textarea class="form-control form-control-sm" id="genelist" rows="12"
+                                          name="text-genes"></textarea>
+                                <!--Buttons-->
+                                <div class="my-5">
+                                    <button type="submit" class="btn btn-outline-primary btn-sm" id="results_submit">
+                                        Submit
+                                    </button>
+                                </div>
+
+                                <!--Settings-->
+                                <div id="settings-accordion" role="tablist" class="my-1">
+                                    <div class="card">
+                                        <div class="card-header py-1 border-0  bg-white" role="tab" id="settings-acc">
+                                            <a data-toggle="collapse" href="#settings" aria-expanded="true"
+                                               aria-controls="settings">
+                                                Settings
+                                            </a>
+                                        </div>
+
+                                        <div id="settings" class="collapse" role="tabpanel"
+                                             aria-labelledby="settings-acc" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <div id="accordion" role="tablist">
+
+                                                    <!--X2K-->
+                                                    <div class="card my-1">
+                                                        <div class="card-header py-1 border-0" role="tab"
+                                                             id="x2k-settings">
+                                                            <a data-toggle="collapse" href="#x2k-collapse"
+                                                               aria-expanded="true" aria-controls="x2k-collapse">
+                                                                X2K
+                                                            </a>
+                                                        </div>
+                                                        <div id="x2k-collapse" class="collapse" role="tabpanel"
+                                                             aria-labelledby="x2k-settings" data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                <div class="form-group row align-items-center">
+                                                                    <label for="min_network_size"
+                                                                           class="col-form-label col-sm-9">Minimum
+                                                                        number of proteins in subnetwork</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input class="form-control form-control-sm"
+                                                                               type="text" value="50"
+                                                                               id="min_network_size"
+                                                                               name="min_network_size">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row align-items-center"
+                                                                     style="display:none">
+                                                                    <label for="number_of_results"
+                                                                           class="col-form-label col-sm-9">Number of
+                                                                        results</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input class="form-control form-control-sm"
+                                                                               type="text" value="500"
+                                                                               id="number_of_results"
+                                                                               name="number_of_results">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!--ChEA-->
+                                                    <div class="card my-1">
+                                                        <div class="card-header py-1 border-0" role="tab"
+                                                             id="chea-x2k-settings">
+                                                            <a class="collapsed" data-toggle="collapse"
+                                                               href="#chea-x2k-collapse" aria-expanded="false"
+                                                               aria-controls="chea-x2k-collapse">
+                                                                ChEA
+                                                            </a>
+                                                        </div>
+                                                        <div id="chea-x2k-collapse" class="collapse" role="tabpanel"
+                                                             aria-labelledby="chea-x2k-settings"
+                                                             data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                <div class="form-group" id="chea-x2k-sorting">
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-form-label col-sm-5">Sort
+                                                                            by</label>
+                                                                        <div class="col-sm-7">
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="sort transcription factors by"
+                                                                                           id="chea-x2k-pvalue"
+                                                                                           value="p-value" checked>
+                                                                                    p-value
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="sort transcription factors by"
+                                                                                           id="chea-x2k-rank"
+                                                                                           value="rank">
+                                                                                    rank
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="sort transcription factors by"
+                                                                                           id="chea-x2k-combscore"
+                                                                                           value="combined score">
+                                                                                    combined score
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <hr/>
+                                                                <div class="form-group" id="chea-x2k-species">
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-form-label col-sm-5">Background
+                                                                            organism</label>
+                                                                        <div class="col-sm-7">
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="included organisms in the background database"
+                                                                                           id="chea-x2k-human"
+                                                                                           value="human">
+                                                                                    human
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="included organisms in the background database"
+                                                                                           id="chea-x2k-mouse"
+                                                                                           value="mouse">
+                                                                                    mouse
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="included organisms in the background database"
+                                                                                           id="chea-x2k-both"
+                                                                                           value="both" checked>
+                                                                                    both
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <hr/>
+                                                                <div class="form-group" id="chea-x2k-tfdb">
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-form-label col-sm-5">Transcription
+                                                                            factor database</label>
+                                                                        <div class="col-sm-7">
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="TF-target gene background database used for enrichment"
+                                                                                           id="x2k_chea2015"
+                                                                                           value="ChEA 2015" checked>
+                                                                                    ChEA 2015
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="TF-target gene background database used for enrichment"
+                                                                                           id="x2k_encode2015"
+                                                                                           value="ENCODE 2015">
+                                                                                    ENCODE 2015
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="TF-target gene background database used for enrichment"
+                                                                                           id="x2k_chea-encode"
+                                                                                           value="ChEA & ENCODE Consensus">
+                                                                                    ChEA & ENCODE Consensus
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="TF-target gene background database used for enrichment"
+                                                                                           id="x2k_transfac-jaspar"
+                                                                                           value="Transfac and Jaspar">
+                                                                                    Transfac & Jaspar
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!--G2N-->
+                                                    <div class="card my-1">
+                                                        <div class="card-header py-1 border-0" role="tab"
+                                                             id="g2n-x2k-settings">
+                                                            <a class="collapsed" data-toggle="collapse"
+                                                               href="#g2n-x2k-collapse" aria-expanded="false"
+                                                               aria-controls="g2n-x2k-collapse">
+                                                                G2N
+                                                            </a>
+                                                        </div>
+                                                        <div id="g2n-x2k-collapse" class="collapse" role="tabpanel"
+                                                             aria-labelledby="g2n-x2k-settings"
+                                                             data-parent="#accordion">
+                                                            <div class="card-body">
+
+                                                                <div class="form-group row align-items-center">
+                                                                    <label for="x2k_path_length"
+                                                                           class="col-form-label col-sm-9">Path
+                                                                        length</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input class="form-control form-control-sm"
+                                                                               type="text" value="2"
+                                                                               id="x2k_path_length" name="path_length">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row align-items-center">
+                                                                    <label for="x2k_min_number_of_articles_supporting_interaction"
+                                                                           class="col-form-label col-sm-9">Minimum
+                                                                        number of articles</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input class="form-control form-control-sm"
+                                                                               type="text" value="2"
+                                                                               id="x2k_min_number_of_articles_supporting_interaction"
+                                                                               name="min_number_of_articles_supporting_interaction">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row align-items-center">
+                                                                    <label for="x2k_max_number_of_interactions_per_protein"
+                                                                           class="col-form-label col-sm-9">Maximum
+                                                                        number of interactions per protein</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input class="form-control form-control-sm"
+                                                                               type="text" value="200"
+                                                                               id="x2k_max_number_of_interactions_per_protein"
+                                                                               name="max_number_of_interactions_per_protein">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row align-items-center">
+                                                                    <label for="x2k_max_number_of_interactions_per_article"
+                                                                           class="col-form-label col-sm-9">Maximum
+                                                                        number of interactions per article</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input class="form-control form-control-sm"
+                                                                               type="text" value="100"
+                                                                               id="x2k_max_number_of_interactions_per_article"
+                                                                               name="max_number_of_interactions_per_article">
+                                                                    </div>
+                                                                </div>
+                                                                <hr/>
+                                                                <div class="form-group" id="g2n-x2k-ppi">
+                                                                    <label>PPI Networks</label>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-4">
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="checkbox"
+                                                                                           name="enable_Biocarta"
+                                                                                           value="true" checked>
+                                                                                    Biocarta
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="checkbox"
+                                                                                           name="enable_BioGRID"
+                                                                                           value="true" checked>
+                                                                                    BioGRID
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="checkbox"
+                                                                                           name="enable_BioPlex"
+                                                                                           value="true" checked>
+                                                                                    BioPlex
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="checkbox"
+                                                                                           name="enable_DIP"
+                                                                                           value="true" checked>
+                                                                                    DIP
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-4">
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="checkbox"
+                                                                                           name="enable_huMAP"
+                                                                                           value="true" checked>
+                                                                                    huMAP
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="checkbox"
+                                                                                           name="enable_InnateDB"
+                                                                                           value="true" checked>
+                                                                                    InnateDB
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="checkbox"
+                                                                                           name="enable_IntAct"
+                                                                                           value="true" checked>
+                                                                                    IntAct
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="checkbox"
+                                                                                           name="enable_KEGG"
+                                                                                           value="true" checked>
+                                                                                    KEGG
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-4">
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="checkbox"
+                                                                                           name="enable_MINT"
+                                                                                           value="true" checked>
+                                                                                    MINT
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="checkbox"
+                                                                                           name="enable_ppid"
+                                                                                           value="true" checked>
+                                                                                    ppid
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="checkbox"
+                                                                                           name="enable_SNAVI"
+                                                                                           value="true" checked>
+                                                                                    SNAVI
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!--KEA-->
+                                                    <div class="card  my-1">
+                                                        <div class="card-header py-1 border-0" role="tab"
+                                                             id="kea-x2k-settings">
+                                                            <a class="collapsed" data-toggle="collapse"
+                                                               href="#kea-x2k-collapse" aria-expanded="false"
+                                                               aria-controls="kea-x2k-collapse">
+                                                                KEA
+                                                            </a>
+                                                        </div>
+                                                        <div id="kea-x2k-collapse" class="collapse" role="tabpanel"
+                                                             aria-labelledby="kea-x2k-settings"
+                                                             data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                <div class="form-group">
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-form-label col-sm-5">Sort
+                                                                            by</label>
+                                                                        <div class="col-sm-7" id="kea-x2k-sorting">
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="sort kinases by"
+                                                                                           id="kea-x2k-pvalue"
+                                                                                           value="p-value" checked>
+                                                                                    p-value
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="sort kinases by"
+                                                                                           id="kea-x2k-rank"
+                                                                                           value="rank">
+                                                                                    rank
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="sort kinases by"
+                                                                                           id="kea-x2k-combscore"
+                                                                                           value="combined score">
+                                                                                    combined score
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 my-5">
+                                <p id="x2k-desc" class="desc">
+                                    Enter a list of differentially expressed genes to receive results for:
+                                <ol>
+                                    <li>Putative enriched transcription factors through <a
+                                            href="https://www.ncbi.nlm.nih.gov/pubmed/20709693">ChIP-x enrichment
+                                        analysis (ChEA)</a>.
+                                    </li>
+                                    <li>Protein–protein interactions subnetwork that connects the input genes using <a
+                                            href="https://www.ncbi.nlm.nih.gov/pubmed/17916244">Genes2Networks (G2N)</a>.
+                                    </li>
+                                    <li>Ranked list of kinases based on known kinase–substrate phosphorylation data from
+                                        <a href="https://www.ncbi.nlm.nih.gov/pubmed/19176546">kinase enrichment
+                                            analysis (KEA)</a>.
+                                    </li>
+                                    <li>Complete upstream pathway that connects the enriched transcription factors to
+                                        kinases through known protein-protein interactions via <a
+                                                href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">the
+                                            Expression2Kinases (X2K) algorithm</a>.
+                                    </li>
+                                </ol>
+                                </p>
+                                <p id="chea-desc" class="desc" style="display: none;">
+                                    ChEA identifies upstream transcription factors. It uses
+                                    gene set enrichment for transcription factors likely to bind at the promoters of the
+                                    differentilly expressed genes based on integration of publicly available ChIP-seq
+                                    data.
+                                </p>
+                                <p id="g2n-desc" class="desc" style="display: none;">
+                                    G2N generates protein-protein interaction network of input transcription factors
+                                    connected with each other by using known protein-protein interactions.
+                                </p>
+                                <p id="kea-desc" class="desc" style="display: none;">
+                                    KEA uses kinase-substrate libraries to predict
+                                    protein kinases connected to intermediate proteins and transcription factors
+                                    that putatively regulate the observed changes in mRNA expression and perform kinase
+                                    enrichment
+                                    analysis.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="example" class="my-5">
+                <h4>Example</h4>
+
+                <div class="container-fluid" id="results-dashboard">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12">
+
+                            <div class="row justify-content-center align-items-start">
+                                <!--X2K-->
+                                <div class="col-sm-6" id="x2k-dash">
+                                    <div class="card">
+                                        <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
+                                            <button type="button" class="expand" data-toggle="modal"
+                                                    data-target="#dashboardFullModal"
+                                                    data-whatever="#x2k-network X2K"><i class="fa fa-expand"
+                                                                                        aria-hidden="true"></i>
+                                            </button>
+                                            <a class="navbar-brand" href="#">
+                                                X2K</a>
+                                        </nav>
+                                        <div id="x2k-network" class="card-body">
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg"
+                                                 width="100%"
+                                                 height="100%" viewBox="-20 0 1020 600"></svg>
+                                        </div>
+                                        <!--                 <div class="card-footer">
+                                                            <div class="row justify-content-between">
+                                                                <div class="legend col-sm-8">
+                                                                </div>
+                                                                <div class="download-buttons col-sm-4">
+                                                                    <a onclick="exportJson(this, 'X2K', json_file['X2K']);">
+                                                                        <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
+                                    </div>
+                                </div>
+
+                                <!--ChEA-->
+                                <div class="col-sm-6" id="chea-dash">
+                                    <div class="card">
+                                        <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
+                                            <button type="button" class="expand" data-toggle="modal"
+                                                    data-target="#dashboardFullModal"
+                                                    data-whatever="#chea-results ChEA">
+                                                <i class="fa fa-expand" aria-hidden="true"></i>
+                                            </button>
+                                            <a class="navbar-brand" href="#">
+                                                ChEA</a>
+                                            <a class="nav-item nav-link active dash-nav-item dash-nav-link"
+                                               id="nav-chea-bar-tab" data-toggle="tab"
+                                               href="#nav-chea-bar"
+                                               role="tab" aria-controls="nav-chea-bar" aria-expanded="true">Bargraph</a>
+                                            <a class="nav-item nav-link dash-nav-item dash-nav-link"
+                                               id="nav-chea-table-tab" data-toggle="tab"
+                                               href="#nav-chea-table"
+                                               role="tab"
+                                               aria-controls="nav-chae-table">Table</a>
+                                        </nav>
+                                        <div id="chea-results" class="card-body">
+                                            <div class="tab-content" style="display: block;" id="nav-tabContent-chea">
+                                                <div class="tab-pane fade show active" id="nav-chea-bar" role="tabpanel"
+                                                     aria-labelledby="nav-chea-bar-tab">
+                                                    <div id="bargraph-chea" class="bargraph">
+                                                        <!--                                 <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
+                                                                                            Classes like 'chea-chart-zscore' define sorting type in bargraph.js
+                                                                                            <input type="button" class="selected btn btn-outline-secondary btn-sm chea-chart-pvalue"
+                                                                                                   value="P-value">
+                                                                                            <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-zscore" value="Z-score">
+                                                                                            <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-combinedScore"
+                                                                                                   value="Combined score">
+                                                                                        </div>
+                                                         -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                             class="chea-chart"
+                                                             width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
+                                                    </div>
+                                                </div>
+
+                                                <div class="tab-pane fade" id="nav-chea-table" role="tabpanel"
+                                                     aria-labelledby="nav-chea-table-tab">
+                                                    <table class="display table table-striped table-bordered table-sm"
+                                                           cellspacing="0" id="chea-table"></table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--                 <div class="download-buttons card-footer">
+                                                            <div class="row justify-content-end">
+                                                                <a onclick="exportJson(this, 'ChEA', json_file['ChEA']);">
+                                                                    <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
+                                                                </a>
+                                                            </div>
+                                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--G2N-->
+                            <div class="row justify-content-center align-items-start">
+                                <div class="col-sm-6" id="g2n-dash">
+                                    <div class="card">
+                                        <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
+                                            <button type="button" class="expand" data-toggle="modal"
+                                                    data-target="#dashboardFullModal"
+                                                    data-whatever="#network-g2n G2N"><i class="fa fa-expand"
+                                                                                        aria-hidden="true"></i>
+                                            </button>
+                                            <a class="navbar-brand" href="#">G2N</a>
+                                        </nav>
+                                        <div id="network-g2n" class="card-body">
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg"
+                                                 width="100%"
+                                                 height="100%" viewBox="-20 0 1020 600"></svg>
+                                        </div>
+                                        <!--                 <div class="card-footer">
+                                                            <div class="row justify-content-between">
+                                                                <div class="legend col-sm-8">
+                                                                </div>
+                                                                <div class="download-buttons col-sm-4">
+                                                                    <a onclick="exportJson(this, 'G2N', json_file['G2N']);">
+                                                                        <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
+                                    </div>
+                                </div>
+
+                                <!--KEA-->
+                                <div class="col-sm-6" id="kea-dash">
+                                    <div class="card">
+                                        <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
+                                            <button type="button" class="expand" data-toggle="modal"
+                                                    data-target="#dashboardFullModal"
+                                                    data-whatever="#kea-results KEA">
+                                                <i class="fa fa-expand" aria-hidden="true"></i>
+                                            </button>
+                                            <a class="navbar-brand" href="#">
+                                                KEA</a>
+                                            <a class="nav-item nav-link active dash-nav-item dash-nav-link"
+                                               id="nav-kea-bar-tab" data-toggle="tab"
+                                               href="#nav-kea-bar"
+                                               role="tab" aria-controls="nav-kea-bar" aria-expanded="true">Bargraph</a>
+                                            <a class="nav-item nav-link"
+                                               id="nav-kea-table-tab dash-nav-item dash-nav-link" data-toggle="tab"
+                                               href="#nav-kea-table"
+                                               role="tab"
+                                               aria-controls="nav-kea-table">Table</a>
+                                        </nav>
+
+                                        <div id="kea-results" class="card-body">
+                                            <div class="tab-content" id="nav-tabContent-kea">
+                                                <div class="tab-pane fade show active" id="nav-kea-bar" role="tabpanel"
+                                                     aria-labelledby="nav-kea-bar-tab">
+                                                    <div id="bargraph-kea" class="bargraph">
+                                                        <!--                                 <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
+                                                                                            Classes like 'kea-chart-zscore' define sorting type in bargraph.js
+                                                                                            <input type="button" class="selected btn btn-outline-secondary btn-sm kea-chart-pvalue"
+                                                                                                   value="P-value">
+                                                                                            <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-zscore" value="Z-score">
+                                                                                            <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-combinedScore"
+                                                                                                   value="Combined score">
+                                                                                        </div>
+                                                         -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                             class="kea-chart"
+                                                             width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
+                                                    </div>
+
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-kea-table" role="tabpanel"
+                                                     aria-labelledby="nav-kea-table-tab">
+                                                    <table class="display table table-striped table-bordered table-sm"
+                                                           cellspacing="0" id="kea-table"></table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--                 <div class="download-buttons card-footer">
+                                                            <div class="row justify-content-end">
+                                                                <a onclick="exportJson(this, 'KEA', json_file['KEA']);">
+                                                                    <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
+                                                                </a>
+                                                            </div>
+                                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Modals-->
+                <div class="modal fade" id="dashboardFullModal" tabindex="-1" role="dialog"
+                     aria-labelledby="dashboardFullModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-xl" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body"></div>
+                            <div class="modal-footer">
+                                <a id="json-anchor">
+                                    <button type="button" class="btn btn-outline-primary json-button">JSON</button>
+                                </a>
+                                <a id="csv-anchor">
+                                    <button type="button" class="btn btn-outline-primary csv-button">CSV</button>
+                                </a>
+                                <a id="exportData">
+                                    <button type="button" class="btn btn-outline-primary svg-button">SVG</button>
+                                </a>
+                                <!--                 <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'jpg'); return false;">
+                                                    <button type="button" id="download-button">JPG</button>
+                                                </a>
+                                                <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'png'); return false;">
+                                                    <button type="button" id="download-button">PNG</button>
+                                                </a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div id="about" class="my-5">-->
+            <!--<h4>About</h4>-->
+            <!--<p>-->
+            <!--X2K Web is an online tool used to infer upstream regulatory-->
+            <!--networks from differentially expressed genes. Combining the <a-->
+            <!--href="http://amp.pharm.mssm.edu/Enrichr">ChEA</a>, Genes2Networks,-->
+            <!--and <a href="http://www.maayanlab.net/KEA2/">KEA</a> apps-->
+            <!--together, X2K Web produces inferred networks of transcription-->
+            <!--factors, proteins, and kinases which take part in the upstream-->
+            <!--regulation of the inputted gene list. X2K web also allows users to-->
+            <!--analyze their differentially expressed gene lists using ChEA, G2N,-->
+            <!--and KEA individually. To read more about the concept of X2K, you-->
+            <!--can read about it <a href="http://www.maayanlab.net/X2K/">here</a>.-->
+            <!--</p>-->
+
+            <!--<h4>Instructional Video</h4>-->
+
+            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/ipchvqQhdpc" frameborder="0"-->
+            <!--allowfullscreen></iframe>-->
+            <!--</div>-->
+            <div id="api" class="my-5">
+                <h4>API</h4>
+
+            </div>
+
+            <div id="case-studies" class="my-5">
+                <h4>Case study</h4>
+                <h4 class="text-center my-3"><a href="http://www.lincsproject.org/LINCS/ljp">The LINCS Joint Project
+                    Case Study</a>
+                </h4>
+                <div class="row justify-content-center">
+                    <p>In a recent study published in <a href="https://www.ncbi.nlm.nih.gov/pubmed/29084964">Nature
+                        Communications, Niepel et al. (2017)</a> combined L1000
+                        expression signatures together with cell growth phenotypes for over 600 drug-cell line
+                        combinations utilizing over hundred drugs, many of them kinase inhibitors.
+                        The case study provides the up and down differentially expressed genes after drug perturbations
+                        by these kinase inhibitors. Using the X2K pipeline it is possible to recover the targeted kinase
+                        as a highly ranked entry within the last KEA step.</p>
+
+                    <div id="ljp" class="col-sm-7 text-left my-3">
+                        <table id="ljp-table" class="display table table-striped table-bordered table-sm"
+                               cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Batch</th>
+                                <th>Perturbation</th>
+                                <th>Drug</th>
+                                <th>Dose, μM</th>
+                                <th>Time, hours</th>
+                                <th>Celline</th>
+                                <th>Analysis</th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Batch</th>
+                                <th>Perturbation</th>
+                                <th>Drug</th>
+                                <th>Dose, μM</th>
+                                <th>Time, hours</th>
+                                <th>Celline</th>
+                                <th></th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="col-sm-3 mt-3">
+                <textarea class="form-control form-control-sm" id="ljp-genelist" rows="10"
+                          name="ljp-text-genes"></textarea>
+                        <div class="my-3">
+                            <button type="submit" class="btn btn-outline-primary btn-sm" id="results_submit_ljp">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="command-line" class="my-5">
+                <h4>Command line tools</h4>
+                <p>You can download command line standalone versions of the X2K tools in JAR format.
+                    <br/>Command near each download link suggests usage:</p>
+                <p>
+                    <a href=http://www.maayanlab.net/X2K/download/install_X2K.jar>X2K with source code (61.3 MB)</a>
+                    <code>java -jar X2K.jar genelist output.xml</code>
+                </p>
+                <p>
+                    <a href=http://www.maayanlab.net/X2K/download/X2K-1.5-SNAPSHOT-jar-with-dependencies.jar>X2K only
+                        binary
+                        (28.9 MB)</a>
+                    <code>java -jar X2K.jar genelist output.xml</code>
+                </p>
+                <p>
+                    <a href=http://www.maayanlab.net/X2K/download/ChEA-1.5-SNAPSHOT-jar-with-dependencies.jar>ChEA (8.1
+                        MB)</a>
+                    <code>java -jar ChEA.jar [background] genelist output.csv</code>
+                </p>
+                <p>
+                    <a href=http://www.maayanlab.net/X2K/download/G2N-1.5-SNAPSHOT-jar-with-dependencies.jar>G2N (3.6
+                        MB)</a>
+                    <code>java -jar G2N.jar input output.sig [backgroundSigFiles...]</code>
+                </p>
+                <p>
+                    <a href=http://www.maayanlab.net/X2K/download/KEA-1.5-SNAPSHOT-jar-with-dependencies.jar>KEA (188
+                        KB)</a>
+                    <code>java -jar KEA.jar [background] genelist output.csv</code>
+                </p>
+                <p>
+                    <a href=http://www.maayanlab.net/X2K/download/List2Networks-1.0-SNAPSHOT-jar-with-dependencies.jar>L2N
+                        (2
+                        MB)</a>
+                    <code>java -jar L2N.jar gene_list [background_file...] output.xml</code>
+                </p>
+            </div>
+            <div id="datasets" class="my-5">
+                <h4>Datasets</h4>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h5>Protein-Protein Interaction</h5>
+                        <p><a href="datasets/Biocarta.sig"> Biocarta </a></p>
+                        <p><a href="datasets/BioGrid.sig"> BioGrid </a></p>
+                        <p><a href="datasets/BioPlex.sig"> BioPlex </a></p>
+                        <p><a href="datasets/DIP.sig"> DIP </a></p>
+                        <p><a href="datasets/huMAP.sig"> huMAP </a></p>
+                        <p><a href="datasets/innateDB.sig"> innateDB </a></p>
+                        <p><a href="datasets/IntAct.sig"> IntAct </a></p>
+                        <p><a href="datasets/KEGG.sig"> KEGG </a></p>
+                        <p><a href="datasets/MINT.sig"> MINT </a></p>
+                        <p><a href="datasets/ppid.sig"> ppid </a>
+                        <p><a href="datasets/SNAVI.sig"> SNAVI </a></p>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <h5>Transcriptional Regulation</h5>
+                        <p><a href="datasets/ChEA2015.zip"> ChEA 2015 </a></p>
+                        <p><a href="datasets/ENCODE2015.zip"> ENCODE 2015 </a></p>
+                        <p><a href="datasets/Consensus.zip"> ChEA & ENCODE Consensus </a></p>
+                        <p><a href="datasets/TransfacAndJaspar.zip"> TRANSFAC & JASPAR </a></p>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <h5>Kinome Regulation</h5>
+                        <p><a href="datasets/KEA.zip"> KEA 2015 </a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 bg-light"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -69,6 +69,18 @@
 	height: auto;
 }
 
+thead th {
+	white-space: nowrap;
+}
+
+.dataTables_info {
+	float: left;
+}
+
+.dataTables_paginate paging_simple_numbers {
+	float: right;
+}
+
 .btn {
 	font-size: 0.7rem;
 }
