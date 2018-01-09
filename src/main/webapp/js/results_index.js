@@ -225,6 +225,14 @@ function svgExport(container, filename, outputType) {
 
 }
 
+$(window).scroll(function() {
+	  if ($(document).scrollTop() > 100) {
+	    $('#logo-scroll').show();
+	  } else {
+	    $('#logo-scroll').hide();
+	  }
+});
+
 $(function() {
     $.getJSON("static/results.json", function(json_file) {
         // Modals
