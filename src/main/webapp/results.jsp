@@ -149,7 +149,7 @@
                                     </div>
                                 </div>
 
-                                <div class="tab-pane fade" id="nav-chea-table" role="tabpanel"
+                                <div class="tab-pane fade table-responsive" id="nav-chea-table" role="tabpanel"
                                      aria-labelledby="nav-chea-table-tab">
                                     <table class="display table table-striped table-bordered table-sm" cellspacing="0" id="chea-table"></table>
                                 </div>
@@ -234,7 +234,7 @@
                                     </div>
 
                                 </div>
-                                <div class="tab-pane fade" id="nav-kea-table" role="tabpanel"
+                                <div class="tab-pane fade table-responsive" id="nav-kea-table" role="tabpanel"
                                      aria-labelledby="nav-kea-table-tab">
                                     <table class="display table table-striped table-bordered table-sm" cellspacing="0" id="kea-table"></table>
                                 </div>

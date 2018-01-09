@@ -103,3 +103,7 @@ thead th {
 .nav-item {
 	margin-top: 0.25rem;
 }
+
+.navbar-brand {
+	font-size: 1rem;
+}

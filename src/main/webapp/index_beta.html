@@ -47,13 +47,11 @@
     <link rel="stylesheet" href="css/network.css">
     <link rel="stylesheet" href="css/atooltip.css">
     <link rel="stylesheet" href="css/results_index.css">
-
+    <link rel="stylesheet" href="css/index_beta.css">
 
     <script src="js/bargraph.js"></script>
     <script src="js/results_index.js"></script>
     <script src="js/network.js"></script>
-    <link rel="stylesheet" href="css/index.css">
-
     <script src="js/index.js"></script>
     <script src="js/ljp.js"></script>
 
@@ -100,8 +98,8 @@
     <div class="row">
         <nav class="col-sm-2 bg-light" id="myScrollspy">
             <ul class="nav nav-pills flex-column sticky-top">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#x2k">X2K Web</a>
+                <li id="logo-scroll" class="nav-item">
+                    <a class="nav-link active" href="#x2k"><img src="static/logo.png" width="100" class="d-inline-block align-bottom" alt=""></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#example">Example</a>
@@ -119,7 +117,7 @@
                     <a class="nav-link" href="#command-line">Command line versions</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#datasets">Datasets</a>
+                    <a class="nav-link" href="#datasets">Download datasets</a>
                 </li>
             </ul>
         </nav>
@@ -140,26 +138,28 @@
                         version website</a>.
                     </p>
                 </div>
-			    <!-- Loader -->
-			    <div class="row justify-content-center">
-				    <div class="col-sm-6 ">
-					    <div id="loader" class="progress">
-					        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-					             aria-valuemax="100" style="width:100%"></div>
-					    </div>
-				    </div>
-				</div> 
+                <!-- Loader -->
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 ">
+                        <div id="loader" class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                 aria-valuenow="100" aria-valuemin="0"
+                                 aria-valuemax="100" style="width:100%"></div>
+                        </div>
+                    </div>
+                </div>
                 <form id="x2k-form" enctype="multipart/form-data" method="POST">
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-6 my-2">
-                                <label for="genelist">Gene list (<a href="#" onclick="return insertExample();"
+                                <label for="genelist">Gene list (<a href="javascript:void(0)"
+                                                                    onclick="return insertExample();"
                                                                     id="example-link">insert
                                     an example</a>)</label>
                                 <textarea class="form-control form-control-sm" id="genelist" rows="12"
                                           name="text-genes"></textarea>
                                 <!--Buttons-->
-                                <div class="my-5">
+                                <div class="my-3">
                                     <button type="submit" class="btn btn-outline-primary btn-sm" id="results_submit">
                                         Submit
                                     </button>
@@ -661,7 +661,7 @@
                                                     data-whatever="#x2k-network X2K"><i class="fa fa-expand"
                                                                                         aria-hidden="true"></i>
                                             </button>
-                                            <a class="navbar-brand" href="#">
+                                            <a class="navbar-brand" href="javascript:void(0)">
                                                 X2K</a>
                                         </nav>
                                         <div id="x2k-network" class="card-body">
@@ -692,7 +692,7 @@
                                                     data-whatever="#chea-results ChEA">
                                                 <i class="fa fa-expand" aria-hidden="true"></i>
                                             </button>
-                                            <a class="navbar-brand" href="#">
+                                            <a class="navbar-brand" href="javascript:void(0)">
                                                 ChEA</a>
                                             <a class="nav-item nav-link active dash-nav-item dash-nav-link"
                                                id="nav-chea-bar-tab" data-toggle="tab"
@@ -724,7 +724,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="tab-pane fade" id="nav-chea-table" role="tabpanel"
+                                                <div class="tab-pane fade table-responsive" id="nav-chea-table" role="tabpanel"
                                                      aria-labelledby="nav-chea-table-tab">
                                                     <table class="display table table-striped table-bordered table-sm"
                                                            cellspacing="0" id="chea-table"></table>
@@ -752,7 +752,7 @@
                                                     data-whatever="#network-g2n G2N"><i class="fa fa-expand"
                                                                                         aria-hidden="true"></i>
                                             </button>
-                                            <a class="navbar-brand" href="#">G2N</a>
+                                            <a class="navbar-brand" href="javascript:void(0)">G2N</a>
                                         </nav>
                                         <div id="network-g2n" class="card-body">
                                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg"
@@ -782,7 +782,7 @@
                                                     data-whatever="#kea-results KEA">
                                                 <i class="fa fa-expand" aria-hidden="true"></i>
                                             </button>
-                                            <a class="navbar-brand" href="#">
+                                            <a class="navbar-brand" href="javascript:void(0)">
                                                 KEA</a>
                                             <a class="nav-item nav-link active dash-nav-item dash-nav-link"
                                                id="nav-kea-bar-tab" data-toggle="tab"
@@ -813,9 +813,8 @@
                                                              class="kea-chart"
                                                              width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
                                                     </div>
-
                                                 </div>
-                                                <div class="tab-pane fade" id="nav-kea-table" role="tabpanel"
+                                                <div class="tab-pane fade table-responsive" id="nav-kea-table" role="tabpanel"
                                                      aria-labelledby="nav-kea-table-tab">
                                                     <table class="display table table-striped table-bordered table-sm"
                                                            cellspacing="0" id="kea-table"></table>
@@ -891,10 +890,10 @@
             <!--</div>-->
             <div id="api" class="my-5">
                 <h4>API</h4>
-                <div class="row justify-content-center">
-                    <div class="col-sm-7 text-left my-3">
+                <div class="row">
+                    <div class="col-sm-12 text-left my-3 table-responsive">
 
-                        <table class="table table-responsive table-sm">
+                        <table class="table table-sm">
                             <thead>
                             <tr>
                                 <th>Form field</th>
@@ -1418,7 +1417,7 @@
 
                         <div id="api-example" class="">
                             <div class="row">
-                                <div class="card col-sm-8 my-1">
+                                <div class="card col-sm-6 my-1">
                                     <div class="panel-group" id="accordion-api" role="tablist"
                                          aria-multiselectable="true">
                                         <div class="panel panel-default">
@@ -1478,7 +1477,7 @@ $.ajax(settings).done(function (response) {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="card col-sm-8 my-1">
+                                <div class="card col-sm-6 my-1">
                                     <div class="panel panel-default">
                                         <div class="panel-heading" role="tab" id="heading2">
                                             <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
@@ -1513,7 +1512,7 @@ print(data.decode("utf-8"))</code></pre>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="card col-sm-8 my-1">
+                                <div class="card col-sm-6 my-1">
                                     <div class="panel panel-default">
                                         <div class="panel-heading" role="tab" id="heading3">
                                             <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
@@ -1961,9 +1960,9 @@ C1d' \
                     </div>
                 </div>
                 <div class="row">
-                    <div id="ljp" class="col-sm-12 my-3">
+                    <div id="ljp" class="col-sm-12 my-3 table-responsive">
                         <table id="ljp-table"
-                               class="display table table-striped table-bordered table-sm table-responsive"
+                               class="display table table-striped table-bordered table-sm"
                                cellspacing="0">
                             <thead>
                             <tr>
@@ -1973,7 +1972,7 @@ C1d' \
                                 <th>Dose, μM</th>
                                 <th>Time, hours</th>
                                 <th>Celline</th>
-                                <th>Analysis</th>
+                                <th>Insert genelist</th>
                             </tr>
                             </thead>
                             <tfoot>
@@ -2029,34 +2028,118 @@ C1d' \
                 </p>
             </div>
             <div id="datasets" class="my-5">
-                <h4>Datasets</h4>
+                <h4>Download datasets</h4>
                 <div class="row">
                     <div class="col-sm-4">
-                        <h5>Protein-Protein Interaction</h5>
-                        <p><a href="datasets/Biocarta.sig"> Biocarta </a></p>
-                        <p><a href="datasets/BioGrid.sig"> BioGrid </a></p>
-                        <p><a href="datasets/BioPlex.sig"> BioPlex </a></p>
-                        <p><a href="datasets/DIP.sig"> DIP </a></p>
-                        <p><a href="datasets/huMAP.sig"> huMAP </a></p>
-                        <p><a href="datasets/innateDB.sig"> innateDB </a></p>
-                        <p><a href="datasets/IntAct.sig"> IntAct </a></p>
-                        <p><a href="datasets/KEGG.sig"> KEGG </a></p>
-                        <p><a href="datasets/MINT.sig"> MINT </a></p>
-                        <p><a href="datasets/ppid.sig"> ppid </a>
-                        <p><a href="datasets/SNAVI.sig"> SNAVI </a></p>
+                        <h6>Protein-Protein Interaction</h6>
+                        <div class="table-responsive">
+	                        <table class="table table-sm">
+	                            <thead>
+	                            <tr>
+	                                <th>Link</th>
+	                                <th>PPIs</th>
+	                            </tr>
+	                            </thead>
+	                            <tbody>
+	                            <tr>
+	                                <td><a href="datasets/Biocarta.sig">Biocarta</a></td>
+	                                <td>756</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/BioGrid.sig">BioGrid</a></td>
+	                                <td>111,718</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/BioPlex.sig">BioPlex</a></td>
+	                                <td>56,553</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/DIP.sig">DIP</a></td>
+	                                <td>14,635</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/huMAP.sig">huMAP</a></td>
+	                                <td>62,214</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/innateDB.sig">innateDB</a></td>
+	                                <td>20,388</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/IntAct.sig">IntAct</a></td>
+	                                <td>8,146</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/KEGG.sig">KEGG</a></td>
+	                                <td>13,993</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/MINT.sig">MINT</a></td>
+	                                <td>32,629</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/ppid.sig">ppid</a></td>
+	                                <td>6,998</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/SNAVI.sig">SNAVI</a></td>
+	                                <td>2,007</td>
+	                            </tr>
+	                            </tbody>
+	                        </table>
+                        </div>
                     </div>
 
                     <div class="col-sm-4">
-                        <h5>Transcriptional Regulation</h5>
-                        <p><a href="datasets/ChEA2015.zip"> ChEA 2015 </a></p>
-                        <p><a href="datasets/ENCODE2015.zip"> ENCODE 2015 </a></p>
-                        <p><a href="datasets/Consensus.zip"> ChEA & ENCODE Consensus </a></p>
-                        <p><a href="datasets/TransfacAndJaspar.zip"> TRANSFAC & JASPAR </a></p>
+                        <h6>Transcriptional Regulation</h6>
+                        <div class="table-responsive">
+	                        <table class="table table-sm">
+	                            <thead>
+	                            <tr>
+	                                <th>Link</th>
+	                                <th>TFs</th>
+	                            </tr>
+	                            </thead>
+	                            <tbody>
+	                            <tr>
+	                                <td><a href="datasets/ChEA2015.zip">ChEA 2015</a></td>
+	                                <td>395</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/ENCODE2015.zip">ENCODE 2015</a></td>
+	                                <td>816</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/Consensus.zip">ChEA & ENCODE Consensus</a></td>
+	                                <td>105</td>
+	                            </tr>
+	                            <tr>
+	                                <td><a href="datasets/TransfacAndJaspar.zip">TRANSFAC & JASPAR</a></td>
+	                                <td>326</td>
+	                            </tr>
+	                            </tbody>
+	                        </table>
+                        </div>
                     </div>
 
                     <div class="col-sm-4">
-                        <h5>Kinome Regulation</h5>
-                        <p><a href="datasets/KEA.zip"> KEA 2015 </a></p>
+                        <h6>Kinome Regulation</h6>
+                        <div class="table-responsive">
+	                        <table class="table table-sm">
+	                            <thead>
+	                            <tr>
+	                                <th>Link</th>
+	                                <th>Kinase-substrate pairs</th>
+	                            </tr>
+	                            </thead>
+	                            <tbody>
+	                            <tr>
+	                                <td><a href="datasets/KEA.zip">KEA 2015</a></td>
+	                                <td>11,420</td>
+	                            </tr>
+	                            </tbody>
+	                        </table>
+                        </div>
                     </div>
                 </div>
             </div>
