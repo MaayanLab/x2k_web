@@ -71,59 +71,45 @@
         ga('create', 'UA-6277639-28', 'auto');
         ga('send', 'pageview');
     </script>
-
-    <style>
-        body {
-            position: relative;
-        }
-
-        div.col-8 div {
-            height: 500px;
-        }
-    </style>
-
 </head>
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
-<nav class="navbar navbar-light bg-light">
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" id="x2k_title" href="/X2K">
-            <img src="static/logo.png" width="250" class="d-inline-block align-bottom" alt="">
-            A web interface for the Expression to Kinases application
-        </a>
-    </nav>
+
+<body data-spy="scroll" data-target="#indexScrollspy" data-offset="0">
+<nav class="navbar navbar-light sticky-top bg-light justify-content-center" id="indexScrollspy">
+    <a class="navbar-brand" href="/X2K">
+        <img id="logo" src="static/logo.png" width="250" class="d-inline-block full-logo">
+        A web interface for the Expression to Kinases application
+    </a>
+
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" href="#x2k">X2K Web</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#example">Example</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#api">API</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#case-studies">Case study</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#command-line">Command line versions</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#datasets">Download datasets</a>
+        </li>
+        <li>
+            <a class="nav-link" href="#affiliations">Affiliations</a>
+        </li>
+    </ul>
 </nav>
 
-<!--Navbar-->
 <div class="container-fluid">
-    <div class="row">
-        <nav class="col-sm-2 bg-light" id="myScrollspy">
-            <ul class="nav nav-pills flex-column sticky-top">
-                <li id="logo-scroll" class="nav-item">
-                    <a class="nav-link active" href="#x2k"><img src="static/logo.png" width="100" class="d-inline-block align-bottom" alt=""></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#example">Example</a>
-                </li>
-                <!--<li class="nav-item">-->
-                <!--<a class="nav-link" href="#about">About</a>-->
-                <!--</li>-->
-                <li class="nav-item">
-                    <a class="nav-link" href="#api">API</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#case-studies">Case study</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#command-line">Command line versions</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#datasets">Download datasets</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="col-sm-8">
+    <div class="row justify-content-center bg-light">
+        <div class="col-sm-9 bg-white">
             <div id="x2k">
-                <div id="about" class="my-3 mx-2">
+                <div class="my-3 mx-2">
                     <p>
                         X2K Web is an online tool used to infer upstream regulatory
                         networks from differentially expressed genes. Combining the <a
@@ -137,16 +123,6 @@
                         can read more about X2K concept on the <a href="http://www.maayanlab.net/X2K/">X2K standalone
                         version website</a>.
                     </p>
-                </div>
-                <!-- Loader -->
-                <div class="row justify-content-center">
-                    <div class="col-sm-6 ">
-                        <div id="loader" class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                 aria-valuenow="100" aria-valuemin="0"
-                                 aria-valuemax="100" style="width:100%"></div>
-                        </div>
-                    </div>
                 </div>
                 <form id="x2k-form" enctype="multipart/form-data" method="POST">
                     <div class="form-group">
@@ -724,7 +700,8 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="tab-pane fade table-responsive" id="nav-chea-table" role="tabpanel"
+                                                <div class="tab-pane fade table-responsive" id="nav-chea-table"
+                                                     role="tabpanel"
                                                      aria-labelledby="nav-chea-table-tab">
                                                     <table class="display table table-striped table-bordered table-sm"
                                                            cellspacing="0" id="chea-table"></table>
@@ -814,7 +791,8 @@
                                                              width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade table-responsive" id="nav-kea-table" role="tabpanel"
+                                                <div class="tab-pane fade table-responsive" id="nav-kea-table"
+                                                     role="tabpanel"
                                                      aria-labelledby="nav-kea-table-tab">
                                                     <table class="display table table-striped table-bordered table-sm"
                                                            cellspacing="0" id="kea-table"></table>
@@ -2033,121 +2011,148 @@ C1d' \
                     <div class="col-sm-4">
                         <h6>Protein-Protein Interaction</h6>
                         <div class="table-responsive">
-	                        <table class="table table-sm">
-	                            <thead>
-	                            <tr>
-	                                <th>Link</th>
-	                                <th>PPIs</th>
-	                            </tr>
-	                            </thead>
-	                            <tbody>
-	                            <tr>
-	                                <td><a href="datasets/Biocarta.sig">Biocarta</a></td>
-	                                <td>756</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/BioGrid.sig">BioGrid</a></td>
-	                                <td>111,718</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/BioPlex.sig">BioPlex</a></td>
-	                                <td>56,553</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/DIP.sig">DIP</a></td>
-	                                <td>14,635</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/huMAP.sig">huMAP</a></td>
-	                                <td>62,214</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/innateDB.sig">innateDB</a></td>
-	                                <td>20,388</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/IntAct.sig">IntAct</a></td>
-	                                <td>8,146</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/KEGG.sig">KEGG</a></td>
-	                                <td>13,993</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/MINT.sig">MINT</a></td>
-	                                <td>32,629</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/ppid.sig">ppid</a></td>
-	                                <td>6,998</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/SNAVI.sig">SNAVI</a></td>
-	                                <td>2,007</td>
-	                            </tr>
-	                            </tbody>
-	                        </table>
+                            <table class="table table-sm">
+                                <thead>
+                                <tr>
+                                    <th>Link</th>
+                                    <th>PPIs</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><a href="datasets/Biocarta.sig">Biocarta</a></td>
+                                    <td>756</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/BioGrid.sig">BioGrid</a></td>
+                                    <td>111,718</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/BioPlex.sig">BioPlex</a></td>
+                                    <td>56,553</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/DIP.sig">DIP</a></td>
+                                    <td>14,635</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/huMAP.sig">huMAP</a></td>
+                                    <td>62,214</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/innateDB.sig">innateDB</a></td>
+                                    <td>20,388</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/IntAct.sig">IntAct</a></td>
+                                    <td>8,146</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/KEGG.sig">KEGG</a></td>
+                                    <td>13,993</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/MINT.sig">MINT</a></td>
+                                    <td>32,629</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/ppid.sig">ppid</a></td>
+                                    <td>6,998</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/SNAVI.sig">SNAVI</a></td>
+                                    <td>2,007</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <h6>Transcriptional Regulation</h6>
                         <div class="table-responsive">
-	                        <table class="table table-sm">
-	                            <thead>
-	                            <tr>
-	                                <th>Link</th>
-	                                <th>TFs</th>
-	                            </tr>
-	                            </thead>
-	                            <tbody>
-	                            <tr>
-	                                <td><a href="datasets/ChEA2015.zip">ChEA 2015</a></td>
-	                                <td>395</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/ENCODE2015.zip">ENCODE 2015</a></td>
-	                                <td>816</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/Consensus.zip">ChEA & ENCODE Consensus</a></td>
-	                                <td>105</td>
-	                            </tr>
-	                            <tr>
-	                                <td><a href="datasets/TransfacAndJaspar.zip">TRANSFAC & JASPAR</a></td>
-	                                <td>326</td>
-	                            </tr>
-	                            </tbody>
-	                        </table>
+                            <table class="table table-sm">
+                                <thead>
+                                <tr>
+                                    <th>Link</th>
+                                    <th>TFs</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><a href="datasets/ChEA2015.zip">ChEA 2015</a></td>
+                                    <td>395</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/ENCODE2015.zip">ENCODE 2015</a></td>
+                                    <td>816</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/Consensus.zip">ChEA & ENCODE Consensus</a></td>
+                                    <td>105</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="datasets/TransfacAndJaspar.zip">TRANSFAC & JASPAR</a></td>
+                                    <td>326</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <h6>Kinome Regulation</h6>
                         <div class="table-responsive">
-	                        <table class="table table-sm">
-	                            <thead>
-	                            <tr>
-	                                <th>Link</th>
-	                                <th>Kinase-substrate pairs</th>
-	                            </tr>
-	                            </thead>
-	                            <tbody>
-	                            <tr>
-	                                <td><a href="datasets/KEA.zip">KEA 2015</a></td>
-	                                <td>11,420</td>
-	                            </tr>
-	                            </tbody>
-	                        </table>
+                            <table class="table table-sm">
+                                <thead>
+                                <tr>
+                                    <th>Link</th>
+                                    <th>Kinase-substrate pairs</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><a href="datasets/KEA.zip">KEA 2015</a></td>
+                                    <td>11,420</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
+           	<div id="affiliations" class="my-5">
+				<h4>Affiliations</h4>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="http://lincs-dcic.org/#/" target="_blank">BD2K-LINCS DCIC</a>
+                    </li>
+                    <li>
+                        <a href="http://www.lincsproject.org/" target="_blank">NIH LINCS Program</a>
+                    </li>
+                    <li>
+                        <a href="https://commonfund.nih.gov/idg/overview" target="_blank">NIH IDG program</a>
+                    </li>
+                    <li>
+                        <a href="http://commonfund.nih.gov/lincs/" target="_blank">NIH Common Fund</a>
+                    </li>
+                    <li>
+                        <a href="http://icahn.mssm.edu/research/bioinformatics" target="_blank">Mount Sinai Center
+                            for Bioinformatics</a>
+                    </li>
+                </ul>
+				<h5>Contact</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="mailto:avi.maayan@mssm.edu">Avi Ma'ayan</a>
+                    </li>
+                </ul>
+			</div>
         </div>
-        <div class="col-sm-2 bg-light"></div>
     </div>
 </div>
-
+<!-- Loader -->
+<div id="loader"></div>
 <div id="blocker"></div>
 
 </body>

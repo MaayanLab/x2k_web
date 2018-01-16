@@ -8,7 +8,7 @@ function insertExample() {
 function submitButtonListener(button, endpoint, settings_form) {
     $('#' + button).click(function (evt) {
     	$("#blocker").show();
-    	$("#loader").show();
+    	$("#loader").show().css({position: 'absolute', top: $(window).scrollTop() + $(window).height() / 2});;
     	
         // evt.preventDefault();
         var $form = $(settings_form),
