@@ -1,14 +1,23 @@
+body {
+    position: relative;
+}
+
 /* X2K header and logo */
 #logo {
     margin: 10px;
     padding: 0;
     text-align: center;
+	-webkit-transition: width 0.05s;
+    transition: width 0.05s;
+}
+ 
+.shrink {
+	width: 170px;	
 }
 
-#logo-png {
-    width: 250px;
-    height: auto;
-    cursor: pointer;
+.transition {
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
 }
 
 #x2k_title {
@@ -83,9 +92,55 @@ table.dataTable thead .sorting_desc_disabled:after {
   content: "\25BC";
 }
 
+a {
+	outline: none;
+}
+
+
 /* Loader */
 #loader {
 	display: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	margin: -75px 0 0 -75px;
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3498db;
+	width: 5rem;
+	height: 5rem;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+	position: relative;
+	-webkit-animation-name: animatebottom;
+	-webkit-animation-duration: 1s;
+	animation-name: animatebottom;
+	animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+	from { bottom:-100px; opacity:0 } 
+	to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+	from{ bottom:-100px; opacity:0 } 
+	to{ bottom:0; opacity:1 }
 }
 
 #blocker

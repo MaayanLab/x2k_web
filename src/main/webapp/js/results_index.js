@@ -226,11 +226,13 @@ function svgExport(container, filename, outputType) {
 }
 
 $(window).scroll(function() {
-	  if ($(document).scrollTop() > 100) {
-	    $('#logo-scroll').show();
-	  } else {
-	    $('#logo-scroll').hide();
-	  }
+	var scroll = $(window).scrollTop();
+	var logo = $('#logo'); 
+	if (scroll > 100) {
+		logo.addClass('shrink');
+	} else {
+		logo.removeClass('shrink');
+	}
 });
 
 $(function() {

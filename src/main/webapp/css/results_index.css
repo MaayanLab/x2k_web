@@ -74,11 +74,3 @@ thead th {
 .navbar-brand {
 	font-size: 1rem;
 }
-
-#logo-scroll {
-	display: none;
-}
-
-.nav-pills .nav-link.active, .show>.nav-pills .nav-link {
-	background-color: #d0d0dc;
-}
