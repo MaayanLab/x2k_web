@@ -74,3 +74,12 @@ thead th {
 .navbar-brand {
 	font-size: 1rem;
 }
+
+.caption {
+	text-align: center;
+    color: #0c89e2;
+    margin-top: 5px;
+    font-size: 1rem;
+    letter-spacing: -0.2px;
+    font-family: Arial, Helvetica, sans-serif;
+}

@@ -272,7 +272,7 @@
                 </a>
                 <a id="csv-anchor">
                     <button type="button" class="btn btn-outline-primary csv-button">CSV</button>
-                </a>  
+                </a>                
                 <a id="exportData">
                     <button type="button" class="btn btn-outline-primary svg-button">SVG</button>
                 </a>
