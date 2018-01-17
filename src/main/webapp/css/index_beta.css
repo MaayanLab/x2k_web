@@ -1,23 +1,30 @@
+
+/* Scrollspy */
 body {
     position: relative;
 }
 
+/* Scrollspy anchor fix */
+#example,
+#api,
+#case-studies,
+#command-line,
+#datasets,
+#affiliations {
+	margin-top: -70px;
+    padding-top: 90px;
+}
+
+
 /* X2K header and logo */
 #logo {
-    margin: 10px;
-    padding: 0;
     text-align: center;
 	-webkit-transition: width 0.05s;
     transition: width 0.05s;
 }
  
 .shrink {
-	width: 170px;	
-}
-
-.transition {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
+	height: 50px;
 }
 
 #x2k_title {

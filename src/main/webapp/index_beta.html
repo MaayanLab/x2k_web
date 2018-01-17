@@ -73,13 +73,15 @@
     </script>
 </head>
 
-<body data-spy="scroll" data-target="#indexScrollspy" data-offset="0">
-<nav class="navbar navbar-light sticky-top bg-light justify-content-center" id="indexScrollspy">
+<body data-spy="scroll" data-target="#indexScrollspy" data-offset="150">
+<!-- Anchor for scrollspy -->
+<div id="x2k"></div>
+<nav class="navbar navbar-light sticky-top bg-light justify-content-center navbar-expand-sm" id="indexScrollspy">
     <a class="navbar-brand" href="/X2K">
-        <img id="logo" src="static/logo.png" width="250" class="d-inline-block full-logo">
-        A web interface for the Expression to Kinases application
+        <img id="logo" src="static/logo.png" height="70" class="d-inline-block full-logo">
+        <p class="caption">A web interface for the Expression to Kinases application</p>
     </a>
-
+	<div class=" collapse navbar-collapse">
     <ul class="nav nav-pills">
         <li class="nav-item">
             <a class="nav-link active" href="#x2k">X2K Web</a>
@@ -94,7 +96,7 @@
             <a class="nav-link" href="#case-studies">Case study</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#command-line">Command line versions</a>
+            <a class="nav-link" href="#command-line">Command line tools</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#datasets">Download datasets</a>
@@ -103,12 +105,13 @@
             <a class="nav-link" href="#affiliations">Affiliations</a>
         </li>
     </ul>
+    </div>
 </nav>
 
 <div class="container-fluid">
     <div class="row justify-content-center bg-light">
         <div class="col-sm-9 bg-white">
-            <div id="x2k">
+            <div >
                 <div class="my-3 mx-2">
                     <p>
                         X2K Web is an online tool used to infer upstream regulatory
@@ -620,7 +623,7 @@
                     </div>
                 </form>
             </div>
-            <div id="example" class="my-5">
+            <div id="example">
                 <h4>Example</h4>
 
                 <div class="container-fluid" id="results-dashboard">
@@ -866,7 +869,7 @@
             <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/ipchvqQhdpc" frameborder="0"-->
             <!--allowfullscreen></iframe>-->
             <!--</div>-->
-            <div id="api" class="my-5">
+            <div id="api">
                 <h4>API</h4>
                 <div class="row">
                     <div class="col-sm-12 text-left my-3 table-responsive">
@@ -1911,7 +1914,7 @@ C1d' \
 
             </div>
 
-            <div id="case-studies" class="my-5">
+            <div id="case-studies">
                 <h4><a href="http://www.lincsproject.org/LINCS/ljp">The LINCS Joint Project
                     Case Study</a>
                 </h4>
@@ -1969,7 +1972,7 @@ C1d' \
                 </div>
             </div>
 
-            <div id="command-line" class="my-5">
+            <div id="command-line">
                 <h4>Command line tools</h4>
                 <p>You can download command line standalone versions of the X2K tools in JAR format.
                     <br/>Command near each download link suggests usage:</p>
@@ -2005,7 +2008,7 @@ C1d' \
                     <code>java -jar L2N.jar gene_list [background_file...] output.xml</code>
                 </p>
             </div>
-            <div id="datasets" class="my-5">
+            <div id="datasets">
                 <h4>Download datasets</h4>
                 <div class="row">
                     <div class="col-sm-4">
@@ -2121,7 +2124,7 @@ C1d' \
                     </div>
                 </div>
             </div>
-           	<div id="affiliations" class="my-5">
+           	<div id="affiliations">
 				<h4>Affiliations</h4>
                 <ul class="list-unstyled">
                     <li>
