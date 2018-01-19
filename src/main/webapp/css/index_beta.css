@@ -2,6 +2,7 @@
 /* Scrollspy */
 body {
     position: relative;
+    background: #f8f9fa;
 }
 
 /* Scrollspy anchor fix */
@@ -9,10 +10,17 @@ body {
 #api,
 #case-studies,
 #command-line,
-#datasets,
-#affiliations {
+#datasets {
 	margin-top: -70px;
     padding-top: 90px;
+}
+
+#about {
+	margin-top: -70px;
+    padding-top: 90px;
+	margin-bottom: -70px;
+    padding-bottom: 70px;
+    
 }
 
 
