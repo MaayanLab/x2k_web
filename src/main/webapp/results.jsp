@@ -135,15 +135,15 @@
                                 <div class="tab-pane fade show active" id="nav-chea-bar" role="tabpanel"
                                      aria-labelledby="nav-chea-bar-tab">
                                     <div id="bargraph-chea" class="bargraph">
-                                        <!--                                 <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
-                                                                            Classes like 'chea-chart-zscore' define sorting type in bargraph.js
+                                                                         <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
+                                                                            <!-- Classes like 'chea-chart-zscore' define sorting type in bargraph.js -->
                                                                             <input type="button" class="selected btn btn-outline-secondary btn-sm chea-chart-pvalue"
                                                                                    value="P-value">
                                                                             <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-zscore" value="Z-score">
                                                                             <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-combinedScore"
                                                                                    value="Combined score">
                                                                         </div>
-                                         -->
+                                         
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="chea-chart"
                                              width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
                                     </div>
@@ -220,15 +220,15 @@
                                 <div class="tab-pane fade show active" id="nav-kea-bar" role="tabpanel"
                                      aria-labelledby="nav-kea-bar-tab">
                                     <div id="bargraph-kea" class="bargraph">
-                                        <!--                                 <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
-                                                                            Classes like 'kea-chart-zscore' define sorting type in bargraph.js
+                                                                         <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
+                                                                            <!-- Classes like 'kea-chart-zscore' define sorting type in bargraph.js -->
                                                                             <input type="button" class="selected btn btn-outline-secondary btn-sm kea-chart-pvalue"
                                                                                    value="P-value">
                                                                             <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-zscore" value="Z-score">
                                                                             <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-combinedScore"
                                                                                    value="Combined score">
                                                                         </div>
-                                         -->
+                                         
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="kea-chart"
                                              width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
                                     </div>

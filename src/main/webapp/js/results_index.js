@@ -224,19 +224,19 @@ function svgExport(container, filename, outputType) {
     });
 
 }
-
-$(window).scroll(function() {
-	var scroll = $(window).scrollTop();
-	var logo = $('#logo');
-	var caption = $('.caption');
-	if (scroll > 100) {
-		logo.addClass('shrink');
-		caption.hide();
-	} else {
-		logo.removeClass('shrink');
-		caption.show();
-	}
-});
+//
+//$(window).scroll(function() {
+//	var scroll = $(window).scrollTop();
+//	var logo = $('#logo');
+//	var caption = $('.caption');
+//	if (scroll > 100) {
+//		logo.addClass('shrink');
+//		caption.hide();
+//	} else {
+//		logo.removeClass('shrink');
+//		caption.show();
+//	}
+//});
 
 $(function() {
     $.getJSON("static/results.json", function(json_file) {

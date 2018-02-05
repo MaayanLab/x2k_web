@@ -73,15 +73,15 @@
     </script>
 </head>
 
-<body data-spy="scroll" data-target="#indexScrollspy" data-offset="150">
+<body data-spy="scroll" data-target="#x2k-navbar" data-offset="150">
 <!-- Anchor for scrollspy -->
 <div id="x2k"></div>
-<nav class="navbar navbar-light sticky-top bg-light justify-content-center navbar-expand-sm" id="indexScrollspy">
+<nav class="navbar navbar-light sticky-top bg-light justify-content-center navbar-expand-sm" id="x2k-navbar">
     <a class="navbar-brand" href="/X2K">
-        <img id="logo" src="static/logo.png" height="70px" class="d-inline-block full-logo">
-        <p class="caption">A web interface for the Expression to Kinases application</p>
+        <img id="logo" src="static/logo.png" height="50px" class="d-inline-block full-logo">
+        <!-- <p class="caption">A web interface for the Expression to Kinases application</p> -->
     </a>
-    <div class=" collapse navbar-collapse">
+    <div id="scrollspy-nav" class="collapse navbar-collapse">
         <ul class="nav nav-pills">
             <li class="nav-item">
                 <a class="nav-link active" href="#x2k">Submit</a>
@@ -151,7 +151,7 @@
                                         <div class="card-header py-1 border-0  bg-white" role="tab" id="settings-acc">
                                             <a data-toggle="collapse" href="#settings" aria-expanded="true"
                                                aria-controls="settings">
-                                                Settings
+                                                Advanced Settings
                                             </a>
                                         </div>
 
@@ -178,7 +178,7 @@
                                                                         number of proteins in subnetwork</label>
                                                                     <div class="col-sm-3">
                                                                         <input class="form-control form-control-sm"
-                                                                               type="text" value="50"
+                                                                               type="text" value="30"
                                                                                id="min_network_size"
                                                                                name="min_network_size">
                                                                     </div>
@@ -2076,18 +2076,28 @@ C1d' \
             </div>
             <div id="about">
                 <h4>About</h4>
-                <p>Expression2Kinases (X2K) is actively developed by the <a href="http://icahn.mssm.edu/research/labs/maayan-laboratory">Ma’ayan Laboratory</a> and the <a href="http://icahn.mssm.edu/research/bioinformatics">Mount Sinai Center
-                    for Bioinformatics</a> for <a href="http://lincs-dcic.org/">BD2K-LINCS Data Coordination and Integration Center</a> and <a href="https://commonfund.nih.gov/idg/overview">Illuminating the
-                    Druggable Genome</a> Common Fund Programs at the <a href="http://icahn.mssm.edu/">Icahn School of Medicine at Mount Sinai</a>, New York, NY
+                <h5>Reference</h5>
+                <p>X2Kweb is an updated version of the original Expression2Kinases (X2K) publication:
+                    <br/><a href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">Chen EY, Xu H, Gordonov S, Lim MP, Perkins MH, Ma'ayan A. Expression2Kinases: mRNA profiling linked
+                    to multiple upstream regulatory layers. Bioinformatics. 28:105 (2012)</a>
+                </p>
+                <h5>Affiliations</h5>
+                <p>Expression2Kinases (X2K) is actively developed by the <a
+                        href="http://icahn.mssm.edu/research/labs/maayan-laboratory">Ma’ayan Laboratory</a> and the <a
+                        href="http://icahn.mssm.edu/research/bioinformatics">Mount Sinai Center
+                    for Bioinformatics</a> for <a href="http://lincs-dcic.org/">BD2K-LINCS Data Coordination and
+                    Integration Center</a> and <a href="https://commonfund.nih.gov/idg/overview">Illuminating the
+                    Druggable Genome</a> Common Fund Programs at the <a href="http://icahn.mssm.edu/">Icahn School of
+                    Medicine at Mount Sinai</a>, New York, NY
                     10029 USA</p>
                 <h5>Contact</h5>
                 <ul class="list-unstyled">
                     <li>
                         <p><a href="mailto:avi.maayan@mssm.edu">Avi Ma'ayan, PhD</a>
-						<br/>Professor, Department of Pharmacological Sciences
-						<br/>Director, Mount Sinai Center for Bioinformatics
-						<br/>Icahn School of Medicine at Mount Sinai
-						<br/>New York, NY 10029</p>
+                            <br/>Professor, Department of Pharmacological Sciences
+                            <br/>Director, Mount Sinai Center for Bioinformatics
+                            <br/>Icahn School of Medicine at Mount Sinai
+                            <br/>New York, NY 10029</p>
                     </li>
                 </ul>
             </div>
