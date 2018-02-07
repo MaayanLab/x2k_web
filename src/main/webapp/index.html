@@ -133,11 +133,12 @@
                         <div class="row">
                             <div class="col-sm-6 my-2">
                                 <label for="genelist">Gene list (<a href="javascript:void(0)"
-                                                                    onclick="return insertExample();"
+                                                                    onclick="insertExample(); geneCount();"
                                                                     id="example-link">insert
                                     an example</a>)</label>
                                 <textarea class="form-control form-control-sm" id="genelist" rows="12"
-                                          name="text-genes"></textarea>
+                                          name="text-genes" onkeyup="geneCount();" onchange="geneCount();" onfocus="geneCount();"></textarea>
+                                          <span id="gene-count"></span>
                                 <!--Buttons-->
                                 <div class="my-3">
                                     <button type="submit" class="btn btn-outline-primary btn-sm" id="results_submit">
