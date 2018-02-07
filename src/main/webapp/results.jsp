@@ -71,10 +71,11 @@
 </head>
 <body>
 <!--Header-->
-<div id="logo">
-    <a href="/X2K"><img id="logo-png" class="img-fluid mx-auto" src="resources/logo.png"></a>
-    <p id="x2k_title">A web interface for the Expression2Kinases algorithm</p>
-</div>
+<nav class="navbar navbar-light sticky-top bg-light justify-content-center navbar-expand-sm" id="x2k-navbar">
+    <a class="navbar-brand" href="/X2K">
+        <img id="logo" src="static/logo.png" height="50px" class="d-inline-block full-logo">
+    </a>
+</nav>
 
 <!--Body-->
 <div class="container-fluid" id="results-dashboard">
@@ -94,6 +95,14 @@
                                 X2K</a>
                         </nav>
                         <div id="x2k-network" class="card-body">
+                             <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
+                                <button class="selected btn btn-outline-secondary btn-sm">
+                                Transcription factor
+                                </button>
+                                <input type="button" class="btn btn-outline-secondary btn-sm" value="Intermediate protein">
+                                <input type="button" class="btn btn-outline-secondary btn-sm"
+                                       value="Kinase">
+                            </div>                        
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg" width="100%"
                                  height="100%" viewBox="-20 0 1020 600"></svg>
                         </div>

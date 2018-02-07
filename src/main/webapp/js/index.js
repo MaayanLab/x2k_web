@@ -47,6 +47,32 @@ function showHelpDesc(page) {
     });
 }
 
+function geneCount(){
+	if ($('#genelist').val()){
+		var len_num = $('#genelist').val().trim().split(/\r?\n/g).length.toString();
+		var len = len_num.toString();
+		var last_chr = len[len.length-1];
+		var warning = "";
+		if (len_num < 100){
+			//	TODO 
+			warning = "Number of genes is lower than recommended.\nIf a gene list is shorter than 100 genes result can be ...";
+		}
+		else if(len_num > 500){
+			//	TODO
+			warning = "Number of genes is higher than recommended.\nIf a gene list is longer than 500 genes result can be ...";
+		}
+		
+		var genes = " genes";
+		if(last_chr==="1"){
+			genes = " gene";
+		}
+		
+		$('#gene-count').text(len_num + genes);
+	}
+	
+}
+
+
 $(function () {
     submitButtonListener("results_submit", "/X2K/results", "#x2k-form");
     submitButtonListener("results_submit_ljp", "/X2K/results", "#x2k-form");
@@ -54,7 +80,7 @@ $(function () {
     submitButtonListener("chea_submit", "/X2K/ChEA", "#chea-form");
     submitButtonListener("kea_submit", "/X2K/KEA", "#kea-form");
     submitButtonListener("g2n_submit", "/X2K/G2N", "#g2n-form");
-
+    
 
 //    showToolDesc("x2k");
 //    showToolDesc("chea");
