@@ -27,6 +27,23 @@
     font-size: 0.7rem;
 }
 
+#genelist-container {
+	margin-top: 0.1rem;
+}
+
+#genelist-header {
+	padding: 0.34rem .5rem;
+}
+
+#genelist {
+	white-space: pre;
+	width: 100%;
+	border: #ddd;
+	color: #495057;
+	font-size: .75rem;
+	height: 50vh;
+}
+
 #x2k,
 #chea,
 #g2n,
@@ -35,6 +52,11 @@
 	padding-bottom: 0.1rem;
 	padding-right: 0.1rem;
     padding-left: 0.1rem;
+}
+
+.legend-button {
+	border: none;
+	opacity: 1!important;
 }
 
 .navbar-brand {

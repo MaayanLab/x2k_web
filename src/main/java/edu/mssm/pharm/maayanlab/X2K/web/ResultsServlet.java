@@ -103,6 +103,7 @@ public class ResultsServlet extends HttpServlet {
         json.add("G2N", g2n);
         json.add("KEA", kEA);
         json.add("X2K", x2k);
+        json.add("input", textGenes);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         req.setAttribute("json", json);

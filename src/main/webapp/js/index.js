@@ -2,14 +2,17 @@ function insertExample() {
     $.get('static/example_list.txt', function (data) {
         $('textarea#genelist').val(data);
     });
+    $('#gene-count').text("375 genes");
+    $('#results_submit').prop("disabled", false);
     return false;
 }
 
 function submitButtonListener(button, endpoint, settings_form) {
     $('#' + button).click(function (evt) {
-    	$("#blocker").show();
-    	$("#loader").show().css({position: 'absolute', top: $(window).scrollTop() + $(window).height() / 2});;
-    	
+        $("#blocker").show();
+        $("#loader").show().css({position: 'absolute', top: $(window).scrollTop() + $(window).height() / 2});
+        ;
+
         // evt.preventDefault();
         var $form = $(settings_form),
             text_input = $("#genelist").val();
@@ -40,38 +43,22 @@ function showHelpDesc(page) {
     $("#nav-" + page + "-tab").on("click", function () {
         $(".desc").hide();
         $("#analysis-row").hide();
-        
+
         if (page === "datasets") {
-        	
+
         }
     });
 }
 
-function geneCount(){
-	if ($('#genelist').val()){
-		var len_num = $('#genelist').val().trim().split(/\r?\n/g).length.toString();
-		var len = len_num.toString();
-		var last_chr = len[len.length-1];
-		var warning = "";
-		if (len_num < 100){
-			//	TODO 
-			warning = "Number of genes is lower than recommended.\nIf a gene list is shorter than 100 genes result can be ...";
-		}
-		else if(len_num > 500){
-			//	TODO
-			warning = "Number of genes is higher than recommended.\nIf a gene list is longer than 500 genes result can be ...";
-		}
-		
-		var genes = " genes";
-		if(last_chr==="1"){
-			genes = " gene";
-		}
-		
-		$('#gene-count').text(len_num + genes);
+function cleanArray(actual) {
+	  var newArray = new Array();
+	  for (var i = 0; i < actual.length; i++) {
+	    if (actual[i]) {
+	      newArray.push(actual[i]);
+	    }
+	  }
+	  return newArray;
 	}
-	
-}
-
 
 $(function () {
     submitButtonListener("results_submit", "/X2K/results", "#x2k-form");
@@ -80,7 +67,37 @@ $(function () {
     submitButtonListener("chea_submit", "/X2K/ChEA", "#chea-form");
     submitButtonListener("kea_submit", "/X2K/KEA", "#kea-form");
     submitButtonListener("g2n_submit", "/X2K/G2N", "#g2n-form");
-    
+
+
+    // text area listener
+    $("#genelist").on("change keyup paste", function () {
+        var len = cleanArray($('#genelist').val().trim().split('\n')).length;
+        
+        if (len === 0) {
+        	$('#warning').text('');
+        	$('#gene-count').text('');
+        	$('#results_submit').prop("disabled", true); 
+        } 
+        else if (len > 0) {
+        	$('#results_submit').prop("disabled", false);
+	        if (len < 20) {
+	            $('#warning').text('Warning! Inputting gene lists containing less than 20 genes may produce inaccurate results.');
+	        }
+	        else if (len > 3000) {
+	            $('#warning').text('Warning! Inputting gene lists containing more than 3000 genes may produce inaccurate results.');
+	        }
+	        else {
+	        	$('#warning').text('');
+	        }
+	
+	        var genes = " genes";
+	        if (len.toString()[len.toString().length - 1] === "1") {
+	            genes = " gene";
+	        }
+	        
+	        $('#gene-count').text(len + genes);
+        }
+    });
 
 //    showToolDesc("x2k");
 //    showToolDesc("chea");
