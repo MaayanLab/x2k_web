@@ -226,54 +226,9 @@ function svgExport(container, filename, outputType) {
 }
 
 $(function() {
-	// Modals
-	$("#dashboardFullModal").on("show.bs.modal", function (event) {
-		var button = $(event.relatedTarget), // Button that triggered the modal
-			recipient = button.data('whatever'), // Extract info from data-* attributes
-			modal = $(this),
-			name = recipient.split(" ")[1],
-			div_name = recipient.split(" ")[0];
-		
-		modal.find(".modal-title").text(name);
-		var content = $(div_name).clone().appendTo(modal.find(".modal-body"));
-		})
 	
-	$(".json-button").on("click", function(){
-			var modal = $("#dashboardFullModal"),
-				name = modal.find(".modal-title").text();
-			exportJson(name, json_file[name]);
-		});		
-	
-	$(".csv-button").on("click", function(){
-		var modal = $("#dashboardFullModal"),
-			name = modal.find(".modal-title").text();
-		exportCsv(name, json_file[name]);
-	});
-	
-	$(".svg-button").on("click", function(){
-		var modal = $("#dashboardFullModal"),
-			name = modal.find(".modal-title").text();
-		if (name === 'X2K'){
-			svgExport('#'+name.toLowerCase()+'-network', name+'_network', 'svg');
-		}
-		else if (name === 'G2N'){
-			svgExport('#network-'+name.toLowerCase(), name+'_network', 'svg');
-		}
-		else{
-			svgExport('.'+name.toLowerCase() + '-chart', name+'_bargraph', 'svg');			
-		}
-		
-	});		
-	
-	
-	$("#dashboardFullModal").on("hide.bs.modal", function (event) {
-		var button = $(event.relatedTarget),
-		recipient = button.data("whatever"),
-		modal = $(this);
-		
-		modal.find(".modal-body").empty();
-		})
-	var tr;
+	var input_list = json_file['input'].join('\n');
+	$('#genelist').text(input_list);
 	
 	// Draw ChEA table
 	var chea = $.parseJSON(json_file['ChEA'])["tfs"];
@@ -368,6 +323,8 @@ $(function() {
     	x2k_d3_array["links"].push(clean_interactions[i]);
     }
     
+    var x2k_d3_array_clean = x2k_d3_array;
+    
     draw_network(x2k_d3_array, ".x2k-svg", "#x2k-network");
 	
 	// G2N Processing
@@ -389,4 +346,57 @@ $(function() {
     
     network_string = JSON.stringify(network);
     draw_network(g2n_d3_array, ".g2n-svg", "#g2n-network");
+    
+	// Modals
+	$("#dashboardFullModal").on("show.bs.modal", function (event) {
+		var button = $(event.relatedTarget), // Button that triggered the modal
+			recipient = button.data('whatever'), // Extract info from data-* attributes
+			modal = $(this),
+			name = recipient.split(" ")[1],
+			div_name = recipient.split(" ")[0];
+		
+		modal.find(".modal-title").text(name);
+		
+		draw_network(x2k_d3_array_clean, ".x2k-svg-full", div_name);
+		
+//		var content = $(div_name).clone().appendTo(modal.find(".modal-body"));
+		})
+	
+	$(".json-button").on("click", function(){
+			var modal = $("#dashboardFullModal"),
+				name = modal.find(".modal-title").text();
+			exportJson(name, json_file[name]);
+		});		
+	
+	$(".csv-button").on("click", function(){
+		var modal = $("#dashboardFullModal"),
+			name = modal.find(".modal-title").text();
+		exportCsv(name, json_file[name]);
+	});
+	
+	$(".svg-button").on("click", function(){
+		var modal = $("#dashboardFullModal"),
+			name = modal.find(".modal-title").text();
+		if (name === 'X2K'){
+			svgExport('#'+name.toLowerCase()+'-network', name+'_network', 'svg');
+		}
+		else if (name === 'G2N'){
+			svgExport('#network-'+name.toLowerCase(), name+'_network', 'svg');
+		}
+		else{
+			svgExport('.'+name.toLowerCase() + '-chart', name+'_bargraph', 'svg');			
+		}
+		
+	});		
+	
+	
+	$("#dashboardFullModal").on("hide.bs.modal", function (event) {
+		var button = $(event.relatedTarget),
+		recipient = button.data("whatever"),
+		modal = $(this);
+		
+		modal.find(".modal-body").empty();
+		})
+	var tr;
+	
 });

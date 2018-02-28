@@ -19,25 +19,29 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <!--Datatables-->
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.css"/>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap4.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap4.css"/>
 
-	 
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.js"></script>
-	
-	<!--Datatables buttons-->
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css"/>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap4.min.css"/>
-	
-	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap4.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.js"></script>
+
+    <!--Datatables buttons-->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap4.min.css"/>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 
     <!--Own-->
     <link rel="stylesheet" href="css/bargraph.css">
@@ -51,37 +55,48 @@
     <script src="js/network.js"></script>
     <script src="js/jquery.atooltip.pack.js"></script>
     <script> var json_file = ${json}; </script>
-    
-	<script>
-		(function(i, s, o, g, r, a, m) {
-			i['GoogleAnalyticsObject'] = r;
-			i[r] = i[r] || function() {
-				(i[r].q = i[r].q || []).push(arguments)
-			}, i[r].l = 1 * new Date();
-			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-			a.async = 1;
-			a.src = g;
-			m.parentNode.insertBefore(a, m)
-		})(window, document, 'script',
-				'https://www.google-analytics.com/analytics.js', 'ga');
-		ga('create', 'UA-6277639-28', 'auto');
-		ga('send', 'pageview');
-	</script>
-    
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script',
+            'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-6277639-28', 'auto');
+        ga('send', 'pageview');
+    </script>
+
 </head>
 <body>
 <!--Header-->
-<nav class="navbar navbar-light sticky-top bg-light justify-content-center navbar-expand-sm" id="x2k-navbar">
+<nav class="navbar navbar-light bg-light justify-content-center navbar-expand-sm" id="x2k-navbar">
     <a class="navbar-brand" href="/X2K">
         <img id="logo" src="static/logo.png" height="50px" class="d-inline-block full-logo">
     </a>
 </nav>
 
 <!--Body-->
-<div class="container-fluid" id="results-dashboard">
+<div class="container-fluid bg-light" id="results-dashboard">
     <div class="row justify-content-center">
+    	<div class="col-sm-1">
+		<div class="row">
+			<div class="card" id="genelist-container">
+				<div class="card-header" id="genelist-header">
+					Input list
+				</div>
+				<div class="card-block">
+					<textarea class="form-control-sm" id="genelist" readonly></textarea>
+				</div>
+			</div>
+		</div>
+    	</div>
         <div class="col-sm-11">
-
             <div class="row justify-content-center align-items-start">
                 <!--X2K-->
                 <div class="col-sm-6" id="x2k">
@@ -95,16 +110,28 @@
                                 X2K</a>
                         </nav>
                         <div id="x2k-network" class="card-body">
-                             <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
-                                <button class="selected btn btn-outline-secondary btn-sm">
-                                Transcription factor
-                                </button>
-                                <input type="button" class="btn btn-outline-secondary btn-sm" value="Intermediate protein">
-                                <input type="button" class="btn btn-outline-secondary btn-sm"
-                                       value="Kinase">
-                            </div>                        
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg" width="100%"
                                  height="100%" viewBox="-20 0 1020 600"></svg>
+                            <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
+                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
+                                    <svg height="10" width="10">
+                                        <circle cx="5" cy="5" r="5" fill="#FF546D"/>
+                                    </svg>
+                                    Transcription factor
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
+                                    <svg height="10" width="10">
+                                        <circle cx="5" cy="5" r="5" fill="#FF7F0E"/>
+                                    </svg>
+                                    Intermediate protein
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
+                                    <svg height="10" width="10">
+                                        <circle cx="5" cy="5" r="5" fill="#1F77B4"/>
+                                    </svg>
+                                    Kinase
+                                </button>
+                            </div>
                         </div>
                         <!--                 <div class="card-footer">
                                             <div class="row justify-content-between">
@@ -144,15 +171,19 @@
                                 <div class="tab-pane fade show active" id="nav-chea-bar" role="tabpanel"
                                      aria-labelledby="nav-chea-bar-tab">
                                     <div id="bargraph-chea" class="bargraph">
-                                                                         <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
-                                                                            <!-- Classes like 'chea-chart-zscore' define sorting type in bargraph.js -->
-                                                                            <input type="button" class="selected btn btn-outline-secondary btn-sm chea-chart-pvalue"
-                                                                                   value="P-value">
-                                                                            <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-zscore" value="Z-score">
-                                                                            <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-combinedScore"
-                                                                                   value="Combined score">
-                                                                        </div>
-                                         
+                                        <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
+                                            <!-- Classes like 'chea-chart-zscore' define sorting type in bargraph.js -->
+                                            <input type="button"
+                                                   class="selected btn btn-outline-secondary btn-sm chea-chart-pvalue"
+                                                   value="P-value">
+                                            <input type="button"
+                                                   class="btn btn-outline-secondary btn-sm chea-chart-zscore"
+                                                   value="Z-score">
+                                            <input type="button"
+                                                   class="btn btn-outline-secondary btn-sm chea-chart-combinedScore"
+                                                   value="Combined score">
+                                        </div>
+
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="chea-chart"
                                              width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
                                     </div>
@@ -160,7 +191,8 @@
 
                                 <div class="tab-pane fade table-responsive" id="nav-chea-table" role="tabpanel"
                                      aria-labelledby="nav-chea-table-tab">
-                                    <table class="display table table-striped table-bordered table-sm" cellspacing="0" id="chea-table"></table>
+                                    <table class="display table table-striped table-bordered table-sm" cellspacing="0"
+                                           id="chea-table"></table>
                                 </div>
                             </div>
                         </div>
@@ -189,6 +221,22 @@
                         <div id="network-g2n" class="card-body">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg" width="100%"
                                  height="100%" viewBox="-20 0 1020 600"></svg>
+                            <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
+                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
+                                    <svg height="10" width="10">
+                                        <circle cx="5" cy="5" r="5" fill="#1F77B4"/>
+                                    </svg>
+                                    Seed protein
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
+                                    <svg height="10" width="10">
+                                        <circle cx="5" cy="5" r="5" fill="#FF7F0E"/>
+                                    </svg>
+                                    Intermediate protein
+                                </button>
+
+                            </div>
+
                         </div>
                         <!--                 <div class="card-footer">
                                             <div class="row justify-content-between">
@@ -229,15 +277,19 @@
                                 <div class="tab-pane fade show active" id="nav-kea-bar" role="tabpanel"
                                      aria-labelledby="nav-kea-bar-tab">
                                     <div id="bargraph-kea" class="bargraph">
-                                                                         <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
-                                                                            <!-- Classes like 'kea-chart-zscore' define sorting type in bargraph.js -->
-                                                                            <input type="button" class="selected btn btn-outline-secondary btn-sm kea-chart-pvalue"
-                                                                                   value="P-value">
-                                                                            <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-zscore" value="Z-score">
-                                                                            <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-combinedScore"
-                                                                                   value="Combined score">
-                                                                        </div>
-                                         
+                                        <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
+                                            <!-- Classes like 'kea-chart-zscore' define sorting type in bargraph.js -->
+                                            <input type="button"
+                                                   class="selected btn btn-outline-secondary btn-sm kea-chart-pvalue"
+                                                   value="P-value">
+                                            <input type="button"
+                                                   class="btn btn-outline-secondary btn-sm kea-chart-zscore"
+                                                   value="Z-score">
+                                            <input type="button"
+                                                   class="btn btn-outline-secondary btn-sm kea-chart-combinedScore"
+                                                   value="Combined score">
+                                        </div>
+
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="kea-chart"
                                              width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
                                     </div>
@@ -245,7 +297,8 @@
                                 </div>
                                 <div class="tab-pane fade table-responsive" id="nav-kea-table" role="tabpanel"
                                      aria-labelledby="nav-kea-table-tab">
-                                    <table class="display table table-striped table-bordered table-sm" cellspacing="0" id="kea-table"></table>
+                                    <table class="display table table-striped table-bordered table-sm" cellspacing="0"
+                                           id="kea-table"></table>
                                 </div>
                             </div>
                         </div>
@@ -281,7 +334,7 @@
                 </a>
                 <a id="csv-anchor">
                     <button type="button" class="btn btn-outline-primary csv-button">CSV</button>
-                </a>                
+                </a>
                 <a id="exportData">
                     <button type="button" class="btn btn-outline-primary svg-button">SVG</button>
                 </a>
@@ -300,11 +353,11 @@
 <footer class="container-fluid" id="footer">
     <div class="row justify-content-center mt-2">
         <div class="col-sm-7" id="citations">
-<!--             <p>Please cite this paper if you are using X2K for your publication:
-                <a href="http://www.ncbi.nlm.nih.gov/pubmed/22080467"> Chen EY, Xu
-                    H, Gordonov S, Lim MP, Perkins MH, Ma'ayan A. Expression2Kinases:
-                    mRNA Profiling Linked to Multiple Upstream Regulatory Layers.
-                    Bioinformatics. (2012) 28 (1): 105-111</a></p> -->
+            <!--             <p>Please cite this paper if you are using X2K for your publication:
+                            <a href="http://www.ncbi.nlm.nih.gov/pubmed/22080467"> Chen EY, Xu
+                                H, Gordonov S, Lim MP, Perkins MH, Ma'ayan A. Expression2Kinases:
+                                mRNA Profiling Linked to Multiple Upstream Regulatory Layers.
+                                Bioinformatics. (2012) 28 (1): 105-111</a></p> -->
         </div>
     </div>
 </footer>
