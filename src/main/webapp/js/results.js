@@ -357,9 +357,7 @@ $(function() {
 		
 		modal.find(".modal-title").text(name);
 		
-		draw_network(x2k_d3_array_clean, ".x2k-svg-full", div_name);
-		
-//		var content = $(div_name).clone().appendTo(modal.find(".modal-body"));
+		var content = $(div_name).clone().appendTo(modal.find(".modal-body"));
 		})
 	
 	$(".json-button").on("click", function(){
