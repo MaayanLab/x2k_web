@@ -68,6 +68,10 @@ $(function () {
     submitButtonListener("kea_submit", "/X2K/KEA", "#kea-form");
     submitButtonListener("g2n_submit", "/X2K/G2N", "#g2n-form");
 
+    $('.form-check-input').change(function(){
+        cb = $(this);
+        cb.val(cb.prop('checked'));
+    });
 
     // text area listener
     $("#genelist").on("change keyup paste", function () {
