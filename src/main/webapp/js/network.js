@@ -202,10 +202,12 @@ function draw_network(json, svg_id, body){
             toggle = 0;
         }
     }
-
-    var svg = d3.select(svg_id),
-	    width = 1000,
-	    height = 600;
+    
+    var svg = d3.select(svg_id);
+	var width = nodes_data.length * 8,
+	    height = nodes_data.length * 5;
+	
+	$(svg_id).attr('viewBox', '-20 0' + ' ' + width + ' ' + height);
     
 //        width = +svg.attr("width"),
 //        height = +svg.attr("height");

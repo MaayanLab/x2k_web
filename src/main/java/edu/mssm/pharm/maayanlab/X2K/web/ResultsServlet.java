@@ -185,6 +185,7 @@ public class ResultsServlet extends HttpServlet {
         app.setSetting(Genes2Networks.ENABLE_BIOPLEX, req.getParameter(Genes2Networks.ENABLE_BIOPLEX));        
         app.setSetting(Genes2Networks.ENABLE_DIP, req.getParameter(Genes2Networks.ENABLE_DIP));
         app.setSetting(Genes2Networks.ENABLE_HUMAP, req.getParameter(Genes2Networks.ENABLE_HUMAP));
+        app.setSetting(Genes2Networks.ENABLE_IREF, req.getParameter(Genes2Networks.ENABLE_IREF));
         app.setSetting(Genes2Networks.ENABLE_INNATEDB, req.getParameter(Genes2Networks.ENABLE_INNATEDB));
         app.setSetting(Genes2Networks.ENABLE_INTACT, req.getParameter(Genes2Networks.ENABLE_INTACT));
         app.setSetting(Genes2Networks.ENABLE_KEGG, req.getParameter(Genes2Networks.ENABLE_KEGG));
