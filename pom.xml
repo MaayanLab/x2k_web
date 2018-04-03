@@ -27,15 +27,18 @@
   		<dependency>
 			<groupId>edu.mssm.pharm.maayanlab.ChEA</groupId>
 			<artifactId>ChEA</artifactId>
-			<version>1.0</version>
+			<version>1.8</version>
 		</dependency>
 		<dependency>
 			<groupId>edu.mssm.pharm.maayanlab.Genes2Networks</groupId>
 			<artifactId>G2N</artifactId>
-			<version>1.6-SNAPSHOT</version>
+			<version>1.8</version>
 		</dependency>
-
-
+		<dependency>
+			<groupId>edu.mssm.pharm.maayanlab.common</groupId>
+			<artifactId>common-swing</artifactId>
+			<version>2.1</version>
+		</dependency>
 <!-- Somehow this way doesn't work
 		<dependency>
 		<groupId>edu.mssm.pharm.maayanlab.ChEA</groupId>
@@ -116,7 +119,7 @@
 		<dependency>
 			<groupId>edu.mssm.pharm.maayanlab.KEA</groupId>
 			<artifactId>KEA</artifactId>
-			<version>1.8</version>
+			<version>1.7</version>
 		</dependency>
 		<dependency>
 			<groupId>edu.mssm.pharm.maayanlab.List2Networks</groupId>
@@ -133,7 +136,7 @@
 		<dependency>
 			<groupId>edu.mssm.pharm.maayanlab.common</groupId>
 			<artifactId>common-core</artifactId>
-			<version>2.1</version>
+			<version>2.3</version>
 		</dependency>
 		<dependency>
 			<groupId>edu.mssm.pharm.maayanlab.common</groupId>

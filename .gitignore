@@ -5,3 +5,6 @@ target/
 src/.metadata/
 .idea/
 src/main/webapp/dashboard-mockup/
+.classpath
+.project
+launch.properties
