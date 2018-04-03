@@ -4,6 +4,7 @@
 .metadata/
 .project
 .settings/
+bin
 build
 src/.metadata/
 src/main/webapp/dashboard-mockup/
