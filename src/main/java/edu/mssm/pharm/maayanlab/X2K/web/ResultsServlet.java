@@ -171,7 +171,14 @@ public class ResultsServlet extends HttpServlet {
         }
 
         return network;
-    }
+	}
+	
+	private static String getParam(HttpServletRequest req, String param, String defaultParam) {
+		String result = req.getParameter(param);
+		if(result == null)
+			return defaultParam;
+		return result;
+	}
 
     public static String runG2N(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Run enrichment
@@ -180,18 +187,18 @@ public class ResultsServlet extends HttpServlet {
         app.setSetting(Genes2Networks.MAXIMUM_NUMBER_OF_EDGES, req.getParameter(Genes2Networks.MAXIMUM_NUMBER_OF_EDGES));
         app.setSetting(Genes2Networks.MAXIMUM_NUMBER_OF_INTERACTIONS, req.getParameter(Genes2Networks.MAXIMUM_NUMBER_OF_INTERACTIONS));
         app.setSetting(Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES, req.getParameter(Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES));
-        app.setSetting(Genes2Networks.ENABLE_BIOCARTA, req.getParameter(Genes2Networks.ENABLE_BIOCARTA));
-        app.setSetting(Genes2Networks.ENABLE_BIOGRID, req.getParameter(Genes2Networks.ENABLE_BIOGRID));
-        app.setSetting(Genes2Networks.ENABLE_BIOPLEX, req.getParameter(Genes2Networks.ENABLE_BIOPLEX));        
-        app.setSetting(Genes2Networks.ENABLE_DIP, req.getParameter(Genes2Networks.ENABLE_DIP));
-        app.setSetting(Genes2Networks.ENABLE_HUMAP, req.getParameter(Genes2Networks.ENABLE_HUMAP));
-        app.setSetting(Genes2Networks.ENABLE_IREF, req.getParameter(Genes2Networks.ENABLE_IREF));
-        app.setSetting(Genes2Networks.ENABLE_INNATEDB, req.getParameter(Genes2Networks.ENABLE_INNATEDB));
-        app.setSetting(Genes2Networks.ENABLE_INTACT, req.getParameter(Genes2Networks.ENABLE_INTACT));
-        app.setSetting(Genes2Networks.ENABLE_KEGG, req.getParameter(Genes2Networks.ENABLE_KEGG));
-        app.setSetting(Genes2Networks.ENABLE_MINT, req.getParameter(Genes2Networks.ENABLE_MINT));
-        app.setSetting(Genes2Networks.ENABLE_PPID, req.getParameter(Genes2Networks.ENABLE_PPID));
-        app.setSetting(Genes2Networks.ENABLE_SNAVI, req.getParameter(Genes2Networks.ENABLE_SNAVI));
+        app.setSetting(Genes2Networks.ENABLE_BIOCARTA, getParam(req, Genes2Networks.ENABLE_BIOCARTA, "false"));
+        app.setSetting(Genes2Networks.ENABLE_BIOGRID, getParam(req, Genes2Networks.ENABLE_BIOGRID, "false"));
+        app.setSetting(Genes2Networks.ENABLE_BIOPLEX, getParam(req, Genes2Networks.ENABLE_BIOPLEX, "false"));        
+        app.setSetting(Genes2Networks.ENABLE_DIP, getParam(req, Genes2Networks.ENABLE_DIP, "false"));
+        app.setSetting(Genes2Networks.ENABLE_HUMAP, getParam(req, Genes2Networks.ENABLE_HUMAP, "false"));
+        app.setSetting(Genes2Networks.ENABLE_IREF, getParam(req, Genes2Networks.ENABLE_IREF, "false"));
+        app.setSetting(Genes2Networks.ENABLE_INNATEDB, getParam(req, Genes2Networks.ENABLE_INNATEDB, "false"));
+        app.setSetting(Genes2Networks.ENABLE_INTACT, getParam(req, Genes2Networks.ENABLE_INTACT, "false"));
+        app.setSetting(Genes2Networks.ENABLE_KEGG, getParam(req, Genes2Networks.ENABLE_KEGG, "false"));
+        app.setSetting(Genes2Networks.ENABLE_MINT, getParam(req, Genes2Networks.ENABLE_MINT, "false"));
+        app.setSetting(Genes2Networks.ENABLE_PPID, getParam(req, Genes2Networks.ENABLE_PPID, "false"));
+        app.setSetting(Genes2Networks.ENABLE_SNAVI, getParam(req, Genes2Networks.ENABLE_SNAVI, "false"));
         app.run(inputList);
         // Write app to session
         HttpSession httpSession = req.getSession();
