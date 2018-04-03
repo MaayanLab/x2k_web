@@ -39,6 +39,11 @@
 			<artifactId>common-swing</artifactId>
 			<version>2.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.1</version>
+		</dependency>
 <!-- Somehow this way doesn't work
 		<dependency>
 		<groupId>edu.mssm.pharm.maayanlab.ChEA</groupId>
