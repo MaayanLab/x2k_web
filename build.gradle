@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.4.2'
+    }
+}
+
+apply plugin: 'com.bmuschko.tomcat'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+group = 'edu.mssm.pharm.maayanlab.x2k'
+apply plugin: 'war'
+
+description = 'X2K'
+dependencies {
+  def tomcatVersion = '8.0.42'
+  tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+        "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+        "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+    // compile group: 'org.apache.tomcat', name: 'tomcat-jdbc', version:"${tomcatVersion}"
+
+  compile project(':ChEA')
+  compile project(':G2N')
+  compile project(':common:common-swing')
+    compile group: 'org.hibernate', name: 'hibernate-core', version:'4.1.8.Final'
+  compile project(':common:common-graph')
+  compile project(':KEA')
+  compile project(':List2Networks')
+  compile project(':common:common-core')
+  compile project(':common:common-web')
+  compile project(':common:common-geneticalgorithm')
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.7.14'
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+    testCompile group: 'org.mockito', name: 'mockito-all', version:'1.10.8'
+    providedCompile group: 'mysql', name: 'mysql-connector-java', version:'5.1.22'
+    providedCompile group: 'org.apache.tomcat', name: 'tomcat-jdbc', version:"${tomcatVersion}"
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version:'3.0.1'
+}
+
+tomcat {
+    httpPort = 8080
+    contextPath = "X2K"
+}
