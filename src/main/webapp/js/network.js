@@ -365,39 +365,4 @@ function draw_network(json, svg_id, body){
             .on("tick", tickActions );    
 
     drag_handler(node);
-    
-//    var x2k_legend = [["Transcription factor", "#FF546D"], ["Intermediate protein", "#FF7F0E"], ["Kinase", "#1F77B4"]],
-//    g2n_legend = [["Seed protein", "#1F77B4"], ["Intermediate protein", "#FF7F0E"]];
-    
-//    if (body === "#x2k-network") {
-//    var legend = g.append("g")
-//		    .attr("font-family", "sans-serif")
-//		    .attr("font-size", 14)
-//		    .attr("text-anchor", "end")
-//		  .selectAll("g")
-//		  .data(x2k_legend)
-//		  .enter().append("g")
-//		    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });}
-//    else{
-//        var legend = g.append("g")
-//	    .attr("font-family", "sans-serif")
-//	    .attr("font-size", 14)
-//	    .attr("text-anchor", "end")
-//	  .selectAll("g")
-//	  .data(g2n_legend)
-//	  .enter().append("g")
-//	    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-//    }
-
-//	legend.append("circle")
-//	    .attr("cx", width - 6)
-//	    .attr("cy", 10)
-//	    .attr("r", 6)
-//	    .attr("fill", function(d) { return d[1]; });
-	
-//	legend.append("text")
-//	    .attr("x", width - 24)
-//	    .attr("y", 9.5)
-//	    .attr("dy", "0.5em")
-//	    .text(function(d) { return d[0]; });
 }
