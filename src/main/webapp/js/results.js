@@ -432,7 +432,20 @@ $(function() {
 		else{
 			svgExport('.'+name.toLowerCase() + '-chart', name+'_bargraph', 'svg');			
 		}
-		
+	});
+
+	$(".png-button").on("click", function(){
+		var modal = $("#dashboardFullModal"),
+			name = modal.find(".modal-title").text();
+		if (name === 'X2K'){
+			saveSvgAsPng('#'+name.toLowerCase()+'-network');
+		}
+		else if (name === 'G2N'){
+			saveSvgAsPng('#network-'+name.toLowerCase());
+		}
+		else{
+			saveSvgAsPng('.'+name.toLowerCase() + '-chart');			
+		}
 	});
 
 	$(".cytoscape-button").on("click", function(){
@@ -444,8 +457,8 @@ $(function() {
 			),
 			name+'_network'
 		)
-	})
-
+	});
+		
 	$("#dashboardFullModal").on("hide.bs.modal", function (event) {
 		var button = $(event.relatedTarget),
 		recipient = button.data("whatever"),

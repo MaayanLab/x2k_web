@@ -13,9 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/1aa9a9820c.js"></script>
-
-
+    <script src="https://use.fontawesome.com/1aa9a9820c.js"></script>	
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <!--Datatables-->
@@ -54,6 +52,7 @@
     <script src="js/results.js"></script>
     <script src="js/network.js"></script>
     <script src="js/jquery.atooltip.pack.js"></script>
+    <script src="js/saveSvgAsPng.js"></script>
     <script> var json_file = ${json}; </script>
 
     <script>
@@ -110,7 +109,7 @@
                                 X2K</a>
                         </nav>
                         <div id="x2k-network" class="card-body">
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg" width="100%"
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg" id="x2ksvg" width="100%"
                                  height="100%" viewBox="-20 0 1020 600"></svg>
                             <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
                                 <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
@@ -328,7 +327,7 @@
                 </button>
             </div>
             <div class="modal-body"></div>
-            <div class="modal-footer">
+            <div class="modal-footer">            
                 <a id="json-anchor">
                     <button type="button" class="btn btn-outline-primary json-button">JSON</button>
                 </a>
@@ -338,15 +337,12 @@
                 <a id="exportData">
                     <button type="button" class="btn btn-outline-primary svg-button">SVG</button>
                 </a>
+                <a id="png-anchor">
+                    <button type="button" class="btn btn-outline-primary png-button">PNG</button>
+                </a>
                 <a id="cytoscape-anchor">
                     <button type="button" class="btn btn-outline-primary cytoscape-button">Cytoscape</button>
                 </a>
-                <!--                 <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'jpg'); return false;">
-                                    <button type="button" id="download-button">JPG</button>
-                                </a>
-                                <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'png'); return false;">
-                                    <button type="button" id="download-button">PNG</button>
-                                </a> -->
             </div>
         </div>
     </div>
