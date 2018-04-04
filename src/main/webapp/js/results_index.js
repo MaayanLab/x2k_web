@@ -358,6 +358,20 @@ $(function() {
 
         });
 
+        $(".png-button").on("click", function(){
+            var modal = $("#dashboardFullModal"),
+                name = modal.find(".modal-title").text();
+            if (name === 'X2K'){
+                saveSvgAsPng($('#'+name.toLowerCase()+'-network').find('svg')[0]);
+            }
+            else if (name === 'G2N'){
+                saveSvgAsPng($('#network-'+name.toLowerCase()).find('svg')[0]);
+            }
+            else{
+                saveSvgAsPng($('.'+name.toLowerCase() + '-chart').find('svg')[0]);			
+            }
+        });
+    
         $(".cytoscape-button").on("click", function(){
             var modal = $("#dashboardFullModal"),
                 name = modal.find(".modal-title").text();

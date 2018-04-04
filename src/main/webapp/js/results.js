@@ -438,13 +438,13 @@ $(function() {
 		var modal = $("#dashboardFullModal"),
 			name = modal.find(".modal-title").text();
 		if (name === 'X2K'){
-			saveSvgAsPng('#'+name.toLowerCase()+'-network');
+			saveSvgAsPng($('#'+name.toLowerCase()+'-network').find('svg')[0]);
 		}
 		else if (name === 'G2N'){
-			saveSvgAsPng('#network-'+name.toLowerCase());
+			saveSvgAsPng($('#network-'+name.toLowerCase()).find('svg')[0]);
 		}
 		else{
-			saveSvgAsPng('.'+name.toLowerCase() + '-chart');			
+			saveSvgAsPng($('.'+name.toLowerCase() + '-chart').find('svg')[0]);			
 		}
 	});
 
