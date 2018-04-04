@@ -29,6 +29,7 @@ dependencies {
   compile project(':ChEA')
   compile project(':G2N')
   compile project(':common:common-swing')
+    compile group: 'com.google.code.gson', name: 'gson', version:'2.2.1'
     compile group: 'org.hibernate', name: 'hibernate-core', version:'4.1.8.Final'
   compile project(':common:common-graph')
   compile project(':KEA')
