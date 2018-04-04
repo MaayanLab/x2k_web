@@ -402,11 +402,18 @@ $(function() {
 			modal = $(this),
 			name = recipient.split(" ")[1],
 			div_name = recipient.split(" ")[0];
-		
+
+		if ((name === 'ChEA')||(name === 'KEA')) {
+            $('.cytoscape-button').hide();
+        }
+        else {
+		    $('.cytoscape-button').show();
+		}
+
 		modal.find(".modal-title").text(name);
 		
 		var content = $(div_name).clone().appendTo(modal.find(".modal-body"));
-		})
+		});
 	
 	$(".json-button").on("click", function(){
 			var modal = $("#dashboardFullModal"),
@@ -444,7 +451,7 @@ $(function() {
 			saveSvgAsPng($('#network-'+name.toLowerCase()).find('svg')[0]);
 		}
 		else{
-			saveSvgAsPng($('.'+name.toLowerCase() + '-chart').find('svg')[0]);			
+			saveSvgAsPng($('.'+name.toLowerCase() + '-chart')[0]);
 		}
 	});
 
