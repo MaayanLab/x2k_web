@@ -103,6 +103,9 @@ $(function () {
         }
     });
 
+    // Ensure radio buttons are treated as their value on submit
+    $('input[type="radio"][checked]').change()
+
 //    showToolDesc("x2k");
 //    showToolDesc("chea");
 //    showToolDesc("g2n");
