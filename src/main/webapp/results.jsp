@@ -338,6 +338,9 @@
                 <a id="exportData">
                     <button type="button" class="btn btn-outline-primary svg-button">SVG</button>
                 </a>
+                <a id="cytoscape-anchor">
+                    <button type="button" class="btn btn-outline-primary cytoscape-button">Cytoscape</button>
+                </a>
                 <!--                 <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'jpg'); return false;">
                                     <button type="button" id="download-button">JPG</button>
                                 </a>
