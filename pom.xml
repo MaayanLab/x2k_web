@@ -12,12 +12,12 @@
 	<name>X2K</name>
 
 
-	<repositories>
+<!-- 	<repositories>
 		<repository>
 			<id>local-maven-repo</id>
 			<url>file://${basedir}/resources</url>
 		</repository>
-	</repositories>
+	</repositories> -->
 
 
 	<dependencies>
