@@ -1,12 +1,11 @@
 .classpath
-.DS_store
+.DS_Store
 .idea/
 .metadata/
 .project
 .settings/
 bin
 build
-launch.properties
 src/.metadata/
 src/main/webapp/dashboard-mockup/
 target/

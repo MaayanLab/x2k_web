@@ -45,7 +45,7 @@ function drawBargraph(chart, bargraph_data) {
 	    transition.select(".axis--y")
 	        .call(d3.axisLeft(y0).tickSize(0))
 	        .selectAll("text")
-	        .text(function(d) {return d.split("_")[0]});
+	        .text(function(d) {return d.split(/[_-]/)[0]});
 	    
 		transition.selectAll(".bar-label")
 			.attr("x", function(d) { return x0(range0(d)) - 5; })
@@ -110,7 +110,7 @@ function drawBargraph(chart, bargraph_data) {
 	    .selectAll("text")
 	    .attr("fill", "black")
 	    .attr("font-size", "1rem")
-	    .text(function(d) {return d.split("_")[0]});
+	    .text(function(d) {return d.split(/[_-]/)[0]});
 
 	g.select(".axis--y path")
 		.attr("display", "none");

@@ -304,6 +304,54 @@ $(function() {
 	    return [clean_interactions, clean_nodes];
 	}
 	
+	function downloadObjectAsJson(exportObj, exportName){
+		var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+		var downloadAnchorNode = document.createElement('a');
+		downloadAnchorNode.setAttribute("href",     dataStr);
+		downloadAnchorNode.setAttribute("download", exportName + ".json");
+		downloadAnchorNode.click();
+		downloadAnchorNode.remove();
+	}
+
+	function convert_to_cytoscape(network) {
+		return {
+			elements: {
+				nodes: network.nodes.map(function(self) {
+					var curNode = d3.select('text[title="'+self.name+'"]').node()
+					var d3Data
+					if(curNode != null) {
+						d3Data = d3.select(curNode.parentNode).data()[0]
+					} else {
+						d3Data = {
+							x: (Math.random() - 0.5)*1000,
+							y: (Math.random() - 0.5)*1000,
+						}
+					}
+					return {
+						data: {
+							id: self.name
+						},
+						position : {
+						x : d3Data.x,
+						y : d3Data.y
+						},
+						type: self.type,
+						pvalue: self.pvalue
+					}
+				}),
+				edges: network.interactions.map(function(self, ind) {
+					return {
+						data: {
+							id: ind,
+							source: network.nodes[self.source].name,
+							target: network.nodes[self.target].name,
+						}
+					}
+				}),
+			}
+		}
+	}
+	
 	// X2K Processing
 	var x2k = $.parseJSON(json_file["X2K"]);
     network = x2k.network;
@@ -384,10 +432,33 @@ $(function() {
 		else{
 			svgExport('.'+name.toLowerCase() + '-chart', name+'_bargraph', 'svg');			
 		}
+	});
+
+	$(".png-button").on("click", function(){
+		var modal = $("#dashboardFullModal"),
+			name = modal.find(".modal-title").text();
+		if (name === 'X2K'){
+			saveSvgAsPng($('#'+name.toLowerCase()+'-network').find('svg')[0]);
+		}
+		else if (name === 'G2N'){
+			saveSvgAsPng($('#network-'+name.toLowerCase()).find('svg')[0]);
+		}
+		else{
+			saveSvgAsPng($('.'+name.toLowerCase() + '-chart').find('svg')[0]);			
+		}
+	});
+
+	$(".cytoscape-button").on("click", function(){
+		var modal = $("#dashboardFullModal"),
+			name = modal.find(".modal-title").text();
+		downloadObjectAsJson(
+			convert_to_cytoscape(
+				JSON.parse(json_file[name]).network
+			),
+			name+'_network'
+		)
+	});
 		
-	});		
-	
-	
 	$("#dashboardFullModal").on("hide.bs.modal", function (event) {
 		var button = $(event.relatedTarget),
 		recipient = button.data("whatever"),

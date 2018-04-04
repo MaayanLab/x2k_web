@@ -1,14 +1,23 @@
 function sendToX2K(sig, dir) {
     var file = 'static/ljp/' + dir + '/' + sig.split('.')[0] + '.json';
-    $.getJSON(file, function (data) {
-    	var uniques = new Set(data[sig]);
-        $('textarea#ljp-genelist').val(Array.from(uniques).join('\n'));
-        $('textarea#genelist').val(Array.from(uniques).join('\n'));
+    $.ajax({
+    		url: file,
+			cache: false,
+			dataType: "json",
+    		success: function (data) {
+		    	var uniques = new Set(data[sig]);
+		        $('textarea#ljp-genelist').val(Array.from(uniques).join('\n'));
+		        $('textarea#genelist').val(Array.from(uniques).join('\n'));
+    		}
     });
 }
 
 $(function () {
-    $.getJSON("static/meta.json", function (meta_json) {
+    $.ajax({
+    	url: "static/meta.json",
+		cache: false,
+		dataType: "json",
+    	success: function (meta_json) {
         $('#ljp-table').DataTable({
             data: meta_json,
             columns: [
@@ -51,5 +60,6 @@ $(function () {
                 });
             }
         });
+    	}
     });
 });
