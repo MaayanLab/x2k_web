@@ -327,7 +327,7 @@
                 </button>
             </div>
             <div class="modal-body"></div>
-            <div class="modal-footer">
+            <div class="modal-footer">            
                 <a id="json-anchor">
                     <button type="button" class="btn btn-outline-primary json-button">JSON</button>
                 </a>
@@ -337,12 +337,9 @@
                 <a id="exportData">
                     <button type="button" class="btn btn-outline-primary svg-button">SVG</button>
                 </a>
-                <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'jpg'); return false;">
-                                    <button type="button" id="download-button">JPG</button>
-                                </a>
-                                <a id="exportData" onclick="svgExport('#x2k-network', 'X2K_network', 'png'); return false;">
-                                    <button type="button" id="download-button">PNG</button>
-                                </a>
+                <a id="png-anchor">
+                    <button type="button" class="btn btn-outline-primary png-button">PNG</button>
+                </a>
             </div>
         </div>
     </div>
