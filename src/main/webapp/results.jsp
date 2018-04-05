@@ -207,7 +207,7 @@
                                     <svg height="10" width="10">
                                         <circle cx="5" cy="5" r="5" fill="#1F77B4"/>
                                     </svg>
-                                    Seed protein
+                                    Input protein
                                 </button>
                                 <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
                                     <svg height="10" width="10">

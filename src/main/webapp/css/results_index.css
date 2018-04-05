@@ -83,3 +83,54 @@ thead th {
     letter-spacing: -0.2px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+
+/* Info Popovers */
+.info-popover-button {
+    background-color: transparent;
+    border: none;
+    margin-top: 3px;
+    outline: none !important;
+    cursor: pointer;
+}
+
+/* Enrichment Popovers */
+.enrichment-popover {
+    max-width: 350px;
+}
+
+.enrichment-popover .popover-header {
+    font-size: 10pt;
+}
+
+.enrichment-popover .popover-body {
+    font-size: 9pt;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.enriched-gene-link {
+    background-color: #a2cdff;
+    color: #24243a;
+    padding: 1px 4px;
+    margin-top: 3px;
+    display: inline-block;
+    border-radius: 3px;
+    border: 1px solid #9b9be1;
+    text-decoration: none !important;
+}
+
+/* DataTable Width */
+
+.dataTable {
+    width: 100% !important;
+}
+
+.dataTables_paginate {
+    margin-left: auto !important;
+}
+
+/* Cards */
+/*#chea-dash .card {*/
+    /*padding-bottom: 24px;*/
+/*}*/

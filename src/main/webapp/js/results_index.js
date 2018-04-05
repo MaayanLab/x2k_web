@@ -71,24 +71,65 @@ function createTable(json, container) {
 
     var dataArray = [];
     for (i = 0; i < json.length; i++) {
+
+        // Get first column
+        var splitName = json[i]["name"].split('_'),
+            firstCol = $('<div>').html($('<a>', {'href': 'http://amp.pharm.mssm.edu/Harmonizome/gene/'+splitName[0], 'target': '_blank'}).html(splitName[0])),
+            targetSource = '';
+        if (splitName.length > 1) {
+            var targetSource = $('<div>', {'class': 'my-2'})
+                .append('Associations were determined from the following experiment:')
+                .append($('<ul>', {'class': 'mb-0'})
+                        .append($('<li>').html('<b>Assay</b>: '+splitName[2]))
+                        .append($('<li>').html('<b>Organism</b>: '+splitName[4]))
+                        .append($('<li>').html('<b>Cell Type</b>: '+splitName[3]))
+                        .append($('<li>').html('<b>PubMed ID</b>: <a href="https://www.ncbi.nlm.nih.gov/pubmed/'+splitName[1]+'" target="_blank">'+splitName[1]+'</a>'))
+                ).prop('outerHTML');
+        }
+        console.log(splitName);
+
+        // Links to enriched genes
+        var enrichedLinks = [];
+        $.each(json[i][enriched], function(index, gene) {
+            enrichedLinks.push('<a class="enriched-gene-link" href="http://amp.pharm.mssm.edu/Harmonizome/gene/'+gene+'" target="_blank">'+gene+'</a>');
+        })
+
+        // Data Array
         dataArray[i] = [i+1,
-            json[i]["name"],
+            firstCol.prop('outerHTML'),
             json[i]["pvalue"].toPrecision(4),
             json[i]["zscore"].toFixed(2),
             json[i]["combinedScore"].toFixed(2),
-            json[i][enriched].join(", ")];
+            $('<div>', {
+                    'class': 'enrichment-popover-button',
+                    'data-toggle': 'popover',
+                    'data-placement': 'left',
+                    'data-html': 'true',
+                    'data-template': '<div class="popover enrichment-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
+                    'title': enriched.replace('enriched', 'Enriched '),
+                    'data-content': '<b>'+json[i]["name"].split('_')[0]+'</b> targets <span class="font-italic">'+json[i][enriched].length+' genes</span> from the input gene list.<br>'+targetSource+'<div class="my-1">The full list of genes is available below:</div>'+enrichedLinks.join(" ")
+                })
+                .css('cursor', 'pointer')
+                .css('text-decoration', 'underline')
+                .css('text-decoration-style', 'dotted')
+                .append(json[i][enriched].length+' '+enriched.replace('enriched', '').toLowerCase())
+                .prop('outerHTML'),
+            json[i][enriched].join(", ")
+        ];
     }
+    console.log(dataArray);
 
     var table = $(container).DataTable( {
+        width: '100%',
         data: dataArray,
         responsive: true,
         columns: [
             {title: "Rank"},
-            {title: "Term" },
+            {title: enriched.indexOf('Targets') > -1 ? 'Transcription Factor' : 'Protein Kinase' },
             {title: "P-value" },
             {title: "Z-score" },
             {title: "Combined score" },
-            {}
+            {title: enriched.replace('enriched', 'Enriched ')}
         ],
         dom: 'B<"small"f>rt<"small row"ip>',
         buttons: [
@@ -98,23 +139,28 @@ function createTable(json, container) {
             'print'
         ],
         "columnDefs": [{
-            "targets": [5],
+            "targets": [6],
             "visible": false,
             "searchable": true
         }],
         drawCallback: function(settings){
 
-            var api = this.api();
-
-            api.rows( { page: 'current' } ).every( function () {
-                var rowData = this.data();
-                api.cell(this.index(), 0).node().setAttribute('title', rowData[5]);
-            } );
-
-            $('tr', api.table().container()).each(function () {
-                title = this.cells[0].title;
-                $(this).attr('title', title);
+            $('.enrichment-popover-button').popover();
+            $('.enrichment-popover-button').on('click', function (e) {
+                $('.enrichment-popover-button').not(this).popover('hide');
             });
+
+            // var api = this.api();
+
+            // api.rows( { page: 'current' } ).every( function () {
+            //     var rowData = this.data();
+            //     api.cell(this.index(), 0).node().setAttribute('title', rowData[5]);
+            // } );
+
+            // $('tr', api.table().container()).each(function () {
+            //     title = this.cells[0].title;
+            //     $(this).attr('title', title);
+            // });
 
 //            $('tr', api.table().container()).tooltip({
 //               container: 'body'
@@ -324,8 +370,8 @@ $(function() {
             var button = $(event.relatedTarget), // Button that triggered the modal
                 recipient = button.data('whatever'), // Extract info from data-* attributes
                 modal = $(this),
-                name = recipient.split(" ")[1],
-                div_name = recipient.split(" ")[0];
+                name = button.data('modal-title'),
+                div_name = button.data('whatever');
 
             modal.find(".modal-title").text(name);
             var content = $(div_name).clone().appendTo(modal.find(".modal-body"));
@@ -512,3 +558,9 @@ $(function() {
         $(".tab-content").show()
     });
 });
+
+// Activate Popovers
+$(function () {
+  $('[data-toggle="popover"]').popover();
+  // $('[data-toggle="popover"]').popover({trigger: 'focus'})
+})

@@ -651,11 +651,21 @@
                                         <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
                                             <button type="button" class="expand" data-toggle="modal"
                                                     data-target="#dashboardFullModal"
-                                                    data-whatever="#x2k-network X2K"><i class="fa fa-expand"
-                                                                                        aria-hidden="true"></i>
+                                                    data-whatever="#x2k-network"
+                                                    data-modal-title="Expression2Kinases">
+                                                    <i class="fa fa-expand" aria-hidden="true"></i>
                                             </button>
                                             <a class="navbar-brand" href="javascript:void(0)">
-                                                X2K</a>
+                                                Expression2Kinases</a>
+
+                                            <!-- Info Popover -->
+                                            <button class="info-popover-button ml-auto"
+		                                            data-toggle="popover"
+	                                            	title="What is Expression2Kinases?"
+	                                            	data-content="asd">
+	                                            <i class="fa fa-question-circle fa-2x text-muted"></i>
+	                                        </button>
+
                                         </nav>
                                         <div id="x2k-network" class="card-body">
                                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg"
@@ -671,11 +681,13 @@
                                         <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
                                             <button type="button" class="expand" data-toggle="modal"
                                                     data-target="#dashboardFullModal"
-                                                    data-whatever="#chea-results ChEA">
+                                                    data-whatever="#chea-results"
+                                                    data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
                                                 <i class="fa fa-expand" aria-hidden="true"></i>
                                             </button>
                                             <a class="navbar-brand" href="javascript:void(0)">
-                                                ChEA</a>
+                                                Transcription Factor Enrichment Analysis (TFEA)</a>
+
                                             <a class="nav-item nav-link active dash-nav-item dash-nav-link"
                                                id="nav-chea-bar-tab" data-toggle="tab"
                                                href="#nav-chea-bar"
@@ -685,6 +697,15 @@
                                                href="#nav-chea-table"
                                                role="tab"
                                                aria-controls="nav-chae-table">Table</a>
+
+                                            <!-- Info Popover -->
+                                            <button class="info-popover-button ml-auto"
+		                                            data-toggle="popover"
+	                                            	title="What is Transcription Factor Enrichment Analysis?"
+	                                            	data-content="asd">
+	                                            <i class="fa fa-question-circle fa-2x text-muted"></i>
+	                                        </button>
+
                                         </nav>
                                         <div id="chea-results" class="card-body">
                                             <div class="tab-content" style="display: block;" id="nav-tabContent-chea">
@@ -716,10 +737,20 @@
                                         <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
                                             <button type="button" class="expand" data-toggle="modal"
                                                     data-target="#dashboardFullModal"
-                                                    data-whatever="#network-g2n G2N"><i class="fa fa-expand"
-                                                                                        aria-hidden="true"></i>
+                                                    data-whatever="#network-g2n"
+                                                    data-modal-title="Protein-Protein Interaction Networks">
+                                                    <i class="fa fa-expand" aria-hidden="true"></i>
                                             </button>
-                                            <a class="navbar-brand" href="javascript:void(0)">G2N</a>
+                                            <a class="navbar-brand" href="javascript:void(0)">Protein-Protein Interaction Networks</a>
+
+                                            <!-- Info Popover -->
+                                            <button class="info-popover-button ml-auto"
+		                                            data-toggle="popover"
+	                                            	title="What is Protein-Protein Interaction Networks?"
+	                                            	data-content="asd">
+	                                            <i class="fa fa-question-circle fa-2x text-muted"></i>
+	                                        </button>
+
                                         </nav>
                                         <div id="network-g2n" class="card-body">
                                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg"
@@ -735,11 +766,13 @@
                                         <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
                                             <button type="button" class="expand" data-toggle="modal"
                                                     data-target="#dashboardFullModal"
-                                                    data-whatever="#kea-results KEA">
+                                                    data-whatever="#kea-results"
+                                                    data-modal-title="Kinase Enrichment Analysis (KEA)">
                                                 <i class="fa fa-expand" aria-hidden="true"></i>
                                             </button>
                                             <a class="navbar-brand" href="javascript:void(0)">
-                                                KEA</a>
+                                                Kinase Enrichment Analysis (KEA)</a>
+
                                             <a class="nav-item nav-link active dash-nav-item dash-nav-link"
                                                id="nav-kea-bar-tab" data-toggle="tab"
                                                href="#nav-kea-bar"
@@ -749,6 +782,15 @@
                                                href="#nav-kea-table"
                                                role="tab"
                                                aria-controls="nav-kea-table">Table</a>
+
+                                            <!-- Info Popover -->
+                                            <button class="info-popover-button ml-auto"
+		                                            data-toggle="popover"
+	                                            	title="What is Kinase Enrichment Analysis?"
+	                                            	data-content="asd">
+	                                            <i class="fa fa-question-circle fa-2x text-muted"></i>
+	                                        </button>
+
                                         </nav>
 
                                         <div id="kea-results" class="card-body">
@@ -756,15 +798,15 @@
                                                 <div class="tab-pane fade show active" id="nav-kea-bar" role="tabpanel"
                                                      aria-labelledby="nav-kea-bar-tab">
                                                     <div id="bargraph-kea" class="bargraph">
-                                                        <!--                                 <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
-                                                                                            Classes like 'kea-chart-zscore' define sorting type in bargraph.js
+                                                                                        <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
+                                                                                            <!-- Classes like 'kea-chart-zscore' define sorting type in bargraph.js -->
                                                                                             <input type="button" class="selected btn btn-outline-secondary btn-sm kea-chart-pvalue"
                                                                                                    value="P-value">
                                                                                             <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-zscore" value="Z-score">
                                                                                             <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-combinedScore"
                                                                                                    value="Combined score">
                                                                                         </div>
-                                                         -->
+                                                        
                                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                                              class="kea-chart"
                                                              width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
