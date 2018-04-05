@@ -1,3 +1,16 @@
+.nav {
+	font-size: 1rem;
+}
+
+.nav-item {
+	margin-top: unset;
+}
+
+#genelist {
+    font-size: 1rem;
+    border: 1px solid rgba(0,0,0,.15);
+}
+
 .caption {
 	text-align: center;
     color: #0c89e2;
