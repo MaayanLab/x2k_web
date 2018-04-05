@@ -104,7 +104,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#datasets">Download datasets</a>
             </li>
-            <li>
+            <li class="nav-item">
                 <a class="nav-link" href="#about">About</a>
             </li>
         </ul>
@@ -698,13 +698,16 @@
                                                id="nav-chea-table-tab" data-toggle="tab"
                                                href="#nav-chea-table"
                                                role="tab"
-                                               aria-controls="nav-chae-table">Table</a>
+                                               aria-controls="nav-chea-table">Table</a>
 
                                             <!-- Info Popover -->
                                             <button class="info-popover-button ml-auto"
 		                                            data-toggle="popover"
 	                                            	title="What is Transcription Factor Enrichment Analysis?"
-	                                            	data-content="asd">
+	                                            	data-content="Transcription Factor Enrichment Analysis identifies upstream transcription factors. It uses
+                                    gene set enrichment for transcription factors likely to bind at the promoters of the
+                                    differentilly expressed genes based on integration of publicly available ChIP-seq
+                                    data">
 	                                            <i class="fa fa-question-circle fa-2x text-muted"></i>
 	                                        </button>
 
@@ -714,6 +717,15 @@
                                                 <div class="tab-pane fade show active" id="nav-chea-bar" role="tabpanel"
                                                      aria-labelledby="nav-chea-bar-tab">
                                                     <div id="bargraph-chea" class="bargraph">
+                                                        <span style="font-size: 0.7rem;" class="my-auto mr-1 mt-2">Sort by:</span>
+                                                        <div class="mt-0 btn-group" role="group" aria-label="Sorting type">
+                                                            <!-- Classes like 'chea-chart-zscore' define sorting type in bargraph.js -->
+                                                            <input type="button" class="selected btn btn-outline-secondary btn-sm chea-chart-pvalue"
+                                                                   value="P-value">
+                                                            <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-zscore" value="Z-score">
+                                                            <input type="button" class="btn btn-outline-secondary btn-sm chea-chart-combinedScore"
+                                                                   value="Combined score">
+                                                        </div>
                                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                                              class="chea-chart"
                                                              width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
@@ -740,16 +752,17 @@
                                             <button type="button" class="expand" data-toggle="modal"
                                                     data-target="#dashboardFullModal"
                                                     data-whatever="#network-g2n"
-                                                    data-modal-title="Protein-Protein Interaction Networks">
+                                                    data-modal-title="Protein-Protein Interaction Expansion">
                                                     <i class="fa fa-expand" aria-hidden="true"></i>
                                             </button>
-                                            <a class="navbar-brand" href="javascript:void(0)">Protein-Protein Interaction Networks</a>
+                                            <a class="navbar-brand" href="javascript:void(0)">Protein-Protein Interaction Expansion</a>
 
                                             <!-- Info Popover -->
                                             <button class="info-popover-button ml-auto"
 		                                            data-toggle="popover"
-	                                            	title="What is Protein-Protein Interaction Networks?"
-	                                            	data-content="asd">
+	                                            	title="What is Protein-Protein Interaction Expansion?"
+	                                            	data-content="Protein-Protein Interaction Expansion generates protein-protein interaction network of input transcription factors
+                                    connected with each other by using known protein-protein interactions">
 	                                            <i class="fa fa-question-circle fa-2x text-muted"></i>
 	                                        </button>
 
@@ -789,7 +802,11 @@
                                             <button class="info-popover-button ml-auto"
 		                                            data-toggle="popover"
 	                                            	title="What is Kinase Enrichment Analysis?"
-	                                            	data-content="asd">
+	                                            	data-content="KEA uses kinase-substrate libraries to predict
+                                    protein kinases connected to intermediate proteins and transcription factors
+                                    that putatively regulate the observed changes in mRNA expression and perform kinase
+                                    enrichment
+                                    analysis">
 	                                            <i class="fa fa-question-circle fa-2x text-muted"></i>
 	                                        </button>
 
@@ -800,14 +817,15 @@
                                                 <div class="tab-pane fade show active" id="nav-kea-bar" role="tabpanel"
                                                      aria-labelledby="nav-kea-bar-tab">
                                                     <div id="bargraph-kea" class="bargraph">
-                                                                                        <div class="mt-1 btn-group" role="group" aria-label="Sorting type">
-                                                                                            <!-- Classes like 'kea-chart-zscore' define sorting type in bargraph.js -->
-                                                                                            <input type="button" class="selected btn btn-outline-secondary btn-sm kea-chart-pvalue"
-                                                                                                   value="P-value">
-                                                                                            <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-zscore" value="Z-score">
-                                                                                            <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-combinedScore"
-                                                                                                   value="Combined score">
-                                                                                        </div>
+                                                        <span style="font-size: 0.7rem;" class="my-auto mr-1 mt-2">Sort by:</span>
+                                                        <div class="mt-0 btn-group" role="group" aria-label="Sorting type">
+                                                            <!-- Classes like 'kea-chart-zscore' define sorting type in bargraph.js -->
+                                                            <input type="button" class="selected btn btn-outline-secondary btn-sm kea-chart-pvalue"
+                                                                   value="P-value">
+                                                            <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-zscore" value="Z-score">
+                                                            <input type="button" class="btn btn-outline-secondary btn-sm kea-chart-combinedScore"
+                                                                   value="Combined score">
+                                                        </div>
                                                         
                                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                                              class="kea-chart"

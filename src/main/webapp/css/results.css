@@ -44,6 +44,10 @@
 	height: 50vh;
 }
 
+#x2k-form #genelist {
+    border: 1px solid #ddd;
+}
+
 #x2k,
 #chea,
 #g2n,
@@ -112,9 +116,13 @@ thead th {
 }
 
 .nav {
-	font-size: 0.8rem;
+	font-size: 1rem;
 	border-top-left-radius: 0.15rem;
     border-top-right-radius: 0.15rem;
+}
+
+.card .nav {
+    font-size: 0.8rem;
 }
 
 .nav-link {

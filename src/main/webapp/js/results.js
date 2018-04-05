@@ -86,7 +86,6 @@ function createTable(json, container) {
                         .append($('<li>').html('<b>PubMed ID</b>: <a href="https://www.ncbi.nlm.nih.gov/pubmed/'+splitName[1]+'" target="_blank">'+splitName[1]+'</a>'))
                 ).prop('outerHTML');
         }
-        console.log(splitName);
 
         // Links to enriched genes
         var enrichedLinks = [];
@@ -113,11 +112,9 @@ function createTable(json, container) {
                 .css('text-decoration', 'underline')
                 .css('text-decoration-style', 'dotted')
                 .append(json[i][enriched].length+' '+enriched.replace('enriched', '').toLowerCase())
-                .prop('outerHTML'),
-            json[i][enriched].join(", ")
+                .prop('outerHTML')
         ];
     }
-    console.log(dataArray);
 
     var table = $(container).DataTable( {
         width: '100%',
@@ -138,11 +135,9 @@ function createTable(json, container) {
             'csv',
             'print'
         ],
-        "columnDefs": [{
-            "targets": [6],
-            "visible": false,
-            "searchable": true
-        }],
+        "columnDefs": [
+	        { "sortable": false, targets: 5 }
+        ],
         drawCallback: function(settings){
 
             $('.enrichment-popover-button').popover();
