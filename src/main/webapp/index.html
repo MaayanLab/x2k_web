@@ -46,10 +46,12 @@
     <link rel="stylesheet" href="css/bargraph.css">
     <link rel="stylesheet" href="css/network.css">
     <link rel="stylesheet" href="css/atooltip.css">
+    <link rel="stylesheet" href="css/results.css">
     <link rel="stylesheet" href="css/results_index.css">
     <link rel="stylesheet" href="css/index_beta.css">
 
     <script src="js/bargraph.js"></script>
+    <script src="js/results.js"></script>
     <script src="js/results_index.js"></script>
     <script src="js/network.js"></script>
     <script src="js/index.js"></script>
@@ -76,7 +78,7 @@
 
 <body data-spy="scroll" data-target="#x2k-navbar" data-offset="150">
 <!-- Anchor for scrollspy -->
-<div id="x2k"></div>
+<div id="x2k-scroll"></div>
 <nav class="navbar navbar-light sticky-top bg-light justify-content-center navbar-expand-sm" id="x2k-navbar">
     <a class="navbar-brand" href="/X2K">
         <img id="logo" src="static/logo.png" height="50px" class="d-inline-block full-logo">
@@ -85,7 +87,7 @@
     <div id="scrollspy-nav" class="collapse navbar-collapse">
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link active" href="#x2k">Submit</a>
+                <a class="nav-link active" href="#x2k-scroll">Submit</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#example">Example</a>
@@ -646,7 +648,7 @@
 
                             <div class="row justify-content-center align-items-start">
                                 <!--X2K-->
-                                <div class="col-sm-6" id="x2k-dash">
+                                <div class="col-sm-6" id="x2k">
                                     <div class="card">
                                         <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
                                             <button type="button" class="expand" data-toggle="modal"
@@ -676,7 +678,7 @@
                                 </div>
 
                                 <!--ChEA-->
-                                <div class="col-sm-6" id="chea-dash">
+                                <div class="col-sm-6" id="chea">
                                     <div class="card">
                                         <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
                                             <button type="button" class="expand" data-toggle="modal"
@@ -732,7 +734,7 @@
 
                             <!--G2N-->
                             <div class="row justify-content-center align-items-start">
-                                <div class="col-sm-6" id="g2n-dash">
+                                <div class="col-sm-6" id="g2n">
                                     <div class="card">
                                         <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
                                             <button type="button" class="expand" data-toggle="modal"
@@ -761,7 +763,7 @@
                                 </div>
 
                                 <!--KEA-->
-                                <div class="col-sm-6" id="kea-dash">
+                                <div class="col-sm-6" id="kea">
                                     <div class="card">
                                         <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
                                             <button type="button" class="expand" data-toggle="modal"
