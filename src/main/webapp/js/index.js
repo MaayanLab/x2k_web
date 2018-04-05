@@ -70,6 +70,7 @@ $(function () {
 
     // text area listener
     $("#genelist").on("change keyup paste", function () {
+        $('#genelist').val($('#genelist').val().trim().split(/[\s\n,]/).join('\n'));
         var len = cleanArray($('#genelist').val().trim().split('\n')).length;
         
         if (len === 0) {

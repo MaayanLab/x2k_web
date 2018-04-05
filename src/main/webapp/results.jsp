@@ -132,17 +132,6 @@
                                 </button>
                             </div>
                         </div>
-                        <!--                 <div class="card-footer">
-                                            <div class="row justify-content-between">
-                                                <div class="legend col-sm-8">
-                                                </div>
-                                                <div class="download-buttons col-sm-4">
-                                                    <a onclick="exportJson(this, 'X2K', json_file['X2K']);">
-                                                        <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div> -->
                     </div>
                 </div>
 
@@ -195,13 +184,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!--                 <div class="download-buttons card-footer">
-                                            <div class="row justify-content-end">
-                                                <a onclick="exportJson(this, 'ChEA', json_file['ChEA']);">
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
-                                                </a>
-                                            </div>
-                                        </div> -->
                     </div>
                 </div>
             </div>
@@ -237,17 +219,6 @@
                             </div>
 
                         </div>
-                        <!--                 <div class="card-footer">
-                                            <div class="row justify-content-between">
-                                                <div class="legend col-sm-8">
-                                                </div>
-                                                <div class="download-buttons col-sm-4">
-                                                    <a onclick="exportJson(this, 'G2N', json_file['G2N']);">
-                                                        <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div> -->
                     </div>
                 </div>
 
@@ -301,13 +272,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!--                 <div class="download-buttons card-footer">
-                                            <div class="row justify-content-end">
-                                                <a onclick="exportJson(this, 'KEA', json_file['KEA']);">
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm">JSON</button>
-                                                </a>
-                                            </div>
-                                        </div> -->
                     </div>
                 </div>
             </div>
