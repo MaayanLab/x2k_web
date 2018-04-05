@@ -68,11 +68,6 @@ $(function () {
     submitButtonListener("kea_submit", "/X2K/KEA", "#kea-form");
     submitButtonListener("g2n_submit", "/X2K/G2N", "#g2n-form");
 
-    $('.form-check-input').change(function(){
-        cb = $(this);
-        cb.val(cb.prop('checked'));
-    });
-
     // text area listener
     $("#genelist").on("change keyup paste", function () {
         var len = cleanArray($('#genelist').val().trim().split('\n')).length;
@@ -102,9 +97,6 @@ $(function () {
 	        $('#gene-count').text(len + genes);
         }
     });
-
-    // Ensure radio buttons are treated as their value on submit
-    $('input[type="radio"][checked]').change()
 
 //    showToolDesc("x2k");
 //    showToolDesc("chea");
