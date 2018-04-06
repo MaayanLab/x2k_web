@@ -52,7 +52,6 @@
     <script src="js/results.dist.js"></script>
     <script src="js/network.dist.js"></script>
     <script src="js/jquery.atooltip.pack.dist.js"></script>
-    <script src="js/saveSvgAsPng.dist.js"></script>
     <script> var json_file = ${json}; </script>
 
     <script>
