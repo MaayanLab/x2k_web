@@ -39,7 +39,7 @@ public class ResultsServlet extends HttpServlet {
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
 		json.add("availableSettings", availableSettings);
-		req.getRequestDispatcher("/results.jsp").forward(req, resp);
+		req.getRequestDispatcher("/templates/results.jsp").forward(req, resp);
     }
 	
 	@Override
@@ -107,7 +107,7 @@ public class ResultsServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         req.setAttribute("json", json);
-        req.getRequestDispatcher("/results.jsp").forward(req, resp);
+        req.getRequestDispatcher("/templates/results.jsp").forward(req, resp);
 	}
 	
 	// ChEA procedures

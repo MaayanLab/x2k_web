@@ -76,7 +76,7 @@ public class G2NServlet extends HttpServlet {
         json.add("network",makeNetwork(app));
         json.add("input_list",inputList);
         req.setAttribute("json",json);
-        req.getRequestDispatcher("/G2N.jsp").forward(req, resp);
+        req.getRequestDispatcher("/templates/G2N.jsp").forward(req, resp);
     }
 
     @Override

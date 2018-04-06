@@ -44,7 +44,7 @@ public class KEAServlet extends HttpServlet {
         json.add("kinases", app.getTopRanked(10));
         json.add(KEA.SORT_BY, req.getParameter(KEA.SORT_BY));
         req.setAttribute("json",json);
-        req.getRequestDispatcher("/ChEA_and_KEA.jsp").forward(req, resp);
+        req.getRequestDispatcher("/templates/ChEA_and_KEA.jsp").forward(req, resp);
     }
 
     @Override

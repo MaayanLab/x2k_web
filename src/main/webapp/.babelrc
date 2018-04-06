@@ -1,0 +1,11 @@
+{
+    "presets": [
+        ["env", {
+            "targets": {
+                "browsers": ["> 5%"]
+            },
+            "loose": true
+        }]
+    ],
+    "plugins": ["transform-remove-strict-mode"]
+}

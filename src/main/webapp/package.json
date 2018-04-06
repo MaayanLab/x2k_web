@@ -1,0 +1,24 @@
+{
+  "name": "x2k-webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gruntfile.js",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "core-js": "^2.5.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-remove-strict-mode": "0.0.2",
+    "babel-preset-env": "^1.6.1",
+    "grunt": "^1.0.2",
+    "grunt-babel": "^7.0.0",
+    "grunt-browserify": "^5.2.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-less": "^1.4.1",
+    "less": "^3.0.1",
+    "npm": "^5.8.0"
+  }
+}

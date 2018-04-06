@@ -1,11 +1,17 @@
 .classpath
 .DS_Store
+.gradle
 .idea/
 .metadata/
 .project
 .settings/
+*.dist.*
+*.map
 bin
 build
+node_modules/
+npm-debug.log
+package-lock.json
 src/.metadata/
 src/main/webapp/dashboard-mockup/
 target/

@@ -1,3 +1,5 @@
+import { Set } from 'core-js'
+
 function sendToX2K(sig, dir) {
     var file = 'static/ljp/' + dir + '/' + sig.split('.')[0] + '.json';
     $.getJSON(file, function (data) {

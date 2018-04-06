@@ -78,6 +78,6 @@ public class ChEAServlet extends HttpServlet {
         json.add("tfs", app.getTopRanked(10));
         json.add(ChEA.SORT_BY, req.getParameter(ChEA.SORT_BY));
         req.setAttribute("json", json);
-        req.getRequestDispatcher("/ChEA_and_KEA.jsp").forward(req, resp);
+        req.getRequestDispatcher("/templates/ChEA_and_KEA.jsp").forward(req, resp);
     }
 }
