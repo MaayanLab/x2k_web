@@ -54,6 +54,7 @@ module.exports = function(grunt) {
                     src: [
                         '**/*.min.js',
                         '**/*.min.css',
+                        '!dist/**',
                         '!node_modules/**',
                     ],
                     dest: 'dist',
