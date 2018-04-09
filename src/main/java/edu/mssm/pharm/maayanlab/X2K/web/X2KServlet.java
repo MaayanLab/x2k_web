@@ -60,7 +60,7 @@ public class X2KServlet extends HttpServlet {
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
 		json.add("availableSettings", availableSettings);
-		req.getRequestDispatcher("/network.jsp").forward(req, resp);
+		req.getRequestDispatcher("/templates/network.jsp").forward(req, resp);
 //		json.write(resp.getWriter());
 	}
 
@@ -111,7 +111,7 @@ public class X2KServlet extends HttpServlet {
 		json.add("kinases", app.getRankedKinases());
 //		json.write(resp.getWriter());
 		req.setAttribute("json",json);
-		req.getRequestDispatcher("/network.jsp").forward(req, resp);
+		req.getRequestDispatcher("/templates/network.jsp").forward(req, resp);
 	}
 
 	private static void readAndSetSettings(HttpServletRequest req, X2K app) {

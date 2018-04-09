@@ -1,3 +1,5 @@
+var saveSvgAsPng = require('save-svg-as-png').saveSvgAsPng;
+
 var Base64 = {
 	// private property
 	_keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",

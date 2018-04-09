@@ -43,20 +43,19 @@
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 
     <!--Own-->
-    <link rel="stylesheet" href="css/bargraph.css">
-    <link rel="stylesheet" href="css/network.css">
-    <link rel="stylesheet" href="css/atooltip.css">
-    <link rel="stylesheet" href="css/results.css">
-    <link rel="stylesheet" href="css/results_index.css">
-    <link rel="stylesheet" href="css/index_beta.css">
+    <link rel="stylesheet" href="css/bargraph.dist.css">
+    <link rel="stylesheet" href="css/network.dist.css">
+    <link rel="stylesheet" href="css/atooltip.dist.css">
+    <link rel="stylesheet" href="css/results.dist.css">
+    <link rel="stylesheet" href="css/results_index.dist.css">
+    <link rel="stylesheet" href="css/index_beta.dist.css">
 
-    <script src="js/bargraph.js"></script>
-    <script src="js/results.js"></script>
-    <script src="js/results_index.js"></script>
-    <script src="js/network.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/ljp.js"></script>
-    <script src="js/saveSvgAsPng.js"></script>
+    <script src="js/bargraph.dist.js"></script>
+    <script src="js/results.dist.js"></script>
+    <script src="js/results_index.dist.js"></script>
+    <script src="js/network.dist.js"></script>
+    <script src="js/index.dist.js"></script>
+    <script src="js/ljp.dist.js"></script>
 
     <!--GA-->
     <script>
@@ -2039,10 +2038,11 @@ C1d' \
                     <code>java -jar L2N.jar gene_list [background_file...] output.xml</code>
                 </p>
             </div>
+
             <div id="datasets">
                 <h4>Download datasets</h4>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                         <h6>Protein-Protein Interaction</h6>
                         <div class="table-responsive">
                             <table class="table table-sm">
@@ -2050,6 +2050,8 @@ C1d' \
                                 <tr>
                                     <th>Link</th>
                                     <th>PPIs</th>
+                                    <th>Proteins</th>
+                                    <th>PMIDs</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -2106,7 +2108,7 @@ C1d' \
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                         <h6>Transcriptional Regulation</h6>
                         <div class="table-responsive">
                             <table class="table table-sm">
@@ -2114,6 +2116,8 @@ C1d' \
                                 <tr>
                                     <th>Link</th>
                                     <th>TFs</th>
+                                    <th>Targets</th>
+                                    <th>PMIDs</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -2138,20 +2142,72 @@ C1d' \
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                         <h6>Kinome Regulation</h6>
                         <div class="table-responsive">
                             <table class="table table-sm">
                                 <thead>
                                 <tr>
                                     <th>Link</th>
-                                    <th>Kinase-substrate pairs</th>
+                                    <th>Kinase-<br class="visible-sm" />substrates</th>
+                                    <th>Kinases</th>
+                                    <th>Substrates</th>
+                                    <th>PMIDs</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                     <td><a href="datasets/KEA_2017.zip">KEA 2017</a></td>
                                     <td>11,420</td>
+                                </tr>
+                                <tr>
+                                    <td>HPRD</td>
+                                    <td>4833</td>
+                                    <td>176</td>
+                                    <td>2044</td>
+                                    <td>257</td>
+                                </tr>
+                                <tr>
+                                    <td>iPTMnet</td>
+                                    <td>5153</td>
+                                    <td>161</td>
+                                    <td>2135</td>
+                                    <td>716</td>
+                                </tr>
+                                <tr>
+                                    <td>iREF</td>
+                                    <td>27097</td>
+                                    <td>437</td>
+                                    <td>7915</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>MINT</td>
+                                    <td>1314</td>
+                                    <td>90</td>
+                                    <td>879</td>
+                                    <td>450</td>
+                                </tr>
+                                <tr>
+                                    <td>NetworkIN_2017</td>
+                                    <td>169059</td>
+                                    <td>207</td>
+                                    <td>8308</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Phospho.ELM</td>
+                                    <td>1149</td>
+                                    <td>68</td>
+                                    <td>714</td>
+                                    <td>1458</td>
+                                </tr>
+                                <tr>
+                                    <td>PhosphositePlus</td>
+                                    <td>6434</td>
+                                    <td>168</td>
+                                    <td>2680</td>
+                                    <td></td>
                                 </tr>
                                 </tbody>
                             </table>

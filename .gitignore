@@ -1,5 +1,8 @@
+*.dist.*
+*.map
 .DS_Store
 .classpath
+.gradle
 .idea/
 .ipynb_checkpoints/
 .metadata/
@@ -7,7 +10,10 @@
 .settings/
 bin
 build
+node_modules/
+npm-debug.log
 out
+package-lock.json
 src/.metadata/
 src/main/webapp/dashboard-mockup/
 target/

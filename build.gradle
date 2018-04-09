@@ -1,24 +1,31 @@
+group = 'edu.mssm.pharm.maayanlab.x2k'
+description = 'X2K'
+
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        } 
     }
 
     dependencies {
         classpath 'com.bmuschko:gradle-tomcat-plugin:2.4.2'
+        classpath "com.moowork.gradle:gradle-node-plugin:1.2.0"
     }
 }
-
-apply plugin: 'com.bmuschko.tomcat'
 
 repositories {
     mavenLocal()
     mavenCentral()
 }
 
-group = 'edu.mssm.pharm.maayanlab.x2k'
 apply plugin: 'war'
+apply plugin: 'java'
+apply plugin: 'com.moowork.node'
+apply plugin: 'com.moowork.grunt'
+apply plugin: 'com.bmuschko.tomcat'
 
-description = 'X2K'
 dependencies {
   def tomcatVersion = '8.0.42'
   tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
@@ -44,6 +51,33 @@ dependencies {
     providedCompile group: 'org.apache.tomcat', name: 'tomcat-jdbc', version:"${tomcatVersion}"
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version:'3.0.1'
 }
+
+def webappDir = "${project.projectDir}/src/main/webapp/"
+
+node {
+  download = true
+  nodeModulesDir = file(webappDir)
+}
+
+grunt {
+    workDir = file(webappDir)
+}
+
+task prepareNpm(type: NpmTask) {
+    inputs.file("${webappDir}/package.json")
+    outputs.dir("${webappDir}/node_modules")
+    args = [ "install" ]
+}
+
+task buildGrunt(type: GruntTask) {
+    inputs.file("${webappDir}/gruntfile.js")
+    inputs.files fileTree(webappDir).include('**/*.js').include('**/*.css').exclude('**/*.dist.*')
+    outputs.files fileTree(webappDir).include('**/*.dist.*')
+    dependsOn prepareNpm
+    args = [ "build" ]
+}
+
+build.dependsOn buildGrunt
 
 tomcat {
     httpPort = 8080
