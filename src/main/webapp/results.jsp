@@ -81,21 +81,21 @@
 </nav>
 
 <!--Body-->
-<div class="container-fluid bg-light" id="results-dashboard">
+<div class="container-fluid bg-light mx-4" id="results-dashboard">
     <div class="row justify-content-center">
-    	<div class="col-sm-1">
-		<div class="row">
-			<div class="card" id="genelist-container">
-				<div class="card-header" id="genelist-header">
-					Input list
-				</div>
-				<div class="card-block">
-					<textarea class="form-control-sm" id="genelist" readonly></textarea>
-				</div>
-			</div>
-		</div>
-    	</div>
-        <div class="col-sm-11">
+<!--     	<div class="col-sm-1">
+    		<div class="row">
+    			<div class="card" id="genelist-container">
+    				<div class="card-header" id="genelist-header">
+    					Input list
+    				</div>
+    				<div class="card-block">
+    					<textarea class="form-control-sm" id="genelist" readonly></textarea>
+    				</div>
+    			</div>
+    		</div>
+    	</div> -->
+        <div class="col-12">
             <div class="row justify-content-center align-items-start">
                 <!--X2K-->
                 <div class="col-sm-6" id="x2k">
