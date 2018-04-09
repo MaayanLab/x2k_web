@@ -133,9 +133,19 @@ function createTable(json, container) {
         dom: 'B<"small"f>rt<"small row"ip>',
         buttons: [
             'copy',
-            'excel',
+            {
+				extend: 'excel',
+				exportOptions: {
+					columns: [0, 1, 2, 3, 4]
+				}
+			},
             'csv',
-            'print'
+            {
+				extend: 'print',
+				exportOptions: {
+					columns: [0, 1, 2, 3, 4]
+				}
+			},
         ],
         "columnDefs": [
 	        { "sortable": false, targets: 5 }
