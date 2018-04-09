@@ -72,7 +72,7 @@ task prepareNpm(type: NpmTask) {
 task buildGrunt(type: GruntTask) {
     inputs.file("${webappDir}/gruntfile.js")
     inputs.files fileTree(webappDir).include('**/*.js').include('**/*.css').exclude('dist/**')
-    outputs.fileTree("${webappDir}/dist")
+    outputs.dir("${webappDir}/dist")
     dependsOn prepareNpm
     args = [ "build" ]
 }
