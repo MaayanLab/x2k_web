@@ -1,4 +1,4 @@
-var saveSvgAsPng = require('save-svg-as-png')
+var saveSvgAsPng = require('save-svg-as-png').saveSvgAsPng;
 
 var Base64 = {
 	// private property

@@ -2,12 +2,17 @@ var path = require('path')
 
 module.exports = function(grunt) {
 	grunt.initConfig({
-        babel: {
-            options: {
-                sourceMap: true,
-                presets: ['env']
-            },
+        browserify: {
             dist: {
+                options: {
+                    transform: [
+                        ['babelify', {
+                            sourceMap: true,
+                            presets: ['env'],
+                        }],
+                        'windowify',
+                    ]
+                },
                 files: [{
                     expand: true,
                     cwd: '.',
@@ -57,11 +62,11 @@ module.exports = function(grunt) {
 		}
 	})
 
-	grunt.loadNpmTasks('grunt-babel')
+	grunt.loadNpmTasks('grunt-browserify')
 	grunt.loadNpmTasks('grunt-contrib-less')
 
 	grunt.registerTask('build', [
-		'babel',
+		'browserify',
 		'less',
 	])
 }
