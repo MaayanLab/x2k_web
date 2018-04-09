@@ -5,10 +5,9 @@
 .metadata/
 .project
 .settings/
-*.dist.*
-*.map
 bin
 build
+dist/
 node_modules/
 npm-debug.log
 out

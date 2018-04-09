@@ -13,20 +13,20 @@
     <title>X2K Results</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="cytoscape/jquery.qtip.min.css">
+    <link rel="stylesheet" href="dist/cytoscape/jquery.qtip.min.css">
     <%--need this for the export_json function--%>
-    <script src="js/exportJson.js"></script>
-    <script src="js/network.js"></script>
+    <script src="dist/js/exportJson.js"></script>
+    <script src="dist/js/network.js"></script>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-578e939ffe83e029"></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="cytoscape/jquery.min.js"></script>
-    <script src="cytoscape/cytoscape.min.js"></script>
-    <script src="cytoscape/jquery.qtip.min.js"></script>
-    <script src="cytoscape/cytoscape-qtip.js"></script>
-    <script src="cytoscape/cola.v3.min.js"></script>
-    <script src="cytoscape/cytoscape-cola.js"></script>
+    <script src="dist/cytoscape/jquery.min.js"></script>
+    <script src="dist/cytoscape/cytoscape.min.js"></script>
+    <script src="dist/cytoscape/jquery.qtip.min.js"></script>
+    <script src="dist/cytoscape/cytoscape-qtip.js"></script>
+    <script src="dist/cytoscape/cola.v3.min.js"></script>
+    <script src="dist/cytoscape/cytoscape-cola.js"></script>
 </head>
 
 

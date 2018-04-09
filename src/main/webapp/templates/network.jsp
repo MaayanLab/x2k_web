@@ -12,10 +12,10 @@
     <title>X2K Results</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="cytoscape/jquery.qtip.min.css">
+    <link rel="stylesheet" href="dist/cytoscape/jquery.qtip.min.css">
 
-    <script src="js/exportJson.js"></script>
-    <script src="js/network.js"></script>
+    <script src="dist/js/exportJson.js"></script>
+    <script src="dist/js/network.js"></script>
 
 	<script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

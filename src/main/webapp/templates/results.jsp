@@ -42,16 +42,16 @@
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 
     <!--Own-->
-    <link rel="stylesheet" href="css/bargraph.dist.css">
-    <link rel="stylesheet" href="css/network.dist.css">
-    <link rel="stylesheet" href="css/atooltip.dist.css">
-    <link rel="stylesheet" href="css/results.dist.css">
+    <link rel="stylesheet" href="dist/css/bargraph.css">
+    <link rel="stylesheet" href="dist/css/network.css">
+    <link rel="stylesheet" href="dist/css/atooltip.css">
+    <link rel="stylesheet" href="dist/css/results.css">
 
 
-    <script src="js/bargraph.dist.js"></script>
-    <script src="js/results.dist.js"></script>
-    <script src="js/network.dist.js"></script>
-    <script src="js/jquery.atooltip.pack.dist.js"></script>
+    <script src="dist/js/bargraph.js"></script>
+    <script src="dist/js/results.js"></script>
+    <script src="dist/js/network.js"></script>
+    <script src="dist/js/jquery.atooltip.pack.js"></script>
     <script> var json_file = ${json}; </script>
 
     <script>

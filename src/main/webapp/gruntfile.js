@@ -18,24 +18,17 @@ module.exports = function(grunt) {
                     cwd: '.',
                     src: [
                         '**/*.js',
-                        '!**/*.dist.js',
+                        '!dist/**',
                         '!**/*.min.js',
                         '!gruntfile.js',
                         '!node_modules/**',
                     ],
-                    dest: '.',
-                    rename: function(dest, matchedSrcPath, options) {
-                        var base = path.join(
-                            path.dirname(matchedSrcPath),
-                            path.basename(matchedSrcPath, '.js')
-                        )
-                        return path.join(dest, base + '.dist.js')
-                    }
+                    dest: 'dist',
                 }]
             }
         },
 		less: {
-			"default": {
+			dist: {
 				options: {
                     yuicompress: true,
                     sourceMap: true
@@ -45,28 +38,37 @@ module.exports = function(grunt) {
                     cwd: '.',
                     src: [
                         '**/*.css',
-                        '!**/*.dist.css',
+                        '!dist/**',
                         '!**/*.min.css',
                         '!node_modules/**',
                     ],
-                    dest: '.',
-                    rename: function(dest, matchedSrcPath, options) {
-                        var base = path.join(
-                            path.dirname(matchedSrcPath),
-                            path.basename(matchedSrcPath, '.css')
-                        )
-                        return path.join(dest, base + '.dist.css')
-                    }
+                    dest: 'dist',
                 }]
 			}
-		}
+        },
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '.',
+                    src: [
+                        '**/*.min.js',
+                        '**/*.min.css',
+                        '!node_modules/**',
+                    ],
+                    dest: 'dist',
+                }]
+            }
+        }
 	})
 
 	grunt.loadNpmTasks('grunt-browserify')
 	grunt.loadNpmTasks('grunt-contrib-less')
+	grunt.loadNpmTasks('grunt-contrib-copy')
 
 	grunt.registerTask('build', [
 		'browserify',
 		'less',
+		'copy',
 	])
 }
