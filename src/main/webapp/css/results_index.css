@@ -1,9 +1,10 @@
 .nav {
-	font-size: 1rem;
+	/*font-size: 1rem;*/
 }
 
 .nav-item {
-	margin-top: unset;
+    /*margin-top: unset;*/
+	margin-top: 0.25rem;
 }
 
 #genelist {

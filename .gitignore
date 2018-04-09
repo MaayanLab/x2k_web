@@ -11,6 +11,7 @@ bin
 build
 node_modules/
 npm-debug.log
+out
 package-lock.json
 src/.metadata/
 src/main/webapp/dashboard-mockup/

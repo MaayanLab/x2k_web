@@ -102,10 +102,20 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
                             <button type="button" class="expand" data-toggle="modal"
                                     data-target="#dashboardFullModal"
-                                    data-whatever="#x2k-network X2K"><i class="fa fa-expand" aria-hidden="true"></i>
+                                    data-whatever="#x2k-network"
+                                    data-modal-title="Expression2Kinases">
+                                    <i class="fa fa-expand" aria-hidden="true"></i>
                             </button>
-                            <a class="navbar-brand" href="#">
-                                X2K</a>
+                            <a class="navbar-brand" href="javascript:void(0)">
+                                Expression2Kinases</a>
+
+                            <!-- Info Popover -->
+                            <button class="info-popover-button ml-auto"
+                                    data-toggle="popover"
+                                    title="What is Expression2Kinases?"
+                                    data-content="asd">
+                                <i class="fa fa-question-circle fa-2x text-muted"></i>
+                            </button>
                         </nav>
                         <div id="x2k-network" class="card-body">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg" id="x2ksvg" width="100%"
@@ -140,24 +150,37 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
                             <button type="button" class="expand" data-toggle="modal"
                                     data-target="#dashboardFullModal"
-                                    data-whatever="#chea-results ChEA">
+                                    data-whatever="#chea-results"
+                                    data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
                                 <i class="fa fa-expand" aria-hidden="true"></i>
                             </button>
-                            <a class="navbar-brand" href="#">
-                                ChEA</a>
-                            <a class="nav-item nav-link active" id="nav-chea-bar-tab" data-toggle="tab"
+                            <a class="navbar-brand" href="javascript:void(0)">
+                                Transcription Factor Enrichment Analysis (TFEA)</a>
+
+                            <a class="nav-item nav-link active dash-nav-item dash-nav-link"
+                               id="nav-chea-bar-tab" data-toggle="tab"
                                href="#nav-chea-bar"
                                role="tab" aria-controls="nav-chea-bar" aria-expanded="true">Bargraph</a>
-                            <a class="nav-item nav-link" id="nav-chea-table-tab" data-toggle="tab"
+                            <a class="nav-item nav-link dash-nav-item dash-nav-link"
+                               id="nav-chea-table-tab" data-toggle="tab"
                                href="#nav-chea-table"
                                role="tab"
                                aria-controls="nav-chae-table">Table</a>
+
+                            <!-- Info Popover -->
+                            <button class="info-popover-button ml-auto"
+                                    data-toggle="popover"
+                                    title="What is Transcription Factor Enrichment Analysis?"
+                                    data-content="asd">
+                                <i class="fa fa-question-circle fa-2x text-muted"></i>
+                            </button>
                         </nav>
                         <div id="chea-results" class="card-body">
                             <div class="tab-content" id="nav-tabContent-chea">
                                 <div class="tab-pane fade show active" id="nav-chea-bar" role="tabpanel"
                                      aria-labelledby="nav-chea-bar-tab">
                                     <div id="bargraph-chea" class="bargraph">
+                                        <span style="font-size: 0.7rem;" class="my-auto mr-1 mt-2">Sort by:</span>
                                         <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
                                             <!-- Classes like 'chea-chart-zscore' define sorting type in bargraph.js -->
                                             <input type="button"
@@ -194,9 +217,19 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
                             <button type="button" class="expand" data-toggle="modal"
                                     data-target="#dashboardFullModal"
-                                    data-whatever="#network-g2n G2N"><i class="fa fa-expand" aria-hidden="true"></i>
+                                    data-whatever="#network-g2n"
+                                    data-modal-title="Protein-Protein Interaction Expansion">
+                                    <i class="fa fa-expand" aria-hidden="true"></i>
                             </button>
-                            <a class="navbar-brand" href="#">G2N</a>
+                            <a class="navbar-brand" href="javascript:void(0)">Protein-Protein Interaction Expansion</a>
+
+                            <!-- Info Popover -->
+                            <button class="info-popover-button ml-auto"
+                                    data-toggle="popover"
+                                    title="What is Protein-Protein Interaction Expansion?"
+                                    data-content="asd">
+                                <i class="fa fa-question-circle fa-2x text-muted"></i>
+                            </button>
                         </nav>
                         <div id="network-g2n" class="card-body">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg" width="100%"
@@ -206,7 +239,7 @@
                                     <svg height="10" width="10">
                                         <circle cx="5" cy="5" r="5" fill="#1F77B4"/>
                                     </svg>
-                                    Seed protein
+                                    Input protein
                                 </button>
                                 <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
                                     <svg height="10" width="10">
@@ -227,18 +260,31 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
                             <button type="button" class="expand" data-toggle="modal"
                                     data-target="#dashboardFullModal"
-                                    data-whatever="#kea-results KEA">
+                                    data-whatever="#kea-results"
+                                    data-modal-title="Kinase Enrichment Analysis (KEA)">
                                 <i class="fa fa-expand" aria-hidden="true"></i>
                             </button>
-                            <a class="navbar-brand" href="#">
-                                KEA</a>
-                            <a class="nav-item nav-link active" id="nav-kea-bar-tab" data-toggle="tab"
+                            <a class="navbar-brand" href="javascript:void(0)">
+                                Kinase Enrichment Analysis (KEA)</a>
+
+                            <a class="nav-item nav-link active dash-nav-item dash-nav-link"
+                               id="nav-kea-bar-tab" data-toggle="tab"
                                href="#nav-kea-bar"
                                role="tab" aria-controls="nav-kea-bar" aria-expanded="true">Bargraph</a>
-                            <a class="nav-item nav-link" id="nav-kea-table-tab" data-toggle="tab"
+                            <a class="nav-item nav-link"
+                               id="nav-kea-table-tab dash-nav-item dash-nav-link" data-toggle="tab"
                                href="#nav-kea-table"
                                role="tab"
                                aria-controls="nav-kea-table">Table</a>
+
+                            <!-- Info Popover -->
+                            <button class="info-popover-button ml-auto"
+                                    data-toggle="popover"
+                                    title="What is Kinase Enrichment Analysis?"
+                                    data-content="asd">
+                                <i class="fa fa-question-circle fa-2x text-muted"></i>
+                            </button>
+
                         </nav>
 
                         <div id="kea-results" class="card-body">
@@ -246,6 +292,7 @@
                                 <div class="tab-pane fade show active" id="nav-kea-bar" role="tabpanel"
                                      aria-labelledby="nav-kea-bar-tab">
                                     <div id="bargraph-kea" class="bargraph">
+                                        <span style="font-size: 0.7rem;" class="my-auto mr-1 mt-2">Sort by:</span>
                                         <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
                                             <!-- Classes like 'kea-chart-zscore' define sorting type in bargraph.js -->
                                             <input type="button"
