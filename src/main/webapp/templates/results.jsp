@@ -113,7 +113,7 @@
                             <button class="info-popover-button ml-auto"
                                     data-toggle="popover"
                                     title="What is Expression2Kinases?"
-                                    data-content="asd">
+                                    data-content="Coming soon...">
                                 <i class="fa fa-question-circle fa-2x text-muted"></i>
                             </button>
                         </nav>
@@ -171,7 +171,7 @@
                             <button class="info-popover-button ml-auto"
                                     data-toggle="popover"
                                     title="What is Transcription Factor Enrichment Analysis?"
-                                    data-content="asd">
+                                    data-content="Coming soon...">
                                 <i class="fa fa-question-circle fa-2x text-muted"></i>
                             </button>
                         </nav>
@@ -227,7 +227,7 @@
                             <button class="info-popover-button ml-auto"
                                     data-toggle="popover"
                                     title="What is Protein-Protein Interaction Expansion?"
-                                    data-content="asd">
+                                    data-content="Coming soon...">
                                 <i class="fa fa-question-circle fa-2x text-muted"></i>
                             </button>
                         </nav>
@@ -281,7 +281,7 @@
                             <button class="info-popover-button ml-auto"
                                     data-toggle="popover"
                                     title="What is Kinase Enrichment Analysis?"
-                                    data-content="asd">
+                                    data-content="Coming soon...">
                                 <i class="fa fa-question-circle fa-2x text-muted"></i>
                             </button>
 
