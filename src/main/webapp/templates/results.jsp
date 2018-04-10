@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/1aa9a9820c.js"></script>	
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <!--Datatables-->
@@ -104,7 +104,7 @@
                                     data-target="#dashboardFullModal"
                                     data-whatever="#x2k-network"
                                     data-modal-title="Expression2Kinases">
-                                    <i class="fa fa-expand" aria-hidden="true"></i>
+                                <i class="fas fa-expand-arrows-alt"></i>
                             </button>
                             <a class="navbar-brand" href="javascript:void(0)">
                                 Expression2Kinases</a>
@@ -152,7 +152,7 @@
                                     data-target="#dashboardFullModal"
                                     data-whatever="#chea-results"
                                     data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
-                                <i class="fa fa-expand" aria-hidden="true"></i>
+                                <i class="fas fa-expand-arrows-alt"></i>
                             </button>
                             <a class="navbar-brand" href="javascript:void(0)">
                                 Transcription Factor Enrichment Analysis (TFEA)</a>
@@ -219,7 +219,7 @@
                                     data-target="#dashboardFullModal"
                                     data-whatever="#network-g2n"
                                     data-modal-title="Protein-Protein Interaction Expansion">
-                                    <i class="fa fa-expand" aria-hidden="true"></i>
+                                <i class="fas fa-expand-arrows-alt"></i>
                             </button>
                             <a class="navbar-brand" href="javascript:void(0)">Protein-Protein Interaction Expansion</a>
 
@@ -262,7 +262,7 @@
                                     data-target="#dashboardFullModal"
                                     data-whatever="#kea-results"
                                     data-modal-title="Kinase Enrichment Analysis (KEA)">
-                                <i class="fa fa-expand" aria-hidden="true"></i>
+                                <i class="fas fa-expand-arrows-alt"></i>
                             </button>
                             <a class="navbar-brand" href="javascript:void(0)">
                                 Kinase Enrichment Analysis (KEA)</a>

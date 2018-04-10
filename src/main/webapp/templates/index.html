@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/1aa9a9820c.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
 
     <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -657,7 +657,7 @@
                                                     data-target="#dashboardFullModal"
                                                     data-whatever="#x2k-network X2K"
                                                     data-modal-title="Expression2Kinases">
-                                                    <i class="fa fa-expand" aria-hidden="true"></i>
+                                                    <i class="fas fa-expand-arrows-alt"></i>
                                             </button>
                                             <a class="navbar-brand" href="javascript:void(0)">
                                                 Expression2Kinases</a>
@@ -674,7 +674,19 @@
                                         <div id="x2k-network" class="card-body">
                                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg"
                                                  width="100%"
-                                                 height="100%" viewBox="-20 0 1020 600"></svg>
+                                                 height="100%" viewBox="-20 0 1020 600">
+                                                <g class="zoom-controls" transform="translate(10, 10)">
+                                                    <g id="zoom-in" transform="translate(0, 0)">
+                                                        <rect width="20" height="20"></rect>
+                                                        <line x1="5" y1="10" x2="15" y2="10"></line>
+                                                        <line x1="10" y1="5" x2="10" y2="15"></line>
+                                                    </g>
+                                                    <g id="zoom-out" transform="translate(0, 20)">
+                                                        <rect width="20" height="20"></rect>
+                                                        <line x1="5" y1="10" x2="15" y2="10"></line>
+                                                    </g>
+                                                </g>
+                                            </svg>
                                         </div>
                                     </div>
                                 </div>
@@ -687,7 +699,7 @@
                                                     data-target="#dashboardFullModal"
                                                     data-whatever="#chea-results ChEA"
                                                     data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
-                                                <i class="fa fa-expand" aria-hidden="true"></i>
+                                                <i class="fas fa-expand-arrows-alt"></i>
                                             </button>
                                             <a class="navbar-brand" href="javascript:void(0)">
                                                 Transcription Factor Enrichment Analysis (TFEA)</a>
@@ -755,7 +767,7 @@
                                                     data-target="#dashboardFullModal"
                                                     data-whatever="#network-g2n G2N"
                                                     data-modal-title="Protein-Protein Interaction Expansion">
-                                                    <i class="fa fa-expand" aria-hidden="true"></i>
+                                                <i class="fas fa-expand-arrows-alt"></i>
                                             </button>
                                             <a class="navbar-brand" href="javascript:void(0)">Protein-Protein Interaction Expansion</a>
 
@@ -772,7 +784,8 @@
                                         <div id="network-g2n" class="card-body">
                                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg"
                                                  width="100%"
-                                                 height="100%" viewBox="-20 0 1020 600"></svg>
+                                                 height="100%" viewBox="-20 0 1020 600">
+                                            </svg>
                                         </div>
                                     </div>
                                 </div>
@@ -785,7 +798,7 @@
                                                     data-target="#dashboardFullModal"
                                                     data-whatever="#kea-results KEA"
                                                     data-modal-title="Kinase Enrichment Analysis (KEA)">
-                                                <i class="fa fa-expand" aria-hidden="true"></i>
+                                                <i class="fas fa-expand-arrows-alt"></i>
                                             </button>
                                             <a class="navbar-brand" href="javascript:void(0)">
                                                 Kinase Enrichment Analysis (KEA)</a>

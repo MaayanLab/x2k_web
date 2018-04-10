@@ -1,5 +1,7 @@
-.classpath
+*.dist.*
+*.iml
 .DS_Store
+.classpath
 .gradle
 .idea/
 .ipynb_checkpoints/
@@ -11,6 +13,7 @@ build
 dist/
 node_modules/
 npm-debug.log
+out
 out
 package-lock.json
 src/.metadata/
