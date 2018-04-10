@@ -120,6 +120,10 @@ function drawBargraph(chart, bargraph_data) {
 	    .enter()
 	    .append("g")
 	    .attr("class", "bar-container");
+
+	// Determine whether network is kinase or TF - please change this is a terrible hack :)
+	var network_type = bargraph_data[0]['name'].indexOf('_') > -1 ? 'tf' : 'kinase',
+		fill = network_type === 'tf' ? "#FF546D" : "#6B9BC3";
 	
 	g.selectAll(".bar-container")
 	    .append("rect")
@@ -128,7 +132,7 @@ function drawBargraph(chart, bargraph_data) {
         .attr("y", function(d) { return y(d.name); })
         .attr("width", function(d) { return x(-Math.log10(d.pvalue)); })
         .attr("height", y.bandwidth())
-        .attr("fill", "#6B9BC3");
+        .attr("fill", fill);
 	
 	g.selectAll(".bar-container")
 		.append("text")

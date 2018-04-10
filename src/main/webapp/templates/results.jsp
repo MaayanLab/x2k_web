@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/1aa9a9820c.js"></script>	
+    <script src="https://use.fontawesome.com/1aa9a9820c.js"></script>   
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <!--Datatables-->
@@ -51,6 +51,7 @@
     <script src="js/bargraph.dist.js"></script>
     <script src="js/results.dist.js"></script>
     <script src="js/network.dist.js"></script>
+    <script src="js/network.js"></script>
     <script src="js/jquery.atooltip.pack.dist.js"></script>
     <script> var json_file = ${json}; </script>
 
@@ -77,85 +78,39 @@
     <a class="navbar-brand" href="/X2K">
         <img id="logo" src="static/logo.png" height="50px" class="d-inline-block full-logo">
     </a>
+    <!-- <button class="btn btn-primary lead">View Input Genes</button> -->
 </nav>
 
 <!--Body-->
-<div class="container-fluid bg-light mx-4" id="results-dashboard">
+<div class="container-fluid bg-light px-5" id="results-dashboard">
     <div class="row justify-content-center">
-<!--     	<div class="col-sm-1">
-    		<div class="row">
-    			<div class="card" id="genelist-container">
-    				<div class="card-header" id="genelist-header">
-    					Input list
-    				</div>
-    				<div class="card-block">
-    					<textarea class="form-control-sm" id="genelist" readonly></textarea>
-    				</div>
-    			</div>
-    		</div>
-    	</div> -->
-        <div class="col-12">
-            <div class="row justify-content-center align-items-start">
-                <!--X2K-->
-                <div class="col-sm-6" id="x2k">
-                    <div class="card">
-                        <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
-                            <button type="button" class="expand" data-toggle="modal"
-                                    data-target="#dashboardFullModal"
-                                    data-whatever="#x2k-network"
-                                    data-modal-title="Expression2Kinases">
-                                    <i class="fa fa-expand" aria-hidden="true"></i>
-                            </button>
-                            <a class="navbar-brand" href="javascript:void(0)">
-                                Expression2Kinases</a>
-
-                            <!-- Info Popover -->
-                            <button class="info-popover-button ml-auto"
-                                    data-toggle="popover"
-                                    title="What is Expression2Kinases?"
-                                    data-content="asd">
-                                <i class="fa fa-question-circle fa-2x text-muted"></i>
-                            </button>
-                        </nav>
-                        <div id="x2k-network" class="card-body">
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg" id="x2ksvg" width="100%"
-                                 height="100%" viewBox="-20 0 1020 600"></svg>
-                            <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#FF546D"/>
-                                    </svg>
-                                    Transcription factor
-                                </button>
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#FF7F0E"/>
-                                    </svg>
-                                    Intermediate protein
-                                </button>
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#1F77B4"/>
-                                    </svg>
-                                    Kinase
-                                </button>
-                            </div>
-                        </div>
+<!--        <div class="col-sm-1">
+            <div class="row">
+                <div class="card" id="genelist-container">
+                    <div class="card-header" id="genelist-header">
+                        Input list
+                    </div>
+                    <div class="card-block">
+                        <textarea class="form-control-sm" id="genelist" readonly></textarea>
                     </div>
                 </div>
+            </div>
+        </div> -->
+        <div class="col-12">
+            <div class="row justify-content-center align-items-start">
 
                 <!--ChEA-->
-                <div class="col-sm-6" id="chea">
+                <div class="col-xl-6" id="chea">
                     <div class="card">
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
-                            <button type="button" class="expand" data-toggle="modal"
-                                    data-target="#dashboardFullModal"
-                                    data-whatever="#chea-results"
-                                    data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
-                                <i class="fa fa-expand" aria-hidden="true"></i>
-                            </button>
-                            <a class="navbar-brand" href="javascript:void(0)">
-                                Transcription Factor Enrichment Analysis (TFEA)</a>
+
+                            <!-- Title -->
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#chea-results" data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
+                                <button type="button" class="expand">
+                                    <i class="fa fa-expand" aria-hidden="true"></i>
+                                </button>
+                                <a class="navbar-brand" href="javascript:void(0)"><b>Step 1.</b> Transcription Factor Enrichment Analysis (TFEA)</a>
+                            </div>
 
                             <a class="nav-item nav-link active dash-nav-item dash-nav-link"
                                id="nav-chea-bar-tab" data-toggle="tab"
@@ -170,10 +125,15 @@
                             <!-- Info Popover -->
                             <button class="info-popover-button ml-auto"
                                     data-toggle="popover"
+                                    data-html="true"
+                                    data-offset="50"
+                                    data-template='<div class="popover x2k-card-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
                                     title="What is Transcription Factor Enrichment Analysis?"
-                                    data-content="asd">
+                                    data-placement="left"
+                                    data-content="<div class='mb-3'>Transcription Factor Enrichment Analysis (TFEA) is the first step of the X2K pipeline. It <b>predicts transcription factors which regulate the input gene list</b> by performing enrichment analysis on data integrated from ChIP-X experiments using ChEA.</div><div class='mb-3'>A ranked list of the <b>top predicted transcription factors</b> is displayed below. The results are made available through an interactive barchart and can be downloaded as a table.</div><div>These genes are used as input for the next step of the X2K pipeline, the <b>protein-protein interaction expansion</b>.</div>">
                                 <i class="fa fa-question-circle fa-2x text-muted"></i>
                             </button>
+
                         </nav>
                         <div id="chea-results" class="card-body">
                             <div class="tab-content" id="nav-tabContent-chea">
@@ -208,28 +168,32 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!--G2N-->
-            <div class="row justify-content-center align-items-start">
-                <div class="col-sm-6" id="g2n">
+                <!--G2N-->
+                <div class="col-xl-6" id="g2n">
                     <div class="card">
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
-                            <button type="button" class="expand" data-toggle="modal"
-                                    data-target="#dashboardFullModal"
-                                    data-whatever="#network-g2n"
-                                    data-modal-title="Protein-Protein Interaction Expansion">
-                                    <i class="fa fa-expand" aria-hidden="true"></i>
-                            </button>
-                            <a class="navbar-brand" href="javascript:void(0)">Protein-Protein Interaction Expansion</a>
+
+                            <!-- Title -->
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#network-g2n" data-modal-title="Protein-Protein Interaction Expansion">
+                                <button type="button" class="expand">
+                                        <i class="fa fa-expand" aria-hidden="true"></i>
+                                </button>
+                                <a class="navbar-brand" href="javascript:void(0)"><b>Step 2.</b> Protein-Protein Interaction Expansion</a>
+                            </div>
 
                             <!-- Info Popover -->
                             <button class="info-popover-button ml-auto"
                                     data-toggle="popover"
+                                    data-html="true"
+                                    data-offset="50"
+                                    data-template='<div class="popover x2k-card-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
                                     title="What is Protein-Protein Interaction Expansion?"
-                                    data-content="asd">
+                                    data-placement="left"
+                                    data-content="<div class='mb-3'>Protein-Protein Interaction Expansion is the second step of the X2K pipeline. It <b>expands the regulatory network of the input gene list</b> by identifying proteins which physically interact with the top predicted transcription factors using Genes2Networks (G2N). To achieve this, data from Protein-Protein Interaction databases is integrated.</div><div class='mb-3'>A <b>network of transcription factors and interacting proteins is displayed below.</b> Transcription factors are shown in pink, physical interactors are shown in orange.</div><div>This network is used as input for the next step of the X2K pipeline, the <b>Kinase Enrichment Analysis</b>.</div>">
                                 <i class="fa fa-question-circle fa-2x text-muted"></i>
                             </button>
+
                         </nav>
                         <div id="network-g2n" class="card-body">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg" width="100%"
@@ -237,9 +201,9 @@
                             <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
                                 <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
                                     <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#1F77B4"/>
+                                        <circle cx="5" cy="5" r="5" fill="#FF546D"/>
                                     </svg>
-                                    Input protein
+                                    Transcription Factor
                                 </button>
                                 <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
                                     <svg height="10" width="10">
@@ -254,18 +218,22 @@
                     </div>
                 </div>
 
+            </div>
+
+            <div class="row justify-content-center align-items-start">
+
                 <!--KEA-->
-                <div class="col-sm-6" id="kea">
+                <div class="col-xl-6" id="kea">
                     <div class="card">
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
-                            <button type="button" class="expand" data-toggle="modal"
-                                    data-target="#dashboardFullModal"
-                                    data-whatever="#kea-results"
-                                    data-modal-title="Kinase Enrichment Analysis (KEA)">
-                                <i class="fa fa-expand" aria-hidden="true"></i>
-                            </button>
-                            <a class="navbar-brand" href="javascript:void(0)">
-                                Kinase Enrichment Analysis (KEA)</a>
+
+                            <!-- Title -->
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#kea-results" data-modal-title="Kinase Enrichment Analysis (KEA)">
+                                <button type="button" class="expand">
+                                    <i class="fa fa-expand" aria-hidden="true"></i>
+                                </button>
+                                <a class="navbar-brand" href="javascript:void(0)"><b>Step 3.</b> Kinase Enrichment Analysis (KEA)</a>
+                            </div>
 
                             <a class="nav-item nav-link active dash-nav-item dash-nav-link"
                                id="nav-kea-bar-tab" data-toggle="tab"
@@ -280,8 +248,11 @@
                             <!-- Info Popover -->
                             <button class="info-popover-button ml-auto"
                                     data-toggle="popover"
+                                    data-html="true"
+                                    data-template='<div class="popover x2k-card-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
                                     title="What is Kinase Enrichment Analysis?"
-                                    data-content="asd">
+                                    data-placement="left"
+                                    data-content="<div class='mb-3'>Kinase Enrichment Analysis is the third step of the X2K pipeline. It <b>predicts protein kinases which regulate the expanded regulatory network</b> by performing enrichment analysis on data integrated from kinase-substrate interaction databases using KEA.</div><div class='mb-3'>A ranked list of the <b>top predicted kinases</b> is displayed below. The results are made available through an interactive barchart and can be downloaded as a table.</div><div>The top kinases are displayed alongside the predicted transcription factors (Step 1) and expanded regulatory network (Step 2) in the <b>final Expression2Kinases network</b>.</div>">
                                 <i class="fa fa-question-circle fa-2x text-muted"></i>
                             </button>
 
@@ -320,6 +291,59 @@
                         </div>
                     </div>
                 </div>
+                
+                <!--X2K-->
+                <div class="col-xl-6" id="x2k">
+                    <div class="card">
+                        <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
+
+                            <!-- Title -->
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network" data-modal-title="Expression2Kinases Network" class="cursor-pointer">
+                                <button type="button" class="expand cursor-pointer">
+                                    <i class="fa fa-expand" aria-hidden="true"></i>
+                                </button>
+                                <a class="navbar-brand d-inline-block" href="#"><b>Step 4.</b> Expression2Kinases Network</a>
+                            </div>
+
+                            <!-- Info Popover -->
+                            <button class="info-popover-button ml-auto"
+                                    data-toggle="popover"
+                                    data-html="true"
+                                    data-template='<div class="popover x2k-card-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+                                    title="What is Expression2Kinases?"
+                                    data-placement="left"
+                                    data-content="<div class='mb-3'>The Expression2Kinases (X2K) network displays <b>the inferred upstream regulatory network of the input gene list</b> by integrating the results of ChEA (Step 1), G2N (Step 2), and KEA (Step 3).</div><div>Pink nodes represent the <b>top transcription factors</b> predicted to regulate the expression of the input gene list; orange nodes represent <b>physical interactors of the transcription factors</b>; blue nodes represent the <b>top protein kinases</b> predicted to phosphorylate such genes.</div>">
+                                <i class="fa fa-question-circle fa-2x text-muted"></i>
+                            </button>
+                            
+                        </nav>
+                        <div id="x2k-network" class="card-body">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg" id="x2ksvg" width="100%"
+                                 height="100%" viewBox="-20 0 1020 600"></svg>
+                            <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
+                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
+                                    <svg height="10" width="10">
+                                        <circle cx="5" cy="5" r="5" fill="#FF546D"/>
+                                    </svg>
+                                    Transcription factor
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
+                                    <svg height="10" width="10">
+                                        <circle cx="5" cy="5" r="5" fill="#FF7F0E"/>
+                                    </svg>
+                                    Intermediate protein
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
+                                    <svg height="10" width="10">
+                                        <circle cx="5" cy="5" r="5" fill="#1F77B4"/>
+                                    </svg>
+                                    Kinase
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

@@ -319,14 +319,14 @@ function createResults(json_file) {
 	}
 
 	// Draw ChEA table
-	var chea = json_file['ChEA']["tfs"];
+	var chea = json_file['X2K']["transcriptionFactors"];
 	createTable(chea, "#chea-table");
 	
 	// Draw ChEA bargraph
 	drawBargraph(".chea-chart", chea);
 	
 	// Draw KEA table
-	var kea = json_file['KEA']["kinases"];
+	var kea = json_file['X2K']["kinases"];
 	createTable(kea, '#kea-table');
 
 	// Draw KEA bargraph	
@@ -416,7 +416,32 @@ function createResults(json_file) {
     draw_network(x2k_d3_array, ".x2k-svg", "#x2k-network");
 	
 	// G2N Processing
-    var g2n = json_file["G2N"];
+    // var g2n = json_file["G2N"];
+
+    // Get input TFs
+    input_tfs = [];
+    $.each(json_file['X2K']['transcriptionFactors'], function(index, elem){
+    	if (index < 10) {
+	    	input_tfs.push(elem['simpleName']);
+    	}
+    })
+
+    // Get G2N Network
+    g2n_network = json_file["X2K"]['network'];
+    $.each(g2n_network['nodes'], function(index, elem) {
+    	g2n_network['nodes'][index]['name'] = g2n_network['nodes'][index]['name'].split('_')[0];
+    })
+
+    // Label G2N network according to input TFs
+    $.each(g2n_network['nodes'], function(index, elem){
+    	if (input_tfs.indexOf(elem['name'].split('_')[0]) > -1) {
+    		g2n_network['nodes'][index]['type'] = 'input_protein';
+    	} else {
+    		g2n_network['nodes'][index]['type'] = 'other';
+    	}
+    })
+
+    var g2n = {'network': g2n_network, 'input_list': input_tfs};
     network = g2n.network;
     clean_network = cleanNetwork(g2n, network);
     clean_nodes = clean_network[1];
@@ -440,7 +465,7 @@ function createResults(json_file) {
 		var button = $(event.relatedTarget), // Button that triggered the modal
 			recipient = button.data('whatever'), // Extract info from data-* attributes
 			modal = $(this),
-			name = recipient.split(" ")[1],
+			name = button.data('modal-title'),
 			div_name = recipient.split(" ")[0];
 
 		if ((name === 'ChEA')||(name === 'KEA')) {
@@ -453,6 +478,8 @@ function createResults(json_file) {
 		modal.find(".modal-title").text(name);
 		
 		var content = $(div_name).clone().appendTo(modal.find(".modal-body"));
+
+		$('.info-popover-button').popover('hide');
 	});
 	
 	$(".json-button").on("click", function () {
@@ -516,7 +543,6 @@ function createResults(json_file) {
 	});
 
   $('[data-toggle="popover"]').popover();
-  // $('[data-toggle="popover"]').popover({trigger: 'focus'})
 }
 
 $(function() {

@@ -84,10 +84,14 @@
 .expand {
 	border: none;
 	background: transparent;
-	float: right;
+	/*float: right;*/
     line-height: 1;
     opacity: .5;
     font-size: 0.8rem;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
 
 .table {
@@ -151,6 +155,11 @@ thead th {
 .enrichment-popover {
     max-width: 350px;
 }
+
+.x2k-card-popover {
+    max-width: 600px;
+}
+
 
 .enrichment-popover .popover-header {
     font-size: 10pt;
