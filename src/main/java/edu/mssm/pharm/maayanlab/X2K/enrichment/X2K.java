@@ -168,26 +168,22 @@ public class X2K implements SettingsChanger {
 			return;
 		}
 	}
-	
+
 	private void runChea(Collection<String> genelist) {
 		chea = new ChEA(settings);
 		chea.run(genelist);
 		topRankedTFs = chea.getTopRankedList(settings.getInt(NUMBER_OF_TOP_TFS));
 	}
-	
+
 	private void runG2N() {
-		runG2N(2);
-	} //TODO: fix this suspicious code - i dont think this should be a constant 2
-	
-	private void runG2N(int intermediates) {
+		g2n = new Genes2Networks(settings);
 		
-		g2n = new Genes2Networks();
-		
+		Integer minimum_path_length = Integer.parseInt(g2n.getSetting(Genes2Networks.PATH_LENGTH));
+
 		do {
-			g2n.setSetting(Genes2Networks.PATH_LENGTH, Integer.toString(intermediates));
 			g2n.run(new ArrayList<String>(topRankedTFs));
 			network = g2n.getNetwork();
-			intermediates++;
+			minimum_path_length++;
 		} while(network.size() < settings.getInt(MINIMUM_NETWORK_SIZE));
 	}
 	
@@ -250,6 +246,34 @@ public class X2K implements SettingsChanger {
 			Set<String> substrates = kinase.getEnrichedSubstrates();
 			for (String substrate : substrates){
 				network.addInteraction(kinase.getName().split("-")[0], substrate.split("-")[0]);}
+		}
+		for (NetworkNode node : networkSet) {
+			HashSet<NetworkNode> neighbors = node.getNeighbors();
+			for (NetworkNode neighbor : neighbors){
+				if ((neighbor.getName() != null)&&(node.getName() != null)){
+					if (network.contains(neighbor.getName())){
+						network.addInteraction(node.getName().split("-")[0], neighbor.getName().split("-")[0]);
+					}
+				}}
+		}
+		return network;
+	}
+
+	public Network webNetworkFiltered() {
+		Network network = new Network();
+		ArrayList<String> tfSimpleNames = new ArrayList<String>();
+
+		for (TranscriptionFactor tf : chea.getTopRanked(settings.getInt(NUMBER_OF_TOP_TFS))) {
+			network.addNode(Network.nodeTypes.transcriptionFactor, tf, tf.getSimpleName());
+			tfSimpleNames.add(tf.getSimpleName());
+		}
+		HashSet<NetworkNode> networkSet = g2n.getNetworkSet();
+		for (NetworkNode node : networkSet) {
+			if(node.getName() != null){
+				if(!tfSimpleNames.contains(node.getName())){
+					network.addNode(Network.nodeTypes.networkNode, node, node.getName().split("-")[0]);
+				}
+			}
 		}
 		for (NetworkNode node : networkSet) {
 			HashSet<NetworkNode> neighbors = node.getNeighbors();

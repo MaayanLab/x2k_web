@@ -44,69 +44,49 @@ public class ResultsServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//	    Part fileChunk = req.getPart("file");
-//	    ArrayList<String> inputList = PartReader.readLines(fileChunk);
 	    Part geneChunk = req.getPart("text-genes");
 	    ArrayList<String> textGenes = PartReader.readLines(geneChunk);
-		System.out.println("POST request - ChEA");
-//	    if (inputList.size() > 0) {
-//	        System.out.println("Using files genes:");
-//	        System.out.println(inputList);
-//	        setChEA(runChEA(inputList, req, resp));
-//	    } else
-		if (textGenes.size() > 0) {
-	        System.out.println("Using text genes:");
-	        System.out.println(textGenes);
-	        setChEA(runChEA(textGenes, req, resp));
-	    } else {
-	        System.out.println("no lists received - error");
-	    }
 
-	    System.out.println("POST request - G2N");
-//	    if(inputList.size() > 0){
-//	        setG2n(runG2N(inputList, req, resp));
-//	    }
-//	    else 
-	    if(textGenes.size() > 0){
-	        setG2n(runG2N(textGenes, req, resp));
-	    }
-	    else{
-	        System.out.println("no lists received - error");
-	    }
+		if(textGenes.size() <= 0)
+			System.out.println("no lists received - error");
+	
+		X2K app = new X2K();
 
-	    System.out.println("POST request - KEA");
-//	    if(inputList.size() > 0){ //from file selection
-//	        setkEA(runKEA(inputList, req, resp));
-//	    }
-//	    else 
-	    if(textGenes.size() > 0){ //as text
-	        setkEA(runKEA(textGenes, req, resp));
-	    }
-	    else{
-	        System.out.println("no lists received - error");
-	    }
+		readAndSetSettings(req, app);
+		app.run(textGenes);
+		
+		// Write output
+		JSONify json = Context.getJSONConverter();
+		
+		JSONify X2K_json = Context.getJSONConverter();
+		X2K_json.add("type", "X2K");
+		X2K_json.add("network", app.webNetwork());
+		X2K_json.add("transcriptionFactors", app.getRankedTFs());
+		X2K_json.add("kinases", app.getRankedKinases());
+		json.add("X2K", X2K_json.toString());
 
-	    System.out.println("POST request - X2K");
-//	    if(inputList.size() > 0){
-//	        setX2k(enrichList(inputList, req, resp));
-//	    }
-//	    else 
-	    if(textGenes.size() > 0){
-	        setX2k(enrichList(textGenes, req, resp));
-	    }
-	    else{
-	        System.out.println("no lists received - error");
-	    }
-	    
-        JSONify json = Context.getJSONConverter();
-        json.add("ChEA", chEA);
-        json.add("G2N", g2n);
-        json.add("KEA", kEA);
-        json.add("X2K", x2k);
-        json.add("input", textGenes);
+		JSONify ChEA_json = Context.getJSONConverter();
+		ChEA_json.add("ChEA", app.getTopRankedTFs());
+		ChEA_json.add("type", "ChEA");
+		ChEA_json.add("tfs", app.getRankedTFs());
+		json.add("ChEA", ChEA_json.toString());
+		
+		JSONify KEA_json = Context.getJSONConverter();
+		KEA_json.add("KEA", app.getTopRankedTFs());
+		KEA_json.add("type", "KEA");
+		KEA_json.add("kinases", app.getRankedKinases());
+		json.add("KEA", KEA_json.toString());
+
+		JSONify G2N_json = Context.getJSONConverter();
+		G2N_json.add("type", "G2N");
+		G2N_json.add("network", app.webNetworkFiltered());
+		G2N_json.add("input_list", app.getTopRankedTFs());
+		json.add("G2N", G2N_json.toString());
+
+		json.add("input", textGenes);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        req.setAttribute("json", json);
+		req.setAttribute("json", json);	    
         req.getRequestDispatcher("/templates/results.jsp").forward(req, resp);
 	}
 	
@@ -219,7 +199,7 @@ public class ResultsServlet extends HttpServlet {
         // Run enrichment
         KEA app = new KEA();
         app. setSetting(KEA.SORT_BY, req.getParameter(KEA.SORT_BY));
-        app.run(inputList);
+		app.run(inputList);
 
         // Write app to session - to be investigated
         HttpSession httpSession = req.getSession();
@@ -253,6 +233,7 @@ public class ResultsServlet extends HttpServlet {
 		availableSettings.put(Genes2Networks.ENABLE_BIOPLEX, new String[] { "true", "false" });		
 		availableSettings.put(Genes2Networks.ENABLE_DIP, new String[] { "true", "false" });
 		availableSettings.put(Genes2Networks.ENABLE_HUMAP, new String[] { "true", "false" });
+		availableSettings.put(Genes2Networks.ENABLE_IREF, new String[] { "true", "false" });
 		availableSettings.put(Genes2Networks.ENABLE_INNATEDB, new String[] { "true", "false" });
 		availableSettings.put(Genes2Networks.ENABLE_INTACT, new String[] { "true", "false" });
 		availableSettings.put(Genes2Networks.ENABLE_KEGG, new String[] { "true", "false" });
@@ -296,8 +277,8 @@ public class ResultsServlet extends HttpServlet {
 
 	private static void readAndSetSettings(HttpServletRequest req, X2K app) {
 		for (String setting : availableSettings.keySet()){
-		 if(req.getParameter(setting) != null){
-			 app.setSetting(setting, req.getParameter(setting));
+		 	if(req.getParameter(setting) != null){
+			 	app.setSetting(setting, req.getParameter(setting));
 		 	}
 		 }
 	}
