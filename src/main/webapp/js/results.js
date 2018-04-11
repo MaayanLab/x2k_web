@@ -444,6 +444,8 @@ function createResults(json_file) {
     
     network_string = JSON.stringify(network);
     draw_network(g2n_d3_array, ".g2n-svg", "#g2n-network");
+    // draw_zoom_controls(".g2n-svg");
+
     
 	// Modals
 	var cur_modal = {}

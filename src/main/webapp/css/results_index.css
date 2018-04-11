@@ -7,20 +7,6 @@
 	margin-top: 0.25rem;
 }
 
-g.zoom-controls {
-    cursor: pointer;
-    pointer-events: all;
-}
-g.zoom-controls rect {
-    fill: white;
-    stroke: #596877;
-    stroke-width: 1;
-}
-g.zoom-controls line {
-    stroke: #596877;
-    stroke-width: 2;
-}
-
 #genelist {
     font-size: 1rem;
     border: 1px solid rgba(0,0,0,.15);

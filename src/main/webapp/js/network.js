@@ -1,5 +1,6 @@
 function draw_network(json, svg_id, body) {
     // Convert ids to indices in links
+    var graph_type = svg_id.split('-')[0].slice(1);
     var nodeMap = {};
     json.nodes.forEach(function (x) {
         nodeMap[x.name] = x;
@@ -203,14 +204,9 @@ function draw_network(json, svg_id, body) {
         return linkedByIndex[a.name + "," + b.name];
     }
 
-    var svg = d3.select(svg_id);
-    var width = nodes_data.length * 8,
-        height = nodes_data.length * 5;
-
-    $(svg_id).attr('viewBox', '-20 0' + ' ' + width + ' ' + height);
-
-//        width = +svg.attr("width"),
-//        height = +svg.attr("height");
+    var svg = d3.select(svg_id),
+        width = 1000,
+        height = 600;
 
     var g = svg.append("g");
     var simulation = d3.forceSimulation()
@@ -280,11 +276,12 @@ function draw_network(json, svg_id, body) {
         .on("zoom", zoom_actions);
     zoom(svg);
 
-    d3.select('#zoom-in').on('click', function () {
+
+    d3.select('#'+graph_type+'-zoom-in').on('click', function () {
         zoom.scaleBy(g.transition().duration(750), 1.3);
     });
 
-    d3.select('#zoom-out').on('click', function () {
+    d3.select('#'+graph_type+'-zoom-out').on('click', function () {
         zoom.scaleBy(g.transition().duration(750), 1 / 1.3);
     });
 
@@ -401,4 +398,20 @@ function draw_network(json, svg_id, body) {
         .on("tick", tickActions);
 
     drag_handler(node);
+}
+
+function draw_zoom_controls(svg_id) {
+    var graph_type = svg_id.split('-')[0].slice(1);
+
+    var g_zoom_controls = '<g class="zoom-controls '+graph_type+'-zoom-controls" transform="translate(10, 10)"></g>',
+        g_zoom_in = '<g id="'+graph_type+'-zoom-in" transform="translate(0, 0)"></g>',
+        g_zoom_out = '<g id="'+graph_type+'-zoom-out" transform="translate(0, 20)"></g>',
+        button_plus = '<rect width="20" height="20"></rect><line x1="5" y1="10" x2="15" y2="10"></line><line x1="10" y1="5" x2="10" y2="15"></line>',
+        button_minus = '<rect width="20" height="20"></rect><line x1="5" y1="10" x2="15" y2="10"></line>';
+
+    $(svg_id).append(g_zoom_controls);
+    $('.'+graph_type+'-zoom-controls').append(g_zoom_in);
+    $('.'+graph_type+'-zoom-controls').append(g_zoom_out);
+    $('.'+graph_type+'-zoom-in').append(button_plus);
+    $('.'+graph_type+'-zoom-out').append(button_minus);
 }
