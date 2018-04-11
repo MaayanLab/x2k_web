@@ -1,4 +1,5 @@
 *.dist.*
+*.hprof
 *.iml
 .DS_Store
 .classpath
