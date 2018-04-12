@@ -427,22 +427,16 @@ function createResults(json_file) {
 	
 	// G2N Processing
     // var g2n = json_file["G2N"];
-
-    // Get input TFs
-    input_tfs = [];
-    $.each(json_file['X2K']['transcriptionFactors'], function(index, elem){
-    	if (index < 10) {
-	    	input_tfs.push(elem['simpleName']);
-    	}
-    })
-
-    // Get G2N Network
-    g2n_network = json_file["X2K"]['network'];
+	
+	// Get G2N Network
+    g2n_network = json_file["G2N"]['network'];
+    input_tfs = json_file["G2N"]['input_list'];
     $.each(g2n_network['nodes'], function(index, elem) {
     	g2n_network['nodes'][index]['name'] = g2n_network['nodes'][index]['name'].split('_')[0];
     })
 
-    // Label G2N network according to input TFs
+	// Label G2N network according to input TFs
+	
     $.each(g2n_network['nodes'], function(index, elem){
     	if (input_tfs.indexOf(elem['name'].split('_')[0]) > -1) {
     		g2n_network['nodes'][index]['type'] = 'input_protein';
