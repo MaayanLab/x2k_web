@@ -216,6 +216,7 @@ function exportJson(name, export_json) {
 }
 
 function exportCsv(name, export_json) {
+	// TODO: Fix this function for ChEA and KEA
 	if(name ==="X2K"){
 	    var tfs = typeof objArray != 'object' ? export_json["transcriptionFactors"] : objArray;
 	    var kinases = typeof objArray != 'object' ? export_json["kinases"] : objArray;
@@ -471,11 +472,10 @@ function createResults(json_file) {
 
 	$("#dashboardFullModal").on("show.bs.modal", function (event) {
 		var button = $(event.relatedTarget), // Button that triggered the modal
-			recipient = button.data('whatever'), // Extract info from data-* attributes
-			modal_title = button.data('modal-title'), // Extract info from data-* attributes
 			modal = $(this),
-			name = button.data('modal-title'),
-			div_name = recipient.split(" ")[0];
+			div_name = button.data('whatever'), // Extract info from data-* attributes
+			modal_title = button.data('modal-title'),
+			name = button.data('name');
 
 		// We save current model info in a global
 		cur_modal = {

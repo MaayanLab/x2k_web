@@ -104,7 +104,7 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
 
                             <!-- Title -->
-                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#chea-results ChEA" data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#chea-results" data-name="ChEA" data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
                                 <button type="button" class="expand">
                                     <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
                                 </button>
@@ -174,7 +174,7 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
 
                             <!-- Title -->
-                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#network-g2n G2N" data-modal-title="Protein-Protein Interaction Expansion">
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#network-g2n" data-name="G2N" data-modal-title="Protein-Protein Interaction Expansion">
                                 <button type="button" class="expand">
                                         <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
                                 </button>
@@ -237,7 +237,7 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
 
                             <!-- Title -->
-                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#kea-results KEA" data-modal-title="Kinase Enrichment Analysis (KEA)">
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#kea-results" data-name="KEA" data-modal-title="Kinase Enrichment Analysis (KEA)">
                                 <button type="button" class="expand">
                                     <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
                                 </button>
@@ -307,7 +307,7 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
 
                             <!-- Title -->
-                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network X2K" data-modal-title="Expression2Kinases Network" class="cursor-pointer">
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network" data-name="X2K" data-modal-title="Expression2Kinases Network" class="cursor-pointer">
                                 <button type="button" class="expand cursor-pointer">
                                     <i class="fa fa-expand" aria-hidden="true"></i>
                                 </button>
