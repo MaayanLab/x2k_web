@@ -133,9 +133,19 @@ function createTable(json, container) {
         dom: 'B<"small"f>rt<"small row"ip>',
         buttons: [
             'copy',
-            'excel',
+            {
+				extend: 'excel',
+				exportOptions: {
+					columns: [0, 1, 2, 3, 4]
+				}
+			},
             'csv',
-            'print'
+            {
+				extend: 'print',
+				exportOptions: {
+					columns: [0, 1, 2, 3, 4]
+				}
+			},
         ],
         "columnDefs": [
 	        { "sortable": false, targets: 5 }
@@ -461,12 +471,22 @@ function createResults(json_file) {
     draw_network(g2n_d3_array, ".g2n-svg", "#g2n-network");
     
 	// Modals
+	var cur_modal = {}
+
 	$("#dashboardFullModal").on("show.bs.modal", function (event) {
 		var button = $(event.relatedTarget), // Button that triggered the modal
 			recipient = button.data('whatever'), // Extract info from data-* attributes
+			modal_title = button.data('modal-title'), // Extract info from data-* attributes
 			modal = $(this),
 			name = button.data('modal-title'),
 			div_name = recipient.split(" ")[0];
+
+		// We save current model info in a global
+		cur_modal = {
+			button,
+			name,
+			div_name,
+		}
 
 		if ((name === 'ChEA')||(name === 'KEA')) {
             $('.cytoscape-button').hide();
@@ -475,71 +495,42 @@ function createResults(json_file) {
 		    $('.cytoscape-button').show();
 		}
 
-		modal.find(".modal-title").text(name);
-		
-		var content = $(div_name).clone().appendTo(modal.find(".modal-body"));
-
+		modal.find(".modal-title").text(modal_title);
+		$(div_name).find("svg").appendTo(modal.find(".modal-body"));
 		$('.info-popover-button').popover('hide');
 	});
 	
 	$(".json-button").on("click", function () {
-			var modal = $("#dashboardFullModal"),
-				name = modal.find(".modal-title").text();
-			exportJson(name, json_file[name]);
-		});		
-	
+		exportJson(cur_modal.name, json_file[cur_modal.name]);
+	});		
+
 	$(".csv-button").on("click", function () {
-		var modal = $("#dashboardFullModal"),
-			name = modal.find(".modal-title").text();
-		exportCsv(name, json_file[name]);
+		exportCsv(cur_modal.name, json_file[cur_modal.name]);
 	});
-	
+
 	$(".svg-button").on("click", function() {
-		var modal = $("#dashboardFullModal"),
-			name = modal.find(".modal-title").text();
-		if (name === 'X2K') {
-			svgExport('#' + name.toLowerCase() + '-network', name + '_network', 'svg');
-		}
-		else if (name === 'G2N') {
-			svgExport('#network-' + name.toLowerCase(), name + '_network', 'svg');
-		}
-		else {
-			svgExport('.' + name.toLowerCase() + '-chart', name + '_bargraph', 'svg');			
-		}
+		svgExport('.modal-body > svg', cur_modal.name, 'svg');
 	});
 
 	$(".png-button").on("click", function(){
-		var modal = $("#dashboardFullModal"),
-			name = modal.find(".modal-title").text();
-		if (name === 'X2K'){
-			saveSvgAsPng($('#'+name.toLowerCase()+'-network').find('svg')[0]);
-		}
-		else if (name === 'G2N'){
-			saveSvgAsPng($('#network-'+name.toLowerCase()).find('svg')[0]);
-		}
-		else{
-            saveSvgAsPng($('.'+name.toLowerCase() + '-chart').find('svg')[0]);			
-		}
+		saveSvgAsPng($('.modal-body').find('svg')[0], cur_modal.name, 'svg');
 	});
 
 	$(".cytoscape-button").on("click", function(){
-		var modal = $("#dashboardFullModal"),
-			name = modal.find(".modal-title").text();
 		downloadObj(
-			convertToCytoscape(
-				json_file[name].network
+			JSON.stringify(
+				convertToCytoscape(
+					json_file[cur_modal.name].network
+				)
 			),
-			name+'_network.json',
+			cur_modal.name + '_network.json',
 			'text/json'
 		);
 	});
 		
 	$("#dashboardFullModal").on("hide.bs.modal", function (event) {
-		var button = $(event.relatedTarget),
-		recipient = button.data("whatever"),
-		modal = $(this);
-		
-		modal.find(".modal-body").empty();
+		var modal = $(this);
+		modal.find(".modal-body").find("svg").appendTo($(cur_modal.div_name));
 	});
 
   $('[data-toggle="popover"]').popover();

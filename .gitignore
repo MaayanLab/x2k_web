@@ -3,6 +3,7 @@
 *.map
 .DS_Store
 .classpath
+.DS_Store
 .gradle
 .idea/
 .ipynb_checkpoints/
@@ -11,6 +12,7 @@
 .settings/
 bin
 build
+dist/
 node_modules/
 npm-debug.log
 out

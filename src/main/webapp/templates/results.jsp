@@ -42,17 +42,16 @@
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 
     <!--Own-->
-    <link rel="stylesheet" href="css/bargraph.dist.css">
-    <link rel="stylesheet" href="css/network.dist.css">
-    <link rel="stylesheet" href="css/atooltip.dist.css">
-    <link rel="stylesheet" href="css/results.dist.css">
+    <link rel="stylesheet" href="dist/css/bargraph.css">
+    <link rel="stylesheet" href="dist/css/network.css">
+    <link rel="stylesheet" href="dist/css/atooltip.css">
+    <link rel="stylesheet" href="dist/css/results.css">
 
 
-    <script src="js/bargraph.dist.js"></script>
-    <script src="js/results.dist.js"></script>
-    <script src="js/network.dist.js"></script>
-    <script src="js/network.js"></script>
-    <script src="js/jquery.atooltip.pack.dist.js"></script>
+    <script src="dist/js/bargraph.js"></script>
+    <script src="dist/js/results.js"></script>
+    <script src="dist/js/network.js"></script>
+    <script src="dist/js/jquery.atooltip.pack.js"></script>
     <script> var json_file = ${json}; </script>
 
     <script>
@@ -105,7 +104,7 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
 
                             <!-- Title -->
-                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#chea-results" data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#chea-results ChEA" data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
                                 <button type="button" class="expand">
                                     <i class="fa fa-expand" aria-hidden="true"></i>
                                 </button>
@@ -175,7 +174,7 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
 
                             <!-- Title -->
-                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#network-g2n" data-modal-title="Protein-Protein Interaction Expansion">
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#network-g2n G2N" data-modal-title="Protein-Protein Interaction Expansion">
                                 <button type="button" class="expand">
                                         <i class="fa fa-expand" aria-hidden="true"></i>
                                 </button>
@@ -228,7 +227,7 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
 
                             <!-- Title -->
-                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#kea-results" data-modal-title="Kinase Enrichment Analysis (KEA)">
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#kea-results KEA" data-modal-title="Kinase Enrichment Analysis (KEA)">
                                 <button type="button" class="expand">
                                     <i class="fa fa-expand" aria-hidden="true"></i>
                                 </button>
@@ -298,7 +297,7 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
 
                             <!-- Title -->
-                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network" data-modal-title="Expression2Kinases Network" class="cursor-pointer">
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network X2K" data-modal-title="Expression2Kinases Network" class="cursor-pointer">
                                 <button type="button" class="expand cursor-pointer">
                                     <i class="fa fa-expand" aria-hidden="true"></i>
                                 </button>

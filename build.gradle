@@ -16,14 +16,12 @@ buildscript {
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
 }
 
 apply plugin: 'war'
 apply plugin: 'java'
 apply plugin: 'com.moowork.node'
-apply plugin: 'com.moowork.grunt'
 apply plugin: 'com.bmuschko.tomcat'
 
 dependencies {
@@ -59,25 +57,22 @@ node {
   nodeModulesDir = file(webappDir)
 }
 
-grunt {
-    workDir = file(webappDir)
-}
-
 task prepareNpm(type: NpmTask) {
     inputs.file("${webappDir}/package.json")
     outputs.dir("${webappDir}/node_modules")
     args = [ "install" ]
 }
 
-task buildGrunt(type: GruntTask) {
+task buildProject(type: NpmTask) {
+    inputs.file("${webappDir}/.babelrc")
     inputs.file("${webappDir}/gruntfile.js")
-    inputs.files fileTree(webappDir).include('**/*.js').include('**/*.css').exclude('**/*.dist.*')
-    outputs.files fileTree(webappDir).include('**/*.dist.*')
+    inputs.files fileTree(webappDir).include('**/*.js').include('**/*.css').exclude('dist/**')
+    outputs.dir("${webappDir}/dist")
     dependsOn prepareNpm
-    args = [ "build" ]
+    args = [ "run", "build" ]
 }
 
-build.dependsOn buildGrunt
+build.dependsOn buildProject
 
 tomcat {
     httpPort = 8080

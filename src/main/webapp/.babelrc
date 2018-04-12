@@ -2,10 +2,15 @@
     "presets": [
         ["env", {
             "targets": {
-                "browsers": ["> 5%"]
+                "browsers": ["> 5%", "ie >= 11"]
             },
+            "modules": false,
+            "useBuiltIns": true,
             "loose": true
         }]
     ],
-    "plugins": ["transform-remove-strict-mode"]
+    "plugins": [
+        "transform-remove-strict-mode",
+        "transform-runtime"
+    ]
 }

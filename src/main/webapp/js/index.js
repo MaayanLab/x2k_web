@@ -68,6 +68,13 @@ $(function () {
     submitButtonListener("kea_submit", "/X2K/KEA", "#kea-form");
     submitButtonListener("g2n_submit", "/X2K/G2N", "#g2n-form");
 
+    // Check for Internet Explorer
+    $(document).ready(function() {
+        if ((!!window.MSInputMethodContext && !!document.documentMode) || navigator.userAgent.indexOf("MSIE")!=-1) {
+            $('.show-on-ie').show();
+        }
+    })
+
     // text area listener
     $("#genelist").on("change keyup paste", function () {
         $('#genelist').val($('#genelist').val().trim().split(/[\s\n,]/).join('\n'));
