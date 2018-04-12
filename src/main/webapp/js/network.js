@@ -208,7 +208,7 @@ function draw_network(json, svg_id, body) {
         width = 1000,
         height = 600;
 
-    var g = svg.insert("g", '.zoom-controls + *');
+    var g = svg.insert("g", ".zoom-controls");
     var simulation = d3.forceSimulation()
         .nodes(nodes_data);
 
@@ -398,20 +398,4 @@ function draw_network(json, svg_id, body) {
         .on("tick", tickActions);
 
     drag_handler(node);
-}
-
-function draw_zoom_controls(svg_id) {
-    var graph_type = svg_id.split('-')[0].slice(1);
-
-    var g_zoom_controls = '<g class="zoom-controls '+graph_type+'-zoom-controls" transform="translate(10, 10)"></g>',
-        g_zoom_in = '<g id="'+graph_type+'-zoom-in" transform="translate(0, 0)"></g>',
-        g_zoom_out = '<g id="'+graph_type+'-zoom-out" transform="translate(0, 20)"></g>',
-        button_plus = '<rect width="20" height="20"></rect><line x1="5" y1="10" x2="15" y2="10"></line><line x1="10" y1="5" x2="10" y2="15"></line>',
-        button_minus = '<rect width="20" height="20"></rect><line x1="5" y1="10" x2="15" y2="10"></line>';
-
-    $(svg_id).append(g_zoom_controls);
-    $('.'+graph_type+'-zoom-controls').append(g_zoom_in);
-    $('.'+graph_type+'-zoom-controls').append(g_zoom_out);
-    $('.'+graph_type+'-zoom-in').append(button_plus);
-    $('.'+graph_type+'-zoom-out').append(button_minus);
 }

@@ -267,13 +267,7 @@ function exportCsv(name, export_json) {
 }
 
 function svgExport(container, filename, outputType) {
-	// if ((container === ".chea-chart")||(container === ".kea-chart")){
-	// 	var b64 = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="'+container.slice(1)+'" width="100%" height="100%">' + $(container).html().trim() + '</svg>';
-	// }
-	// else{
     var b64 = $(container).html();
-    console.log(b64);
-	// }
 	b64 = b64.replace(/<br>/g, "&lt;br&gt;");
 	b64 = b64.replace(/<br\/>/g, "&lt;br&gt;&#47;");
 	b64 = encodeURIComponent(Base64.encode(b64));
@@ -464,8 +458,6 @@ function createResults(json_file) {
     
     network_string = JSON.stringify(network);
     draw_network(g2n_d3_array, ".g2n-svg", "#g2n-network");
-    // draw_zoom_controls(".g2n-svg");
-
     
 	// Modals
 	var cur_modal = {}
