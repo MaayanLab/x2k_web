@@ -29,6 +29,13 @@ public class ResultsServlet extends HttpServlet {
 	private String g2n;
 	private String kEA;
 	private String x2k;
+
+	protected void forwardRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/templates/results.jsp").forward(req, resp);
+	}
+	protected void forwardRequest(JSONify json, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		forwardRequest(req, resp);
+	}
 	
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,7 +46,7 @@ public class ResultsServlet extends HttpServlet {
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
 		json.add("availableSettings", availableSettings);
-		req.getRequestDispatcher("/templates/results.jsp").forward(req, resp);
+		forwardRequest(req, resp);
     }
 	
 	@Override
@@ -61,18 +68,18 @@ public class ResultsServlet extends HttpServlet {
 		JSONify X2K_json = Context.getJSONConverter();
 		X2K_json.add("type", "X2K");
 		X2K_json.add("network", app.webNetwork());
+		// TODO: Fix frontend to eliminate the need of these
 		X2K_json.add("transcriptionFactors", app.getRankedTFs());
 		X2K_json.add("kinases", app.getRankedKinases());
+
 		json.add("X2K", X2K_json.toString());
 
 		JSONify ChEA_json = Context.getJSONConverter();
-		ChEA_json.add("ChEA", app.getTopRankedTFs());
 		ChEA_json.add("type", "ChEA");
 		ChEA_json.add("tfs", app.getRankedTFs());
 		json.add("ChEA", ChEA_json.toString());
 		
 		JSONify KEA_json = Context.getJSONConverter();
-		KEA_json.add("KEA", app.getTopRankedTFs());
 		KEA_json.add("type", "KEA");
 		KEA_json.add("kinases", app.getRankedKinases());
 		json.add("KEA", KEA_json.toString());
@@ -87,7 +94,7 @@ public class ResultsServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
 		req.setAttribute("json", json);	    
-        req.getRequestDispatcher("/templates/results.jsp").forward(req, resp);
+        forwardRequest(json, req, resp);
 	}
 	
 	// ChEA procedures
