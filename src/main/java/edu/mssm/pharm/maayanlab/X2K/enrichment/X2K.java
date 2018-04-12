@@ -177,8 +177,7 @@ public class X2K implements SettingsChanger {
 
 	private void runG2N() {
 		g2n = new Genes2Networks(settings);
-		
-		Integer minimum_path_length = Integer.parseInt(g2n.getSetting(Genes2Networks.PATH_LENGTH));
+		Integer minimum_path_length = Integer.parseInt(settings.get(Genes2Networks.PATH_LENGTH));
 
 		do {
 			g2n.run(new ArrayList<String>(topRankedTFs));
