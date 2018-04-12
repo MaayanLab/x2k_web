@@ -119,27 +119,36 @@
                         </nav>
                         <div id="x2k-network" class="card-body">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg" id="x2ksvg" width="100%"
-                                 height="100%" viewBox="-20 0 1020 600"></svg>
-                            <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#FF546D"/>
-                                    </svg>
-                                    Transcription factor
-                                </button>
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#FF7F0E"/>
-                                    </svg>
-                                    Intermediate protein
-                                </button>
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#1F77B4"/>
-                                    </svg>
-                                    Kinase
-                                </button>
-                            </div>
+                                 height="100%" viewBox="-20 0 1020 600">
+                                <g class="legend" transform="translate(50, 10)">
+                                    <g class="legend-background">
+                                        <rect width="150" height="20" opacity="0.8" fill="white"></rect>
+                                    </g>
+                                    <g class="legend-item" transform="translate(0, 0)">
+                                        <circle cx="5" cy="10" r="5" fill="#FF546D"/>
+                                        <text x="15" y="15">Transcription factor</text>
+                                    </g>
+                                    <g class="legend-item" transform="translate(150, 0)">
+                                        <circle cx="5" cy="10" r="5" fill="#FF7F0E"/>
+                                        <text x="15" y="15">Intermediate protein</text>
+                                    </g>
+                                    <g class="legend-item" transform="translate(300, 0)">
+                                        <circle cx="5" cy="10" r="5" fill="#1F77B4"/>
+                                        <text x="15" y="15">Kinase</text>
+                                    </g>
+                                </g>
+                                <g class="zoom-controls x2k-zoom-controls" transform="translate(10, 10)">
+                                    <g id="x2k-zoom-in" transform="translate(0, 0)">
+                                        <rect width="20" height="20"></rect>
+                                        <line x1="5" y1="10" x2="15" y2="10"></line>
+                                        <line x1="10" y1="5" x2="10" y2="15"></line>
+                                    </g>
+                                    <g id="x2k-zoom-out" transform="translate(0, 20)">
+                                        <rect width="20" height="20"></rect>
+                                        <line x1="5" y1="10" x2="15" y2="10"></line>
+                                    </g>
+                                </g>
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -233,22 +242,32 @@
                         </nav>
                         <div id="network-g2n" class="card-body">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg" width="100%"
-                                 height="100%" viewBox="-20 0 1020 600"></svg>
-                            <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#1F77B4"/>
-                                    </svg>
-                                    Input protein
-                                </button>
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#FF7F0E"/>
-                                    </svg>
-                                    Intermediate protein
-                                </button>
-
-                            </div>
+                                 height="100%" viewBox="-20 0 1020 600">
+                                <g class="zoom-controls g2n-zoom-controls" transform="translate(10, 10)">
+                                    <g id="g2n-zoom-in" transform="translate(0, 0)">
+                                        <rect width="20" height="20"></rect>
+                                        <line x1="5" y1="10" x2="15" y2="10"></line>
+                                        <line x1="10" y1="5" x2="10" y2="15"></line>
+                                    </g>
+                                    <g id="g2n-zoom-out" transform="translate(0, 20)">
+                                        <rect width="20" height="20"></rect>
+                                        <line x1="5" y1="10" x2="15" y2="10"></line>
+                                    </g>
+                                </g>
+                                <g class="legend" transform="translate(50, 10)">
+                                    <g class="legend-background">
+                                        <rect width="150" height="20" opacity="0.8" fill="white"></rect>
+                                    </g>
+                                    <g class="legend-item" transform="translate(0, 0)">
+                                        <circle cx="5" cy="10" r="5" fill="#FF7F0E"/>
+                                        <text x="15" y="15">Intermediate protein</text>
+                                    </g>
+                                    <g class="legend-item" transform="translate(150, 0)">
+                                        <circle cx="5" cy="10" r="5" fill="#FF546D"/>
+                                        <text x="15" y="15">Transcription factor</text>
+                                    </g>
+                                </g>
+                            </svg>
 
                         </div>
                     </div>

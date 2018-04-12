@@ -208,7 +208,7 @@ function draw_network(json, svg_id, body) {
         width = 1000,
         height = 600;
 
-    var g = svg.append("g");
+    var g = svg.insert("g", '.zoom-controls + *');
     var simulation = d3.forceSimulation()
         .nodes(nodes_data);
 
