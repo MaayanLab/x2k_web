@@ -54,39 +54,39 @@ public class ResultsServlet extends HttpServlet {
 //	        System.out.println(inputList);
 //	        setChEA(runChEA(inputList, req, resp));
 //	    } else
-		if (textGenes.size() > 0) {
-	        System.out.println("Using text genes:");
-	        System.out.println(textGenes);
-	        setChEA(runChEA(textGenes, req, resp));
-	    } else {
-	        System.out.println("no lists received - error");
-	    }
+		// if (textGenes.size() > 0) {
+	 //        System.out.println("Using text genes:");
+	 //        System.out.println(textGenes);
+	 //        setChEA(runChEA(textGenes, req, resp));
+	 //    } else {
+	 //        System.out.println("no lists received - error");
+	 //    }
 
-	    System.out.println("POST request - G2N");
+	 //    System.out.println("POST request - G2N");
 //	    if(inputList.size() > 0){
 //	        setG2n(runG2N(inputList, req, resp));
 //	    }
 //	    else 
-	    if(textGenes.size() > 0){
-	        setG2n(runG2N(textGenes, req, resp));
-	    }
-	    else{
-	        System.out.println("no lists received - error");
-	    }
+	    // if(textGenes.size() > 0){
+	    //     setG2n(runG2N(textGenes, req, resp));
+	    // }
+	    // else{
+	    //     System.out.println("no lists received - error");
+	    // }
 
-	    System.out.println("POST request - KEA");
+	    // System.out.println("POST request - KEA");
 //	    if(inputList.size() > 0){ //from file selection
 //	        setkEA(runKEA(inputList, req, resp));
 //	    }
 //	    else 
-	    if(textGenes.size() > 0){ //as text
-	        setkEA(runKEA(textGenes, req, resp));
-	    }
-	    else{
-	        System.out.println("no lists received - error");
-	    }
+	    // if(textGenes.size() > 0){ //as text
+	    //     setkEA(runKEA(textGenes, req, resp));
+	    // }
+	    // else{
+	    //     System.out.println("no lists received - error");
+	    // }
 
-	    System.out.println("POST request - X2K");
+	    // System.out.println("POST request - X2K");
 //	    if(inputList.size() > 0){
 //	        setX2k(enrichList(inputList, req, resp));
 //	    }
@@ -99,9 +99,9 @@ public class ResultsServlet extends HttpServlet {
 	    }
 	    
         JSONify json = Context.getJSONConverter();
-        json.add("ChEA", chEA);
-        json.add("G2N", g2n);
-        json.add("KEA", kEA);
+        json.add("ChEA", x2k);
+        json.add("G2N", x2k);
+        json.add("KEA", x2k);
         json.add("X2K", x2k);
         json.add("input", textGenes);
         resp.setContentType("application/json");

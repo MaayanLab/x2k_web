@@ -1,4 +1,5 @@
 *.dist.*
+*.hprof
 *.map
 .DS_Store
 .classpath
@@ -16,4 +17,5 @@ out
 package-lock.json
 src/.metadata/
 src/main/webapp/dashboard-mockup/
+src/main/webapp/notebooks/x2k_api_notebook-dev.ipynb
 target/
