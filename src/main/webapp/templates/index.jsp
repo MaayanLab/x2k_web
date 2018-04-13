@@ -668,6 +668,14 @@
             <div id="api">
                 <h4>API</h4>
                 <div class="row">
+                    <div class="col-sm-12">
+                        <div style="overflow-y: auto; width: 100%;">
+                            <iframe src="http://nbviewer.jupyter.org/urls/storage.googleapis.com/jupyter-reports/x2k_api_notebook.ipynb?flush_cache=true" style="border: 1px solid lightgrey; width: 100%; border-radius: 3px; margin-top: 5px; height: 500px;"></iframe>
+                        </div>
+                    </div>
+                </div>
+<!--                 
+                <div class="row">
                     <div class="col-sm-12 text-left my-3 table-responsive">
 
                         <table class="table table-sm">
@@ -1707,7 +1715,7 @@ C1d' \
                         </div>
                     </div>
                 </div>
-
+ -->
             </div>
 
             <div id="case-studies">
