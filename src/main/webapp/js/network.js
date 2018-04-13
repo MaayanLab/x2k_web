@@ -68,9 +68,9 @@ function draw_network(json, svg_id, body) {
     }
 
     function circleColour(d) {
-        if (d.group === "tf") {
+        if ((d.group === "tf") || (d.group === "input_protein")) {
             return "#FF546D";
-        } else if ((d.group === "kinase") || (d.group === "input_protein")) {
+        } else if (d.group === "kinase") {
             return "#339DCC";
         }
         else {
