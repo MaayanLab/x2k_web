@@ -216,6 +216,7 @@ function exportJson(name, export_json) {
 }
 
 function exportCsv(name, export_json) {
+	// TODO: Fix this function for ChEA and KEA
 	if(name ==="X2K"){
 	    var tfs = typeof objArray != 'object' ? export_json["transcriptionFactors"] : objArray;
 	    var kinases = typeof objArray != 'object' ? export_json["kinases"] : objArray;
@@ -266,12 +267,13 @@ function exportCsv(name, export_json) {
 }
 
 function svgExport(container, filename, outputType) {
-	if ((container === ".chea-chart")||(container === ".kea-chart")){
-		var b64 = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="'+container.slice(1)+'" width="100%" height="100%">' + $(container).html().trim() + '</svg>';
-	}
-	else{
-		var b64 = $(container).html().split("<div")[0].trim();
-	}
+	// if ((container === ".chea-chart")||(container === ".kea-chart")){
+	// 	var b64 = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="'+container.slice(1)+'" width="100%" height="100%">' + $(container).html().trim() + '</svg>';
+	// }
+	// else{
+    var b64 = $(container).html();
+    console.log(b64);
+	// }
 	b64 = b64.replace(/<br>/g, "&lt;br&gt;");
 	b64 = b64.replace(/<br\/>/g, "&lt;br&gt;&#47;");
 	b64 = encodeURIComponent(Base64.encode(b64));
@@ -280,7 +282,6 @@ function svgExport(container, filename, outputType) {
 		outputType : outputType,
 		data : b64
 	});
-
 }
 
 function convertToCytoscape(network) {
@@ -463,17 +464,18 @@ function createResults(json_file) {
     
     network_string = JSON.stringify(network);
     draw_network(g2n_d3_array, ".g2n-svg", "#g2n-network");
+    // draw_zoom_controls(".g2n-svg");
+
     
 	// Modals
 	var cur_modal = {}
 
 	$("#dashboardFullModal").on("show.bs.modal", function (event) {
 		var button = $(event.relatedTarget), // Button that triggered the modal
-			recipient = button.data('whatever'), // Extract info from data-* attributes
-			modal_title = button.data('modal-title'), // Extract info from data-* attributes
 			modal = $(this),
-			name = button.data('modal-title'),
-			div_name = recipient.split(" ")[0];
+			div_name = button.data('whatever'), // Extract info from data-* attributes
+			modal_title = button.data('modal-title'),
+			name = button.data('name');
 
 		// We save current model info in a global
 		cur_modal = {
@@ -503,7 +505,7 @@ function createResults(json_file) {
 	});
 
 	$(".svg-button").on("click", function() {
-		svgExport('.modal-body > svg', cur_modal.name, 'svg');
+		svgExport('.modal-body', cur_modal.name, 'svg');
 	});
 
 	$(".png-button").on("click", function(){

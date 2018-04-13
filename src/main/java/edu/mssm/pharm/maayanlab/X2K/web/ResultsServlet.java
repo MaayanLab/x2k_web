@@ -20,7 +20,7 @@ import edu.mssm.pharm.maayanlab.common.web.JSONify;
 import edu.mssm.pharm.maayanlab.common.web.PartReader;
 
 
-@WebServlet(urlPatterns = { "/results" })
+@WebServlet(urlPatterns = {"/results"})
 @MultipartConfig
 public class ResultsServlet extends HttpServlet {
 
@@ -128,44 +128,47 @@ public class ResultsServlet extends HttpServlet {
     }
 
     // G2N procedures
-    
-    public static Network makeNetwork(Genes2Networks app){
+
+    public static Network makeNetwork(Genes2Networks app) {
         Network network = new Network();
 
         HashSet<NetworkNode> networkSet = app.getNetworkSet();
         for (NetworkNode node : networkSet) {
-        	String nodeName = node.getName();
-        	if (nodeName.length() > 1) {
-        		nodeName = nodeName.split("-")[0];
-        	};
+            String nodeName = node.getName();
+            if (nodeName.length() > 1) {
+                nodeName = nodeName.split("-")[0];
+            }
+            ;
             network.addNode(Network.nodeTypes.networkNode, node, nodeName);
         }
 
         for (NetworkNode node : networkSet) {
             HashSet<NetworkNode> neighbors = node.getNeighbors();
             for (NetworkNode neighbor : neighbors)
-                if (network.contains(neighbor.getName())){
-                	String nodeName = node.getName();
-                	if (nodeName.length() > 1) {
-                		nodeName = nodeName.split("-")[0];
-                	};                	
-            		String neighborName = neighbor.getName();
-                	if (neighborName.length() > 1) {
-                		neighborName = neighborName.split("-")[0];
-                	};
+                if (network.contains(neighbor.getName())) {
+                    String nodeName = node.getName();
+                    if (nodeName.length() > 1) {
+                        nodeName = nodeName.split("-")[0];
+                    }
+                    ;
+                    String neighborName = neighbor.getName();
+                    if (neighborName.length() > 1) {
+                        neighborName = neighborName.split("-")[0];
+                    }
+                    ;
                     network.addInteraction(nodeName, neighborName);
                 }
         }
 
         return network;
-	}
-	
-	private static String getParam(HttpServletRequest req, String param, String defaultParam) {
-		String result = req.getParameter(param);
-		if(result == null)
-			return defaultParam;
-		return result;
-	}
+    }
+
+    private static String getParam(HttpServletRequest req, String param, String defaultParam) {
+        String result = req.getParameter(param);
+        if (result == null)
+            return defaultParam;
+        return result;
+    }
 
     public static String runG2N(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Run enrichment
@@ -176,7 +179,7 @@ public class ResultsServlet extends HttpServlet {
         app.setSetting(Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES, req.getParameter(Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES));
         app.setSetting(Genes2Networks.ENABLE_BIOCARTA, getParam(req, Genes2Networks.ENABLE_BIOCARTA, "false"));
         app.setSetting(Genes2Networks.ENABLE_BIOGRID, getParam(req, Genes2Networks.ENABLE_BIOGRID, "false"));
-        app.setSetting(Genes2Networks.ENABLE_BIOPLEX, getParam(req, Genes2Networks.ENABLE_BIOPLEX, "false"));        
+        app.setSetting(Genes2Networks.ENABLE_BIOPLEX, getParam(req, Genes2Networks.ENABLE_BIOPLEX, "false"));
         app.setSetting(Genes2Networks.ENABLE_DIP, getParam(req, Genes2Networks.ENABLE_DIP, "false"));
         app.setSetting(Genes2Networks.ENABLE_HUMAP, getParam(req, Genes2Networks.ENABLE_HUMAP, "false"));
         app.setSetting(Genes2Networks.ENABLE_IREF, getParam(req, Genes2Networks.ENABLE_IREF, "false"));
@@ -194,10 +197,10 @@ public class ResultsServlet extends HttpServlet {
         JSONify json = Context.getJSONConverter();
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        json.add("type","G2N");
-        json.add("network",makeNetwork(app));
-        json.add("input_list",inputList);
-        
+        json.add("type", "G2N");
+        json.add("network", makeNetwork(app));
+        json.add("input_list", inputList);
+
         return json.toString();
     }
 
@@ -205,8 +208,8 @@ public class ResultsServlet extends HttpServlet {
     public static String runKEA(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Run enrichment
         KEA app = new KEA();
-        app. setSetting(KEA.SORT_BY, req.getParameter(KEA.SORT_BY));
-		app.run(inputList);
+        app.setSetting(KEA.SORT_BY, req.getParameter(KEA.SORT_BY));
+        app.run(inputList);
 
         // Write app to session - to be investigated
         HttpSession httpSession = req.getSession();
@@ -216,42 +219,40 @@ public class ResultsServlet extends HttpServlet {
         JSONify json = Context.getJSONConverter();
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        json.add("type","KEA");
+        json.add("type", "KEA");
         json.add("kinases", app.getTopRanked(Integer.parseInt(req.getParameter("number_of_results"))));
         json.add(KEA.SORT_BY, req.getParameter(KEA.SORT_BY));
         return json.toString();
     }
-    
+
     // X2K procedures
-	private static final HashMap<String, String[]> availableSettings = new HashMap<String, String[]>();
+	private static final HashMap<String, String> defaultSettings = new HashMap<String, String>();
 
 	static {
-		availableSettings.put(ChEA.SORT_BY, new String[] { ChEA.PVALUE, ChEA.RANK, ChEA.COMBINED_SCORE });
-		availableSettings.put(ChEA.INCLUDED_ORGANISMS, new String[] { ChEA.MOUSE_ONLY, ChEA.HUMAN_ONLY, ChEA.BOTH });
-		availableSettings.put(ChEA.BACKGROUND_DATABASE, new String[] { ChEA.CHIPX, ChEA.PWM, ChEA.PWM_GB,
-																	   ChEA.CHEA_2015, ChEA.TRANS_JASP,
-																	   ChEA.CONSENSUS, ChEA.ENCODE_2015});
-		availableSettings.put(Genes2Networks.PATH_LENGTH, new String[] { "1", "4", "7", "10", "13", "16" });
-		availableSettings.put(Genes2Networks.MAXIMUM_NUMBER_OF_EDGES, new String[] { "0", "1", "4", "5",  "8" });
-		availableSettings.put(Genes2Networks.MAXIMUM_NUMBER_OF_INTERACTIONS, new String[] { "0", "1", "4", "7", "10" });
-		availableSettings.put(Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES, new String[] { "0", "1", "4", "7", "10" });
-		availableSettings.put(Genes2Networks.ENABLE_BIOCARTA, new String[] { "true", "false" });
-		availableSettings.put(Genes2Networks.ENABLE_BIOGRID, new String[] { "true", "false" });
-		availableSettings.put(Genes2Networks.ENABLE_BIOPLEX, new String[] { "true", "false" });		
-		availableSettings.put(Genes2Networks.ENABLE_DIP, new String[] { "true", "false" });
-		availableSettings.put(Genes2Networks.ENABLE_HUMAP, new String[] { "true", "false" });
-		availableSettings.put(Genes2Networks.ENABLE_IREF, new String[] { "true", "false" });
-		availableSettings.put(Genes2Networks.ENABLE_INNATEDB, new String[] { "true", "false" });
-		availableSettings.put(Genes2Networks.ENABLE_INTACT, new String[] { "true", "false" });
-		availableSettings.put(Genes2Networks.ENABLE_KEGG, new String[] { "true", "false" });
-		availableSettings.put(Genes2Networks.ENABLE_MINT, new String[] { "true", "false" });
-		availableSettings.put(Genes2Networks.ENABLE_PPID, new String[] { "true", "false" });
-		availableSettings.put(Genes2Networks.ENABLE_SNAVI, new String[] { "true", "false" });
-		availableSettings.put(KEA.SORT_BY, new String[] { KEA.PVALUE, KEA.RANK, KEA.COMBINED_SCORE });
-		availableSettings.put(X2K.MINIMUM_NETWORK_SIZE, new String[] { "1", "4","7",  "10", "13"});
-		// availableSettings.put(X2K.NUMBER_OF_TOP_TFS, new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" });
-		availableSettings.put(X2K.NUMBER_OF_TOP_TFS, new String[] { "15" });
-		//availableSettings.put(X2K.NUMBER_OF_TOP_KINASES, new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" });
+		defaultSettings.put(ChEA.SORT_BY, null);
+		defaultSettings.put(ChEA.INCLUDED_ORGANISMS, null);
+		defaultSettings.put(ChEA.BACKGROUND_DATABASE, null);
+		defaultSettings.put(Genes2Networks.PATH_LENGTH, null);
+		defaultSettings.put(Genes2Networks.MAXIMUM_NUMBER_OF_EDGES, null);
+		defaultSettings.put(Genes2Networks.MAXIMUM_NUMBER_OF_INTERACTIONS, null);
+		defaultSettings.put(Genes2Networks.MINIMUM_NUMBER_OF_ARTICLES, null);
+		defaultSettings.put(Genes2Networks.ENABLE_BIOCARTA, new String("false"));
+		defaultSettings.put(Genes2Networks.ENABLE_BIOGRID, new String("false"));
+		defaultSettings.put(Genes2Networks.ENABLE_BIOPLEX, new String("false"));		
+		defaultSettings.put(Genes2Networks.ENABLE_DIP, new String("false"));
+		defaultSettings.put(Genes2Networks.ENABLE_HUMAP, new String("false"));
+		defaultSettings.put(Genes2Networks.ENABLE_IREF, new String("false"));
+		defaultSettings.put(Genes2Networks.ENABLE_INNATEDB, new String("false"));
+		defaultSettings.put(Genes2Networks.ENABLE_INTACT, new String("false"));
+		defaultSettings.put(Genes2Networks.ENABLE_KEGG, new String("false"));
+		defaultSettings.put(Genes2Networks.ENABLE_MINT, new String("false"));
+		defaultSettings.put(Genes2Networks.ENABLE_PPID, new String("false"));
+		defaultSettings.put(Genes2Networks.ENABLE_SNAVI, new String("false"));
+		defaultSettings.put(KEA.SORT_BY, null);
+		defaultSettings.put(X2K.MINIMUM_NETWORK_SIZE, null);
+		// defaultSettings.put(X2K.NUMBER_OF_TOP_TFS, null);
+		defaultSettings.put(X2K.NUMBER_OF_TOP_TFS, null);
+		//defaultSettings.put(X2K.NUMBER_OF_TOP_KINASES, null);
 	}
 
 	public static String enrichList(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -283,15 +284,17 @@ public class ResultsServlet extends HttpServlet {
 	}
 
 	private static void readAndSetSettings(HttpServletRequest req, X2K app) {
-		for (String setting : availableSettings.keySet()){
-		 	if(req.getParameter(setting) != null){
+		for (String setting : defaultSettings.keySet()){
+		 	if(req.getParameter(setting) != null) {
 			 	app.setSetting(setting, req.getParameter(setting));
-		 	}
+		 	} else if(defaultSettings.get(setting) != null) {
+				app.setSetting(setting, defaultSettings.get(setting));
+			}
 		 }
 	}
 	
-	public static HashMap<String, String[]> getAvailablesettings() {
-		return availableSettings;
+	public static HashMap<String, String> getdefaultsettings() {
+		return defaultSettings;
 	}
 	
 	// Fields getters and setters

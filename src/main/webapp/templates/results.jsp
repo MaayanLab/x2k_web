@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/1aa9a9820c.js"></script>   
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <!--Datatables-->
@@ -104,9 +104,9 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
 
                             <!-- Title -->
-                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#chea-results ChEA" data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#chea-results" data-name="ChEA" data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
                                 <button type="button" class="expand">
-                                    <i class="fa fa-expand" aria-hidden="true"></i>
+                                    <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
                                 </button>
                                 <a class="navbar-brand" href="javascript:void(0)"><b>Step 1.</b> Transcription Factor Enrichment Analysis (TFEA)</a>
                             </div>
@@ -174,9 +174,9 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
 
                             <!-- Title -->
-                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#network-g2n G2N" data-modal-title="Protein-Protein Interaction Expansion">
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#network-g2n" data-name="G2N" data-modal-title="Protein-Protein Interaction Expansion">
                                 <button type="button" class="expand">
-                                        <i class="fa fa-expand" aria-hidden="true"></i>
+                                        <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
                                 </button>
                                 <a class="navbar-brand" href="javascript:void(0)"><b>Step 2.</b> Protein-Protein Interaction Expansion</a>
                             </div>
@@ -196,22 +196,32 @@
                         </nav>
                         <div id="network-g2n" class="card-body">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg" width="100%"
-                                 height="100%" viewBox="-20 0 1020 600"></svg>
-                            <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#FF546D"/>
-                                    </svg>
-                                    Transcription Factor
-                                </button>
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#FF7F0E"/>
-                                    </svg>
-                                    Intermediate protein
-                                </button>
-
-                            </div>
+                                 height="100%" viewBox="-20 0 1020 600">
+                                <g class="zoom-controls g2n-zoom-controls" transform="translate(10, 10)">
+                                    <g id="g2n-zoom-in" transform="translate(0, 0)">
+                                        <rect width="20" height="20"></rect>
+                                        <line x1="5" y1="10" x2="15" y2="10"></line>
+                                        <line x1="10" y1="5" x2="10" y2="15"></line>
+                                    </g>
+                                    <g id="g2n-zoom-out" transform="translate(0, 20)">
+                                        <rect width="20" height="20"></rect>
+                                        <line x1="5" y1="10" x2="15" y2="10"></line>
+                                    </g>
+                                </g>
+                                <g class="legend" transform="translate(50, 10)">
+                                    <g class="legend-background">
+                                        <rect width="150" height="20" opacity="0.8" fill="white"></rect>
+                                    </g>
+                                    <g class="legend-item" transform="translate(0, 0)">
+                                        <circle cx="5" cy="10" r="5" fill="#FF7F0E"/>
+                                        <text x="15" y="15">Intermediate protein</text>
+                                    </g>
+                                    <g class="legend-item" transform="translate(150, 0)">
+                                        <circle cx="5" cy="10" r="5" fill="#FF546D"/>
+                                        <text x="15" y="15">Transcription factor</text>
+                                    </g>
+                                </g>
+                            </svg>
 
                         </div>
                     </div>
@@ -227,9 +237,9 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
 
                             <!-- Title -->
-                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#kea-results KEA" data-modal-title="Kinase Enrichment Analysis (KEA)">
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#kea-results" data-name="KEA" data-modal-title="Kinase Enrichment Analysis (KEA)">
                                 <button type="button" class="expand">
-                                    <i class="fa fa-expand" aria-hidden="true"></i>
+                                    <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
                                 </button>
                                 <a class="navbar-brand" href="javascript:void(0)"><b>Step 3.</b> Kinase Enrichment Analysis (KEA)</a>
                             </div>
@@ -297,7 +307,7 @@
                         <nav class="nav nav-tabs navbar-light bg-light" role="tablist">
 
                             <!-- Title -->
-                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network X2K" data-modal-title="Expression2Kinases Network" class="cursor-pointer">
+                            <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network" data-name="X2K" data-modal-title="Expression2Kinases Network" class="cursor-pointer">
                                 <button type="button" class="expand cursor-pointer">
                                     <i class="fa fa-expand" aria-hidden="true"></i>
                                 </button>
@@ -318,27 +328,36 @@
                         </nav>
                         <div id="x2k-network" class="card-body">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg" id="x2ksvg" width="100%"
-                                 height="100%" viewBox="-20 0 1020 600"></svg>
-                            <div class="btn-group btn-group-justified" role="group" aria-label="Sorting type">
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#FF546D"/>
-                                    </svg>
-                                    Transcription factor
-                                </button>
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#FF7F0E"/>
-                                    </svg>
-                                    Intermediate protein
-                                </button>
-                                <button class="btn btn-outline-secondary btn-sm legend-button" disabled>
-                                    <svg height="10" width="10">
-                                        <circle cx="5" cy="5" r="5" fill="#1F77B4"/>
-                                    </svg>
-                                    Kinase
-                                </button>
-                            </div>
+                                 height="100%" viewBox="-20 0 1020 600">
+                                <g class="legend" transform="translate(50, 10)">
+                                    <g class="legend-background">
+                                        <rect width="150" height="20" opacity="0.8" fill="white"></rect>
+                                    </g>
+                                    <g class="legend-item" transform="translate(0, 0)">
+                                        <circle cx="5" cy="10" r="5" fill="#FF546D"/>
+                                        <text x="15" y="15">Transcription factor</text>
+                                    </g>
+                                    <g class="legend-item" transform="translate(150, 0)">
+                                        <circle cx="5" cy="10" r="5" fill="#FF7F0E"/>
+                                        <text x="15" y="15">Intermediate protein</text>
+                                    </g>
+                                    <g class="legend-item" transform="translate(300, 0)">
+                                        <circle cx="5" cy="10" r="5" fill="#1F77B4"/>
+                                        <text x="15" y="15">Kinase</text>
+                                    </g>
+                                </g>
+                                <g class="zoom-controls x2k-zoom-controls" transform="translate(10, 10)">
+                                    <g id="x2k-zoom-in" transform="translate(0, 0)">
+                                        <rect width="20" height="20"></rect>
+                                        <line x1="5" y1="10" x2="15" y2="10"></line>
+                                        <line x1="10" y1="5" x2="10" y2="15"></line>
+                                    </g>
+                                    <g id="x2k-zoom-out" transform="translate(0, 20)">
+                                        <rect width="20" height="20"></rect>
+                                        <line x1="5" y1="10" x2="15" y2="10"></line>
+                                    </g>
+                                </g>
+                            </svg>
                         </div>
                     </div>
                 </div>

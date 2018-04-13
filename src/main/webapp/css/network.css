@@ -30,3 +30,18 @@
 	opacity: 0.8;
 	pointer-events: none;
 }
+
+
+.zoom-controls {
+	cursor: pointer;
+	pointer-events: all;
+}
+.zoom-controls rect {
+	fill: white;
+	stroke: #596877;
+	stroke-width: 1;
+}
+.zoom-controls line {
+	stroke: #596877;
+	stroke-width: 2;
+}
