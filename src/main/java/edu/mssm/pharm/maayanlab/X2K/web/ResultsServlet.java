@@ -45,7 +45,7 @@ public class ResultsServlet extends HttpServlet {
 		JSONify json = Context.getJSONConverter();
 		resp.setContentType("application/json");
 		resp.setCharacterEncoding("UTF-8");
-		json.add("availableSettings", availableSettings);
+		json.add("availableSettings", defaultSettings);
 		forwardRequest(req, resp);
     }
 	
