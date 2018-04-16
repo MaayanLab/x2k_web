@@ -59,7 +59,7 @@ var Base64 = {
 
 		return utftext;
 	}
-}
+};
 
 function createTable(json, container) {
     var enriched;
@@ -72,14 +72,14 @@ function createTable(json, container) {
     }
 
     var dataArray = [];
-    for (i = 0; i < json.length; i++) {
+    for (var i = 0; i < json.length; i++) {
 
         // Get first column
         var splitName = json[i]["name"].split('_'),
             firstCol = $('<div>').html($('<a>', {'href': 'http://amp.pharm.mssm.edu/Harmonizome/gene/'+splitName[0], 'target': '_blank'}).html(splitName[0])),
             targetSource = '';
         if (splitName.length > 1) {
-            var targetSource = $('<div>', {'class': 'my-2'})
+            targetSource = $('<div>', {'class': 'my-2'})
                 .append('Associations were determined from the following experiment:')
                 .append($('<ul>', {'class': 'mb-0'})
                         .append($('<li>').html('<b>Assay</b>: '+splitName[2]))
@@ -93,7 +93,7 @@ function createTable(json, container) {
         var enrichedLinks = [];
         $.each(json[i][enriched], function(index, gene) {
             enrichedLinks.push('<a class="enriched-gene-link" href="http://amp.pharm.mssm.edu/Harmonizome/gene/'+gene+'" target="_blank">'+gene+'</a>');
-        })
+        });
 
         // Data Array
         dataArray[i] = [i+1,
@@ -118,7 +118,7 @@ function createTable(json, container) {
         ];
     }
 
-    var table = $(container).DataTable( {
+    $(container).DataTable( {
         width: '100%',
         data: dataArray,
         responsive: true,
@@ -145,40 +145,19 @@ function createTable(json, container) {
 				exportOptions: {
 					columns: [0, 1, 2, 3, 4]
 				}
-			},
+			}
         ],
         "columnDefs": [
 	        { "sortable": false, targets: 5 }
         ],
-        drawCallback: function(settings){
+        drawCallback: function(){
 
             $('.enrichment-popover-button').popover();
-            $('.enrichment-popover-button').on('click', function (e) {
+            $('.enrichment-popover-button').on('click', function () {
                 $('.enrichment-popover-button').not(this).popover('hide');
             });
-
-            // var api = this.api();
-
-            // api.rows( { page: 'current' } ).every( function () {
-            //     var rowData = this.data();
-            //     api.cell(this.index(), 0).node().setAttribute('title', rowData[5]);
-            // } );
-
-            // $('tr', api.table().container()).each(function () {
-            //     title = this.cells[0].title;
-            //     $(this).attr('title', title);
-            // });
-
-//            $('tr', api.table().container()).tooltip({
-//               container: 'body'
-//            });
-
         }
     } );
-
-//    table.buttons().container().appendTo(container+'_wrapper .col-sm-6:eq(0)' );
-
-//    table.$('tr').tooltip();
 }
 
 function download(url, data, method) {
@@ -201,8 +180,8 @@ function download(url, data, method) {
 }
 
 function downloadObj(obj, filename, fmt) {
-	if(fmt == undefined)
-		fmt = "application/octet-stream"
+	if(fmt === undefined)
+		fmt = "application/octet-stream";
 	var dataStr = "data:"+fmt+";charset=utf-8," + encodeURIComponent(obj);
 	var downloadAnchorNode = document.createElement('a');
 	downloadAnchorNode.setAttribute("href", dataStr);
@@ -217,18 +196,19 @@ function exportJson(name, export_json) {
 
 function exportCsv(name, export_json) {
 	// TODO: Fix this function for ChEA and KEA
+    var array, str;
 	if(name ==="X2K"){
-	    var tfs = typeof objArray != 'object' ? export_json["transcriptionFactors"] : objArray;
-	    var kinases = typeof objArray != 'object' ? export_json["kinases"] : objArray;
-	    var array = tfs.concat(kinases);
+	    var tfs = typeof objArray !== 'object' ? export_json["transcriptionFactors"] : objArray;
+	    var kinases = typeof objArray !== 'object' ? export_json["kinases"] : objArray;
+	    array = tfs.concat(kinases);
 	    
     
-	    var str = "Name,Simple name,P-value,Z-score,Combined score,Targets\n";
+	    str = "Name,Simple name,P-value,Z-score,Combined score,Targets\n";
 	
 	    for (var i = 0; i < array.length; i++) {
 	        var line = '';
 	        for (var index in array[i]) {
-	            if (line != '') line += ','
+	            if (line !== '') line += ',';
 	
 	            line += array[i][index];
 	        }
@@ -237,14 +217,12 @@ function exportCsv(name, export_json) {
 	    }
 	}
 	else{
-		var array = typeof objArray != 'object' ? export_json["network"] : objArray;
-		var nodes = array["nodes"]
+		array = typeof objArray !== 'object' ? export_json["network"] : objArray;
+		var nodes = array["nodes"];
 		var interactions = array["interactions"];
-		var inputList = typeof objArray != 'object' ? export_json["input_list"] : objArray;
-		var str = "Source, Source type,Target,Target type\n";
-		
-		
-		var line = "";
+		var inputList = typeof objArray !== 'object' ? export_json["input_list"] : objArray;
+		str = "Source, Source type,Target,Target type\n";
+
 		for (var i = 0; i < interactions.length; i++) {
 			var sourceIndex = interactions[i]["source"];
 			var targetIndex = interactions[i]["target"];
@@ -267,13 +245,7 @@ function exportCsv(name, export_json) {
 }
 
 function svgExport(container, filename, outputType) {
-	// if ((container === ".chea-chart")||(container === ".kea-chart")){
-	// 	var b64 = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="'+container.slice(1)+'" width="100%" height="100%">' + $(container).html().trim() + '</svg>';
-	// }
-	// else{
     var b64 = $(container).html();
-    console.log(b64);
-	// }
 	b64 = b64.replace(/<br>/g, "&lt;br&gt;");
 	b64 = b64.replace(/<br\/>/g, "&lt;br&gt;&#47;");
 	b64 = encodeURIComponent(Base64.encode(b64));
@@ -288,14 +260,14 @@ function convertToCytoscape(network) {
 	return {
 		elements: {
 			nodes: network.nodes.map(function(self) {
-				var curNode = d3.select('text[title="'+self.name+'"]').node()
-				var d3Data
+				var curNode = d3.select('text[title="'+self.name+'"]').node();
+				var d3Data;
 				if(curNode != null) {
 					d3Data = d3.select(curNode.parentNode).data()[0]
 				} else {
 					d3Data = {
 						x: (Math.random() - 0.5)*1000,
-						y: (Math.random() - 0.5)*1000,
+						y: (Math.random() - 0.5)*1000
 					}
 				}
 				return {
@@ -315,10 +287,10 @@ function convertToCytoscape(network) {
 					data: {
 						id: ind,
 						source: network.nodes[self.source].name,
-						target: network.nodes[self.target].name,
+						target: network.nodes[self.target].name
 					}
 				}
-			}),
+			})
 		}
 	}
 }
@@ -345,32 +317,32 @@ function createResults(json_file) {
 	
 	// Networks functions
 	function convertX2KNode(x2k_node) { //convert the style of a node from X2K output to cytoscape
-		cyto_node = {name: x2k_node["name"], group: x2k_node["type"], pvalue: x2k_node["pvalue"]}
-	    return cyto_node;
+	    return {name: x2k_node["name"], group: x2k_node["type"], pvalue: x2k_node["pvalue"]};
 	}
 
 	function convertG2NNode(g2n_node, input_list) { //convert the style of a node from G2N output to cytoscape
+		var node_class;
 	    if (input_list.indexOf(g2n_node["name"]) > -1) {
 	        node_class = "input_protein";
 	    }
 	    else {
 	        node_class = "intermediate"
 	    }
-	    cyto_node = {name: g2n_node["name"], group: node_class};
-	    return cyto_node
+
+	    return  {name: g2n_node["name"], group: node_class};
 	}
 
 
 	function containsInteraction(json_file, interaction, array) { //check if the interactions list already contains an interaction
 	    //used against duplicates
-	    for (y = 0; y < array.length; y++) {
-	        a = array[y];
-	        source_a = a.data.source;
-	        target_a = a.data.target;
-	        source_b = json_file.network.nodes[interaction.source].name;
-	        target_b = json_file.network.nodes[interaction.target].name;
-            if ((source_a == source_b && target_a == target_b) ||
-	            source_a == target_b && target_a == source_b) {
+	    for (var y = 0; y < array.length; y++) {
+	        var a = array[y];
+	        var source_a = a.data.source,
+				target_a = a.data.target,
+				source_b = json_file.network.nodes[interaction.source].name,
+				target_b = json_file.network.nodes[interaction.target].name;
+            if ((source_a === source_b && target_a === target_b) ||
+	            source_a === target_b && target_a === source_b) {
 	            return true;
 	        }
 	    }
@@ -379,16 +351,16 @@ function createResults(json_file) {
 
 	//clean up a network - remove unused nodes, remove duplicate interactions, self-loops
 	function cleanNetwork(json_file, network) {
-	    clean_interactions = [];
-	    connected_nodes = [];
-	    for (i = 0; i < network.interactions.length; i++) {
-	        interaction = network.interactions[i];
-	        if (!containsInteraction(json_file, interaction, clean_interactions) && interaction.target != interaction.source) {
-	            cyto_interaction = {
+	    var clean_interactions = [],
+	    	connected_nodes = [];
+	    for (var i = 0; i < network.interactions.length; i++) {
+	        var interaction = network.interactions[i];
+	        if (!containsInteraction(json_file, interaction, clean_interactions) && interaction.target !== interaction.source) {
+	            var cyto_interaction = {
 					data: {
 						source: network.nodes[interaction.source]["name"],
 						target: network.nodes[interaction.target]["name"],
-						pvalue: network.nodes[interaction.source]["pvalue"],
+						pvalue: network.nodes[interaction.source]["pvalue"]
 					}
 				};
 	            clean_interactions.push(cyto_interaction);
@@ -396,8 +368,8 @@ function createResults(json_file) {
 	            connected_nodes.push(interaction.target);
 	        }
 	    }
-	    clean_nodes = [];
-	    for (i = 0; i < network.nodes.length; i++) {
+	    var clean_nodes = [];
+	    for (var i = 0; i < network.nodes.length; i++) {
 	        if (connected_nodes.indexOf(i) > -1) {
 	            clean_nodes.push(network.nodes[i]);
 	        }
@@ -406,11 +378,11 @@ function createResults(json_file) {
 	}
 	
 	// X2K Processing
-	var x2k = json_file["X2K"];
-    network = x2k.network;
-    clean_network = cleanNetwork(x2k, network);
-    clean_nodes = clean_network[1];
-    clean_interactions = clean_network[0];
+	var x2k = json_file["X2K"],
+		network = x2k.network,
+		clean_network = cleanNetwork(x2k, network),
+		clean_nodes = clean_network[1],
+		clean_interactions = clean_network[0];
     
     network_string = JSON.stringify(network);
     tf_string = JSON.stringify(x2k.transcriptionFactors);
@@ -432,9 +404,9 @@ function createResults(json_file) {
 	// Get G2N Network
     g2n_network = json_file["G2N"]['network'];
     input_tfs = json_file["G2N"]['input_list'];
-    $.each(g2n_network['nodes'], function(index, elem) {
+    $.each(g2n_network['nodes'], function(index) {
     	g2n_network['nodes'][index]['name'] = g2n_network['nodes'][index]['name'].split('_')[0];
-    })
+    });
 
 	// Label G2N network according to input TFs
 	
@@ -444,15 +416,15 @@ function createResults(json_file) {
     	} else {
     		g2n_network['nodes'][index]['type'] = 'other';
     	}
-    })
+    });
 
     var g2n = {'network': g2n_network, 'input_list': input_tfs};
-    network = g2n.network;
-    clean_network = cleanNetwork(g2n, network);
-    clean_nodes = clean_network[1];
-    clean_interactions = clean_network[0];
+	network = g2n.network;
+	clean_network = cleanNetwork(g2n, network);
+	clean_nodes = clean_network[1];
+	clean_interactions = clean_network[0];
 
-    input_list = [];
+    var input_list = [];
     for (i = 0; i < g2n.input_list.length; i++) input_list.push(g2n.input_list[i].toUpperCase());
     g2n_d3_array = {"nodes": [], "links": []};
     for (i = 0; i < clean_nodes.length; i++) {
@@ -464,11 +436,9 @@ function createResults(json_file) {
     
     network_string = JSON.stringify(network);
     draw_network(g2n_d3_array, ".g2n-svg", "#g2n-network");
-    // draw_zoom_controls(".g2n-svg");
-
     
 	// Modals
-	var cur_modal = {}
+	var cur_modal = {};
 
 	$("#dashboardFullModal").on("show.bs.modal", function (event) {
 		var button = $(event.relatedTarget), // Button that triggered the modal
@@ -481,8 +451,8 @@ function createResults(json_file) {
 		cur_modal = {
 			button,
 			name,
-			div_name,
-		}
+			div_name
+		};
 
 		if ((name === 'ChEA')||(name === 'KEA')) {
             $('.cytoscape-button').hide();
@@ -524,7 +494,7 @@ function createResults(json_file) {
 		);
 	});
 		
-	$("#dashboardFullModal").on("hide.bs.modal", function (event) {
+	$("#dashboardFullModal").on("hide.bs.modal", function() {
 		var modal = $(this);
 		modal.find(".modal-body").find("svg").appendTo($(cur_modal.div_name));
 	});

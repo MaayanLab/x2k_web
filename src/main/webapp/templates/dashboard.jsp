@@ -2,18 +2,18 @@
 
 <div class="container-fluid bg-light px-5" id="results-dashboard">
     <div class="row justify-content-center">
-<!--        <div class="col-sm-1">
-            <div class="row">
-                <div class="card" id="genelist-container">
-                    <div class="card-header" id="genelist-header">
-                        Input list
+        <!--        <div class="col-sm-1">
+                    <div class="row">
+                        <div class="card" id="genelist-container">
+                            <div class="card-header" id="genelist-header">
+                                Input list
+                            </div>
+                            <div class="card-block">
+                                <textarea class="form-control-sm" id="genelist" readonly></textarea>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-block">
-                        <textarea class="form-control-sm" id="genelist" readonly></textarea>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+                </div> -->
         <div class="col-12">
             <div class="row justify-content-center align-items-start">
                 <!--ChEA-->
@@ -50,6 +50,7 @@
                                     data-content="<div class='mb-3'>Transcription Factor Enrichment Analysis (TFEA) is the first step of the X2K pipeline. It <b>predicts transcription factors which regulate the input gene list</b> by performing enrichment analysis on data integrated from ChIP-X experiments using ChEA.</div><div class='mb-3'>A ranked list of the <b>top predicted transcription factors</b> is displayed below. The results are made available through an interactive barchart and can be downloaded as a table.</div><div>These genes are used as input for the next step of the X2K pipeline, the <b>protein-protein interaction expansion</b>.</div>">
                                 <i class="fa fa-question-circle fa-2x text-muted"></i>
                             </button>
+
                         </nav>
                         <div id="chea-results" class="card-body">
                             <div class="tab-content" style="display: block;" id="nav-tabContent-chea">
@@ -125,7 +126,7 @@
                                 </g>
                                 <g class="legend" transform="translate(50, 10)">
                                     <g class="legend-background">
-                                        <rect width="150" height="20" opacity="0.8" fill="white"></rect>
+                                        <rect width="400" height="20" opacity="0.8" fill="white"></rect>
                                     </g>
                                     <g class="legend-item" transform="translate(50, 0)">
                                         <circle cx="5" cy="10" r="10" fill="#FF7F0E"/>
@@ -137,6 +138,7 @@
                                     </g>
                                 </g>
                             </svg>
+
                         </div>
                     </div>
                 </div>
@@ -200,6 +202,7 @@
                                                 class="kea-chart"
                                                 width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
                                     </div>
+
                                 </div>
                                 <div class="tab-pane fade table-responsive" id="nav-kea-table"
                                         role="tabpanel"
@@ -211,6 +214,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!--X2K-->
                 <div class="col-xl-6" id="x2k">
                     <div class="card">
@@ -234,7 +238,7 @@
                                     data-content="<div class='mb-3'>The Expression2Kinases (X2K) network displays <b>the inferred upstream regulatory network of the input gene list</b> by integrating the results of ChEA (Step 1), G2N (Step 2), and KEA (Step 3).</div><div>Pink nodes represent the <b>top transcription factors</b> predicted to regulate the expression of the input gene list; orange nodes represent <b>physical interactors of the transcription factors</b>; blue nodes represent the <b>top protein kinases</b> predicted to phosphorylate such genes.</div>">
                                 <i class="fa fa-question-circle fa-2x text-muted"></i>
                             </button>
-                            
+
                         </nav>
                         <div id="x2k-network" class="card-body">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg" id="x2ksvg"
@@ -242,7 +246,7 @@
                                     height="100%" viewBox="-20 0 1020 600">
                                 <g class="legend" transform="translate(50, 10)">
                                     <g class="legend-background">
-                                        <rect width="150" height="20" opacity="0.8" fill="white"></rect>
+                                        <rect width="400" height="20" opacity="0.8" fill="white"></rect>
                                     </g>
                                     <g class="legend-item" transform="translate(50, 0)">
                                         <circle cx="5" cy="10" r="10" fill="#FF546D"/>
@@ -277,6 +281,7 @@
         </div>
     </div>
 </div>
+
 <!--Modals-->
 <div class="modal fade" id="dashboardFullModal" tabindex="-1" role="dialog"
         aria-labelledby="dashboardFullModalLabel"
@@ -290,7 +295,7 @@
                 </button>
             </div>
             <div class="modal-body"></div>
-            <div class="modal-footer">            
+            <div class="modal-footer">
                 <a id="json-anchor">
                     <button type="button" class="btn btn-outline-primary json-button">JSON</button>
                 </a>
