@@ -83,7 +83,9 @@
 </nav>
 
 <!--Body-->
-<%@ include file="/templates/dashboard.jsp" %>
+<div class="px-5 bg-light">
+    <%@ include file="/templates/dashboard.jsp" %>
+</div>
 
 <!--Footer-->
 <footer class="container-fluid" id="footer">

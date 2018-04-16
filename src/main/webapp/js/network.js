@@ -21,12 +21,7 @@ function draw_network(json, svg_id, body) {
     function radius(d) {
         // This one is the most accurate representation
         // return Math.sqrt((single_degree_node_size * d.degree) / Math.PI);
-        if (body === "#x2k-network") {
-            return Math.floor(Math.sqrt(20 * d.degree));
-        }
-        else {
-            return 20;
-        }
+        return Math.floor(Math.sqrt(20 * d.degree));
     }
 
     function tickActions() {
@@ -79,26 +74,32 @@ function draw_network(json, svg_id, body) {
     }
 
     function linkColour(d) {
-        var source_tf = (d.source_type === "tf"),
-            source_kinase = ((d.source_type === "kinase") || (d.source_type === "input_protein")),
-            source_other = ((d.source_type === "other") || (d.source_type === "intermediate")),
-            target_tf = (d.target_type === "tf"),
-            target_kinase = ((d.target_type === "kinase") || (d.target_type === "input_protein")),
-            target_other = ((d.target_type === "other") || (d.target_type === "intermediate"));
+        // var source_tf = (d.source_type === "tf"),
+        //     source_kinase = ((d.source_type === "kinase") || (d.source_type === "input_protein")),
+        //     source_other = ((d.source_type === "other") || (d.source_type === "intermediate")),
+        //     target_tf = (d.target_type === "tf"),
+        //     target_kinase = ((d.target_type === "kinase") || (d.target_type === "input_protein")),
+        //     target_other = ((d.target_type === "other") || (d.target_type === "intermediate"));
 
-        if ((source_tf) && (target_tf)) {
-            return "#FF546D";
-        } else if ((source_kinase) && (target_kinase)) {
-            return "#339DCC";
-        } else if ((source_other) && (target_other)) {
-            return "lightgray";
-        } else if (((source_tf) && (target_kinase)) || ((source_kinase) && (target_tf))) {
-            return "#339DCC";
-        } else if (((source_tf) && (target_other)) || ((source_other) && (target_tf))) {
-            return "#FF6A3C";
-        } else if (((source_kinase) && (target_other)) || ((source_other) && (target_kinase))) {
-            return "#269C26";
+        // if ((source_tf) && (target_tf)) {
+        //     return "#FF546D";
+        // } else if ((source_kinase) && (target_kinase)) {
+        //     return "#339DCC";
+        // } else if ((source_other) && (target_other)) {
+        //     return "lightgray";
+        // } else if (((source_tf) && (target_kinase)) || ((source_kinase) && (target_tf))) {
+        //     return "#339DCC";
+        // } else if (((source_tf) && (target_other)) || ((source_other) && (target_tf))) {
+        //     return "#FF6A3C";
+        // } else if (((source_kinase) && (target_other)) || ((source_other) && (target_kinase))) {
+        //     return "#269C26";
+        // }
+        if (d.source_type === "kinase") {
+            return "#269C26"
+        } else {
+            return "lightgray"
         }
+
     }
 
     function box_force() {
