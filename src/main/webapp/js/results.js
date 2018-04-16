@@ -491,6 +491,7 @@ function createResults(json_file) {
 		    $('.cytoscape-button').show();
 		}
 
+		// Hide popover when opening modal
 		modal.find(".modal-title").text(modal_title);
 		$(div_name).find("svg").appendTo(modal.find(".modal-body"));
 		$('.info-popover-button').popover('hide');
@@ -529,7 +530,20 @@ function createResults(json_file) {
 		modal.find(".modal-body").find("svg").appendTo($(cur_modal.div_name));
 	});
 
-  $('[data-toggle="popover"]').popover();
+	// Popover handler
+	$('[data-toggle="popover"]').popover();
+
+	// Hide Popover when clicking elsewhere on the document
+	$(document).on('click', function(evt){
+		if (($(evt.target).parents('.popover').length === 0)) {
+			evt.preventDefault();
+			$('.popover').popover('hide');
+			if ($(evt.target).parents('button').attr('data-toggle')) {
+				$(evt.target).parents('button').popover('show');
+			}
+		}
+	})
+
 }
 
 $(function() {
