@@ -61,6 +61,21 @@ var Base64 = {
 	}
 };
 
+function sendToEnrichr(button) {
+	// Get genes
+	var genes = Object.values($(button).parents('.popover').find('.enriched-gene-link').map(function(index, elem){ return $(elem).text() }));
+
+	// Create Form
+	var $form = $('<form>', {'method': 'post', 'action': 'https://amp.pharm.mssm.edu/Enrichr/enrich', 'target': '_blank', 'enctype': 'multipart/form-data'})
+					.append($('<input>', {'type': 'hidden', 'name': 'list', 'value': genes.join('\n')}))
+					.append($('<input>', {'type': 'hidden', 'name': 'description', 'value': 'Enriched '+$(button).parents('.popover').find('b').first().text()+' targets from X2K'}))
+	
+	// Submit
+	$(button).parents('.popover').append($form);
+	$form.submit();
+	$form.remove();
+}
+
 function createTable(json, container) {
     var enriched;
 
@@ -107,7 +122,7 @@ function createTable(json, container) {
                     'data-placement': 'left',
                     'data-html': 'true',
                     'data-template': '<div class="popover enrichment-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
-                    'title': enriched.replace('enriched', 'Enriched '),
+					'title': enriched.replace('enriched', 'Enriched <button class="float-right enrichr-button" onclick="sendToEnrichr(this, event);">En<span class="red">rich</span>r<i class="fas fa-external-link-alt ml-1"></i></button>'),
                     'data-content': '<b>'+json[i]["name"].split('_')[0]+'</b> targets <span class="font-italic">'+json[i][enriched].length+' genes</span> from the input gene list.<br>'+targetSource+'<div class="my-1">The full list of '+enriched.replace('enriched', '').toLowerCase()+' is available below:</div>'+enrichedLinks.join(" ")
                 })
                 .css('cursor', 'pointer')
@@ -152,10 +167,12 @@ function createTable(json, container) {
         ],
         drawCallback: function(){
 
+			// Enriched gene popover
             $('.enrichment-popover-button').popover();
             $('.enrichment-popover-button').on('click', function () {
                 $('.enrichment-popover-button').not(this).popover('hide');
-            });
+			});
+			
         }
     } );
 }
@@ -506,10 +523,19 @@ function createResults(json_file) {
 	// Hide Popover when clicking elsewhere on the document
 	$(document).on('click', function(evt){
 		if (($(evt.target).parents('.popover').length === 0)) {
+
+			// Prevent default
 			evt.preventDefault();
 			$('.popover').popover('hide');
+
+			// Show help popover
 			if ($(evt.target).parents('button').attr('data-toggle')) {
-				$(evt.target).parents('button').popover('show');
+				$(evt.target).parents('button').popover('toggle');
+			}
+
+			// Toggle target popover
+			if ($(evt.target).hasClass('enrichment-popover-button')) {
+				$(evt.target).popover('toggle');
 			}
 		}
 	})
