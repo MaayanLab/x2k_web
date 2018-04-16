@@ -21,12 +21,7 @@ function draw_network(json, svg_id, body) {
     function radius(d) {
         // This one is the most accurate representation
         // return Math.sqrt((single_degree_node_size * d.degree) / Math.PI);
-        if (body === "#x2k-network") {
-            return Math.floor(Math.sqrt(20 * d.degree));
-        }
-        else {
-            return 20;
-        }
+        return Math.floor(Math.sqrt(20 * d.degree));
     }
 
     function tickActions() {
