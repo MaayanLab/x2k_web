@@ -47,7 +47,6 @@
     <link rel="stylesheet" href="dist/css/network.css">
     <link rel="stylesheet" href="dist/css/atooltip.css">
     <link rel="stylesheet" href="dist/css/results.css">
-    <link rel="stylesheet" href="dist/css/results_index.css">
     <link rel="stylesheet" href="dist/css/index_beta.css">
 
     <script src="dist/js/bargraph.js"></script>

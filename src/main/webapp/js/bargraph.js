@@ -143,14 +143,14 @@ function drawBargraph(chart, bargraph_data) {
         .attr("class", "axis axis--x")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x))
-        .attr("font-size", "1.1rem");
+        .attr("font-size", "1.3rem");
 
     // X-axis caption
     g.select(".axis--x")
         .append("text")
         .attr("class", "caption")
         .attr("x", width / 2)
-        .attr("y", margin.bottom / 1.5)
+        .attr("y", margin.bottom / 1.6)
         .attr("dy", "0.71em")
         .attr("font-size", "1.2rem")
         .text("-log₁₀(p-value)");
@@ -158,7 +158,7 @@ function drawBargraph(chart, bargraph_data) {
     // X-axis ticks
     g.selectAll(".axis--x text")
         .attr("fill", "black")
-        .attr("font-size", "1.2rem");
+        .attr("font-size", "1.3rem");
 
     // Bar names
     g.append("g")
@@ -167,7 +167,7 @@ function drawBargraph(chart, bargraph_data) {
         .call(d3.axisLeft(y).tickSize(0))
         .selectAll("text")
         .attr("fill", "black")
-        .attr("font-size", "1.2rem")
+        .attr("font-size", "1.3rem")
         .text(function (d) {
             return d.split(/[_-]/)[0]
         });
@@ -220,7 +220,7 @@ function drawBargraph(chart, bargraph_data) {
                 return "white"
             }
         })
-        .attr("font-size", "1.2rem")
+        .attr("font-size", "1.3rem")
         .text(function (d) {
             return d["pvalue"].toExponential(2);
         });
