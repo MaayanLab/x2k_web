@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <div class="container-fluid bg-light px-5" id="results-dashboard">
     <div class="row justify-content-center">
 <!--        <div class="col-sm-1">
