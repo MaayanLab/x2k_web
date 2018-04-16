@@ -192,7 +192,25 @@ thead th {
     margin-left: auto !important;
 }
 
+.dataTables_wrapper {
+    overflow-x: auto;
+}
+
 /* Cards */
 /*#chea-dash .card {*/
     /*padding-bottom: 24px;*/
 /*}*/
+
+/* Font Colors  */
+.enrichr-button {
+    color: black !important;
+    text-decoration: none !important;
+    background-color: transparent;
+    border: none;
+    outline: none !important;
+    cursor: pointer;
+}
+
+.red {
+    color: #D90000 !important;
+}
