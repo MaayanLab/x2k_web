@@ -129,12 +129,16 @@
                                         <rect width="400" height="20" opacity="0.8" fill="white"></rect>
                                     </g>
                                     <g class="legend-item" transform="translate(50, 0)">
+                                        <circle cx="5" cy="10" r="10" fill="#FF546D"/>
+                                        <text x="20" y="18" font-size="16pt">Transcription factor</text>
+                                    </g>
+                                    <g class="legend-item" transform="translate(300, 0)">
                                         <circle cx="5" cy="10" r="10" fill="#FF7F0E"/>
                                         <text x="20" y="18" font-size="16pt">Intermediate protein</text>
                                     </g>
-                                    <g class="legend-item" transform="translate(300, 0)">
-                                        <circle cx="5" cy="10" r="10" fill="#FF546D"/>
-                                        <text x="20" y="18" font-size="16pt">Transcription factor</text>
+                                    <g class="legend-item" transform="translate(550, 0)">
+                                        <line x1="0" y1="10" x2="15" y2="10" style="stroke:lightgrey; stroke-width:3" />
+                                        <text x="20" y="18" font-size="16pt">&nbspProtein-Protein Interaction (PPI)</text>
                                     </g>
                                 </g>
                             </svg>
@@ -248,17 +252,25 @@
                                     <g class="legend-background">
                                         <rect width="400" height="20" opacity="0.8" fill="white"></rect>
                                     </g>
-                                    <g class="legend-item" transform="translate(50, 0)">
+                                    <g class="legend-item" transform="translate(10, 0)">
                                         <circle cx="5" cy="10" r="10" fill="#FF546D"/>
                                         <text x="20" y="18" font-size="16pt">Transcription factor</text>
                                     </g>
-                                    <g class="legend-item" transform="translate(300, 0)">
+                                    <g class="legend-item" transform="translate(250, 0)">
                                         <circle cx="5" cy="10" r="10" fill="#FF7F0E"/>
                                         <text x="20" y="18" font-size="16pt">Intermediate protein</text>
                                     </g>
-                                    <g class="legend-item" transform="translate(550, 0)">
+                                    <g class="legend-item" transform="translate(500, 0)">
                                         <circle cx="5" cy="10" r="10" fill="#1F77B4"/>
                                         <text x="20" y="18" font-size="16pt">Kinase</text>
+                                    </g>
+                                    <g class="legend-item" transform="translate(615, 0)">
+                                        <line x1="0" y1="10" x2="15" y2="10" style="stroke:#269C26; stroke-width:3"/>
+                                        <text x="20" y="18" font-size="16pt">&nbspPhosphorylation</text>
+                                    </g>
+                                    <g class="legend-item" transform="translate(825, 0)">
+                                        <line x1="0" y1="10" x2="15" y2="10" style="stroke:lightgrey; stroke-width:3"/>
+                                        <text x="20" y="18" font-size="16pt">&nbspPPI</text>
                                     </g>
                                 </g>
                                 <g class="zoom-controls x2k-zoom-controls" transform="translate(10, 10)">
