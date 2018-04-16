@@ -127,13 +127,13 @@
                                     <g class="legend-background">
                                         <rect width="150" height="20" opacity="0.8" fill="white"></rect>
                                     </g>
-                                    <g class="legend-item" transform="translate(0, 0)">
-                                        <circle cx="5" cy="10" r="5" fill="#FF7F0E"/>
-                                        <text x="15" y="15">Intermediate protein</text>
+                                    <g class="legend-item" transform="translate(50, 0)">
+                                        <circle cx="5" cy="10" r="10" fill="#FF7F0E"/>
+                                        <text x="20" y="18" font-size="16pt">Intermediate protein</text>
                                     </g>
-                                    <g class="legend-item" transform="translate(150, 0)">
-                                        <circle cx="5" cy="10" r="5" fill="#FF546D"/>
-                                        <text x="15" y="15">Transcription factor</text>
+                                    <g class="legend-item" transform="translate(300, 0)">
+                                        <circle cx="5" cy="10" r="10" fill="#FF546D"/>
+                                        <text x="20" y="18" font-size="16pt">Transcription factor</text>
                                     </g>
                                 </g>
                             </svg>
@@ -244,17 +244,17 @@
                                     <g class="legend-background">
                                         <rect width="150" height="20" opacity="0.8" fill="white"></rect>
                                     </g>
-                                    <g class="legend-item" transform="translate(0, 0)">
-                                        <circle cx="5" cy="10" r="5" fill="#FF546D"/>
-                                        <text x="15" y="15">Transcription factor</text>
-                                    </g>
-                                    <g class="legend-item" transform="translate(150, 0)">
-                                        <circle cx="5" cy="10" r="5" fill="#FF7F0E"/>
-                                        <text x="15" y="15">Intermediate protein</text>
+                                    <g class="legend-item" transform="translate(50, 0)">
+                                        <circle cx="5" cy="10" r="10" fill="#FF546D"/>
+                                        <text x="20" y="18" font-size="16pt">Transcription factor</text>
                                     </g>
                                     <g class="legend-item" transform="translate(300, 0)">
-                                        <circle cx="5" cy="10" r="5" fill="#1F77B4"/>
-                                        <text x="15" y="15">Kinase</text>
+                                        <circle cx="5" cy="10" r="10" fill="#FF7F0E"/>
+                                        <text x="20" y="18" font-size="16pt">Intermediate protein</text>
+                                    </g>
+                                    <g class="legend-item" transform="translate(550, 0)">
+                                        <circle cx="5" cy="10" r="10" fill="#1F77B4"/>
+                                        <text x="20" y="18" font-size="16pt">Kinase</text>
                                     </g>
                                 </g>
                                 <g class="zoom-controls x2k-zoom-controls" transform="translate(10, 10)">
