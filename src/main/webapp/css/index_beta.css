@@ -1,8 +1,9 @@
 
-/* Scrollspy */
 body {
     position: relative;
     background: #f8f9fa;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
 }
 
 /* Scrollspy anchor fix */
