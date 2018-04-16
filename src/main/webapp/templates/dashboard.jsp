@@ -123,19 +123,19 @@
                         </g>
                         <g class="legend" transform="translate(50, 10)">
                             <g class="legend-background">
-                                <rect width="400" height="20" opacity="0.8" fill="white"></rect>
+                                <rect width="900" height="30" opacity="0.8" fill="white"></rect>
                             </g>
-                            <g class="legend-item" transform="translate(50, 0)">
+                            <g class="legend-item" transform="translate(50, 5)">
                                 <circle cx="5" cy="10" r="10" fill="#FF546D" />
                                 <text x="20" y="18" font-size="16pt">Transcription factor</text>
                             </g>
-                            <g class="legend-item" transform="translate(300, 0)">
+                            <g class="legend-item" transform="translate(300, 5)">
                                 <circle cx="5" cy="10" r="10" fill="#FF7F0E" />
                                 <text x="20" y="18" font-size="16pt">Intermediate protein</text>
                             </g>
-                            <g class="legend-item" transform="translate(550, 0)">
-                                <line x1="0" y1="10" x2="15" y2="10" style="stroke:lightgrey; stroke-width:3" />
-                                <text x="20" y="18" font-size="16pt">&nbspProtein-Protein Interaction (PPI)</text>
+                            <g class="legend-item" transform="translate(550, 5)">
+                                <line x1="0" y1="10" x2="15" y2="10" stroke="lightgrey" stroke-width="3" />
+                                <text x="20" y="18" font-size="16pt">PPI</text>
                             </g>
                         </g>
                     </svg>
@@ -240,31 +240,6 @@
                 <div id="x2k-network" class="card-body h-100">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg h-100 w-100" id="x2ksvg"
                         preserveAspectRatio="xMinYMin" viewBox="-20 0 1020 600">
-                        <g class="legend" transform="translate(50, 10)">
-                            <g class="legend-background">
-                                <rect width="400" height="20" opacity="0.8" fill="white"></rect>
-                            </g>
-                            <g class="legend-item" transform="translate(10, 0)">
-                                <circle cx="5" cy="10" r="10" fill="#FF546D" />
-                                <text x="20" y="18" font-size="16pt">Transcription factor</text>
-                            </g>
-                            <g class="legend-item" transform="translate(250, 0)">
-                                <circle cx="5" cy="10" r="10" fill="#FF7F0E" />
-                                <text x="20" y="18" font-size="16pt">Intermediate protein</text>
-                            </g>
-                            <g class="legend-item" transform="translate(500, 0)">
-                                <circle cx="5" cy="10" r="10" fill="#1F77B4" />
-                                <text x="20" y="18" font-size="16pt">Kinase</text>
-                            </g>
-                            <g class="legend-item" transform="translate(615, 0)">
-                                <line x1="0" y1="10" x2="15" y2="10" style="stroke:#269C26; stroke-width:3" />
-                                <text x="20" y="18" font-size="16pt">&nbspPhosphorylation</text>
-                            </g>
-                            <g class="legend-item" transform="translate(825, 0)">
-                                <line x1="0" y1="10" x2="15" y2="10" style="stroke:lightgrey; stroke-width:3" />
-                                <text x="20" y="18" font-size="16pt">&nbspPPI</text>
-                            </g>
-                        </g>
                         <g class="zoom-controls x2k-zoom-controls" transform="translate(10, 10)">
                             <g id="x2k-zoom-in" transform="translate(0, 0)">
                                 <rect width="20" height="20"></rect>
@@ -274,6 +249,31 @@
                             <g id="x2k-zoom-out" transform="translate(0, 20)">
                                 <rect width="20" height="20"></rect>
                                 <line x1="5" y1="10" x2="15" y2="10"></line>
+                            </g>
+                        </g>
+                        <g class="legend" transform="translate(50, 10)">
+                            <g class="legend-background">
+                                <rect width="900" height="30" opacity="0.8" fill="white"></rect>
+                            </g>
+                            <g class="legend-item" transform="translate(10, 5)">
+                                <circle cx="5" cy="10" r="10" fill="#FF546D" />
+                                <text x="20" y="18" font-size="16pt">Transcription factor</text>
+                            </g>
+                            <g class="legend-item" transform="translate(250, 5)">
+                                <circle cx="5" cy="10" r="10" fill="#FF7F0E" />
+                                <text x="20" y="18" font-size="16pt">Intermediate protein</text>
+                            </g>
+                            <g class="legend-item" transform="translate(500, 5)">
+                                <circle cx="5" cy="10" r="10" fill="#1F77B4" />
+                                <text x="20" y="18" font-size="16pt">Kinase</text>
+                            </g>
+                            <g class="legend-item" transform="translate(615, 5)">
+                                <line x1="0" y1="10" x2="15" y2="10" stroke="#269C26" stroke-width="3" />
+                                <text x="20" y="18" font-size="16pt">Phosphorylation</text>
+                            </g>
+                            <g class="legend-item" transform="translate(825, 5)">
+                                <line x1="0" y1="10" x2="15" y2="10" stroke="lightgrey" stroke-width="3" />
+                                <text x="20" y="18" font-size="16pt">PPI</text>
                             </g>
                         </g>
                     </svg>

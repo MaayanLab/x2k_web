@@ -122,7 +122,7 @@ function drawBargraph(chart, bargraph_data) {
     });
 
     var svg = d3.select(chart),
-        margin = {top: 10, right: 10, bottom: 50, left: 100},
+        margin = {top: 10, right: 10, bottom: 70, left: 100},
         width = 1000 - margin.left - margin.right,
         height = 600 - margin.top - margin.bottom;
 

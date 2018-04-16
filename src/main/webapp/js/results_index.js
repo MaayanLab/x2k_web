@@ -16,11 +16,11 @@ $(function() {
     $.getJSON("static/results.json", function(json_file) {
         createResults(json_file);
 
-        $(".tab-content").show()
+        $(".tab-content").show();
 
         //Add smooth scrolling on all links inside the navbar
     	$("#scrollspy-nav a").on('click', function(event) {
-        let hash = $(this).attr('href')
+        let hash = $(this).attr('href');
         event.preventDefault();
         event.stopPropagation();
 
@@ -32,4 +32,4 @@ $(function() {
         });
     });
   })
-})
+});
