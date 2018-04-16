@@ -1999,15 +1999,14 @@ C1d' \
                     to multiple upstream regulatory layers. Bioinformatics. 28:105 (2012)</a>
                 </p>
                 <h5>Affiliations</h5>
-                <p>Expression2Kinases (X2K) is actively developed by the <a
-                        href="http://icahn.mssm.edu/research/labs/maayan-laboratory">Ma’ayan Laboratory</a> and the <a
-                        href="http://icahn.mssm.edu/research/bioinformatics">Mount Sinai Center
-                    for Bioinformatics</a> for <a href="http://lincs-dcic.org/">BD2K-LINCS Data Coordination and
-                    Integration Center</a> and <a href="https://commonfund.nih.gov/idg/overview">Illuminating the
-                    Druggable Genome</a> Common Fund Programs at the <a href="http://icahn.mssm.edu/">Icahn School of
-                    Medicine at Mount Sinai</a>, New York, NY
-                    10029 USA</p>
-                <h5>Contact</h5>
+                <div><a href="http://icahn.mssm.edu/research/labs/maayan-laboratory" target="_blank">The Ma'ayan Lab</a></div>
+                <div><a href="http://icahn.mssm.edu/research/bioinformatics" target="_blank">Mount Sinai Center for Bioinformatics</a></div>
+                <div><a href="http://www.lincs-dcic.org/" target="_blank">BD2K-LINCS Data Coordination and Integration Center (DCIC)</a></div>
+                <div><a href="https://druggablegenome.net/KMC_ISMMS" target="_blank">NIH Illuminating the Druggable Genome (IDG) Program</a></div>
+                <div><a href="http://icahn.mssm.edu/" target="_blank">Icahn School of Medicine at Mount Sinai</a></div>
+                <!-- <div><a href="http://www.lincsproject.org/">NIH LINCS program</a></div> -->
+                <!-- <div><a href="https://commonfund.nih.gov/commons" target="_blank">NIH Big Data to Knowledge (BD2K)</a></div> -->
+                <h5 class="mt-3">Contact</h5>
                 <ul class="list-unstyled">
                     <li>
                         <p><a href="mailto:avi.maayan@mssm.edu">Avi Ma'ayan, PhD</a>
