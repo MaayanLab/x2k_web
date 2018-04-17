@@ -496,7 +496,6 @@ function createResults(json_file) {
 			div_name,
 			svg,
 		};
-		console.log(cur_modal)
 	});
 
 	$(".csv-button").on("click", function () {
@@ -520,7 +519,7 @@ function createResults(json_file) {
 		cur_modal.svg.find('g.zoom-controls').remove();
 		
 		saveSvgAsPng.svgAsPngUri(cur_modal.svg[0], {}, function(uri) {
-			downloadUri(uri, cur_modal.name + '.svg')
+			downloadUri(uri, cur_modal.name + '.png')
 			cur_modal.svg.append(zoom_controls);
 		})
 	});
