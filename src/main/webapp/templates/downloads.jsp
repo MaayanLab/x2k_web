@@ -2,8 +2,8 @@
 <div class="row">
   <div class="col-sm-12">
     <h6>Kinome Regulation</h6>
-    <div class="table-responsive">
-      <table class="table table-sm datatable">
+    <div class="col-sm-12 my-3 table-responsive">
+      <table class="display table table-striped table-bordered table-sm datasets">
         <thead>
           <tr>
             <th>Database</th>
@@ -125,8 +125,8 @@
   </div>
   <div class="col-sm-12">
     <h6>Protein-Protein Interaction</h6>
-    <div class="table-responsive">
-      <table class="table table-sm datatable">
+    <div class="col-sm-12 my-3 table-responsive">
+      <table class="display table table-striped table-bordered table-sm datasets">
         <thead>
           <tr>
             <th>Database</th>
@@ -283,8 +283,8 @@
   </div>
   <div class="col-sm-12">
     <h6>Transcriptional Regulation</h6>
-    <div class="table-responsive">
-      <table class="table table-sm datatable">
+    <div class="col-sm-12 my-3 table-responsive">
+      <table class="display table table-striped table-bordered table-sm datasets">
         <thead>
           <tr>
             <th>Database</th>

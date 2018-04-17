@@ -107,8 +107,8 @@ const apply_transformers = (columns, data) => (
 const render_table = (json) => {
     let { columns, data } = apply_transformers(json[0], json.slice(1))
     return (
-        <div className="table-responsive">
-            <table className="table table-sm datatable">
+        <div className="col-sm-12 my-3 table-responsive">
+            <table className="display table table-striped table-bordered table-sm datasets">
                 <thead>
                     <tr>
                     {columns.map((header, ind) =>

@@ -121,8 +121,4 @@ $(document).ready(function () {
 //        $("#case-desc").show();
 //        $("#analysis-row").hide();
 //    })
-
-    $('.datatable').DataTable({
-        scrollX: true,
-    })
 });
