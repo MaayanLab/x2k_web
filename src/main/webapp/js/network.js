@@ -66,10 +66,10 @@ function draw_network(json, svg_id, body) {
         if ((d.group === "tf") || (d.group === "input_protein")) {
             return "#FF546D";
         } else if (d.group === "kinase") {
-            return "#339DCC";
+            return "#84A6EE";
         }
         else {
-            return "#FF7F0E";
+            return "lightgrey";
         }
     }
 
@@ -84,11 +84,11 @@ function draw_network(json, svg_id, body) {
         // if ((source_tf) && (target_tf)) {
         //     return "#FF546D";
         // } else if ((source_kinase) && (target_kinase)) {
-        //     return "#339DCC";
+        //     return "#84A6EE";
         // } else if ((source_other) && (target_other)) {
         //     return "lightgray";
         // } else if (((source_tf) && (target_kinase)) || ((source_kinase) && (target_tf))) {
-        //     return "#339DCC";
+        //     return "#84A6EE";
         // } else if (((source_tf) && (target_other)) || ((source_other) && (target_tf))) {
         //     return "#FF6A3C";
         // } else if (((source_kinase) && (target_other)) || ((source_other) && (target_kinase))) {

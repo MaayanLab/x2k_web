@@ -130,7 +130,7 @@
                                 <text x="20" y="18" font-size="16pt">Transcription factor</text>
                             </g>
                             <g class="legend-item" transform="translate(300, 0)">
-                                <circle cx="5" cy="10" r="10" fill="#FF7F0E" />
+                                <circle cx="5" cy="10" r="10" fill="lightgrey" />
                                 <text x="20" y="18" font-size="16pt">Intermediate protein</text>
                             </g>
                             <g class="legend-item" transform="translate(550, 0)">
@@ -249,11 +249,11 @@
                                 <text x="20" y="18" font-size="16pt">Transcription factor</text>
                             </g>
                             <g class="legend-item" transform="translate(250, 0)">
-                                <circle cx="5" cy="10" r="10" fill="#FF7F0E" />
+                                <circle cx="5" cy="10" r="10" fill="lightgrey" />
                                 <text x="20" y="18" font-size="16pt">Intermediate protein</text>
                             </g>
                             <g class="legend-item" transform="translate(500, 0)">
-                                <circle cx="5" cy="10" r="10" fill="#1F77B4" />
+                                <circle cx="5" cy="10" r="10" fill="#84A6EE" />
                                 <text x="20" y="18" font-size="16pt">Kinase</text>
                             </g>
                             <g class="legend-item" transform="translate(615, 0)">
