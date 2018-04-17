@@ -110,7 +110,7 @@
                 <div id="network-g2n" class="card-body h-100">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg h-100 w-100"
                         preserveAspectRatio="xMinYMin" viewBox="-20 0 1020 600">
-                        <g class="zoom-controls g2n-zoom-controls" transform="translate(10, 10)">
+                        <g class="zoom-controls g2n-zoom-controls" transform="translate(10, 0)">
                             <g id="g2n-zoom-in" transform="translate(0, 0)">
                                 <rect width="20" height="20"></rect>
                                 <line x1="5" y1="10" x2="15" y2="10"></line>
@@ -121,9 +121,9 @@
                                 <line x1="5" y1="10" x2="15" y2="10"></line>
                             </g>
                         </g>
-                        <g class="legend" transform="translate(50, 10)">
+                        <g class="legend" transform="translate(50, 0)">
                             <g class="legend-background">
-                                <rect width="900" height="30" opacity="0.8" fill="white"></rect>
+                                <rect width="900" height="25" opacity="0.8" fill="white"></rect>
                             </g>
                             <g class="legend-item" transform="translate(50, 5)">
                                 <circle cx="5" cy="10" r="10" fill="#FF546D" />
@@ -240,7 +240,7 @@
                 <div id="x2k-network" class="card-body h-100">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg h-100 w-100" id="x2ksvg"
                         preserveAspectRatio="xMinYMin" viewBox="-20 0 1020 600">
-                        <g class="zoom-controls x2k-zoom-controls" transform="translate(10, 10)">
+                        <g class="zoom-controls x2k-zoom-controls" transform="translate(10, 0)">
                             <g id="x2k-zoom-in" transform="translate(0, 0)">
                                 <rect width="20" height="20"></rect>
                                 <line x1="5" y1="10" x2="15" y2="10"></line>
@@ -251,9 +251,9 @@
                                 <line x1="5" y1="10" x2="15" y2="10"></line>
                             </g>
                         </g>
-                        <g class="legend" transform="translate(50, 10)">
+                        <g class="legend" transform="translate(50, 0)">
                             <g class="legend-background">
-                                <rect width="900" height="30" opacity="0.8" fill="white"></rect>
+                                <rect width="900" height="25" opacity="0.8" fill="white"></rect>
                             </g>
                             <g class="legend-item" transform="translate(10, 5)">
                                 <circle cx="5" cy="10" r="10" fill="#FF546D" />

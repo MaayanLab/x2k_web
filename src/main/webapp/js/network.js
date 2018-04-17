@@ -213,6 +213,7 @@ function draw_network(json, svg_id, body) {
         .nodes(nodes_data);
 
     var g = svg.insert("g", ":first-child");
+    g.attr("transform", "translate(0, 20)")
 
     var link = g.append("g")
         .attr("class", "links")
