@@ -64,10 +64,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-browserify')
 	grunt.loadNpmTasks('grunt-contrib-less')
 	grunt.loadNpmTasks('grunt-contrib-copy')
+    grunt.loadNpmTasks('grunt-changed')
 
 	grunt.registerTask('build', [
-		'browserify',
-		'less',
-		'copy',
+		'changed:browserify',
+		'changed:less',
+		'changed:copy',
 	])
 }
