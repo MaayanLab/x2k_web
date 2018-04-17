@@ -1,4 +1,4 @@
-var saveSvgAsPng = require('save-svg-as-png').saveSvgAsPng;
+var saveSvgAsPng = require('save-svg-as-png');
 
 var Base64 = {
 	// private property
@@ -196,15 +196,18 @@ function download(url, data, method) {
 	}
 }
 
-function downloadObj(obj, filename, fmt) {
-	if(fmt === undefined)
-		fmt = "application/octet-stream";
-	var dataStr = "data:"+fmt+";charset=utf-8," + encodeURIComponent(obj);
+function downloadUri(uri, filename) {
 	var downloadAnchorNode = document.createElement('a');
-	downloadAnchorNode.setAttribute("href", dataStr);
+	downloadAnchorNode.setAttribute("href", uri);
 	downloadAnchorNode.setAttribute("download", filename);
 	downloadAnchorNode.click();
 	downloadAnchorNode.remove();
+}
+
+function downloadObj(obj, filename, fmt) {
+	if(fmt === undefined)
+		fmt = "application/octet-stream";
+	downloadUri("data:"+fmt+";charset=utf-8," + encodeURIComponent(obj), filename);
 }
 
 function exportJson(name, export_json) {
@@ -280,19 +283,6 @@ function exportCsv(name, export_json) {
 	}
 
 	downloadObj(str, name + ".csv");
-}
-
-function svgExport(container, filename, outputType) {
-    var b64 = $(container).html();
-	b64 = b64.replace(/<br>/g, "&lt;br&gt;");
-	b64 = b64.replace(/<br\/>/g, "&lt;br&gt;&#47;");
-	b64 = encodeURIComponent(Base64.encode(b64));
-	download('http://amp.pharm.mssm.edu/Convertr/convert', {
-		filename : filename,
-		outputType : outputType,
-		data : b64
-	});
-    // Putting zoom controls back
 }
 
 function convertToCytoscape(network) {
@@ -480,18 +470,12 @@ function createResults(json_file) {
 	var cur_modal = {};
 
 	$("#dashboardFullModal").on("show.bs.modal", function (event) {
-		var button = $(event.relatedTarget), // Button that triggered the modal
-			modal = $(this),
-			div_name = button.data('whatever'), // Extract info from data-* attributes
-			modal_title = button.data('modal-title'),
-			name = button.data('name');
-
-		// We save current model info in a global
-		cur_modal = {
-			button,
-			name,
-			div_name
-		};
+		var button = $(event.relatedTarget) // Button that triggered the modal
+		var modal = $(this)
+		var div_name = button.data('whatever') // Extract info from data-* attributes
+		var modal_title = button.data('modal-title')
+		var name = button.data('name')
+		var svg = $(div_name).find("svg")
 
 		if ((name === 'ChEA')||(name === 'KEA')) {
             $('.cytoscape-button').hide();
@@ -502,8 +486,17 @@ function createResults(json_file) {
 
 		// Hide popover when opening modal
 		modal.find(".modal-title").text(modal_title);
-		$(div_name).find("svg").appendTo(modal.find(".modal-body"));
+		svg.appendTo(modal.find(".modal-body"));
 		$('.info-popover-button').popover('hide');
+
+		// We save current model info in a global
+		cur_modal = {
+			button,
+			name,
+			div_name,
+			svg,
+		};
+		console.log(cur_modal)
 	});
 
 	$(".csv-button").on("click", function () {
@@ -513,17 +506,23 @@ function createResults(json_file) {
 	$(".svg-button").on("click", function() {
         // Removing zoom controls before exporting and returning them back in the end
         var zoom_controls = $('.modal-body').find('.zoom-controls');
-        $('.modal-body > svg > g.zoom-controls').remove();
-		svgExport('.modal-body', cur_modal.name, 'svg');
-        $('.modal-body > svg').append(zoom_controls);
+		cur_modal.svg.find('g.zoom-controls').remove();
+		
+		saveSvgAsPng.svgAsDataUri(cur_modal.svg[0], {}, function(uri) {
+			downloadUri(uri, cur_modal.name + '.svg')
+			cur_modal.svg.append(zoom_controls);
+		})
 	});
 
 	$(".png-button").on("click", function(){
         // Removing zoom controls before exporting and returning them back in the end
         var zoom_controls = $('.modal-body').find('.zoom-controls');
-        $('.modal-body > svg > g.zoom-controls').remove();
-		saveSvgAsPng($('.modal-body').find('svg')[0], cur_modal.name, 'svg');
-        $('.modal-body > svg').append(zoom_controls);
+		cur_modal.svg.find('g.zoom-controls').remove();
+		
+		saveSvgAsPng.svgAsPngUri(cur_modal.svg[0], {}, function(uri) {
+			downloadUri(uri, cur_modal.name + '.svg')
+			cur_modal.svg.append(zoom_controls);
+		})
 	});
 
 	$(".cytoscape-button").on("click", function(){
@@ -539,8 +538,7 @@ function createResults(json_file) {
 	});
 		
 	$("#dashboardFullModal").on("hide.bs.modal", function() {
-		var modal = $(this);
-		modal.find(".modal-body").find("svg").appendTo($(cur_modal.div_name));
+		cur_modal.svg.appendTo($(cur_modal.div_name));
 	});
 
 	// Popover handler
