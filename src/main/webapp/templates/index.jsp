@@ -148,8 +148,8 @@
                                           <br/>
                                           <span id="warning" style="color: coral; font-size: 0.8rem;"></span>
                                 <!--Buttons-->
-                                <div class="my-3">
-                                    <button type="submit" class="btn btn-outline-primary btn-lg" id="results_submit" disabled>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-outline-primary lead" id="results_submit" disabled>
                                         Submit
                                     </button>
                                 </div>
