@@ -264,7 +264,7 @@
                                 <text x="20" y="18" font-size="16pt">Intermediate protein</text>
                             </g>
                             <g class="legend-item" transform="translate(500, 5)">
-                                <circle cx="5" cy="10" r="10" fill="#84A6EE" />
+                                <circle cx="5" cy="10" r="10" fill="#3e8cd6" />
                                 <text x="20" y="18" font-size="16pt">Kinase</text>
                             </g>
                             <g class="legend-item" transform="translate(615, 5)">
