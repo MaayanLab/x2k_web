@@ -1,0 +1,14 @@
+Database	Database Type	Filename(s)	Interactions	Unique Kinases	Unique Substrates	Source PMID
+ARCHS4	Other	ARCHS4-2018_Mouse-Human_KINASES_unfiltered.gmt	9936	517	3824	29636450
+BIND	PPI	BIND_unfiltered.gmt	2533	227	1323	12519993
+Harmonizome	Other	Harmonizome_2018-03_Mouse_Human_KINASES_unfiltered.gmt	10000	79	3635	27374120
+HPRD	PPI	HPRD_2018-03_Human_KINASES_unfiltered.gmt	5043	262	2159	18988627
+huMAP	PPI	huMAP_unfiltered.gmt	1385	156	955	28596423
+iPTMnet	PPI/Kinase	iPTMnet-2018_Mouse-Human_merged_KINASES_unfiltered.gmt	947	131	724	29145615
+iREF	PPI	iREF_02-2018_Mouse-Human_merged_KINASES_unfiltered.gmt	26734	329	8036	18823568
+KEGG	PPI	KEGG_unfiltered.gmt	2238	131	621	19880382
+MINT	PPI	MINT_2018-03_Mouse-Human-Merged_KINASES_unfiltered.gmt	1583	225	1065	22096227; 24234451
+NetworkIN	PPI/Kinase	NetworKIN_2018-03-Predictions_KINASES_unfiltered.gmt	5829	190	2006	17981841; 24874572
+Phospho.ELM	Kinase	PhosphoELM_2018-03_Mouse_Human_Merged_KINASES_unfiltered.gmt	1441	231	891	21062810
+Phosphopoint	Kinase	PHOSPHOPOINT_UnknownSpecies_KINASES.gmt	1970	281	1061	18689816
+PhosphositePlus	Kinase	PhosphositePlus_2018-03_Mouse_Human_KINASES_unfiltered.gmt	6434	168	2680	22135298
