@@ -483,10 +483,6 @@ function createResults(json_file) {
 		$(div_name).find("svg").appendTo(modal.find(".modal-body"));
 		$('.info-popover-button').popover('hide');
 	});
-	
-	$(".json-button").on("click", function () {
-		exportJson(cur_modal.name, json_file[cur_modal.name]);
-	});		
 
 	$(".csv-button").on("click", function () {
 		exportCsv(cur_modal.name, json_file[cur_modal.name]);

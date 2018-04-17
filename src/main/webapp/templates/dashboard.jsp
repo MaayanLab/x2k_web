@@ -297,9 +297,6 @@
             </div>
             <div class="modal-body"></div>
             <div class="modal-footer">
-                <a id="json-anchor">
-                    <button type="button" class="btn btn-outline-primary json-button">JSON</button>
-                </a>
                 <a id="csv-anchor">
                     <button type="button" class="btn btn-outline-primary csv-button">CSV</button>
                 </a>
@@ -310,7 +307,7 @@
                     <button type="button" class="btn btn-outline-primary png-button">PNG</button>
                 </a>
                 <a id="cytoscape-anchor">
-                    <button type="button" class="btn btn-outline-primary cytoscape-button">Cytoscape</button>
+                    <button type="button" class="btn btn-outline-primary cytoscape-button">Cytoscape JSON</button>
                 </a>
             </div>
         </div>
