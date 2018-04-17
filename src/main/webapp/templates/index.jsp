@@ -49,7 +49,6 @@
     <link rel="stylesheet" href="dist/css/network.css">
     <link rel="stylesheet" href="dist/css/atooltip.css">
     <link rel="stylesheet" href="dist/css/results.css">
-    <link rel="stylesheet" href="dist/css/results_index.css">
     <link rel="stylesheet" href="dist/css/index_beta.css">
 
     <script src="dist/js/bargraph.js"></script>
@@ -1758,8 +1757,8 @@ C1d' \
                                 <th>Drug</th>
                                 <th>Dose, μM</th>
                                 <th>Time, hours</th>
-                                <th>Celline</th>
-                                <th>Insert genelist</th>
+                                <th>Cell Line</th>
+                                <th>Fetch Gene Set</th>
                             </tr>
                             </thead>
                             <tfoot>
@@ -1769,7 +1768,7 @@ C1d' \
                                 <th>Drug</th>
                                 <th>Dose, μM</th>
                                 <th>Time, hours</th>
-                                <th>Celline</th>
+                                <th>Cell Line</th>
                                 <th></th>
                             </tr>
                             </tfoot>
