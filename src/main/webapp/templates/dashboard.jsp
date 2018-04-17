@@ -15,8 +15,8 @@
                     </div>
                 </div> -->
                 <!--ChEA-->
-        <div class="col-xl-6" id="chea">
-            <div class="card h-100">
+        <div class="col-xl-6 d-flex align-items-stretch" id="chea">
+            <div class="card w-100">
                 <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
 
                     <!-- Title -->
@@ -82,8 +82,8 @@
         </div>
 
         <!--G2N-->
-        <div class="col-xl-6" id="g2n">
-            <div class="card h-100">
+        <div class="col-xl-6 d-flex align-items-stretch" id="g2n">
+            <div class="card w-100">
                 <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
 
                     <!-- Title -->
@@ -145,8 +145,8 @@
         </div>
 
         <!--KEA-->
-        <div class="col-xl-6" id="kea">
-            <div class="card h-100">
+        <div class="col-xl-6 d-flex align-items-stretch" id="kea">
+            <div class="card w-100">
                 <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
 
                     <!-- Title -->
@@ -213,8 +213,8 @@
         </div>
 
         <!--X2K-->
-        <div class="col-xl-6" id="x2k">
-            <div class="card h-100">
+        <div class="col-xl-6 d-flex align-items-stretch" id="x2k">
+            <div class="card w-100">
                 <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
 
                     <!-- Title -->
@@ -297,9 +297,6 @@
             </div>
             <div class="modal-body"></div>
             <div class="modal-footer">
-                <a id="json-anchor">
-                    <button type="button" class="btn btn-outline-primary json-button">JSON</button>
-                </a>
                 <a id="csv-anchor">
                     <button type="button" class="btn btn-outline-primary csv-button">CSV</button>
                 </a>
@@ -310,7 +307,7 @@
                     <button type="button" class="btn btn-outline-primary png-button">PNG</button>
                 </a>
                 <a id="cytoscape-anchor">
-                    <button type="button" class="btn btn-outline-primary cytoscape-button">Cytoscape</button>
+                    <button type="button" class="btn btn-outline-primary cytoscape-button">Cytoscape JSON</button>
                 </a>
             </div>
         </div>

@@ -60,7 +60,7 @@ function cleanArray(actual) {
 	  return newArray;
 	}
 
-$(function () {
+$(document).ready(function () {
     submitButtonListener("results_submit", "/X2K/results", "#x2k-form");
     submitButtonListener("results_submit_ljp", "/X2K/results", "#x2k-form");
     // submitButtonListener("x2k_submit", "http://localhost:8080/X2K/network");
@@ -121,4 +121,8 @@ $(function () {
 //        $("#case-desc").show();
 //        $("#analysis-row").hide();
 //    })
+
+    $('.datatable').DataTable({
+        scrollX: true,
+    })
 });

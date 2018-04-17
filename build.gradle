@@ -66,7 +66,7 @@ task prepareNpm(type: NpmTask) {
 task buildProject(type: NpmTask) {
     inputs.file("${webappDir}/.babelrc")
     inputs.file("${webappDir}/gruntfile.js")
-    inputs.files fileTree(webappDir).include('**/*.js').include('**/*.css').exclude('dist/**')
+    inputs.files fileTree(webappDir).include('**/*.js').include('**/*.css').exclude('dist/**').exclude('node_modules/**')
     outputs.dir("${webappDir}/dist")
     dependsOn prepareNpm
     args = [ "run", "build" ]
