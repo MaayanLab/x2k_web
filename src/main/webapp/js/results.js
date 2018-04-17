@@ -211,13 +211,31 @@ function exportJson(name, export_json) {
 	downloadObj(JSON.stringify(export_json), name + ".json");
 }
 
+function recordsToColData(records) {
+	return {
+		columns: Object.keys(records[0]),
+		data: records.map(function(record) {
+			return Object.keys(record).map(function(key) {
+				return record[key]
+			})
+		}),
+	}
+}
+
+function recordsToCsv(records) {
+	var col_data = recordsToColData(records)
+	return [col_data.columns].concat(col_data.data).map(function(row) {
+		return row.join(',')
+	}).join('\n')
+}
+
 function exportCsv(name, export_json) {
-	// TODO: Fix this function for ChEA and KEA
-    var array, str;
-	if(name ==="X2K"){
+	var str;
+
+	if(name ==="X2K") {
 	    var tfs = typeof objArray !== 'object' ? export_json["transcriptionFactors"] : objArray;
 	    var kinases = typeof objArray !== 'object' ? export_json["kinases"] : objArray;
-	    array = tfs.concat(kinases);
+	    var array = tfs.concat(kinases);
 	    
     
 	    str = "Name,Simple name,P-value,Z-score,Combined score,Targets\n";
@@ -232,9 +250,8 @@ function exportCsv(name, export_json) {
 	
 	        str += line + '\r\n';
 	    }
-	}
-	else{
-		array = typeof objArray !== 'object' ? export_json["network"] : objArray;
+	} else if(name === 'G2N') {
+		var array = typeof objArray !== 'object' ? export_json["network"] : objArray;
 		var nodes = array["nodes"];
 		var interactions = array["interactions"];
 		var inputList = typeof objArray !== 'object' ? export_json["input_list"] : objArray;
@@ -256,6 +273,10 @@ function exportCsv(name, export_json) {
 			}
 			str += source + "," + sourceType + "," + target + "," + targetType + "\n";
 		}
+	} else if(name === 'KEA') {
+		str = recordsToCsv(export_json['kinases'])
+	} else if(name === 'ChEA') {
+		str = recordsToCsv(export_json['tfs'])
 	}
 
 	downloadObj(str, name + ".csv");
