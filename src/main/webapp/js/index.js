@@ -125,4 +125,6 @@ $(document).ready(function () {
     $('.datatable').DataTable({
         scrollX: true,
     })
+
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 });
