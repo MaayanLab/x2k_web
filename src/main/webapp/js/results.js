@@ -271,6 +271,7 @@ function svgExport(container, filename, outputType) {
 		outputType : outputType,
 		data : b64
 	});
+    // Putting zoom controls back
 }
 
 function convertToCytoscape(network) {
@@ -489,11 +490,19 @@ function createResults(json_file) {
 	});
 
 	$(".svg-button").on("click", function() {
+        // Removing zoom controls before exporting and returning them back in the end
+        var zoom_controls = $('.modal-body').find('.zoom-controls');
+        $('.modal-body > svg > g.zoom-controls').remove();
 		svgExport('.modal-body', cur_modal.name, 'svg');
+        $('.modal-body > svg').append(zoom_controls);
 	});
 
 	$(".png-button").on("click", function(){
+        // Removing zoom controls before exporting and returning them back in the end
+        var zoom_controls = $('.modal-body').find('.zoom-controls');
+        $('.modal-body > svg > g.zoom-controls').remove();
 		saveSvgAsPng($('.modal-body').find('svg')[0], cur_modal.name, 'svg');
+        $('.modal-body > svg').append(zoom_controls);
 	});
 
 	$(".cytoscape-button").on("click", function(){
