@@ -536,7 +536,6 @@ function createResults(json_file) {
 	// Hide Popover when clicking elsewhere on the document
 	$(document).on('click', function(evt){
 		if (($(evt.target).parents('.popover').length === 0)) {
-			evt.preventDefault();
 			$('.popover').popover('hide');
 			if ($(evt.target).parents('button').attr('data-toggle')) {
 				$(evt.target).parents('button').popover('show');
