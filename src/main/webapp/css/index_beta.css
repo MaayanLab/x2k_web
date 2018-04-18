@@ -51,6 +51,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+a.nav-link {
+    color: #3e8cd6;
+}
+
 #example-link {
     font-size: 0.8rem;	
 }
