@@ -28,6 +28,21 @@ const icons = {
     'pmid': 'http://www.ics-mci.fr/static/img/pubmed-icon.png',
 }
 
+const display_url = (name, url) => {
+    if(url === '')
+        return name
+    else if(url[0] === '!') {
+        return (
+            <span dangerouslySetInnerHTML={{
+                __html: url.slice(1).replace(/\[([^\]]+)\]\(([^\\)]+)\)/g, '<a href="$2">$1</a>')
+            }} />
+        )
+    } else
+        return (
+            <a href={url}>{name}</a>
+        )
+}
+
 // Visual column transformations. null will hide column
 const transformers = {
     'Filename(s)': null,
@@ -38,9 +53,7 @@ const transformers = {
         else {
             return (
                 <span style={{whiteSpace: "nowrap"}}>
-                    {(row['URL'] !== '') ? (
-                        <a href={row['URL']}>{row['Database']}</a>
-                    ) : row['Database']}
+                    {display_url(row['Database'], row['URL'])}
                     {row['Filename(s)'].split(' ').map((file, ind) => {
                         const ext = '.' + file.split('.').pop()
                         return (
