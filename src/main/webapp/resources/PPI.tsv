@@ -1,10 +1,10 @@
 Database	Filename(s)	Interactions	Interactors	Species Included	URL	Source PMID
 BIND	BIND.sig	25622	5528	Mouse, Human, and Others	https://academic.oup.com/nar/article/29/1/242/1116175	12519993
-Biocarta	Biocarta_X2Kweb.sig	756	352	Mouse, Human, Others	http://www.biocarta.com/genes/index.asp	(N/A)
+Biocarta	Biocarta_X2Kweb.sig	756	352	Mouse, Human, Others	http://www.biocarta.com/genes/index.asp	
 BioGRID	BioGRID_filtered_ppi_2018_02_26.sig	68759	7312	Mouse, Human, Others (all major model organisms)	https://downloads.thebiogrid.org/BioGRID/Release-Archive/BIOGRID-3.4.154/	27980099
 BioPLEX	BioPLEX_ppi_2017_06_07.sig	56553	8610	Human	http://bioplex.hms.harvard.edu/downloadInteractions.php	26186194
 DIP	DIP_filtered_ppi_2017_07_12.sig	3822	1946	Mouse, Human, Yeast, Fly, C.elegans, H.pylori, Rat	http://dip.mbi.ucla.edu/dip/	11752321
-figeys	figeys.sig	6452	2033	Human	(N/A)	17353931
+figeys	figeys.sig	6452	2033	Human		17353931
 HPRD	HPRD.sig	47496	7490	Human	http://www.hprd.org	18988627
 huMAP	huMAP_X2Kweb.sig	62214	6061	Human	http://proteincomplexes.org	28596423
 InnateDB	innateDB_filtered_ppi_2017_07_12.sig	4576	1523	Mouse, Human, Bovine	http://www.innatedb.com	23180781

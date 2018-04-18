@@ -38,7 +38,9 @@ const transformers = {
         else {
             return (
                 <span style={{whiteSpace: "nowrap"}}>
-                    {row['Database']}
+                    {(row['URL'] !== '') ? (
+                        <a href={row['URL']}>{row['Database']}</a>
+                    ) : row['Database']}
                     {row['Filename(s)'].split(' ').map((file, ind) => {
                         const ext = '.' + file.split('.').pop()
                         return (
