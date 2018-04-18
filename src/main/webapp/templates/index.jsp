@@ -170,7 +170,7 @@
                                                             <a class="collapsed" data-toggle="collapse"
                                                                href="#chea-x2k-collapse" aria-expanded="false"
                                                                aria-controls="chea-x2k-collapse">
-                                                                Transcription Factor Enrichment Analysis (TFEA)
+                                                                Transcription Factor Enrichment Analysis
                                                             </a>
                                                         </div>
                                                         <div id="chea-x2k-collapse" class="collapse" role="tabpanel"
@@ -311,6 +311,46 @@
                                                                                     Transfac & Jaspar
                                                                                 </label>
                                                                             </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="TF-target gene background database used for enrichment"
+                                                                                           id="x2k_ChEA_2016"
+                                                                                           value="ChEA_2016">
+                                                                                    ChEA_2016
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="TF-target gene background database used for enrichment"
+                                                                                           id="x2k_ARCHS4"
+                                                                                           value="ARCHS4">
+                                                                                    ARCHS4
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="TF-target gene background database used for enrichment"
+                                                                                           id="x2k_CREEDS"
+                                                                                           value="CREEDS">
+                                                                                    CREEDS
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                           type="radio"
+                                                                                           name="TF-target gene background database used for enrichment"
+                                                                                           id="x2k_Enrichr-Concurrence"
+                                                                                           value="Enrichr">
+                                                                                    Enrichr-Concurrence
+                                                                                </label>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -410,123 +450,166 @@
                                                                         </sup>
                                                                     </label>
                                                                     <div class="row">
-                                                                        <div class="col-sm-4">
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="checkbox"
-                                                                                           name="enable_Biocarta"
-                                                                                           value="true" checked>
-                                                                                    Biocarta
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="checkbox"
-                                                                                           name="enable_BioGRID"
-                                                                                           value="true" checked>
-                                                                                    BioGRID 2017
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="checkbox"
-                                                                                           name="enable_BioPlex"
-                                                                                           value="true" checked>
-                                                                                    BioPlex
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="checkbox"
-                                                                                           name="enable_DIP"
-                                                                                           value="true" checked>
-                                                                                    DIP 2017
-                                                                                </label>
-                                                                            </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input"
+                                                                                        type="checkbox"
+                                                                                        name="enable_Biocarta"
+                                                                                        value="true" checked>
+                                                                                Biocarta
+                                                                            </label>
                                                                         </div>
-                                                                        <div class="col-sm-4">
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="checkbox"
-                                                                                           name="enable_huMAP"
-                                                                                           value="true" checked>
-                                                                                    huMAP 2017
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="checkbox"
-                                                                                           name="enable_InnateDB"
-                                                                                           value="true" checked>
-                                                                                    InnateDB 2017
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="checkbox"
-                                                                                           name="enable_IntAct"
-                                                                                           value="true" checked>
-                                                                                    IntAct 2017
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="checkbox"
-                                                                                           name="enable_KEGG"
-                                                                                           value="true" checked>
-                                                                                    KEGG
-                                                                                </label>
-                                                                            </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input"
+                                                                                        type="checkbox"
+                                                                                        name="enable_BioGRID"
+                                                                                        value="true" checked>
+                                                                                BioGRID 2017
+                                                                            </label>
                                                                         </div>
-                                                                        <div class="col-sm-4">
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="checkbox"
-                                                                                           name="enable_MINT"
-                                                                                           value="true" checked>
-                                                                                    MINT 2017
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="checkbox"
-                                                                                           name="enable_ppid"
-                                                                                           value="true" checked>
-                                                                                    ppid
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="checkbox"
-                                                                                           name="enable_SNAVI"
-                                                                                           value="true" checked>
-                                                                                    SNAVI 2017
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="checkbox"
-                                                                                           name="enable_iREF"
-                                                                                           value="false">
-                                                                                    iREF 2017
-                                                                                </label>
-                                                                            </div>                                                                            
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input"
+                                                                                        type="checkbox"
+                                                                                        name="enable_BioPlex"
+                                                                                        value="true" checked>
+                                                                                BioPlex
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input"
+                                                                                        type="checkbox"
+                                                                                        name="enable_DIP"
+                                                                                        value="true" checked>
+                                                                                DIP 2017
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input"
+                                                                                        type="checkbox"
+                                                                                        name="enable_huMAP"
+                                                                                        value="true" checked>
+                                                                                huMAP 2017
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input"
+                                                                                        type="checkbox"
+                                                                                        name="enable_InnateDB"
+                                                                                        value="true" checked>
+                                                                                InnateDB 2017
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input"
+                                                                                        type="checkbox"
+                                                                                        name="enable_IntAct"
+                                                                                        value="true" checked>
+                                                                                IntAct 2017
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input"
+                                                                                        type="checkbox"
+                                                                                        name="enable_KEGG"
+                                                                                        value="true" checked>
+                                                                                KEGG
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input"
+                                                                                        type="checkbox"
+                                                                                        name="enable_MINT"
+                                                                                        value="true" checked>
+                                                                                MINT 2017
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input"
+                                                                                        type="checkbox"
+                                                                                        name="enable_ppid"
+                                                                                        value="true" checked>
+                                                                                ppid
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input"
+                                                                                        type="checkbox"
+                                                                                        name="enable_SNAVI"
+                                                                                        value="true" checked>
+                                                                                SNAVI 2017
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input"
+                                                                                        type="checkbox"
+                                                                                        name="enable_iREF"
+                                                                                        value="false">
+                                                                                iREF 2017
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input
+                                                                                    type="checkbox"
+                                                                                    class="form-check-input"
+                                                                                    name="enable_Stelzl"
+                                                                                    value="false">
+                                                                            </label>
+                                                                            Stelzl
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input
+                                                                                    type="checkbox"
+                                                                                    class="form-check-input"
+                                                                                    name="enable_Vidal"
+                                                                                    value="false">
+                                                                            </label>
+                                                                            Vidal
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input
+                                                                                    type="checkbox"
+                                                                                    class="form-check-input"
+                                                                                    name="enable_BIND"
+                                                                                    value="false">
+                                                                            </label>
+                                                                            BIND
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input
+                                                                                    type="checkbox"
+                                                                                    class="form-check-input"
+                                                                                    name="enable_figeys"
+                                                                                    value="false">
+                                                                            </label>
+                                                                            figeys
+                                                                        </div>
+                                                                        <div class="form-check col-sm-4">
+                                                                            <label class="form-check-label">
+                                                                                <input
+                                                                                    type="checkbox"
+                                                                                    class="form-check-input"
+                                                                                    name="enable_HPRD"
+                                                                                    value="false">
+                                                                            </label>
+                                                                            HPRD
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -538,7 +621,7 @@
                                                             <a class="collapsed" data-toggle="collapse"
                                                                href="#kea-x2k-collapse" aria-expanded="false"
                                                                aria-controls="kea-x2k-collapse">
-                                                                Kinase Enrichment Analysis (KEA)
+                                                                Kinase Enrichment Analysis
                                                             </a>
                                                         </div>
                                                         <div id="kea-x2k-collapse" class="collapse" role="tabpanel"
@@ -582,6 +665,58 @@
                                                                                            id="kea-x2k-combscore"
                                                                                            value="combined score">
                                                                                     combined score
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group" id="kea-x2k-kinase-db">
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-form-label col-sm-5">
+                                                                            Kinome database
+                                                                            <sup data-toggle="tooltip" data-placement="top" container="body" title="The database from which Kinase-target interaction data should be integrated.">
+                                                                                <i class="fa fa-question-circle"></i>
+                                                                            </sup>
+                                                                        </label>
+                                                                        <div class="col-sm-7">
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="TF-target gene background database used for enrichment"
+                                                                                            id="KEA"
+                                                                                            value="KEA" checked>
+                                                                                    KEA (Phospho, Phosphopoint, PhosphositePlus, and MINT combined)
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="TF-target gene background database used for enrichment"
+                                                                                            id="ARCHS4"
+                                                                                            value="ARCHS4">
+                                                                                    ARCHS4
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="TF-target gene background database used for enrichment"
+                                                                                            id="iPTMnet"
+                                                                                            value="iPTMnet">
+                                                                                    iPTMnet
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="TF-target gene background database used for enrichment"
+                                                                                            id="NetworkIN"
+                                                                                            value="NetworkIN">
+                                                                                    NetworkIN
                                                                                 </label>
                                                                             </div>
                                                                         </div>
