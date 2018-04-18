@@ -3,7 +3,7 @@ ARCHS4	https://amp.pharm.mssm.edu/archs4/	ARCHS4_Mouse_transcription_factor_gene
 ChEA_2016	https://amp.pharm.mssm.edu/Enrichr/	CHEA-2016_Human_TF.gmt CHEA-2016_Mouse_TF.gmt	535545	194	34462	461570	178	35204	20709693
 CREEDS	https://amp.pharm.mssm.edu/CREEDS/	CREEDS-manual-single-gene-perturbations-from-GEO_Human_TF.txt CREEDS-manual-single-gene-perturbations-from-GEO_Mouse_TF.txt	6140050	265	23170	3583008	174	20592	27667448
 ENCODE_2015	http://genome.ucsc.edu/ENCODE/	ENCODE-2015_Human_TF.gmt ENCODE-2015_Mouse_TF.gmt	259695	44	18170	1218728	175	22008	22955616
-Enrichr-Concurrence	http://amp.pharm.mssm.edu/Enrichr/	Enrichr-Submissions-TF-Gene-Cooccurence-2018_UnknownSpecies_TF.gmt	516300	1721	12487	516300	1721	12487	23586463
+Enrichr Co-occurrence	http://amp.pharm.mssm.edu/Enrichr/	Enrichr-Submissions-TF-Gene-Cooccurence-2018_UnknownSpecies_TF.gmt	516300	1721	12487	516300	1721	12487	23586463
 huMAP	http://proteincomplexes.org/	huMAP_07-2017_Human_TF.gmt	NA	NA	NA	14017	419	2109	28596423
 iREF	https://www.ncbi.nlm.nih.gov/geo/	iREF_02-2018_Human_TF.gmt iREF_02-2018_Mouse_TF.gmt	7239	402	3454	57042	1372	11021	18823568
 JASPAR-TRANSFAC	![JASPAR](http://jaspar.genereg.net/)-[TRANSFAC](http://genexplain.com/transfac/)	JASPAR-TRANSFAC_Human.gmt JASPAR-TRANSFAC_Mouse.gmt	139520	104	20895	424314	222	22258	14681366; 20438625

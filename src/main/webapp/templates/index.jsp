@@ -346,9 +346,9 @@
                                                                                     <input class="form-check-input"
                                                                                            type="radio"
                                                                                            name="TF-target gene background database used for enrichment"
-                                                                                           id="x2k_Enrichr-Concurrence"
-                                                                                           value="Enrichr">
-                                                                                    Enrichr-Concurrence
+                                                                                           id="x2k_Enrichr_Co-occurrence"
+                                                                                           value="Enrichr_Co-occurrence">
+                                                                                    Enrichr Co-occurrence
                                                                                 </label>
                                                                             </div>
                                                                         </div>
@@ -565,8 +565,8 @@
                                                                                     class="form-check-input"
                                                                                     name="enable_Stelzl"
                                                                                     value="false">
+                                                                                Stelzl
                                                                             </label>
-                                                                            Stelzl
                                                                         </div>
                                                                         <div class="form-check col-sm-4">
                                                                             <label class="form-check-label">
@@ -575,8 +575,8 @@
                                                                                     class="form-check-input"
                                                                                     name="enable_Vidal"
                                                                                     value="false">
+                                                                                Vidal
                                                                             </label>
-                                                                            Vidal
                                                                         </div>
                                                                         <div class="form-check col-sm-4">
                                                                             <label class="form-check-label">
@@ -585,8 +585,8 @@
                                                                                     class="form-check-input"
                                                                                     name="enable_BIND"
                                                                                     value="false">
+                                                                                BIND
                                                                             </label>
-                                                                            BIND
                                                                         </div>
                                                                         <div class="form-check col-sm-4">
                                                                             <label class="form-check-label">
@@ -595,8 +595,8 @@
                                                                                     class="form-check-input"
                                                                                     name="enable_figeys"
                                                                                     value="false">
+                                                                                figeys
                                                                             </label>
-                                                                            figeys
                                                                         </div>
                                                                         <div class="form-check col-sm-4">
                                                                             <label class="form-check-label">
@@ -605,8 +605,8 @@
                                                                                     class="form-check-input"
                                                                                     name="enable_HPRD"
                                                                                     value="false">
+                                                                                HPRD
                                                                             </label>
-                                                                            HPRD
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -686,7 +686,7 @@
                                                                                             name="TF-target gene background database used for enrichment"
                                                                                             id="KEA"
                                                                                             value="KEA" checked>
-                                                                                    KEA (Phospho, Phosphopoint, PhosphositePlus, and MINT combined)
+                                                                                    KEA (Phospho.ELM, Phosphopoint, PhosphositePlus, and MINT combined)
                                                                                 </label>
                                                                             </div>
                                                                             <div class="form-check">
