@@ -325,7 +325,7 @@
                                                             <a class="collapsed" data-toggle="collapse"
                                                                href="#g2n-x2k-collapse" aria-expanded="false"
                                                                aria-controls="g2n-x2k-collapse">
-                                                                Genes2Networks (G2N)
+                                                                Network Expansion with PPI
                                                             </a>
                                                         </div>
                                                         <div id="g2n-x2k-collapse" class="collapse" role="tabpanel"
