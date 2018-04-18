@@ -229,7 +229,7 @@ public class ResultsServlet extends HttpServlet {
 	private static final HashMap<String, String> defaultSettings = new HashMap<String, String>();
 
 	static {
-		defaultSettings.put(ChEA.SORT_BY, null);
+		defaultSettings.put(ChEA.SORT_BY, ChEA.PVALUE);
 		defaultSettings.put(ChEA.INCLUDED_ORGANISMS, null);
 		defaultSettings.put(ChEA.BACKGROUND_DATABASE, null);
 		defaultSettings.put(Genes2Networks.PATH_LENGTH, null);
@@ -248,7 +248,7 @@ public class ResultsServlet extends HttpServlet {
 		defaultSettings.put(Genes2Networks.ENABLE_MINT, new String("false"));
 		defaultSettings.put(Genes2Networks.ENABLE_PPID, new String("false"));
 		defaultSettings.put(Genes2Networks.ENABLE_SNAVI, new String("false"));
-		defaultSettings.put(KEA.SORT_BY, null);
+		defaultSettings.put(KEA.SORT_BY, KEA.PVALUE);
 		defaultSettings.put(X2K.MINIMUM_NETWORK_SIZE, null);
 		// defaultSettings.put(X2K.NUMBER_OF_TOP_TFS, null);
 		defaultSettings.put(X2K.NUMBER_OF_TOP_TFS, null);

@@ -140,7 +140,7 @@ function createTable(json, container) {
         columns: [
             {title: "Rank"},
             {title: enriched.indexOf('Targets') > -1 ? 'Transcription Factor' : 'Protein Kinase' },
-            {title: "P-value" },
+            {title: "Hypergeometric p-value" },
             {title: "Z-score" },
             {title: "Combined score" },
             {title: enriched.replace('enriched', 'Enriched ')}
@@ -162,8 +162,14 @@ function createTable(json, container) {
 				}
 			}
         ],
-        "columnDefs": [
-	        { "sortable": false, targets: 5 }
+        columnDefs: [
+            { sortable: false, targets: 5 },
+            // Sorting removed temporarily
+            {
+                targets: [ 3, 4 ],
+                visible: false,
+                searchable: false,
+            },
         ],
         drawCallback: function(){
 

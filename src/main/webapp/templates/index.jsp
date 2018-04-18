@@ -177,7 +177,8 @@
                                                              aria-labelledby="chea-x2k-settings"
                                                              data-parent="#accordion">
                                                             <div class="card-body">
-                                                                <div class="form-group" id="chea-x2k-sorting">
+                                                                <!-- Sorting removed temporarily -->
+                                                                <!-- <div class="form-group" id="chea-x2k-sorting">
                                                                     <div class="row align-items-center">
                                                                         <label class="col-form-label col-sm-5">Sort by
                                                                             <sup data-toggle="tooltip" data-placement="top" container="body" title="The metric used to rank the top Transcription Factors identified by TFEA.">
@@ -218,7 +219,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <hr/>
+                                                                <hr/> -->
                                                                 <div class="form-group" id="chea-x2k-species">
                                                                     <div class="row align-items-center">
                                                                         <label class="col-form-label col-sm-5">
@@ -628,7 +629,8 @@
                                                              aria-labelledby="kea-x2k-settings"
                                                              data-parent="#accordion">
                                                             <div class="card-body">
-                                                                <div class="form-group">
+                                                                <!-- Sorting removed temporarily -->
+                                                                <!-- <div class="form-group">
                                                                     <div class="row align-items-center">
                                                                         <label class="col-form-label col-sm-5">
                                                                             Sort by
@@ -669,7 +671,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </div> -->
                                                                 <div class="form-group" id="kea-x2k-kinase-db">
                                                                     <div class="row align-items-center">
                                                                         <label class="col-form-label col-sm-5">
