@@ -609,15 +609,14 @@
                                     Enter a list of differentially expressed genes to receive results for:
                                 <ol>
                                     <li>Putative enriched transcription factors through <a
-                                            href="https://www.ncbi.nlm.nih.gov/pubmed/20709693">ChIP-x enrichment
-                                        analysis (ChEA)</a>.
+                                            href="https://www.ncbi.nlm.nih.gov/pubmed/20709693">Transcription Factor Enrichment Analysis (TFEA)</a>.
                                     </li>
                                     <li>Protein–protein interactions subnetwork that connects the input genes using <a
                                             href="https://www.ncbi.nlm.nih.gov/pubmed/17916244">Genes2Networks (G2N)</a>.
                                     </li>
                                     <li>Ranked list of kinases based on known kinase–substrate phosphorylation data from
-                                        <a href="https://www.ncbi.nlm.nih.gov/pubmed/19176546">kinase enrichment
-                                            analysis (KEA)</a>.
+                                        <a href="https://www.ncbi.nlm.nih.gov/pubmed/19176546">Kinase Enrichment
+                                            Analysis (KEA)</a>.
                                     </li>
                                     <li>Complete upstream pathway that connects the enriched transcription factors to
                                         kinases through known protein-protein interactions via <a
