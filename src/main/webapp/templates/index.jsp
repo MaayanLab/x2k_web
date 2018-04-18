@@ -1820,7 +1820,7 @@ C1d' \
 
             <div id="about">
                 <h4>About</h4>
-                <h5>Reference</h5>
+                <h5>Citations</h5>
                 <p>X2Kweb is an updated version of the original Expression2Kinases (X2K) publication:
                     <br/><a href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">Chen EY, Xu H, Gordonov S, Lim MP, Perkins MH, Ma'ayan A. Expression2Kinases: mRNA profiling linked
                     to multiple upstream regulatory layers. Bioinformatics. 28:105 (2012)</a>
@@ -1840,7 +1840,7 @@ C1d' \
                             <br/>Professor, Department of Pharmacological Sciences
                             <br/>Director, Mount Sinai Center for Bioinformatics
                             <br/>Icahn School of Medicine at Mount Sinai
-                            <br/>New York, NY 10029</p>
+                            <br/>New York, NY 10029, USA</p>
                     </li>
                 </ul>
             </div>

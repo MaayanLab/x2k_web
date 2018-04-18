@@ -1,4 +1,4 @@
-Database	URL	Database Type	Filename(s)	Interactions	Unique Kinases	Unique Substrates	Source PMID
+Database	URL	Interaction Type	Filename(s)	Interactions	Unique Kinases	Unique Substrates	Source PMID
 ARCHS4	https://amp.pharm.mssm.edu/archs4/	Coexpression	ARCHS4-2018_Mouse-Human_KINASES_unfiltered.gmt	9936	517	3824	29636450
 BIND	http://baderlab.org/BINDTranslation	PPI	BIND_unfiltered.gmt	2533	227	1323	12519993
 Harmonizome	https://amp.pharm.mssm.edu/Harmonizome/	Predicted	Harmonizome_2018-03_Mouse_Human_KINASES_unfiltered.gmt	10000	79	3635	27374120

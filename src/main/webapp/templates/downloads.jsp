@@ -7,7 +7,7 @@
         <thead>
           <tr>
             <th>Database</th>
-            <th>Database Type</th>
+            <th>Interaction Type</th>
             <th>Interactions</th>
             <th>Unique Kinases</th>
             <th>Unique Substrates</th>
