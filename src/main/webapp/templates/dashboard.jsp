@@ -22,7 +22,8 @@
                     <!-- Title -->
                     <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#chea-results" data-name="ChEA" data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
                         <button type="button" class="expand">
-                            <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
+                            <i class="fas fa-expand-arrows-alt" title="Expand" aria-hidden="true"></i>
+                            <i class="fas fa-download" title="Download"></i>
                         </button>
                         <a class="navbar-brand" href="javascript:void(0)"><b>Step 1.</b> Transcription Factor Enrichment Analysis (TFEA)</a>
                     </div>
@@ -89,7 +90,8 @@
                     <!-- Title -->
                     <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#network-g2n" data-name="G2N" data-modal-title="Protein-Protein Interaction Expansion">
                         <button type="button" class="expand">
-                                <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
+                            <i class="fas fa-expand-arrows-alt" title="Expand" aria-hidden="true"></i>
+                            <i class="fas fa-download" title="Download"></i>
                         </button>
                         <a class="navbar-brand" href="javascript:void(0)"><b>Step 2.</b> Protein-Protein Interaction Expansion</a>
                     </div>
@@ -139,8 +141,8 @@
                             </g>
                         </g>
                     </svg>
-
                 </div>
+
             </div>
         </div>
 
@@ -152,7 +154,8 @@
                     <!-- Title -->
                     <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#kea-results" data-name="KEA" data-modal-title="Kinase Enrichment Analysis (KEA)">
                         <button type="button" class="expand">
-                            <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
+                            <i class="fas fa-expand-arrows-alt" title="Expand" aria-hidden="true"></i>
+                            <i class="fas fa-download" title="Download"></i>
                         </button>
                         <a class="navbar-brand" href="javascript:void(0)"><b>Step 3.</b> Kinase Enrichment Analysis (KEA)</a>
                     </div>
@@ -199,7 +202,6 @@
                                         class="kea-chart"
                                         width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
                             </div>
-
                         </div>
                         <div class="tab-pane fade table-responsive" id="nav-kea-table"
                                 role="tabpanel"
@@ -209,6 +211,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -220,7 +223,8 @@
                     <!-- Title -->
                     <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network" data-name="X2K" data-modal-title="Expression2Kinases Network" class="cursor-pointer">
                         <button type="button" class="expand cursor-pointer">
-                            <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
+                            <i class="fas fa-expand-arrows-alt" title="Expand" aria-hidden="true"></i>
+                            <i class="fas fa-download" title="Download"></i>
                         </button>
                         <a class="navbar-brand d-inline-block" href="#"><b>Step 4.</b> Expression2Kinases Network</a>
                     </div>
@@ -297,6 +301,7 @@
             </div>
             <div class="modal-body"></div>
             <div class="modal-footer">
+                <span>Download results as:</span>
                 <a id="csv-anchor">
                     <button type="button" class="btn btn-outline-primary csv-button">CSV</button>
                 </a>

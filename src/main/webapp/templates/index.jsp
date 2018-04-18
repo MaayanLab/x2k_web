@@ -134,8 +134,7 @@
                             <div class="col-sm-6 my-2">
                                 <label for="genelist">Gene list (<a href="javascript:void(0)"
                                                                     onclick="insertExample();"
-                                                                    id="example-link">insert
-                                    an example</a>)</label>
+                                                                    id="example-link">try an example</a>)</label>
                                 <textarea class="form-control form-control-sm" id="genelist" rows="12"
                                           name="text-genes"></textarea>
                                           <span id="gene-count" style="color: darkgrey; font-size: 0.9rem;"></span>
@@ -1745,7 +1744,7 @@ C1d' \
                     </div>
                 </div>
                 <div class="row">
-                    <div id="ljp" class="col-sm-12 my-3 table-responsive">
+                    <div id="ljp-table-wrapper" class="col-sm-12 my-3 table-responsive">
                         <table id="ljp-table"
                                class="display table table-striped table-bordered table-sm"
                                cellspacing="0">
