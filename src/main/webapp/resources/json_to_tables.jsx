@@ -11,7 +11,7 @@ import pretty from 'pretty'
 const table_lookup = {
     'KINASE': 'Kinome Regulation',
     'TF': 'Transcriptional Regulation',
-    'PPI': 'Protein-Protein Interaction',
+    'PPI': 'Protein-Protein Interactions',
 }
 
 // Convert various file formats into the simple format we expect e.g. [[header_cell1, header_cell2], [row_1_cell_1, row_1_cell_2], ...]
@@ -28,6 +28,21 @@ const icons = {
     'pmid': 'http://www.ics-mci.fr/static/img/pubmed-icon.png',
 }
 
+const display_url = (name, url) => {
+    if(url === '')
+        return name
+    else if(url[0] === '!') {
+        return (
+            <span dangerouslySetInnerHTML={{
+                __html: url.slice(1).replace(/\[([^\]]+)\]\(([^\\)]+)\)/g, '<a href="$2">$1</a>')
+            }} />
+        )
+    } else
+        return (
+            <a href={url}>{name}</a>
+        )
+}
+
 // Visual column transformations. null will hide column
 const transformers = {
     'Filename(s)': null,
@@ -38,12 +53,53 @@ const transformers = {
         else {
             return (
                 <span style={{whiteSpace: "nowrap"}}>
-                    {row['Database']}
+                    {display_url(row['Database'], row['URL'])}
                     {row['Filename(s)'].split(' ').map((file, ind) => {
                         const ext = '.' + file.split('.').pop()
                         return (
                             <a href={'datasets/' + row['Database'] + '/' + file} title={file} style={{paddingLeft: 5}} key={ind}>
-                                <img src={icons[ext]} width={15} />
+                                <svg viewBox="-5 -5 110 131" preserveAspectRatio="xMinYMin" style={{width:18,position:'relative',top:5}}>
+                                    <path
+                                        d="M0,0 l75,0 l25,25 l0,100 l-100,0 z"
+                                        fill="lightgrey"
+                                        stroke="black"
+                                        strokeWidth="5"
+                                    />
+                                    <path
+                                        d="M15,25 l60,0 M15,45 l70,0 M15,65 l70,0 M15,85 l70,0 M15,105 l70,0"
+                                        fill="none"
+                                        stroke="black"
+                                        strokeWidth="3"
+                                    />
+                                    <path
+                                        d="M5,75 l90,0 l0,45 l-90,0 z"
+                                        fill="darkgrey"
+                                        stroke="darkgrey"
+                                        strokeWidth="5"
+                                        opacity="0.75"
+                                    />
+                                    <g opacity="0.8">
+                                        <path
+                                        d="M30,10 l40,0 l0,45 l-40,0 z"
+                                        fill="black"
+                                        />
+                                        <path
+                                        d="M15,40 l70,0 l-35,35 z"
+                                        fill="black"
+                                        />
+                                    </g>
+                                    <text
+                                        fontSize="3em"
+                                        fontFamily="sans-serif"
+                                        fill="black"
+                                        textAnchor="middle"
+                                        x="50"
+                                        y="115"
+                                        dx="0"
+                                    >
+                                        {ext.slice(1).toUpperCase()}
+                                    </text>
+                                </svg>
                             </a>
                         )
                     })}
@@ -66,6 +122,30 @@ const transformers = {
             )
         }
     },
+    'Interactions [Mouse]': (row) => {
+        if(row === undefined)
+            return 'Interaction [M/H]'
+        else {
+            return row['Interactions [Mouse]'] + ' / ' + row['Interactions [Human]']
+        }
+    },
+    'Interactions [Human]': null,
+    'Unique Interactors [Mouse]': (row) => {
+        if(row === undefined)
+            return 'Unique Interactors [M/H]'
+        else {
+            return row['Unique Interactors [Mouse]'] + ' / ' + row['Unique Interactors [Human]']
+        }
+    },
+    'Unique Interactors [Human]': null,
+    'Unique TFs [Mouse]': (row) => {
+        if(row === undefined)
+            return 'Unique TFs [M/H]'
+        else {
+            return row['Unique TFs [Mouse]'] + ' / ' + row['Unique TFs [Human]']
+        }
+    },
+    'Unique TFs [Human]': null,
 }
 
 const col_data_to_records = (columns, data) => (

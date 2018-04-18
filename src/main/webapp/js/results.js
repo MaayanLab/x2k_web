@@ -122,7 +122,7 @@ function createTable(json, container) {
                     'data-placement': 'left',
                     'data-html': 'true',
                     'data-template': '<div class="popover enrichment-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
-					'title': enriched.replace('enriched', 'Enriched <button class="float-right enrichr-button" onclick="sendToEnrichr(this, event);">En<span class="red">rich</span>r<i class="fas fa-external-link-alt ml-1"></i></button>'),
+					'title': enriched.replace('enriched', 'Overlapping <button class="float-right enrichr-button" onclick="sendToEnrichr(this, event);">En<span class="red">rich</span>r<i class="fas fa-external-link-alt ml-1"></i></button>'),
                     'data-content': '<b>'+json[i]["name"].split('_')[0]+'</b> targets <span class="font-italic">'+json[i][enriched].length+' genes</span> from the input gene list.<br>'+targetSource+'<div class="my-1">The full list of '+enriched.replace('enriched', '').toLowerCase()+' is available below:</div>'+enrichedLinks.join(" ")
                 })
                 .css('cursor', 'pointer')
@@ -546,9 +546,6 @@ function createResults(json_file) {
 	// Hide Popover when clicking elsewhere on the document
 	$(document).on('click', function(evt){
 		if (($(evt.target).parents('.popover').length === 0)) {
-
-			// Prevent default
-			evt.preventDefault();
 			$('.popover').popover('hide');
 
 			// Show help popover
