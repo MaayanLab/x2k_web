@@ -179,3 +179,7 @@ a {
     height: 100%;
     background:rgba(255,255,255,0.4);
 }
+
+.tooltip-inner {
+    margin-left: -20px !important;
+}

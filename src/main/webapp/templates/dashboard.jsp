@@ -45,7 +45,7 @@
                             data-template='<div class="popover x2k-card-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
                             title="What is Transcription Factor Enrichment Analysis?"
                             data-placement="left"
-                            data-content="<div class='mb-3'>Transcription Factor Enrichment Analysis (TFEA) is the first step of the X2K pipeline. It <b>predicts transcription factors which regulate the input gene list</b> by performing enrichment analysis on data integrated from ChIP-X experiments using ChEA.</div><div class='mb-3'>A ranked list of the <b>top predicted transcription factors</b> is displayed below. The results are made available through an interactive barchart and can be downloaded as a table.</div><div>These genes are used as input for the next step of the X2K pipeline, the <b>protein-protein interaction expansion</b>.</div>">
+                            data-content="<div>Transcription Factor Enrichment Analysis (TFEA) is the first step of the X2K pipeline. It <b>predicts transcription factors that are predicted to regulate the input gene list</b> by performing gene set enrichment analysis using different transcription factor gene set libraries, for example, integrated target genes for transcription factors as determined by ChIP-seq experiments (ChEA).</div><div class='mt-3'>A ranked list of the <b>top predicted transcription factors</b> is displayed as a bar graph or as a table. The results can be downloaded as a spreadsheet.</div><div class='mt-3'>The enriched transcription factors are  used as input for the next step of the X2K pipeline, the <b>protein-protein interaction expansion</b>.</div><div class='mt-3 text-muted font-italic'>Note: the results from the TFEA are computational predictions and experimentalists should consider this carefully before attempting to validate any of these predictions experimentally.</div>">
                         <i class="fa fa-question-circle fa-2x text-muted"></i>
                     </button>
 
@@ -102,7 +102,7 @@
                             data-template='<div class="popover x2k-card-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
                             title="What is Protein-Protein Interaction Expansion?"
                             data-placement="left"
-                            data-content="<div class='mb-3'>Protein-Protein Interaction Expansion is the second step of the X2K pipeline. It <b>expands the regulatory network of the input gene list</b> by identifying proteins which physically interact with the top predicted transcription factors using Genes2Networks (G2N). To achieve this, data from Protein-Protein Interaction databases is integrated.</div><div class='mb-3'>A <b>network of transcription factors and interacting proteins is displayed below.</b> Transcription factors are shown in pink, physical interactors are shown in orange.</div><div>This network is used as input for the next step of the X2K pipeline, the <b>Kinase Enrichment Analysis</b>.</div>">
+                            data-content="<div>Protein-Protein Interaction Expansion is the second step of the X2K pipeline. In this step X2K <b>expands the list</b> of enriched transcription factors by identifying proteins that physically interact with these transcription factors using the Genes2Networks (G2N) algorithm. To achieve this, data from many Protein-Protein Interaction databases is integrated.</div><div class='mt-3'>A <b>subnetwork of connected transcription factors and their interacting proteins is visualized as a ball-and-stick diagram</b>. Transcription factors are the pink nodes, while the proteins that connect them  are in grey. The size of the nodes in the network is proportional to their degree.</div><div class='mt-3'>The proteins that were identified in the network expansion step are used as input for the final step of the X2K pipeline, the <b>Kinase Enrichment Analysis</b>.</div><div class='mt-3 text-muted font-italic'Note: the results from the network expansion step are computational predictions, experimentalists should consider this carefully before attempting to validate any of these predictions experimentally.>Note: the results from the network expansion step are computational predictions, experimentalists should consider this carefully before attempting to validate any of these predictions experimentally.</div>">
                         <i class="fa fa-question-circle fa-2x text-muted"></i>
                     </button>
 
@@ -110,7 +110,7 @@
                 <div id="network-g2n" class="card-body h-100">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg h-100 w-100"
                         preserveAspectRatio="xMinYMin" viewBox="-20 0 1020 600">
-                        <g class="zoom-controls g2n-zoom-controls" transform="translate(10, 10)">
+                        <g class="zoom-controls g2n-zoom-controls" transform="translate(10, 0)">
                             <g id="g2n-zoom-in" transform="translate(0, 0)">
                                 <rect width="20" height="20"></rect>
                                 <line x1="5" y1="10" x2="15" y2="10"></line>
@@ -121,9 +121,9 @@
                                 <line x1="5" y1="10" x2="15" y2="10"></line>
                             </g>
                         </g>
-                        <g class="legend" transform="translate(50, 10)">
+                        <g class="legend" transform="translate(50, 0)">
                             <g class="legend-background">
-                                <rect width="900" height="30" opacity="0.8" fill="white"></rect>
+                                <rect width="900" height="25" opacity="0.8" fill="white"></rect>
                             </g>
                             <g class="legend-item" transform="translate(50, 5)">
                                 <circle cx="5" cy="10" r="10" fill="#FF546D" />
@@ -174,7 +174,7 @@
                             data-template='<div class="popover x2k-card-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
                             title="What is Kinase Enrichment Analysis?"
                             data-placement="left"
-                            data-content="<div class='mb-3'>Kinase Enrichment Analysis is the third step of the X2K pipeline. It <b>predicts protein kinases which regulate the expanded regulatory network</b> by performing enrichment analysis on data integrated from kinase-substrate interaction databases using KEA.</div><div class='mb-3'>A ranked list of the <b>top predicted kinases</b> is displayed below. The results are made available through an interactive barchart and can be downloaded as a table.</div><div>The top kinases are displayed alongside the predicted transcription factors (Step 1) and expanded regulatory network (Step 2) in the <b>final Expression2Kinases network</b>.</div>">
+                            data-content="<div>Kinase Enrichment Analysis (KEA) is the third and final step of the X2K pipeline. KEA <b>predicts the protein kinases that are likely the regulators of the expanded protein-protein interaction network</b> from the previous step. KEA performs enrichment analysis on the list of proteins from the subnetwork using gene set libraries from kinase-substrate interaction databases.</div><div class='mt-3'>A ranked list of the <b>top predicted kinases</b> is displayed as a bar graph and table. The results can be downloaded as a spreadsheet.</div><div class='mt-3'>The top kinases are displayed alongside the predicted transcription factors (Step 1) and expanded regulatory network (Step 2) in the <b>Expression2Kinases network</b>.</div><div class='mt-3 text-muted font-italic'>Note: the results from the kinase enrichment analysis step are computational predictions, experimentalists should consider this carefully before attempting to validate any of these predictions experimentally.</div>">
                         <i class="fa fa-question-circle fa-2x text-muted"></i>
                     </button>
 
@@ -232,7 +232,7 @@
                             data-template='<div class="popover x2k-card-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
                             title="What is Expression2Kinases?"
                             data-placement="left"
-                            data-content="<div class='mb-3'>The Expression2Kinases (X2K) network displays <b>the inferred upstream regulatory network of the input gene list</b> by integrating the results of ChEA (Step 1), G2N (Step 2), and KEA (Step 3).</div><div>Pink nodes represent the <b>top transcription factors</b> predicted to regulate the expression of the input gene list; orange nodes represent <b>physical interactors of the transcription factors</b>; blue nodes represent the <b>top protein kinases</b> predicted to phosphorylate such genes.</div>">
+                            data-content="<div>The Expression2Kinases (X2K) network displays the <b>inferred upstream regulatory network predicted to regulate the input list</b> of genes by integrating the results from the TFEA (Step 1), the network expansion (Step 2), and the kinase enrichment (Step 3).</div><div class='mt-3'>Pink nodes represent the <b>top transcription factors</b> predicted to regulate the expression of the input gene list; orange nodes represent proteins that <b>physically interact with the enriched transcription factors and connect them</b>. Blue nodes represent the <b>top predicted protein kinases</b> known to phosphorylate the proteins within the expanded subnetwork.</div><div class='mt-3'>Green network edges/links represent <b>kinase-substrate phosphorylation</b> interactions between kinases and their substrates, while grey network edges represent <b>physical protein-protein interactions</b>.</div><div class='mt-3 text-muted font-italic'>Note: this network is a results of computational predictions, experimentalists should consider this carefully before attempting to validate any of these predictions experimentally.</div>">
                         <i class="fa fa-question-circle fa-2x text-muted"></i>
                     </button>
 
@@ -240,7 +240,7 @@
                 <div id="x2k-network" class="card-body h-100">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg h-100 w-100" id="x2ksvg"
                         preserveAspectRatio="xMinYMin" viewBox="-20 0 1020 600">
-                        <g class="zoom-controls x2k-zoom-controls" transform="translate(10, 10)">
+                        <g class="zoom-controls x2k-zoom-controls" transform="translate(10, 0)">
                             <g id="x2k-zoom-in" transform="translate(0, 0)">
                                 <rect width="20" height="20"></rect>
                                 <line x1="5" y1="10" x2="15" y2="10"></line>
@@ -251,9 +251,9 @@
                                 <line x1="5" y1="10" x2="15" y2="10"></line>
                             </g>
                         </g>
-                        <g class="legend" transform="translate(50, 10)">
+                        <g class="legend" transform="translate(50, 0)">
                             <g class="legend-background">
-                                <rect width="900" height="30" opacity="0.8" fill="white"></rect>
+                                <rect width="900" height="25" opacity="0.8" fill="white"></rect>
                             </g>
                             <g class="legend-item" transform="translate(10, 5)">
                                 <circle cx="5" cy="10" r="10" fill="#FF546D" />
@@ -264,7 +264,7 @@
                                 <text x="20" y="18" font-size="16pt">Intermediate protein</text>
                             </g>
                             <g class="legend-item" transform="translate(500, 5)">
-                                <circle cx="5" cy="10" r="10" fill="#84A6EE" />
+                                <circle cx="5" cy="10" r="10" fill="#3e8cd6" />
                                 <text x="20" y="18" font-size="16pt">Kinase</text>
                             </g>
                             <g class="legend-item" transform="translate(615, 5)">

@@ -163,45 +163,6 @@
                                             <div class="card-body">
                                                 <div id="accordion" role="tablist">
 
-                                                    <!--X2K-->
-                                                    <div class="card my-1">
-                                                        <div class="card-header py-1 border-0" role="tab"
-                                                             id="x2k-settings">
-                                                            <a data-toggle="collapse" href="#x2k-collapse"
-                                                               aria-expanded="true" aria-controls="x2k-collapse">
-                                                                X2K
-                                                            </a>
-                                                        </div>
-                                                        <div id="x2k-collapse" class="collapse" role="tabpanel"
-                                                             aria-labelledby="x2k-settings" data-parent="#accordion">
-                                                            <div class="card-body">
-                                                                <div class="form-group row align-items-center">
-                                                                    <label for="min_network_size"
-                                                                           class="col-form-label col-sm-9">Minimum
-                                                                        number of proteins in subnetwork</label>
-                                                                    <div class="col-sm-3">
-                                                                        <input class="form-control form-control-sm"
-                                                                               type="text" value="30"
-                                                                               id="min_network_size"
-                                                                               name="min_network_size">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row align-items-center"
-                                                                     style="display:none">
-                                                                    <label for="number_of_results"
-                                                                           class="col-form-label col-sm-9">Number of
-                                                                        results</label>
-                                                                    <div class="col-sm-3">
-                                                                        <input class="form-control form-control-sm"
-                                                                               type="text" value="500"
-                                                                               id="number_of_results"
-                                                                               name="number_of_results">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                     <!--ChEA-->
                                                     <div class="card my-1">
                                                         <div class="card-header py-1 border-0" role="tab"
@@ -209,7 +170,7 @@
                                                             <a class="collapsed" data-toggle="collapse"
                                                                href="#chea-x2k-collapse" aria-expanded="false"
                                                                aria-controls="chea-x2k-collapse">
-                                                                ChEA
+                                                                Transcription Factor Enrichment Analysis (TFEA)
                                                             </a>
                                                         </div>
                                                         <div id="chea-x2k-collapse" class="collapse" role="tabpanel"
@@ -218,8 +179,11 @@
                                                             <div class="card-body">
                                                                 <div class="form-group" id="chea-x2k-sorting">
                                                                     <div class="row align-items-center">
-                                                                        <label class="col-form-label col-sm-5">Sort
-                                                                            by</label>
+                                                                        <label class="col-form-label col-sm-5">Sort by
+                                                                            <sup data-toggle="tooltip" data-placement="top" container="body" title="The metric used to rank the top Transcription Factors identified by TFEA.">
+                                                                                <i class="fa fa-question-circle"></i>
+                                                                            </sup>
+                                                                        </label>
                                                                         <div class="col-sm-7">
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
@@ -257,8 +221,12 @@
                                                                 <hr/>
                                                                 <div class="form-group" id="chea-x2k-species">
                                                                     <div class="row align-items-center">
-                                                                        <label class="col-form-label col-sm-5">Background
-                                                                            organism</label>
+                                                                        <label class="col-form-label col-sm-5">
+                                                                            Background organism
+                                                                            <sup data-toggle="tooltip" data-placement="top" container="body" title="The organism from which TF-target interaction data should be integrated.">
+                                                                                <i class="fa fa-question-circle"></i>
+                                                                            </sup>
+                                                                        </label>
                                                                         <div class="col-sm-7">
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
@@ -296,8 +264,12 @@
                                                                 <hr/>
                                                                 <div class="form-group" id="chea-x2k-tfdb">
                                                                     <div class="row align-items-center">
-                                                                        <label class="col-form-label col-sm-5">Transcription
-                                                                            factor database</label>
+                                                                        <label class="col-form-label col-sm-5">
+                                                                            Transcription factor database
+                                                                            <sup data-toggle="tooltip" data-placement="top" container="body" title="The database from which TF-target interaction data should be integrated.">
+                                                                                <i class="fa fa-question-circle"></i>
+                                                                            </sup>
+                                                                        </label>
                                                                         <div class="col-sm-7">
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
@@ -353,18 +325,31 @@
                                                             <a class="collapsed" data-toggle="collapse"
                                                                href="#g2n-x2k-collapse" aria-expanded="false"
                                                                aria-controls="g2n-x2k-collapse">
-                                                                G2N
+                                                                Genes2Networks (G2N)
                                                             </a>
                                                         </div>
                                                         <div id="g2n-x2k-collapse" class="collapse" role="tabpanel"
                                                              aria-labelledby="g2n-x2k-settings"
                                                              data-parent="#accordion">
                                                             <div class="card-body">
-
+                                                                <div class="form-group row align-items-center">
+                                                                    <label for="min_network_size" class="col-form-label col-sm-9">Minimum number of proteins in subnetwork
+                                                                        <sup data-toggle="tooltip" data-placement="top" container="body" title="The minimum size of the expanded Protein-Protein interaction subnetwork generated using Genes2Networks.">
+                                                                            <i class="fa fa-question-circle"></i>
+                                                                        </sup>
+                                                                    </label>
+                                                                    <div class="col-sm-3">
+                                                                        <input class="form-control form-control-sm" type="text" value="30" id="min_network_size" name="min_network_size">
+                                                                    </div>
+                                                                </div>
                                                                 <div class="form-group row align-items-center">
                                                                     <label for="x2k_path_length"
-                                                                           class="col-form-label col-sm-9">Path
-                                                                        length</label>
+                                                                           class="col-form-label col-sm-9">
+                                                                           Path length
+                                                                        <sup data-toggle="tooltip" data-placement="top" container="body" title="The maximum Protein-Protein Interaction path length for the subnetwork expansion step of Genes2Networks.">
+                                                                            <i class="fa fa-question-circle"></i>
+                                                                        </sup>
+                                                                    </label>
                                                                     <div class="col-sm-3">
                                                                         <input class="form-control form-control-sm"
                                                                                type="text" value="2"
@@ -373,8 +358,12 @@
                                                                 </div>
                                                                 <div class="form-group row align-items-center">
                                                                     <label for="x2k_min_number_of_articles_supporting_interaction"
-                                                                           class="col-form-label col-sm-9">Minimum
-                                                                        number of articles</label>
+                                                                           class="col-form-label col-sm-9">
+                                                                           Minimum number of articles
+                                                                        <sup data-toggle="tooltip" data-placement="top" container="body" title="The minimum number of published articles supporting a Protein-Protein Interaction for the expanded subnetwork.">
+                                                                            <i class="fa fa-question-circle"></i>
+                                                                        </sup>
+                                                                    </label>
                                                                     <div class="col-sm-3">
                                                                         <input class="form-control form-control-sm"
                                                                                type="text" value="2"
@@ -384,8 +373,12 @@
                                                                 </div>
                                                                 <div class="form-group row align-items-center">
                                                                     <label for="x2k_max_number_of_interactions_per_protein"
-                                                                           class="col-form-label col-sm-9">Maximum
-                                                                        number of interactions per protein</label>
+                                                                           class="col-form-label col-sm-9">
+                                                                           Maximum number of interactions per protein
+                                                                        <sup data-toggle="tooltip" data-placement="top" container="body" title="The maximum number of physical interactions allowed for the proteins in the expanded subnetwork.">
+                                                                            <i class="fa fa-question-circle"></i>
+                                                                        </sup>
+                                                                    </label>
                                                                     <div class="col-sm-3">
                                                                         <input class="form-control form-control-sm"
                                                                                type="text" value="200"
@@ -395,8 +388,12 @@
                                                                 </div>
                                                                 <div class="form-group row align-items-center">
                                                                     <label for="x2k_max_number_of_interactions_per_article"
-                                                                           class="col-form-label col-sm-9">Maximum
-                                                                        number of interactions per article</label>
+                                                                           class="col-form-label col-sm-9">
+                                                                           Maximum number of interactions per article
+                                                                        <sup data-toggle="tooltip" data-placement="top" container="body" title="The maximum number of physical interactions reported in the publications used for the subnetwork expansion in Genes2Networks.">
+                                                                            <i class="fa fa-question-circle"></i>
+                                                                        </sup>
+                                                                    </label>
                                                                     <div class="col-sm-3">
                                                                         <input class="form-control form-control-sm"
                                                                                type="text" value="100"
@@ -406,7 +403,12 @@
                                                                 </div>
                                                                 <hr/>
                                                                 <div class="form-group" id="g2n-x2k-ppi">
-                                                                    <label>PPI Networks</label>
+                                                                    <label>
+                                                                        PPI Networks
+                                                                        <sup data-toggle="tooltip" data-placement="top" container="body" title="The Protein-Protein Interaction databases to integrate for generation of the expanded subnetwork.">
+                                                                            <i class="fa fa-question-circle"></i>
+                                                                        </sup>
+                                                                    </label>
                                                                     <div class="row">
                                                                         <div class="col-sm-4">
                                                                             <div class="form-check">
@@ -536,7 +538,7 @@
                                                             <a class="collapsed" data-toggle="collapse"
                                                                href="#kea-x2k-collapse" aria-expanded="false"
                                                                aria-controls="kea-x2k-collapse">
-                                                                KEA
+                                                                Kinase Enrichment Analysis (KEA)
                                                             </a>
                                                         </div>
                                                         <div id="kea-x2k-collapse" class="collapse" role="tabpanel"
@@ -545,8 +547,12 @@
                                                             <div class="card-body">
                                                                 <div class="form-group">
                                                                     <div class="row align-items-center">
-                                                                        <label class="col-form-label col-sm-5">Sort
-                                                                            by</label>
+                                                                        <label class="col-form-label col-sm-5">
+                                                                            Sort by
+                                                                        <sup data-toggle="tooltip" data-placement="top" container="body" title="The method used to sort the top protein kinases identified by KEA.">
+                                                                            <i class="fa fa-question-circle"></i>
+                                                                        </sup>
+                                                                        </label>
                                                                         <div class="col-sm-7" id="kea-x2k-sorting">
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
@@ -597,15 +603,14 @@
                                     Enter a list of differentially expressed genes to receive results for:
                                 <ol>
                                     <li>Putative enriched transcription factors through <a
-                                            href="https://www.ncbi.nlm.nih.gov/pubmed/20709693">ChIP-x enrichment
-                                        analysis (ChEA)</a>.
+                                            href="https://www.ncbi.nlm.nih.gov/pubmed/20709693">Transcription Factor Enrichment Analysis (TFEA)</a>.
                                     </li>
                                     <li>Protein–protein interactions subnetwork that connects the input genes using <a
                                             href="https://www.ncbi.nlm.nih.gov/pubmed/17916244">Genes2Networks (G2N)</a>.
                                     </li>
                                     <li>Ranked list of kinases based on known kinase–substrate phosphorylation data from
-                                        <a href="https://www.ncbi.nlm.nih.gov/pubmed/19176546">kinase enrichment
-                                            analysis (KEA)</a>.
+                                        <a href="https://www.ncbi.nlm.nih.gov/pubmed/19176546">Kinase Enrichment
+                                            Analysis (KEA)</a>.
                                     </li>
                                     <li>Complete upstream pathway that connects the enriched transcription factors to
                                         kinases through known protein-protein interactions via <a
