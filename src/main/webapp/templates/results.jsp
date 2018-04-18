@@ -46,14 +46,12 @@
     <!--Own-->
     <link rel="stylesheet" href="dist/css/bargraph.css">
     <link rel="stylesheet" href="dist/css/network.css">
-    <link rel="stylesheet" href="dist/css/atooltip.css">
     <link rel="stylesheet" href="dist/css/results.css">
 
 
     <script src="dist/js/bargraph.js"></script>
     <script src="dist/js/results.js"></script>
     <script src="dist/js/network.js"></script>
-    <script src="dist/js/jquery.atooltip.pack.js"></script>
     <script> var json_file = ${json}; </script>
 
     <script>
@@ -86,18 +84,3 @@
 <div class="px-5 bg-light">
     <%@ include file="/templates/dashboard.jsp" %>
 </div>
-
-<!--Footer-->
-<footer class="container-fluid" id="footer">
-    <div class="row justify-content-center mt-2">
-        <div class="col-sm-7" id="citations">
-            <!--             <p>Please cite this paper if you are using X2K for your publication:
-                            <a href="http://www.ncbi.nlm.nih.gov/pubmed/22080467"> Chen EY, Xu
-                                H, Gordonov S, Lim MP, Perkins MH, Ma'ayan A. Expression2Kinases:
-                                mRNA Profiling Linked to Multiple Upstream Regulatory Layers.
-                                Bioinformatics. (2012) 28 (1): 105-111</a></p> -->
-        </div>
-    </div>
-</footer>
-</body>
-</html>

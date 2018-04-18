@@ -310,7 +310,7 @@
             <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/29636450" title="29636450" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
-            <td><span style="white-space:nowrap"><a href="https://amp.pharm.mssm.edu/Enrichr/">ChEA 2016<a href="datasets/ChEA_2016/CHEA-2016_Human_TF.gmt" title="CHEA-2016_Human_TF.gmt" style="padding-left:5px"><img src="https://s3.amazonaws.com/go-public/image/go-logo-icon.png" width="15"/></a><a href="datasets/ChEA_2016/CHEA-2016_Mouse_TF.gmt" title="CHEA-2016_Mouse_TF.gmt" style="padding-left:5px"><img src="https://s3.amazonaws.com/go-public/image/go-logo-icon.png" width="15"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://amp.pharm.mssm.edu/Enrichr/">ChEA 2016</a><a href="datasets/ChEA_2016/CHEA-2016_Human_TF.gmt" title="CHEA-2016_Human_TF.gmt" style="padding-left:5px"><img src="https://s3.amazonaws.com/go-public/image/go-logo-icon.png" width="15"/></a><a href="datasets/ChEA_2016/CHEA-2016_Mouse_TF.gmt" title="CHEA-2016_Mouse_TF.gmt" style="padding-left:5px"><img src="https://s3.amazonaws.com/go-public/image/go-logo-icon.png" width="15"/></a></span></td>
             <td>535545</td>
             <td>194</td>
             <td>34462</td>

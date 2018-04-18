@@ -19,7 +19,6 @@ import org.mockito.Mockito;
 
 import edu.mssm.pharm.maayanlab.ChEA.ChEA;
 import edu.mssm.pharm.maayanlab.X2K.web.Context;
-import edu.mssm.pharm.maayanlab.X2K.web.X2KServlet;
 
 public class AppTest extends Mockito{
 	
