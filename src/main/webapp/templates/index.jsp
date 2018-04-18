@@ -318,8 +318,8 @@
                                                                                            type="radio"
                                                                                            name="TF-target gene background database used for enrichment"
                                                                                            id="x2k_ChEA_2016"
-                                                                                           value="ChEA_2016">
-                                                                                    ChEA_2016
+                                                                                           value="ChEA 2016">
+                                                                                    ChEA 2016
                                                                                 </label>
                                                                             </div>
                                                                             <div class="form-check">
@@ -328,7 +328,7 @@
                                                                                            type="radio"
                                                                                            name="TF-target gene background database used for enrichment"
                                                                                            id="x2k_ARCHS4"
-                                                                                           value="ARCHS4">
+                                                                                           value="ARCHS4 TFs Coexp">
                                                                                     ARCHS4
                                                                                 </label>
                                                                             </div>
@@ -348,7 +348,7 @@
                                                                                            type="radio"
                                                                                            name="TF-target gene background database used for enrichment"
                                                                                            id="x2k_Enrichr_Co-occurrence"
-                                                                                           value="Enrichr_Co-occurrence">
+                                                                                           value="Enrichr Submissions TF-Gene Coocurrence">
                                                                                     Enrichr Co-occurrence
                                                                                 </label>
                                                                             </div>
@@ -574,7 +574,7 @@
                                                                                 <input
                                                                                     type="checkbox"
                                                                                     class="form-check-input"
-                                                                                    name="enable_Vidal"
+                                                                                    name="enable_vidal"
                                                                                     value="false">
                                                                                 Vidal
                                                                             </label>
@@ -685,17 +685,17 @@
                                                                                 <label class="form-check-label">
                                                                                     <input class="form-check-input"
                                                                                             type="radio"
-                                                                                            name="TF-target gene background database used for enrichment"
+                                                                                            name="kinase interactions to include"
                                                                                             id="KEA"
-                                                                                            value="KEA" checked>
-                                                                                    KEA (Phospho.ELM, Phosphopoint, PhosphositePlus, and MINT combined)
+                                                                                            value="kea 2018" checked>
+                                                                                    KEA 2018
                                                                                 </label>
                                                                             </div>
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
                                                                                     <input class="form-check-input"
                                                                                             type="radio"
-                                                                                            name="TF-target gene background database used for enrichment"
+                                                                                            name="kinase interactions to include"
                                                                                             id="ARCHS4"
                                                                                             value="ARCHS4">
                                                                                     ARCHS4
@@ -705,7 +705,7 @@
                                                                                 <label class="form-check-label">
                                                                                     <input class="form-check-input"
                                                                                             type="radio"
-                                                                                            name="TF-target gene background database used for enrichment"
+                                                                                            name="kinase interactions to include"
                                                                                             id="iPTMnet"
                                                                                             value="iPTMnet">
                                                                                     iPTMnet
@@ -715,10 +715,50 @@
                                                                                 <label class="form-check-label">
                                                                                     <input class="form-check-input"
                                                                                             type="radio"
-                                                                                            name="TF-target gene background database used for enrichment"
+                                                                                            name="kinase interactions to include"
                                                                                             id="NetworkIN"
                                                                                             value="NetworkIN">
                                                                                     NetworkIN
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="kinase interactions to include"
+                                                                                            id="Phospho.ELM"
+                                                                                            value="Phospho.ELM">
+                                                                                    Phospho.ELM
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="kinase interactions to include"
+                                                                                            id="Phosphopoint"
+                                                                                            value="Phosphopoint">
+                                                                                    Phosphopoint
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="kinase interactions to include"
+                                                                                            id="PhosphoPlus"
+                                                                                            value="PhosphoPlus">
+                                                                                    PhosphoPlus
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input"
+                                                                                            type="radio"
+                                                                                            name="kinase interactions to include"
+                                                                                            id="MINT"
+                                                                                            value="MINT">
+                                                                                    MINT
                                                                                 </label>
                                                                             </div>
                                                                         </div>
