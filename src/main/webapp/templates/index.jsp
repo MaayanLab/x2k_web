@@ -154,7 +154,7 @@
                                         <div class="card-header py-1 border-0  bg-white" role="tab" id="settings-acc">
                                             <a data-toggle="collapse" href="#settings" aria-expanded="true"
                                                aria-controls="settings">
-                                                Advanced Settings
+                                                Advanced Settings (Defaults to optimized parameters)
                                             </a>
                                         </div>
 
