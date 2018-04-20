@@ -31,6 +31,8 @@ const icons = {
 const display_url = (name, url) => {
     if(url === '')
         return name
+    else if(url === undefined)
+        return null
     else if(url[0] === '!') {
         return (
             <span dangerouslySetInnerHTML={{
@@ -41,6 +43,12 @@ const display_url = (name, url) => {
         return (
             <a href={url}>{name}</a>
         )
+}
+
+const database_link = (table, database, file) => {
+    return  'http://amp.pharm.mssm.edu/lincs-playground/index.php/s/kuUSjyFOryhTRDv/download?path='
+        + encodeURIComponent('/' + table + '/' + database)
+        + '&' + 'files=' + encodeURIComponent(file)
 }
 
 // Visual column transformations. null will hide column
@@ -54,10 +62,38 @@ const transformers = {
             return (
                 <span style={{whiteSpace: "nowrap"}}>
                     {display_url(row['Database'], row['URL'])}
+                </span>
+            )
+        }
+    },
+    'Source Reference': null,
+    'Version': null,
+    'Description': null,
+    'Description': null,
+    'Average Substrates/ Kinase': null,
+    'Average Interactors/ Target': null,
+    'Average Substrates/TF [Human]': null,
+    'Average Substrates/TF [Mouse]': null,
+    'Average Interactors/TF [Mouse]': null,
+    'Average Interactors/TF [Mouse]': null,
+    'Species Included': null,
+    'Database Type': (row) => {
+        if(row === undefined)
+            return 'Interaction Type'
+        else
+            return row['Database Type']
+    },
+    'Filename(s)': (row, table) => {
+        if(row === undefined)
+            return 'Download'
+        else {
+            return (
+                <span style={{whiteSpace: "nowrap"}}>
                     {row['Filename(s)'].split(' ').map((file, ind) => {
                         const ext = '.' + file.split('.').pop()
                         return (
-                            <a href={'datasets/' + row['Database'] + '/' + file} title={file} style={{paddingLeft: 5}} key={ind}>
+                            <a
+                                href={database_link(table, row['Database'], file)} title={file} style={{paddingLeft: 5}} key={ind}>
                                 <svg viewBox="-5 -5 110 131" preserveAspectRatio="xMinYMin" style={{width:18,position:'relative',top:5}}>
                                     <path
                                         d="M0,0 l75,0 l25,25 l0,100 l-100,0 z"
@@ -163,7 +199,7 @@ const records_to_col_data = (records) => ({
     data: records.map((record) => Object.keys(record).map((key) => record[key])),
 })
 
-const apply_transformers = (columns, data) => (
+const apply_transformers = (columns, data, table) => (
     records_to_col_data(
         col_data_to_records(columns, data).map((record) =>
             Object.keys(record).reduce((row, column) => {
@@ -171,7 +207,7 @@ const apply_transformers = (columns, data) => (
                 if(transformer !== undefined) {
                     if(transformer !== null) {
                         const k = transformer()
-                        const v = transformer(record)
+                        const v = transformer(record, table)
                         if(k !== null && v !== null)
                             row[k] = v
                     }
@@ -184,8 +220,8 @@ const apply_transformers = (columns, data) => (
     )
 )
 
-const render_table = (json) => {
-    let { columns, data } = apply_transformers(json[0], json.slice(1))
+const render_table = (json, table) => {
+    let { columns, data } = apply_transformers(json[0], json.slice(1), table)
     return (
         <div className="col-sm-12 my-3 table-responsive">
             <table className="display table table-striped table-bordered table-sm datasets">
@@ -216,7 +252,7 @@ const render = (json) => {
             {Object.keys(json).map((table, ind) =>
                 <div className="col-sm-12" key={ind}>
                     <h6>{table_lookup[table]}</h6>
-                    {render_table(json[table])}
+                    {render_table(json[table], table)}
                 </div>
             )}
         </div>
