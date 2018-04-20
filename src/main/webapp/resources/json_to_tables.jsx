@@ -58,18 +58,12 @@ const transformers = {
                         const ext = '.' + file.split('.').pop()
                         return (
                             <a href={'datasets/' + row['Database'] + '/' + file} title={file} style={{paddingLeft: 5}} key={ind}>
-                                <svg viewBox="-5 -5 110 131" preserveAspectRatio="xMinYMin" style={{width:18,position:'relative',top:5}}>
+                                <svg viewBox="-5 -5 110 131" preserveAspectRatio="xMinYMin" style={{width:18,position:'relative',top:5,opacity:0.9}}>
                                     <path
                                         d="M0,0 l75,0 l25,25 l0,100 l-100,0 z"
                                         fill="lightgrey"
                                         stroke="black"
                                         strokeWidth="5"
-                                    />
-                                    <path
-                                        d="M15,25 l60,0 M15,45 l70,0 M15,65 l70,0 M15,85 l70,0 M15,105 l70,0"
-                                        fill="none"
-                                        stroke="black"
-                                        strokeWidth="3"
                                     />
                                     <path
                                         d="M5,75 l90,0 l0,45 l-90,0 z"
