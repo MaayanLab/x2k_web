@@ -205,15 +205,168 @@ function draw_network(json, svg_id, body) {
         return linkedByIndex[a.name + "," + b.name];
     }
 
+    function precisionRound(number, precision) {
+        var factor = Math.pow(10, precision);
+        return Math.round(number * factor) / factor;
+    }
+
+    function draw_zoom_controls(g, graph_type, coeff) {
+        var zoom_controls = g.append("g")
+            .attr("class", "zoom-controls " + graph_type + "-zoom-controls")
+            .attr("transform", "translate(10, 0)");
+
+        var button_size = 20*coeff;
+
+        var zoom_in = zoom_controls.append("g")
+            .attr("id", graph_type + "-zoom-in")
+            .attr("transform", "translate(0, 0)");
+
+        zoom_in.append("rect")
+            .attr("width", button_size)
+            .attr("height", button_size);
+        zoom_in.append("line")
+            .attr("x1", 5*coeff)
+            .attr("y1", 10*coeff)
+            .attr("x2", 15*coeff)
+            .attr("y2", 10*coeff);
+        zoom_in.append("line")
+            .attr("x1", 10*coeff)
+            .attr("y1", 5*coeff)
+            .attr("x2", 10*coeff)
+            .attr("y2", 15*coeff);
+
+        var zoom_out = zoom_controls.append("g")
+            .attr("id", graph_type + "-zoom-out")
+            .attr("transform", "translate(0, "+button_size+")");
+
+        zoom_out.append("rect")
+            .attr("width", button_size)
+            .attr("height", button_size);
+        zoom_out.append("line")
+            .attr("x1", 5*coeff)
+            .attr("y1", 10*coeff)
+            .attr("x2", 15*coeff)
+            .attr("y2", 10*coeff);
+    }
+
+    function draw_legend(g, graph_type, coeff) {
+        var legend = g.append("g")
+            .attr("class", "legend")
+            .attr("transform", "translate(" + 50*coeff + ", 0)");
+
+        var bg = legend.append("g")
+            .attr("class", "legend-background");
+
+        bg.append("rect")
+            .attr("fill", "white")
+            .attr("opacity", "0.8")
+            .attr("width", 900*coeff)
+            .attr("height", 25*coeff);
+
+        var tf = legend.append("g")
+            .attr("class", "legend-item")
+            .attr("transform", "translate(" + 10*coeff + "," + 5*coeff + ")");
+        tf.append("circle")
+            .attr("cx", 5*coeff)
+            .attr("cy", 10*coeff)
+            .attr("r", 10*coeff)
+            .attr("fill", "#FF546D");
+        tf.append("text")
+            .attr("x", 20*coeff)
+            .attr("y", 18*coeff)
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "1rem")
+            .text("Transcription factor");
+
+
+        var ip = legend.append("g")
+            .attr("class", "legend-item")
+            .attr("transform", "translate(" + 250*coeff + "," + 5*coeff + ")");
+        ip.append("circle")
+            .attr("cx", 5*coeff)
+            .attr("cy", 10*coeff)
+            .attr("r", 10*coeff)
+            .attr("fill", "lightgrey");
+        ip.append("text")
+            .attr("x", 20*coeff)
+            .attr("y", 18*coeff)
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "1rem")
+            .text("Intermediate protein");
+
+
+        var ppi = legend.append("g")
+            .attr("class", "legend-item")
+            .attr("transform", "translate(" + 500*coeff + "," + 5*coeff + ")");
+        ppi.append("line")
+            .attr("x1", 0)
+            .attr("y1", 10*coeff)
+            .attr("x2", 15*coeff)
+            .attr("y2", 10*coeff)
+            .attr("stroke", "lightgray")
+            .attr("stroke-width", "3");
+        ppi.append("text")
+            .attr("x", 20*coeff)
+            .attr("y", 18*coeff)
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "1rem")
+            .text("PPI");
+
+        if (graph_type === "x2k") {
+            ppi.attr("transform", "translate(" + 820*coeff + "," + 5*coeff + ")");
+
+            var kinase = legend.append("g")
+                .attr("class", "legend-item")
+                .attr("transform", "translate(" + 500*coeff + "," + 5*coeff + ")");
+            kinase.append("circle")
+                .attr("cx", 5*coeff)
+                .attr("cy", 10*coeff)
+                .attr("r", 10*coeff)
+                .attr("fill", "#3E8CD6");
+            kinase.append("text")
+                .attr("x", 20*coeff)
+                .attr("y", 18*coeff)
+                .attr("font-family", "sans-serif")
+                .attr("font-size", "1rem")
+                .text("Kinase");
+
+            var phosph = legend.append("g")
+                .attr("class", "legend-item")
+                .attr("transform", "translate(" + 620*coeff + "," + 5*coeff + ")");
+            phosph.append("line")
+                .attr("x1", 0)
+                .attr("y1", 10*coeff)
+                .attr("x2", 15*coeff)
+                .attr("y2", 10*coeff)
+                .attr("stroke", "#269C26")
+                .attr("stroke-width", "3");
+            phosph.append("text")
+                .attr("x", 20*coeff)
+                .attr("y", 18*coeff)
+                .attr("font-family", "sans-serif")
+                .attr("font-size", "1rem")
+                .text("Phosphorylation");
+        }
+    }
+
+    // Magic number
+    var coeff = precisionRound(Math.sqrt(nodes_data.length / 70), 1);
+
+
     var svg = d3.select(svg_id),
-        width = 1000,
-        height = 600;
+        shift = 20*coeff,
+        width_shift = 1020*coeff,
+        width = 1000*coeff,
+        height = 600*coeff;
+
+    svg.attr("viewBox", "-" + shift + " 0 " + width_shift + " " + height);
+
 
     var simulation = d3.forceSimulation()
         .nodes(nodes_data);
 
-    var g = svg.insert("g", ":first-child");
-    g.attr("transform", "translate(0, 20)")
+    var g = svg.append("g")
+        .attr("transform", "translate(0, 20)")
 
     var link = g.append("g")
         .attr("class", "links")
@@ -278,16 +431,6 @@ function draw_network(json, svg_id, body) {
     var zoom = d3.zoom()
         .on("zoom", zoom_actions);
     zoom(svg);
-
-
-    d3.select('#'+graph_type+'-zoom-in').on('click', function () {
-        zoom.scaleBy(g.transition().duration(750), 1.3);
-    });
-
-    d3.select('#'+graph_type+'-zoom-out').on('click', function () {
-        zoom.scaleBy(g.transition().duration(750), 1 / 1.3);
-    });
-
 
     var nodes = g.selectAll(".node");
 
@@ -401,4 +544,9 @@ function draw_network(json, svg_id, body) {
         .on("tick", tickActions);
 
     drag_handler(node);
+    draw_zoom_controls(svg, graph_type, coeff);
+    d3.select('#'+graph_type+'-zoom-in').on('click', function () {zoom.scaleBy(g.transition().duration(750), 1.3);});
+    d3.select('#'+graph_type+'-zoom-out').on('click', function () {zoom.scaleBy(g.transition().duration(750), 1 / 1.3);});
+
+    draw_legend(svg, graph_type, coeff);
 }

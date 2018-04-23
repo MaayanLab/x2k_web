@@ -134,16 +134,15 @@
                             <div class="col-sm-6 my-2">
                                 <label for="genelist">Gene list (<a href="javascript:void(0)"
                                                                     onclick="insertExample();"
-                                                                    id="example-link">insert
-                                    an example</a>)</label>
+                                                                    id="example-link">try an example</a>)</label>
                                 <textarea class="form-control form-control-sm" id="genelist" rows="12"
                                           name="text-genes"></textarea>
                                           <span id="gene-count" style="color: darkgrey; font-size: 0.9rem;"></span>
                                           <br/>
                                           <span id="warning" style="color: coral; font-size: 0.8rem;"></span>
                                 <!--Buttons-->
-                                <div class="mb-3">
-                                    <button type="submit" class="btn btn-outline-primary lead" id="results_submit" disabled>
+                                <div class="mb-4 mt-2">
+                                    <button type="submit" class="btn btn-sm btn-outline-primary" id="results_submit" disabled>
                                         Submit
                                     </button>
                                 </div>
@@ -1922,7 +1921,7 @@ C1d' \
                     </div>
                 </div>
                 <div class="row">
-                    <div id="ljp" class="col-sm-12 my-3 table-responsive">
+                    <div id="ljp-table-wrapper" class="col-sm-12 my-3 table-responsive">
                         <table id="ljp-table"
                                class="display table table-striped table-bordered table-sm"
                                cellspacing="0">

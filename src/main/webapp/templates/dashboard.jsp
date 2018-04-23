@@ -22,7 +22,8 @@
                     <!-- Title -->
                     <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#chea-results" data-name="ChEA" data-modal-title="Transcription Factor Enrichment Analysis (TFEA)">
                         <button type="button" class="expand">
-                            <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
+                            <i class="fas fa-expand-arrows-alt" title="Expand" aria-hidden="true"></i>
+                            <i class="fas fa-download" title="Download"></i>
                         </button>
                         <a class="navbar-brand" href="javascript:void(0)"><b>Step 1.</b> Transcription Factor Enrichment Analysis (TFEA)</a>
                     </div>
@@ -88,7 +89,8 @@
                     <!-- Title -->
                     <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#network-g2n" data-name="G2N" data-modal-title="Protein-Protein Interaction Expansion">
                         <button type="button" class="expand">
-                                <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
+                            <i class="fas fa-expand-arrows-alt" title="Expand" aria-hidden="true"></i>
+                            <i class="fas fa-download" title="Download"></i>
                         </button>
                         <a class="navbar-brand" href="javascript:void(0)"><b>Step 2.</b> Protein-Protein Interaction Expansion</a>
                     </div>
@@ -108,38 +110,10 @@
                 </nav>
                 <div id="network-g2n" class="card-body h-100">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="g2n-svg h-100 w-100"
-                        preserveAspectRatio="xMinYMin" viewBox="-20 0 1020 600">
-                        <g class="zoom-controls g2n-zoom-controls" transform="translate(10, 0)">
-                            <g id="g2n-zoom-in" transform="translate(0, 0)">
-                                <rect width="20" height="20"></rect>
-                                <line x1="5" y1="10" x2="15" y2="10"></line>
-                                <line x1="10" y1="5" x2="10" y2="15"></line>
-                            </g>
-                            <g id="g2n-zoom-out" transform="translate(0, 20)">
-                                <rect width="20" height="20"></rect>
-                                <line x1="5" y1="10" x2="15" y2="10"></line>
-                            </g>
-                        </g>
-                        <g class="legend" transform="translate(50, 0)">
-                            <g class="legend-background">
-                                <rect width="900" height="25" opacity="0.8" fill="white"></rect>
-                            </g>
-                            <g class="legend-item" transform="translate(50, 5)">
-                                <circle cx="5" cy="10" r="10" fill="#FF546D" />
-                                <text x="20" y="18" font-size="16pt">Transcription factor</text>
-                            </g>
-                            <g class="legend-item" transform="translate(300, 5)">
-                                <circle cx="5" cy="10" r="10" fill="lightgrey" />
-                                <text x="20" y="18" font-size="16pt">Intermediate protein</text>
-                            </g>
-                            <g class="legend-item" transform="translate(550, 5)">
-                                <line x1="0" y1="10" x2="15" y2="10" stroke="lightgrey" stroke-width="3" />
-                                <text x="20" y="18" font-size="16pt">PPI</text>
-                            </g>
-                        </g>
+                        preserveAspectRatio="xMinYMin">
                     </svg>
-
                 </div>
+
             </div>
         </div>
 
@@ -151,7 +125,8 @@
                     <!-- Title -->
                     <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#kea-results" data-name="KEA" data-modal-title="Kinase Enrichment Analysis (KEA)">
                         <button type="button" class="expand">
-                            <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
+                            <i class="fas fa-expand-arrows-alt" title="Expand" aria-hidden="true"></i>
+                            <i class="fas fa-download" title="Download"></i>
                         </button>
                         <a class="navbar-brand" href="javascript:void(0)"><b>Step 3.</b> Kinase Enrichment Analysis (KEA)</a>
                     </div>
@@ -197,7 +172,6 @@
                                         class="kea-chart"
                                         width="100%" height="100%" viewBox="-20 0 1020 600"></svg>
                             </div>
-
                         </div>
                         <div class="tab-pane fade table-responsive" id="nav-kea-table"
                                 role="tabpanel"
@@ -207,6 +181,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -218,7 +193,8 @@
                     <!-- Title -->
                     <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network" data-name="X2K" data-modal-title="Expression2Kinases Network" class="cursor-pointer">
                         <button type="button" class="expand cursor-pointer">
-                            <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
+                            <i class="fas fa-expand-arrows-alt" title="Expand" aria-hidden="true"></i>
+                            <i class="fas fa-download" title="Download"></i>
                         </button>
                         <a class="navbar-brand d-inline-block" href="#"><b>Step 4.</b> Expression2Kinases Network</a>
                     </div>
@@ -237,43 +213,7 @@
                 </nav>
                 <div id="x2k-network" class="card-body h-100">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="x2k-svg h-100 w-100" id="x2ksvg"
-                        preserveAspectRatio="xMinYMin" viewBox="-20 0 1020 600">
-                        <g class="zoom-controls x2k-zoom-controls" transform="translate(10, 0)">
-                            <g id="x2k-zoom-in" transform="translate(0, 0)">
-                                <rect width="20" height="20"></rect>
-                                <line x1="5" y1="10" x2="15" y2="10"></line>
-                                <line x1="10" y1="5" x2="10" y2="15"></line>
-                            </g>
-                            <g id="x2k-zoom-out" transform="translate(0, 20)">
-                                <rect width="20" height="20"></rect>
-                                <line x1="5" y1="10" x2="15" y2="10"></line>
-                            </g>
-                        </g>
-                        <g class="legend" transform="translate(50, 0)">
-                            <g class="legend-background">
-                                <rect width="900" height="25" opacity="0.8" fill="white"></rect>
-                            </g>
-                            <g class="legend-item" transform="translate(10, 5)">
-                                <circle cx="5" cy="10" r="10" fill="#FF546D" />
-                                <text x="20" y="18" font-size="16pt">Transcription factor</text>
-                            </g>
-                            <g class="legend-item" transform="translate(250, 5)">
-                                <circle cx="5" cy="10" r="10" fill="lightgrey" />
-                                <text x="20" y="18" font-size="16pt">Intermediate protein</text>
-                            </g>
-                            <g class="legend-item" transform="translate(500, 5)">
-                                <circle cx="5" cy="10" r="10" fill="#3e8cd6" />
-                                <text x="20" y="18" font-size="16pt">Kinase</text>
-                            </g>
-                            <g class="legend-item" transform="translate(615, 5)">
-                                <line x1="0" y1="10" x2="15" y2="10" stroke="#269C26" stroke-width="3" />
-                                <text x="20" y="18" font-size="16pt">Phosphorylation</text>
-                            </g>
-                            <g class="legend-item" transform="translate(825, 5)">
-                                <line x1="0" y1="10" x2="15" y2="10" stroke="lightgrey" stroke-width="3" />
-                                <text x="20" y="18" font-size="16pt">PPI</text>
-                            </g>
-                        </g>
+                        preserveAspectRatio="xMinYMin">
                     </svg>
                 </div>
             </div>
@@ -295,6 +235,7 @@
             </div>
             <div class="modal-body"></div>
             <div class="modal-footer">
+                <span>Download results as:</span>
                 <a id="csv-anchor">
                     <button type="button" class="btn btn-outline-primary csv-button">CSV</button>
                 </a>
