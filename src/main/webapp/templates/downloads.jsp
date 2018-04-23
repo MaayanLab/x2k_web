@@ -353,10 +353,9 @@
           <tr>
             <td><span style="white-space:nowrap"><a href="http://proteincomplexes.org">huMAP</a></span></td>
             <td><span style="white-space:nowrap"><a href="http://amp.pharm.mssm.edu/lincs-playground/index.php/s/kuUSjyFOryhTRDv/download?path=%2FTF%2FhuMAP&amp;files=huMAP_07-2017_Human_TF.gmt" title="huMAP_07-2017_Human_TF.gmt" style="padding-left:5px"><svg viewBox="-5 -5 110 131" preserveAspectRatio="xMinYMin" style="width:18px;position:relative;top:5px"><path d="M0,0 l75,0 l25,25 l0,100 l-100,0 z" fill="lightgrey" stroke="black" stroke-width="5"></path><path d="M15,25 l60,0 M15,45 l70,0 M15,65 l70,0 M15,85 l70,0 M15,105 l70,0" fill="none" stroke="black" stroke-width="3"></path><path d="M5,75 l90,0 l0,45 l-90,0 z" fill="darkgrey" stroke="darkgrey" stroke-width="5" opacity="0.75"></path><g opacity="0.8"><path d="M30,10 l40,0 l0,45 l-40,0 z" fill="black"></path><path d="M15,40 l70,0 l-35,35 z" fill="black"></path></g><text font-size="3em" font-family="sans-serif" fill="black" text-anchor="middle" x="50" y="115" dx="0">GMT</text></svg></a></span></td>
-            <td>
-            / 14017</td>
-            <td> / 419</td>
-            <td> / 2109</td>
+            <td>0 / 14017</td>
+            <td>0 / 419</td>
+            <td>0 / 2109</td>
             <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/28596423" title="28596423" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>

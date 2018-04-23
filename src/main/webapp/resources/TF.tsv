@@ -4,7 +4,7 @@ ChEA_2016	CHEA-2016_Human_TF.gmt CHEA-2016_Mouse_TF.gmt	535545	194	34462	461570	
 CREEDS	CREEDS-manual-single-gene-perturbations-from-GEO_Human_TF.gmt CREEDS-manual-single-gene-perturbations-from-GEO_Mouse_TF.gmt	6140050	265	23170	3583008	174	20592	http://amp.pharm.mssm.edu/CREEDS/	27667448
 ENCODE_2015	ENCODE-2015_Human_TF.gmt ENCODE-2015_Mouse_TF.gmt	259695	44	18170	1218728	175	22008	https://www.encodeproject.org/data/annotations/	22955616
 Enrichr_Co-occurence	Enrichr-Submissions-TF-Gene-Cooccurence-2018_UnknownSpecies_TF.gmt	516300	1721	12487	516300	1721	12487	http://amp.pharm.mssm.edu/Enrichr/	23586463
-huMAP	huMAP_07-2017_Human_TF.gmt				14017	419	2109	http://proteincomplexes.org	28596423
+huMAP	huMAP_07-2017_Human_TF.gmt	0	0	0	14017	419	2109	http://proteincomplexes.org	28596423
 iREF	iREF_02-2018_Human_TF.gmt iREF_02-2018_Mouse_TF.gmt	7239	402	3454	57042	1372	11021	http://irefindex.org/wiki/index.php?title=iRefIndex http://wodaklab.org/iRefWeb/	18823568
 JASPAR-TRANSFAC	JASPAR-TRANSFAC_Human.gmt JASPAR-TRANSFAC_Mouse.gmt	139520	104	20895	424314	222	22258	![JASPAR](http://jaspar.genereg.net)-[TRANSFAC](http://gene-regulation.com/pub/databases.html)	14681366; 20438625
 TF-PPIs_Genes2Fans	TF-PPIs-GENES2FANS-2012_UnknownSpecies_TF.gmt	22525	278	6001	22525	278	6001	http://amp.pharm.mssm.edu/Enrichr/	22748121
