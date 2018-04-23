@@ -66,7 +66,7 @@ function draw_network(json, svg_id, body) {
         if ((d.group === "tf") || (d.group === "input_protein")) {
             return "#FF546D";
         } else if (d.group === "kinase") {
-            return "#3e8cd6";
+            return "#3E8CD6";
         }
         else {
             return "lightgrey";
@@ -213,7 +213,9 @@ function draw_network(json, svg_id, body) {
     function draw_zoom_controls(g, graph_type, coeff) {
         var zoom_controls = g.append("g")
             .attr("class", "zoom-controls " + graph_type + "-zoom-controls")
-            .attr("transform", "translate(10, 0)");
+            .attr("transform", "translate(10, 0)")
+            .attr("cursor", "pointer")
+            .attr("pointer-events", "all");
 
         var button_size = 20*coeff;
 
@@ -223,17 +225,28 @@ function draw_network(json, svg_id, body) {
 
         zoom_in.append("rect")
             .attr("width", button_size)
-            .attr("height", button_size);
+            .attr("height", button_size)
+            .attr("fill", "white")
+            .attr("stroke", "#596877")
+            .attr("stroke-width", "1");
+
+
         zoom_in.append("line")
             .attr("x1", 5*coeff)
             .attr("y1", 10*coeff)
             .attr("x2", 15*coeff)
-            .attr("y2", 10*coeff);
+            .attr("y2", 10*coeff)
+            .attr("stroke", "#596877")
+            .attr("stroke-width","1");
+
         zoom_in.append("line")
             .attr("x1", 10*coeff)
             .attr("y1", 5*coeff)
             .attr("x2", 10*coeff)
-            .attr("y2", 15*coeff);
+            .attr("y2", 15*coeff)
+            .attr("stroke", "#596877")
+            .attr("stroke-width","1");
+
 
         var zoom_out = zoom_controls.append("g")
             .attr("id", graph_type + "-zoom-out")
@@ -241,12 +254,18 @@ function draw_network(json, svg_id, body) {
 
         zoom_out.append("rect")
             .attr("width", button_size)
-            .attr("height", button_size);
+            .attr("height", button_size)
+            .attr("fill", "white")
+            .attr("stroke", "#596877")
+            .attr("stroke-width", "1");
+
         zoom_out.append("line")
             .attr("x1", 5*coeff)
             .attr("y1", 10*coeff)
             .attr("x2", 15*coeff)
-            .attr("y2", 10*coeff);
+            .attr("y2", 10*coeff)
+            .attr("stroke", "#596877")
+            .attr("stroke-width","1");
     }
 
     function draw_legend(g, graph_type, coeff) {
@@ -351,22 +370,23 @@ function draw_network(json, svg_id, body) {
 
     // Magic number
     var coeff = precisionRound(Math.sqrt(nodes_data.length / 70), 1);
-
+    coeff = coeff < 0.7 ? 0.7 : coeff;
 
     var svg = d3.select(svg_id),
         shift = 20*coeff,
         width_shift = 1020*coeff,
         width = 1000*coeff,
-        height = 600*coeff;
+        height = 600*coeff,
+        height_shift = 620*coeff;
 
-    svg.attr("viewBox", "-" + shift + " 0 " + width_shift + " " + height);
+    svg.attr("viewBox", "-" + shift + "-" + " " + shift + " " + width_shift + " " + height_shift);
 
 
     var simulation = d3.forceSimulation()
         .nodes(nodes_data);
 
     var g = svg.append("g")
-        .attr("transform", "translate(0, 20)")
+        .attr("transform", "translate(0, 10)");
 
     var link = g.append("g")
         .attr("class", "links")
@@ -525,10 +545,6 @@ function draw_network(json, svg_id, body) {
         .on("start", drag_start)
         .on("drag", drag_drag)
         .on("end", drag_end);
-
-    var div = d3.select(body).append("div")
-        .attr("class", "d3-tooltip")
-        .style("display", "none");
 
     simulation
         .force("links", link_force)
