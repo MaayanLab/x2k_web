@@ -383,6 +383,16 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row align-items-center">
+                                                                    <label for="number of top TFs" class="col-form-label col-sm-9">Minimum number of transcription factors in subnetwork
+                                                                        <sup data-toggle="tooltip" data-placement="top" container="body" title="The minimum size of the expanded transcription factor subnetwork generated using Genes2Networks.">
+                                                                            <i class="fa fa-question-circle"></i>
+                                                                        </sup>
+                                                                    </label>
+                                                                    <div class="col-sm-3">
+                                                                        <input class="form-control form-control-sm" type="text" value="10" id="number of top TFs" name="number of top TFs">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row align-items-center">
                                                                     <label for="x2k_path_length"
                                                                            class="col-form-label col-sm-9">
                                                                            Path length
