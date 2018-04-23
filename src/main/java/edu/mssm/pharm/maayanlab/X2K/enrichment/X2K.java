@@ -54,6 +54,8 @@ public class X2K implements SettingsChanger {
 		{	
 			// Integer: minimum network size; otherwise, the path length is increased until the minimum met. [>0]
 			set(X2K.MINIMUM_NETWORK_SIZE, 50);
+			// Integer: minimum path length [>0]
+			set(X2K.MINIMUM_PATH_LENGTH, 5);
 			// Integer: number of transcription factors used in network expansion and drug discovery. [>0]
 			set(X2K.NUMBER_OF_TOP_TFS, 10);
 			// Integer: number of kinases used in drug discovery. [>0]
@@ -74,6 +76,7 @@ public class X2K implements SettingsChanger {
 	};
 	
 	public final static String MINIMUM_NETWORK_SIZE = "min_network_size";
+	public final static String MINIMUM_PATH_LENGTH = "path_length";
 	public final static String NUMBER_OF_TOP_TFS = "number of top TFs";
 	public final static String NUMBER_OF_TOP_KINASES = "number of top kinases";
 	public final static String ENABLE_YED_OUTPUT = "output results in yEd";
@@ -83,6 +86,8 @@ public class X2K implements SettingsChanger {
 	public final static String KINASE_NODE_COLOR = "color of kinase nodes";
 	public final static String SUBSTRATE_NODE_COLOR = "color of substrate nodes";
 	
+	public final static String PATH_LENGTH = "actual_path_length";
+
 	/**
 	 * @param args
 	 */
@@ -178,19 +183,19 @@ public class X2K implements SettingsChanger {
 
 	private void runG2N() {
 		g2n = new Genes2Networks(settings);
-		Integer minimum_path_length = Integer.parseInt(settings.get(Genes2Networks.PATH_LENGTH));
-		Integer maximum_path_length = 5;
-		// System.out.println(MINIMUM_NETWORK_SIZE);
+		Integer minimum_path_length = Integer.parseInt(settings.get(MINIMUM_PATH_LENGTH));
+		Integer path_length = 0;
+
 		do {
-			// System.out.println(minimum_path_length);
 			g2n.run(new ArrayList<String>(topRankedTFs));
 			network = g2n.getNetwork();
-			minimum_path_length++;
+			path_length++;
 		} while(
 			network.size() < settings.getInt(MINIMUM_NETWORK_SIZE)
-			&& minimum_path_length <= maximum_path_length
+			&& path_length <= minimum_path_length
 		);
-		// TODO: report error message when min_path_length >= maximum_path_length
+
+		setSetting(X2K.PATH_LENGTH, Integer.toString(path_length));
 	}
 	
 	private void runKea() {

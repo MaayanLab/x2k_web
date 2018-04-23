@@ -70,6 +70,7 @@ public class ResultsServlet extends HttpServlet {
 		JSONify X2K_json = Context.getJSONConverter();
 		X2K_json.add("type", "X2K");
 		X2K_json.add("network", app.webNetwork());
+		X2K_json.add("path_length", app.getSetting(X2K.PATH_LENGTH));
 		// TODO: Fix frontend to eliminate the need of these
 		X2K_json.add("transcriptionFactors", app.getRankedTFs());
 		X2K_json.add("kinases", app.getRankedKinases());
