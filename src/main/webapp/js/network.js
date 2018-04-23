@@ -134,24 +134,7 @@ function draw_network(json, svg_id, body) {
         g.attr("transform", d3.event.transform)
     }
 
-    function link_mouseover() {
-        div.style("display", "inline");
-    }
-
-    function link_mousemove(d) {
-        div
-            .text("p-value: " + d.value)
-            .style("left", (d3.event.pageX - 34) + "px")
-            .style("top", (d3.event.pageY - 12) + "px");
-    }
-
-    function link_mouseout() {
-        div.style("display", "none");
-    }
-
     function node_mouseover(d) {
-        div.style("display", "inline");
-
         // connectedNodes()
         if (toggle === 0) {
             node.attr("opacity", function (o) {
@@ -172,21 +155,7 @@ function draw_network(json, svg_id, body) {
         });
     }
 
-    function node_mousemove(d) {
-        if (d.group === "tf") {
-            div
-                .text(d.name)
-                .style("left", (d3.event.pageX - 34) + "px")
-                .style("top", (d3.event.pageY - 12) + "px");
-        }
-        else {
-            div.style("display", "none");
-        }
-    }
-
     function node_mouseout() {
-        div.style("display", "none");
-
         node.attr("opacity", 1);
         toggle = 0;
         link.attr("stroke-width", 1.2);
@@ -382,9 +351,6 @@ function draw_network(json, svg_id, body) {
     svg.attr("viewBox", "-" + shift + "-" + shift + " " + width_shift + " " + height_shift);
 
 
-    var simulation = d3.forceSimulation()
-        .nodes(nodes_data);
-
     var g = svg.append("g")
         .attr("transform", "translate(0, 10)");
 
@@ -394,12 +360,7 @@ function draw_network(json, svg_id, body) {
         .data(links_data)
         .enter()
         .append("line")
-        .attr("stroke-width", 1.2)
-        .on("mouseover", link_mouseover)
-        .on("mousemove", function (d) {
-            return link_mousemove(d);
-        })
-        .on("mouseout", link_mouseout);
+        .attr("stroke-width", 1.2);
 
     var node = g.append("g")
         .attr("class", "nodes")
@@ -412,12 +373,7 @@ function draw_network(json, svg_id, body) {
         .attr("stroke", circleColour)
         .attr("stroke-width", 0.5)
         .attr("fill", circleColour)
-        .on("mouseover", function (d) {
-            return node_mouseover(d);
-        })
-        .on("mousemove", function (d) {
-            return node_mousemove(d);
-        })
+        .on("mouseover", function (d) {return node_mouseover(d);})
         .on("mouseout", node_mouseout);
 
     // Make font size for longer labels smaller
@@ -434,6 +390,8 @@ function draw_network(json, svg_id, body) {
         .attr("class", "text")
         .attr("text-anchor", "middle")
         .attr("dy", ".35em")
+        .attr("pointer-events", "none")
+        .attr("opacity", "0.7")
         .style("font", function (d) {
             return font_size(d.name.split(/[-_]/)[0].length) + "em sans-serif"
         })
@@ -446,6 +404,9 @@ function draw_network(json, svg_id, body) {
         .attr("labelLength", function (d) {
             return this.getComputedTextLength();
         });
+
+    var simulation = d3.forceSimulation()
+        .nodes(nodes_data);
 
     // Add zoom capabilities
     var zoom = d3.zoom()
