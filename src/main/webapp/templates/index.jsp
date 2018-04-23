@@ -379,7 +379,7 @@
                                                                         </sup>
                                                                     </label>
                                                                     <div class="col-sm-3">
-                                                                        <input class="form-control form-control-sm" type="text" value="30" id="min_network_size" name="min_network_size">
+                                                                        <input class="form-control form-control-sm" type="text" value="10" id="min_network_size" name="min_network_size">
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row align-items-center">
