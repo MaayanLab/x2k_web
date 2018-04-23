@@ -401,7 +401,7 @@ function draw_network(json, svg_id, body) {
         .text(function (d) {
             return d.name.split(/[-_]/)[0];
         })
-        .attr("labelLength", function (d) {
+        .attr("labelLength", function () {
             return this.getComputedTextLength();
         });
 
@@ -449,7 +449,7 @@ function draw_network(json, svg_id, body) {
     var base_radius = [];
     var degrees = [];
 
-    label.each(function (d) {
+    label.each(function () {
         base_radius.push(this.getComputedTextLength() / 2);
     });
 

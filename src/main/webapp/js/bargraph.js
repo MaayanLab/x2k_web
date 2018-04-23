@@ -1,5 +1,5 @@
 function drawBargraph(chart, bargraph_data) {
-    bargraph_data = bargraph_data.slice(0, 10);
+    bargraph_data = bargraph_data.slice(0, 20);
 
     function sortByScore(data, score, dir) {
         if (dir == "desc") {
