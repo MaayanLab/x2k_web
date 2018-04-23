@@ -147,7 +147,7 @@ const transformers = {
     },
     'Interactions [Mouse]': (row) => {
         if(row === undefined)
-            return 'Interaction [M/H]'
+            return 'Interactions [M/H]'
         else {
             if(row['Interactions [Mouse]'] === row['Interactions [Human]'])
                 return row['Interactions [Mouse]']
@@ -158,7 +158,7 @@ const transformers = {
     'Interactions [Human]': null,
     'Unique Interactors [Mouse]': (row) => {
         if(row === undefined)
-            return 'Unique Interactors [M/H]'
+            return 'Interactors [M/H]'
         else {
             if(row['Unique Interactors [Mouse]'] === row['Unique Interactors [Human]'])
                 return row['Unique Interactors [Mouse]']
@@ -169,7 +169,7 @@ const transformers = {
     'Unique Interactors [Human]': null,
     'Unique TFs [Mouse]': (row) => {
         if(row === undefined)
-            return 'Unique TFs [M/H]'
+            return 'TFs [M/H]'
         else {
             if(row['Unique TFs [Mouse]'] === row['Unique TFs [Human]'])
                 return row['Unique TFs [Mouse]']

@@ -325,9 +325,9 @@
             <th>Database</th>
             <th>Download</th>
             <th>Type</th>
-            <th>Interaction [M/H]</th>
-            <th>Unique TFs [M/H]</th>
-            <th>Unique Interactors [M/H]</th>
+            <th>Interactions [M/H]</th>
+            <th>TFs [M/H]</th>
+            <th>Interactors [M/H]</th>
             <th>PMID</th>
           </tr>
         </thead>
