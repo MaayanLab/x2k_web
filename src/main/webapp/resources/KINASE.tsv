@@ -1,14 +1,14 @@
-Database	Filename(s)	Interaction Type	Interactions	Unique Kinases	Unique Substrates	URL	Source PMID
-ARCHS4	ARCHS4_KINASES.csv ARCHS4-2018_Mouse-Human_KINASES_top10DEGs-unfiltered.gmt ARCHS4-2018_Mouse-Human_KINASES.sig	Other	9936	517	3824	https://amp.pharm.mssm.edu/archs4/download.html	29636450
-BIND	BIND_KINASES.csv BIND_unfiltered.gmt BIND-KINASES.sig	PPI	2533	227	1323	https://academic.oup.com/nar/article/29/1/242/1116175	12519993
-Harmonizome	Harmonizome_KINASES.csv Harmonizome_2018-03_Mouse_Human_KINASES_10k-filtered.sig Harmonizome_2018-03_Mouse_Human_KINASES_top10k-unfiltered.gmt	Other	10000	79	3635	http://amp.pharm.mssm.edu/Harmonizome/	27374120
-HPRD	HPRD_KINASES.csv HPRD_2018-03_Human_KINASES_unfiltered.gmt HPRD_2018-03_Human_KINASES.sig	PPI	5043	262	2159	http://www.hprd.org	18988627
-huMAP	huMAP_KINASES.csv huMAP_unfiltered.gmt huMAP-KINASES.sig	PPI	1385	156	955	http://proteincomplexes.org	28596423
-iPTMnet	iPTMnet_KINASES.csv iPTMnet-2018_Mouse-Human_merged_KINASES_filtered.gmt iPTMnet-2018_Mouse-Human_merged_KINASES_unfiltered.gmt	PPI/Kinase	947	131	724	https://research.bioinformatics.udel.edu/iptmnet/	29145615
-iREF	iREF_KINASES.csv iREF_02-2018_Mouse-Human_KINASES_PPI.sig iREF_02-2018_Mouse-Human_merged_KINASES_unfiltered.gmt	PPI	26734	329	8036	http://irefindex.org/wiki/index.php?title=iRefIndex http://wodaklab.org/iRefWeb/	18823568
-KEGG	KEGG_KINASES.csv KEGG_unfiltered.gmt KEGG-KINASES.sig	PPI	2238	131	621	http://www.kegg.jp	19880382
-MINT	MINT_KINASES.csv MINT_2018-03_Mouse-Human-Merged_KINASES_unfiltered.gmt MINT_2018-03_Mouse-Human-Merged_KINASES.sig	PPI	1583	225	1065	https://mint.bio.uniroma2.it	22096227; 24234451
-NetworkIN	NetworkIN_KINASES.csv NetworKIN_2018-03-Predictions_KINASES_filtered.sig NetworKIN_2018-03-Predictions_KINASES_unfiltered.gmt	PPI/Kinase	5829	190	2006	http://networkin.info	17981841; 24874572
-Phospho.ELM	Phospho.ELM_KINASES.csv PhosphoELM_2018-03_Mouse_Human_Merged_KINASES_unfiltered.gmt PhosphoELM_2018-03_Mouse_Human_Merged_KINASES.sig	Kinase	1441	231	891	http://phospho.elm.eu.org/dataset.html	21062810
-Phosphopoint	Phosphopoint_KINASES.csv Phosphopoint_KINASE.sig PHOSPHOPOINT_UnknownSpecies_KINASES.gmt	Kinase	1970	281	1061	https://www.ncbi.nlm.nih.gov/pubmed/18689816	18689816
-PhosphositePlus	PhosphositePlus_KINASES.csv PhosphositePlus_2018-03_Mouse_Human_KINASES_unfiltered.gmt PhosphositePlus_2018-04_Mouse-Human_KINASES.sig	Kinase	6434	168	2680	https://www.phosphosite.org/homeAction.action	22135298
+Database	Filename(s)	Type	Interactions	Unique Kinases	Unique Substrates	URL	Source PMID
+ARCHS4	ARCHS4_KINASES.csv ARCHS4-2018_Mouse-Human_KINASES_top10DEGs-unfiltered.gmt ARCHS4-2018_Mouse-Human_KINASES.sig	Co-expression	9936	517	3824	https://amp.pharm.mssm.edu/archs4/download.html	29636450
+BIND	BIND_KINASES.csv BIND_unfiltered.gmt BIND-KINASES.sig	Literature PPI	2533	227	1323	https://academic.oup.com/nar/article/29/1/242/1116175	12519993
+Harmonizome	Harmonizome_KINASES.csv Harmonizome_2018-03_Mouse_Human_KINASES_10k-filtered.sig Harmonizome_2018-03_Mouse_Human_KINASES_top10k-unfiltered.gmt	ML Predictions	10000	79	3635	http://amp.pharm.mssm.edu/Harmonizome/	27374120
+HPRD	HPRD_KINASES.csv HPRD_2018-03_Human_KINASES_unfiltered.gmt HPRD_2018-03_Human_KINASES.sig	Literature PPI	5043	262	2159	http://www.hprd.org	18988627
+huMAP	huMAP_KINASES.csv huMAP_unfiltered.gmt huMAP-KINASES.sig	Mass-Spec PPI	1385	156	955	http://proteincomplexes.org	28596423
+iPTMnet	iPTMnet_KINASES.csv iPTMnet-2018_Mouse-Human_merged_KINASES_filtered.gmt iPTMnet-2018_Mouse-Human_merged_KINASES_unfiltered.gmt	Literature K-S	947	131	724	https://research.bioinformatics.udel.edu/iptmnet/	29145615
+iREF	iREF_KINASES.csv iREF_02-2018_Mouse-Human_KINASES_PPI.sig iREF_02-2018_Mouse-Human_merged_KINASES_unfiltered.gmt	Literature PPI	26734	329	8036	http://irefindex.org/wiki/index.php?title=iRefIndex http://wodaklab.org/iRefWeb/	18823568
+KEGG	KEGG_KINASES.csv KEGG_unfiltered.gmt KEGG-KINASES.sig	Literature PPI	2238	131	621	http://www.kegg.jp	19880382
+MINT	MINT_KINASES.csv MINT_2018-03_Mouse-Human-Merged_KINASES_unfiltered.gmt MINT_2018-03_Mouse-Human-Merged_KINASES.sig	Literature PPI	1583	225	1065	https://mint.bio.uniroma2.it	22096227; 24234451
+NetworkIN	NetworkIN_KINASES.csv NetworKIN_2018-03-Predictions_KINASES_filtered.sig NetworKIN_2018-03-Predictions_KINASES_unfiltered.gmt	Predictions	5829	190	2006	http://networkin.info	17981841; 24874572
+Phospho.ELM	Phospho.ELM_KINASES.csv PhosphoELM_2018-03_Mouse_Human_Merged_KINASES_unfiltered.gmt PhosphoELM_2018-03_Mouse_Human_Merged_KINASES.sig	Literature K-S	1441	231	891	http://phospho.elm.eu.org/dataset.html	21062810
+Phosphopoint	Phosphopoint_KINASES.csv Phosphopoint_KINASE.sig PHOSPHOPOINT_UnknownSpecies_KINASES.gmt	Literature K-S	1970	281	1061	https://www.ncbi.nlm.nih.gov/pubmed/18689816	18689816
+PhosphositePlus	PhosphositePlus_KINASES.csv PhosphositePlus_2018-03_Mouse_Human_KINASES_unfiltered.gmt PhosphositePlus_2018-04_Mouse-Human_KINASES.sig	Literature K-S	6434	168	2680	https://www.phosphosite.org/homeAction.action	22135298

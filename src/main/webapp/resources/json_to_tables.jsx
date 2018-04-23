@@ -51,6 +51,10 @@ const database_link = (table, database, file) => {
         + '&' + 'files=' + encodeURIComponent(file)
 }
 
+const trim = (str) => {
+    return str.replace(/^\s+|\s+$/g, '')
+}
+
 // Visual column transformations. null will hide column
 const transformers = {
     'Filename(s)': null,
@@ -65,23 +69,6 @@ const transformers = {
                 </span>
             )
         }
-    },
-    'Source Reference': null,
-    'Version': null,
-    'Description': null,
-    'Description': null,
-    'Average Substrates/ Kinase': null,
-    'Average Interactors/ Target': null,
-    'Average Substrates/TF [Human]': null,
-    'Average Substrates/TF [Mouse]': null,
-    'Average Interactors/TF [Mouse]': null,
-    'Average Interactors/TF [Mouse]': null,
-    'Species Included': null,
-    'Database Type': (row) => {
-        if(row === undefined)
-            return 'Interaction Type'
-        else
-            return row['Database Type']
     },
     'Filename(s)': (row, table) => {
         if(row === undefined)
@@ -146,10 +133,10 @@ const transformers = {
     'Source PMID': (row) => {
         if(row === undefined)
             return 'PMID'
-        else {
+        else if(row['Source PMID'] !== '') {
             return (
                 <span style={{whiteSpace: "nowrap"}}>
-                    {row['Source PMID'].split(';').map((pmid, ind) =>
+                    {row['Source PMID'].split(';').map(trim).map((pmid, ind) =>
                         <a href={'https://www.ncbi.nlm.nih.gov/pubmed/' + pmid} title={pmid} style={{paddingLeft: 5}} key={ind}>
                             <img src={icons['pmid']} width={25} />
                         </a>
@@ -162,7 +149,10 @@ const transformers = {
         if(row === undefined)
             return 'Interaction [M/H]'
         else {
-            return row['Interactions [Mouse]'] + ' / ' + row['Interactions [Human]']
+            if(row['Interactions [Mouse]'] === row['Interactions [Human]'])
+                return row['Interactions [Mouse]']
+            else
+                return row['Interactions [Mouse]'] + ' / ' + row['Interactions [Human]']
         }
     },
     'Interactions [Human]': null,
@@ -170,7 +160,10 @@ const transformers = {
         if(row === undefined)
             return 'Unique Interactors [M/H]'
         else {
-            return row['Unique Interactors [Mouse]'] + ' / ' + row['Unique Interactors [Human]']
+            if(row['Unique Interactors [Mouse]'] === row['Unique Interactors [Human]'])
+                return row['Unique Interactors [Mouse]']
+            else
+                return row['Unique Interactors [Mouse]'] + ' / ' + row['Unique Interactors [Human]']
         }
     },
     'Unique Interactors [Human]': null,
@@ -178,7 +171,10 @@ const transformers = {
         if(row === undefined)
             return 'Unique TFs [M/H]'
         else {
-            return row['Unique TFs [Mouse]'] + ' / ' + row['Unique TFs [Human]']
+            if(row['Unique TFs [Mouse]'] === row['Unique TFs [Human]'])
+                return row['Unique TFs [Mouse]']
+            else
+                return row['Unique TFs [Mouse]'] + ' / ' + row['Unique TFs [Human]']
         }
     },
     'Unique TFs [Human]': null,

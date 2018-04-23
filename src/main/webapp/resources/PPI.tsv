@@ -1,21 +1,21 @@
-Database	Filename(s)	Interactions	Interactors	URL	Source PMID
-BIND	BIND.sig	25622	5528	https://academic.oup.com/nar/article/29/1/242/1116175	12519993
-Biocarta	Biocarta_X2Kweb.sig	756	352	http://www.biocarta.com/genes/index.asp	(N/A)
-BioGRID	BioGRID_filtered_ppi_2018_02_26.sig	68759	7312	https://downloads.thebiogrid.org/BioGRID/Release-Archive/BIOGRID-3.4.154/	27980099
-BioPLEX	BioPLEX_ppi_2017_06_07.sig	56553	8610	http://bioplex.hms.harvard.edu/downloadInteractions.php	26186194
-DIP	DIP_filtered_ppi_2017_07_12.sig	3822	1946	http://dip.mbi.ucla.edu/dip/	11752321
-figeys	figeys.sig	6452	2033	(N/A)	17353931
-HPRD	HPRD.sig	47496	7490	http://www.hprd.org	18988627
-huMAP	huMAP_X2Kweb.sig	62214	6061	http://proteincomplexes.org	28596423
-InnateDB	innateDB_filtered_ppi_2017_07_12.sig	4576	1523	http://www.innatedb.com	23180781
-IntAct	IntAct_filtered_ppi_2017_07_13.sig	15726	4186	https://www.ebi.ac.uk/intact/	24234451; 22121220
-iREF	iREF_02-2018_Mouse-Human_KINASES_PPI.sig	28417	5403	http://irefindex.org/wiki/index.php?title=iRefIndex http://wodaklab.org/iRefWeb/	18823568
-KEGG	KEGG_X2Kweb.sig	13993	1198	http://www.kegg.jp	19880382
-MINT	MINT-03-2018_Mouse-Human_PPI.sig	75065	9415	https://mint.bio.uniroma2.it	22096227; 24234451
-MiPS	MIPS.sig	606	373	http://mips.helmholtz-muenchen.de/proj/ppi/	9399795; 15531608
-PDZbase	pdzbase.sig	244	159	http://abc.med.cornell.edu/pdzbase	15513994
-PPID	ppid_X2Kweb.sig	6998	1208	http://www.PPID.mvm.ed.ac.uk	14755292
-Sets2Networks	predictedPPI.sig	3000	828	http://www.maayanlab.net/S2N/	22824380
-SNAVI	SNAVI_X2Kweb.sig	2007	442	https://code.google.com/archive/p/snavi/	19154595
-Stelzl	Stelzl.sig	6207	1702	https://www.ncbi.nlm.nih.gov/pubmed/16169070	16169070
-Vidal	vidal.sig	6726	2541	http://interactome.dfci.harvard.edu/H_sapiens/	16189514
+Database	Filename(s)	Type	Interactions	Interactors	URL	Source PMID
+BIND	BIND.sig	Literature PPI	25622	5528	https://academic.oup.com/nar/article/29/1/242/1116175	12519993
+Biocarta	Biocarta.sig	Literature PPI	756	352	http://www.biocarta.com/genes/index.asp	
+BioGRID	BioGRID_filtered_ppi_2018_02_26.sig	Mixed	68759	7312	https://downloads.thebiogrid.org/BioGRID/Release-Archive/BIOGRID-3.4.154/	27980099
+BioPLEX	BioPLEX_ppi_2017_06_07.sig	Mass-spec	56553	8610	http://bioplex.hms.harvard.edu/downloadInteractions.php	26186194
+DIP	DIP_filtered_ppi_2017_07_12.sig	Literature PPI	3822	1946	http://dip.mbi.ucla.edu/dip/	11752321
+figeys	figeys.sig	Mass-spec	6452	2033		17353931
+HPRD	HPRD.sig	Literature PPI	47496	7490	http://www.hprd.org	18988627
+huMAP	huMAP.sig	Mass-spec	62214	6061	http://proteincomplexes.org	28596423
+InnateDB	innateDB_filtered_ppi_2017_07_12.sig	Literature PPI	4576	1523	http://www.innatedb.com	23180781
+IntAct	IntAct_filtered_ppi_2017_07_13.sig	Mixed	15726	4186	https://www.ebi.ac.uk/intact/	24234451; 22121220
+iREF	iREF_02-2018_Mouse-Human_KINASES_PPI.sig	Mixed	28417	5403	http://irefindex.org/wiki/index.php?title=iRefIndex http://wodaklab.org/iRefWeb/	18823568
+KEGG	KEGG.sig	Literature PPI	13993	1198	http://www.kegg.jp	19880382
+MINT	MINT-03-2018_Mouse-Human_PPI.sig	Literature PPI	75065	9415	https://mint.bio.uniroma2.it	22096227; 24234451
+MiPS	MIPS.sig	Mass-spec	606	373	http://mips.helmholtz-muenchen.de/proj/ppi/	9399795; 15531608
+PDZbase	pdzbase.sig	Literature PPI	244	159	http://abc.med.cornell.edu/pdzbase	15513994
+PPID	ppid.sig	Literature PPI	6998	1208	http://www.PPID.mvm.ed.ac.uk	14755292
+Sets2Networks	predictedPPI.sig	Predicted	3000	828	http://www.maayanlab.net/S2N/	22824380
+SNAVI	SNAVI.sig	Literature PPI	2007	442	https://code.google.com/archive/p/snavi/	19154595
+Stelzl	Stelzl.sig	Mass-spec	6207	1702	https://www.ncbi.nlm.nih.gov/pubmed/16169070	16169070
+Vidal	vidal.sig	Yeast-2-Hybrid	6726	2541	http://interactome.dfci.harvard.edu/H_sapiens/	16189514
