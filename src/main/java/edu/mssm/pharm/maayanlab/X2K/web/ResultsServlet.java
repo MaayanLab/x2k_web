@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Enumeration;
+import java.util.Collections;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -258,6 +260,7 @@ public class ResultsServlet extends HttpServlet {
 		defaultSettings.put(Genes2Networks.ENABLE_SNAVI, new String("false"));
 		defaultSettings.put(Genes2Networks.ENABLE_STELZL, new String("false"));
 		defaultSettings.put(Genes2Networks.ENABLE_VIDAL, new String("false"));
+		defaultSettings.put(KEA.KINASE_INTERACTIONS, null);
 		defaultSettings.put(KEA.SORT_BY, KEA.PVALUE);
 		defaultSettings.put(X2K.MINIMUM_NETWORK_SIZE, null);
 		// defaultSettings.put(X2K.NUMBER_OF_TOP_TFS, null);
@@ -294,10 +297,14 @@ public class ResultsServlet extends HttpServlet {
 	}
 
 	private static void readAndSetSettings(HttpServletRequest req, X2K app) {
+		Enumeration<String> reqKeys = req.getParameterNames();
+		// Save all settings
+		for (String setting : Collections.list(reqKeys)) {
+			app.setSetting(setting, req.getParameter(setting));
+		}
+		// Set defaults if weren't specified
 		for (String setting : defaultSettings.keySet()){
-		 	if(req.getParameter(setting) != null) {
-			 	app.setSetting(setting, req.getParameter(setting));
-		 	} else if(defaultSettings.get(setting) != null) {
+		 	if(req.getParameter(setting) == null && defaultSettings.get(setting) != null) {
 				app.setSetting(setting, defaultSettings.get(setting));
 			}
 		 }
