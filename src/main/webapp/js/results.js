@@ -90,7 +90,7 @@ function createTable(json, container) {
     for (var i = 0; i < json.length; i++) {
 
         // Get first column
-        var splitName = json[i]["name"].split('_'),
+        var splitName = json[i]["name"].split(/[-_]/),
             firstCol = $('<div>').html($('<a>', {'href': 'http://amp.pharm.mssm.edu/Harmonizome/gene/'+splitName[0], 'target': '_blank'}).html(splitName[0])),
             targetSource = '';
         if (splitName.length > 1) {
@@ -123,7 +123,7 @@ function createTable(json, container) {
                     'data-html': 'true',
                     'data-template': '<div class="popover enrichment-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
 					'title': enriched.replace('enriched', 'Overlapping <button class="float-right enrichr-button" onclick="sendToEnrichr(this, event);">En<span class="red">rich</span>r<i class="fas fa-external-link-alt ml-1"></i></button>'),
-                    'data-content': '<b>'+json[i]["name"].split('_')[0]+'</b> targets <span class="font-italic">'+json[i][enriched].length+' genes</span> from the input gene list.<br>'+targetSource+'<div class="my-1">The full list of '+enriched.replace('enriched', '').toLowerCase()+' is available below:</div>'+enrichedLinks.join(" ")
+                    'data-content': '<b>'+json[i]["name"].split(/[-_]/)[0]+'</b> targets <span class="font-italic">'+json[i][enriched].length+' genes</span> from the input gene list.<br>'+targetSource+'<div class="my-1">The full list of '+enriched.replace('enriched', '').toLowerCase()+' is available below:</div>'+enrichedLinks.join(" ")
                 })
                 .css('cursor', 'pointer')
                 .css('text-decoration', 'underline')
@@ -440,13 +440,13 @@ function createResults(json_file) {
     g2n_network = json_file["G2N"]['network'];
     input_tfs = json_file["G2N"]['input_list'];
     $.each(g2n_network['nodes'], function(index) {
-    	g2n_network['nodes'][index]['name'] = g2n_network['nodes'][index]['name'].split('_')[0];
+    	g2n_network['nodes'][index]['name'] = g2n_network['nodes'][index]['name'].split(/[-_]/)[0];
     });
 
 	// Label G2N network according to input TFs
 	
     $.each(g2n_network['nodes'], function(index, elem){
-    	if (input_tfs.indexOf(elem['name'].split('_')[0]) > -1) {
+    	if (input_tfs.indexOf(elem['name'].split(/[-_]/)[0]) > -1) {
     		g2n_network['nodes'][index]['type'] = 'input_protein';
     	} else {
     		g2n_network['nodes'][index]['type'] = 'other';

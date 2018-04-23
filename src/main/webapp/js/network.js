@@ -1,6 +1,6 @@
 function draw_network(json, svg_id, body) {
     // Convert ids to indices in links
-    var graph_type = svg_id.split('-')[0].slice(1);
+    var graph_type = svg_id.split(/[-_]/)[0].slice(1);
     var nodeMap = {};
     json.nodes.forEach(function (x) {
         nodeMap[x.name] = x;
@@ -250,9 +250,9 @@ function draw_network(json, svg_id, body) {
     // Make font size for longer labels smaller
     var font_size = d3.scaleLinear()
         .domain([d3.min(nodes_data, function (d) {
-            return d.name.split('_')[0].length;
+            return d.name.split(/[-_]/)[0].length;
         }), d3.max(nodes_data, function (d) {
-            return d.name.split('_')[0].length;
+            return d.name.split(/[-_]/)[0].length;
         })])
         .range([0.8, 0.5]);
 
@@ -262,13 +262,13 @@ function draw_network(json, svg_id, body) {
         .attr("text-anchor", "middle")
         .attr("dy", ".35em")
         .style("font", function (d) {
-            return font_size(d.name.split('_')[0].length) + "em sans-serif"
+            return font_size(d.name.split(/[-_]/)[0].length) + "em sans-serif"
         })
         .attr("title", function (d) {
             return d.name;
         })
         .text(function (d) {
-            return d.name.split('_')[0];
+            return d.name.split(/[-_]/)[0];
         })
         .attr("labelLength", function (d) {
             return this.getComputedTextLength();
