@@ -110,6 +110,7 @@ public class X2K implements SettingsChanger {
 	}
 	
 	private void setProgress(int progress, String note) throws InterruptedException {
+		// System.out.println(note);
 		if (task != null) {
 			if (isCancelled)
 				throw new InterruptedException("Task cancelled at " + progress + "%!");
@@ -178,12 +179,18 @@ public class X2K implements SettingsChanger {
 	private void runG2N() {
 		g2n = new Genes2Networks(settings);
 		Integer minimum_path_length = Integer.parseInt(settings.get(Genes2Networks.PATH_LENGTH));
-
+		Integer maximum_path_length = 5;
+		// System.out.println(MINIMUM_NETWORK_SIZE);
 		do {
+			// System.out.println(minimum_path_length);
 			g2n.run(new ArrayList<String>(topRankedTFs));
 			network = g2n.getNetwork();
 			minimum_path_length++;
-		} while(network.size() < settings.getInt(MINIMUM_NETWORK_SIZE));
+		} while(
+			network.size() < settings.getInt(MINIMUM_NETWORK_SIZE)
+			&& minimum_path_length <= maximum_path_length
+		);
+		// TODO: report error message when min_path_length >= maximum_path_length
 	}
 	
 	private void runKea() {
