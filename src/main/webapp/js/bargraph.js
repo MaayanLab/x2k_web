@@ -182,8 +182,7 @@ function drawBargraph(chart, bargraph_data) {
         .append("g")
         .attr("class", "bar-container");
 
-    // Determine whether network is kinase or TF - please change this is a terrible hack :)
-    var network_type = bargraph_data[0]['name'].indexOf('_') > -1 ? 'tf' : 'kinase',
+    var network_type = (chart === ".chea-chart") ? 'tf' : 'kinase',
         fill = network_type === 'tf' ? "#FF546D" : "#3e8cd6";
 
     // Drawing bars

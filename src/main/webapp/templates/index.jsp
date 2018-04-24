@@ -313,7 +313,7 @@
                                                                                            name="TF-target gene background database used for enrichment"
                                                                                            id="x2k_transfac-jaspar"
                                                                                            value="Transfac and Jaspar">
-                                                                                    Transfac & Jaspar
+                                                                                    TRANSFAC & JASPAR
                                                                                 </label>
                                                                             </div>
                                                                             <div class="form-check">

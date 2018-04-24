@@ -92,17 +92,25 @@ function createTable(json, container) {
         // Get first column
         var splitName = json[i]["name"].split(/[-_]/),
             firstCol = $('<div>').html($('<a>', {'href': 'http://amp.pharm.mssm.edu/Harmonizome/gene/'+splitName[0], 'target': '_blank'}).html(splitName[0])),
-            targetSource = '';
-        if (splitName.length > 1) {
-            targetSource = $('<div>', {'class': 'my-2'})
-                .append('Associations were determined from the following experiment:')
-                .append($('<ul>', {'class': 'mb-0'})
-                        .append($('<li>').html('<b>Assay</b>: '+splitName[2]))
-                        .append($('<li>').html('<b>Organism</b>: '+splitName[4]))
-                        .append($('<li>').html('<b>Cell Type</b>: '+splitName[3]))
-                        .append($('<li>').html('<b>PubMed ID</b>: <a href="https://www.ncbi.nlm.nih.gov/pubmed/'+splitName[1]+'" target="_blank">'+splitName[1]+'</a>'))
-                ).prop('outerHTML');
+            metaDiv = $('<div>');
+
+        // Get meta
+        if ("meta" in json[i]) {
+
+            //Parse metadata json
+            var meta = JSON.parse(json[i]["meta"]);
+
+            //Create metadata DIV
+            metaDiv = metaDiv
+                    .append($('<div>', {'class': 'mt-2'}).html('Associations were determined from the following experiment:'))
+                    .append($('<ul>', {'class': 'mb-2'}));
+
+            // Append key-value pairs
+            $.each(meta, function(key, value){
+                metaDiv.find('ul').append($('<li>').html('<b>'+key+'</b>: '+value))
+            })
         }
+
 
         // Links to enriched genes
         var enrichedLinks = [];
@@ -123,7 +131,7 @@ function createTable(json, container) {
                     'data-html': 'true',
                     'data-template': '<div class="popover enrichment-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
 					'title': enriched.replace('enriched', 'Overlapping <button class="float-right enrichr-button" onclick="sendToEnrichr(this, event);">En<span class="red">rich</span>r<i class="fas fa-external-link-alt ml-1"></i></button>'),
-                    'data-content': '<b>'+json[i]["name"].split(/[-_]/)[0]+'</b> targets <span class="font-italic">'+json[i][enriched].length+' genes</span> from the input gene list.<br>'+targetSource+'<div class="my-1">The full list of '+enriched.replace('enriched', '').toLowerCase()+' is available below:</div>'+enrichedLinks.join(" ")
+                    'data-content': '<b>'+json[i]["name"].split(/[-_]/)[0]+'</b> targets <span class="font-italic">'+json[i][enriched].length+' genes</span> from the input gene list.<br>'+metaDiv.prop('outerHTML')+'<div class="my-1">The full list of '+enriched.replace('enriched', '').toLowerCase()+' is available below:</div>'+enrichedLinks.join(" ")
                 })
                 .css('cursor', 'pointer')
                 .css('text-decoration', 'underline')

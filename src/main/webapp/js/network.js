@@ -489,7 +489,7 @@ function draw_network(json, svg_id, body) {
     var charge_force = d3.forceManyBody()
         .strength(-600);
 
-    var center_force = d3.forceCenter(width / 2, height / 2);
+    var center_force = d3.forceCenter((width + 2*shift) / 2, (height + 2*shift) / 2);
 
     var forceCollide = d3.forceCollide(function (d) {
         return radius(d);

@@ -3910,6 +3910,7 @@
       {
         "name": "E2F1_18555785_CHIP-SEQ_MESC_MOUSE",
         "simpleName": "E2F1",
+        "meta": "{\"Cell type\": \"mESC\"}",
         "pvalue": 9.660895840686932E-54,
         "zscore": -1.2157826002654297,
         "combinedScore": 148.41241619342014,
@@ -4058,6 +4059,7 @@
         "name": "CREM_20920259_CHIP-SEQ_GC1-SPG_MOUSE",
         "simpleName": "CREM",
         "pvalue": 1.4969719059410472E-31,
+        "meta": "{\"Cell type\": \"GC1-SPG\"}",
         "zscore": -0.6715329447400628,
         "combinedScore": 47.663188023824546,
         "enrichedTargets": [
@@ -4195,6 +4197,7 @@
         "name": "ZFX_18555785_CHIP-SEQ_MESC_MOUSE",
         "simpleName": "ZFX",
         "pvalue": 2.5832226289145514E-31,
+        "meta": "{\"Cell type\": \"mESC\"}",
         "zscore": -1.3543204347127704,
         "combinedScore": 95.38627821627234,
         "enrichedTargets": [
@@ -4299,6 +4302,7 @@
         "name": "JARID1A_20064375_CHIP-SEQ_MESC_MOUSE",
         "simpleName": "JARID1A",
         "pvalue": 1.6842366724726694E-29,
+        "meta": "{\"Cell type\": \"mESC\"}",
         "zscore": -1.4444098473379956,
         "combinedScore": 95.69743206384125,
         "enrichedTargets": [
@@ -4384,6 +4388,7 @@
         "name": "MYC_18358816_CHIP-CHIP_MESC_MOUSE",
         "simpleName": "MYC",
         "pvalue": 4.8352770972675223E-29,
+        "meta": "{\"Cell type\": \"mESC\"}",
         "zscore": -1.4228236004912527,
         "combinedScore": 92.76671755862206,
         "enrichedTargets": [
@@ -4487,6 +4492,7 @@
         "name": "TRIM28_19339689_CHIP-CHIP_MESC_MOUSE",
         "simpleName": "TRIM28",
         "pvalue": 1.432587880182775E-25,
+        "meta": "{\"Cell type\": \"mESC\"}",
         "zscore": -1.4213581286294086,
         "combinedScore": 81.30899757469454,
         "enrichedTargets": [
@@ -4580,6 +4586,7 @@
         "name": "MYC_19030024_CHIP-CHIP_MESC_MOUSE",
         "simpleName": "MYC",
         "pvalue": 1.6053771880615034E-24,
+        "meta": "{\"Cell type\": \"mESC\"}",
         "zscore": -1.1508347874998461,
         "combinedScore": 63.05272292707372,
         "enrichedTargets": [
@@ -4682,6 +4689,7 @@
         "name": "HNF4A_19822575_CHIP-SEQ_HEPG2_HUMAN",
         "simpleName": "HNF4A",
         "pvalue": 3.075426431020047E-23,
+        "meta": "{\"Cell type\": \"HEPG2\"}",
         "zscore": -0.5200849188779862,
         "combinedScore": 26.959128912753386,
         "enrichedTargets": [
@@ -4808,6 +4816,7 @@
         "name": "SRF_21415370_CHIP-SEQ_HL-1_MOUSE",
         "simpleName": "SRF",
         "pvalue": 1.5347501886729876E-20,
+        "meta": "{\"Cell type\": \"HL-1\"}",
         "zscore": -2.2265327104666413,
         "combinedScore": 101.5818460361637,
         "enrichedTargets": [
@@ -4872,6 +4881,7 @@
         "name": "FLI1_21571218_CHIP-SEQ_MEGAKARYOCYTES_HUMAN",
         "simpleName": "FLI1",
         "pvalue": 5.211806353866781E-19,
+        "meta": "{\"Cell type\": \"MEGAKARYOCYTES\"}",
         "zscore": -0.5542001777272954,
         "combinedScore": 23.33082452531745,
         "enrichedTargets": [
