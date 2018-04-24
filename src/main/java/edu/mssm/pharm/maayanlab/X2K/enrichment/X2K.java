@@ -55,7 +55,7 @@ public class X2K implements SettingsChanger {
 			// Integer: minimum network size; otherwise, the path length is increased until the minimum met. [>0]
 			set(X2K.MINIMUM_NETWORK_SIZE, 50);
 			// Integer: minimum path length [>0]
-			set(X2K.MINIMUM_PATH_LENGTH, 5);
+			set(X2K.MAXIMUM_PATH_LENGTH, 4);
 			// Integer: number of transcription factors used in network expansion and drug discovery. [>0]
 			set(X2K.NUMBER_OF_TOP_TFS, 10);
 			// Integer: number of kinases used in drug discovery. [>0]
@@ -76,7 +76,7 @@ public class X2K implements SettingsChanger {
 	};
 	
 	public final static String MINIMUM_NETWORK_SIZE = "min_network_size";
-	public final static String MINIMUM_PATH_LENGTH = "path_length";
+	public final static String MAXIMUM_PATH_LENGTH = "max_path_length";
 	public final static String NUMBER_OF_TOP_TFS = "number of top TFs";
 	public final static String NUMBER_OF_TOP_KINASES = "number of top kinases";
 	public final static String ENABLE_YED_OUTPUT = "output results in yEd";
@@ -183,19 +183,24 @@ public class X2K implements SettingsChanger {
 
 	private void runG2N() {
 		g2n = new Genes2Networks(settings);
-		Integer minimum_path_length = Integer.parseInt(settings.get(MINIMUM_PATH_LENGTH));
-		Integer path_length = 0;
+		Integer path_length = Math.min(
+			settings.getInt(Genes2Networks.PATH_LENGTH),
+			settings.getInt(MAXIMUM_PATH_LENGTH)
+		);
 
+		// System.out.println(settings.getInt(MINIMUM_NETWORK_SIZE));
 		do {
+			g2n.setSetting(Genes2Networks.PATH_LENGTH, Integer.toString(path_length));
 			g2n.run(new ArrayList<String>(topRankedTFs));
 			network = g2n.getNetwork();
 			path_length++;
+			// System.out.println(network.size());
 		} while(
 			network.size() < settings.getInt(MINIMUM_NETWORK_SIZE)
-			&& path_length <= minimum_path_length
+			&& path_length < settings.getInt(MAXIMUM_PATH_LENGTH)
 		);
 
-		setSetting(X2K.PATH_LENGTH, Integer.toString(path_length));
+		setSetting(X2K.PATH_LENGTH, Integer.toString(path_length - 1));
 	}
 	
 	private void runKea() {

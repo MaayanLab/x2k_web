@@ -414,16 +414,16 @@
                                                                 <div class="form-group row align-items-center">
                                                                     <label for="x2k_path_length"
                                                                            class="col-form-label col-sm-9">
-                                                                        Path length
+                                                                        Minimum path length
                                                                         <sup data-toggle="tooltip" data-placement="top"
                                                                              container="body"
-                                                                             title="The maximum Protein-Protein Interaction path length for the subnetwork expansion step of Genes2Networks.">
+                                                                             title="The minimum Protein-Protein Interaction path length for the subnetwork expansion step of Genes2Networks.">
                                                                             <i class="fa fa-question-circle"></i>
                                                                         </sup>
                                                                     </label>
                                                                     <div class="col-sm-3">
                                                                         <input class="form-control form-control-sm"
-                                                                               type="text" value="2"
+                                                                               type="text" value="1"
                                                                                id="x2k_path_length" name="path_length">
                                                                     </div>
                                                                 </div>
