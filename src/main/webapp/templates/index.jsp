@@ -282,7 +282,7 @@
                                                                                            type="radio"
                                                                                            name="TF-target gene background database used for enrichment"
                                                                                            id="x2k_chea2015"
-                                                                                           value="ChEA 2015" checked>
+                                                                                           value="ChEA 2015">
                                                                                     ChEA 2015
                                                                                 </label>
                                                                             </div>
@@ -302,7 +302,7 @@
                                                                                            type="radio"
                                                                                            name="TF-target gene background database used for enrichment"
                                                                                            id="x2k_chea-encode"
-                                                                                           value="ChEA & ENCODE Consensus">
+                                                                                           value="ChEA & ENCODE Consensus" checked>
                                                                                     ChEA & ENCODE Consensus
                                                                                 </label>
                                                                             </div>
@@ -423,7 +423,7 @@
                                                                     </label>
                                                                     <div class="col-sm-3">
                                                                         <input class="form-control form-control-sm"
-                                                                               type="text" value="1"
+                                                                               type="text" value="2"
                                                                                id="x2k_path_length" name="path_length">
                                                                     </div>
                                                                 </div>
@@ -439,7 +439,7 @@
                                                                     </label>
                                                                     <div class="col-sm-3">
                                                                         <input class="form-control form-control-sm"
-                                                                               type="text" value="2"
+                                                                               type="text" value="0"
                                                                                id="x2k_min_number_of_articles_supporting_interaction"
                                                                                name="min_number_of_articles_supporting_interaction">
                                                                     </div>
@@ -494,7 +494,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_Biocarta"
-                                                                                       value="true" checked>
+                                                                                       value="false">
                                                                                 Biocarta
                                                                             </label>
                                                                         </div>
@@ -512,7 +512,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_BioPlex"
-                                                                                       value="true" checked>
+                                                                                       value="false">
                                                                                 BioPlex
                                                                             </label>
                                                                         </div>
@@ -521,7 +521,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_DIP"
-                                                                                       value="true" checked>
+                                                                                       value="false">
                                                                                 DIP 2017
                                                                             </label>
                                                                         </div>
@@ -530,7 +530,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_huMAP"
-                                                                                       value="true" checked>
+                                                                                       value="false">
                                                                                 huMAP 2017
                                                                             </label>
                                                                         </div>
@@ -539,7 +539,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_InnateDB"
-                                                                                       value="true" checked>
+                                                                                       value="false">
                                                                                 InnateDB 2017
                                                                             </label>
                                                                         </div>
@@ -557,7 +557,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_KEGG"
-                                                                                       value="true" checked>
+                                                                                       value="false">
                                                                                 KEGG
                                                                             </label>
                                                                         </div>
@@ -584,7 +584,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_SNAVI"
-                                                                                       value="true" checked>
+                                                                                       value="false">
                                                                                 SNAVI 2017
                                                                             </label>
                                                                         </div>
@@ -603,7 +603,7 @@
                                                                                         type="checkbox"
                                                                                         class="form-check-input"
                                                                                         name="enable_Stelzl"
-                                                                                        value="false">
+                                                                                        value="true" checked>
                                                                                 Stelzl
                                                                             </label>
                                                                         </div>
