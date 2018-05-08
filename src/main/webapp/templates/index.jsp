@@ -70,7 +70,7 @@
                         expansion, with kinase enrichment analysis , X2K Web produces inferred networks of transcription
                         factors, proteins, and kinases predicted to regulate the expression of the inputted gene list.
                         X2K Web provides the results as tables and interactive vector graphic figures that can be
-                        readily embedded within publications.. You can read more about the X2K concept by reading the
+                        readily embedded within publications. You can read more about the X2K concept by reading the
                         original X2K publication: <a href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">Chen EY, Xu H,
                         Gordonov S, Lim MP,
                         Perkins MH, Ma'ayan A. Expression2Kinases: mRNA profiling linked
@@ -784,7 +784,7 @@
                                     <li>Complete upstream pathway that connects the enriched transcription factors to
                                         kinases through known protein-protein interactions via <a
                                                 href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">the
-                                            Expression2Kinases (X2K) algorithm</a>.
+                                            eXpression2Kinases (X2K) algorithm</a>.
                                     </li>
                                 </ol>
                                 </p>
@@ -1991,7 +1991,7 @@
             <div id="about">
                 <h4>About</h4>
                 <h5>Citations</h5>
-                <p>X2Kweb is an updated version of the original Expression2Kinases (X2K) publication:
+                <p>X2Kweb is an updated version of the original eXpression2Kinases (X2K) publication:
                     <br/><a href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">Chen EY, Xu H, Gordonov S, Lim MP,
                         Perkins MH, Ma'ayan A. Expression2Kinases: mRNA profiling linked
                         to multiple upstream regulatory layers. Bioinformatics. 28:105 (2012)</a>
