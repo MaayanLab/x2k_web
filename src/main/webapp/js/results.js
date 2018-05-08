@@ -125,7 +125,7 @@ function createTable(json, container) {
             json[i]["zscore"].toFixed(2),
             json[i]["combinedScore"].toFixed(2),
             $('<div>', {
-                    'class': 'enrichment-popover-button',
+					'class': 'enrichment-popover-button',
                     'data-toggle': 'popover',
                     'data-placement': 'left',
                     'data-html': 'true',
@@ -180,13 +180,8 @@ function createTable(json, container) {
             },
         ],
         drawCallback: function(){
-
-			// Enriched gene popover
+            // Enriched gene popover
             $('.enrichment-popover-button').popover();
-            $('.enrichment-popover-button').on('click', function () {
-                $('.enrichment-popover-button').not(this).popover('hide');
-			});
-			
         }
     } );
 }
@@ -559,18 +554,17 @@ function createResults(json_file) {
 
 	// Hide Popover when clicking elsewhere on the document
 	$(document).on('click', function(evt){
-		if (($(evt.target).parents('.popover').length === 0)) {
+		var target = $(evt.target)
+
+		if (target.parents('.popover').length === 0) {
 			$('.popover').popover('hide');
 
-			// Show help popover
-			if ($(evt.target).parents('button').attr('data-toggle')) {
-				$(evt.target).parents('button').popover('toggle');
+			if(!target.attr("data-toggle")) {
+				// When the target is an element inside the button
+				//  rather than the button itself, obtain the button.
+				target = target.parents('[data-toggle="popover"]')
 			}
-
-			// Toggle target popover
-			if ($(evt.target).hasClass('enrichment-popover-button')) {
-				$(evt.target).popover('toggle');
-			}
+			target.popover('toggle')
 		}
 	})
 
