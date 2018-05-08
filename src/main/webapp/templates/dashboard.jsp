@@ -148,7 +148,7 @@
                             data-template='<div class="popover x2k-card-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
                             title="What is Kinase Enrichment Analysis?"
                             data-placement="left"
-                            data-content="<div>Kinase Enrichment Analysis (KEA) is the third and final step of the X2K pipeline. KEA <b>predicts the protein kinases that are likely the regulators of the expanded protein-protein interaction network</b> from the previous step. KEA performs enrichment analysis on the list of proteins from the subnetwork using gene set libraries from kinase-substrate interaction databases.</div><div class='mt-3'>A ranked list of the <b>top predicted kinases</b> is displayed as a bar graph and table. The results can be downloaded as a spreadsheet.</div><div class='mt-3'>The top kinases are displayed alongside the predicted transcription factors (Step 1) and expanded regulatory network (Step 2) in the <b>Expression2Kinases network</b>.</div><div class='mt-3 text-muted font-italic'>Note: the results from the kinase enrichment analysis step are computational predictions, experimentalists should consider this carefully before attempting to validate any of these predictions experimentally.</div>">
+                            data-content="<div>Kinase Enrichment Analysis (KEA) is the third and final step of the X2K pipeline. KEA <b>predicts the protein kinases that are likely the regulators of the expanded protein-protein interaction network</b> from the previous step. KEA performs enrichment analysis on the list of proteins from the subnetwork using gene set libraries from kinase-substrate interaction databases.</div><div class='mt-3'>A ranked list of the <b>top predicted kinases</b> is displayed as a bar graph and table. The results can be downloaded as a spreadsheet.</div><div class='mt-3'>The top kinases are displayed alongside the predicted transcription factors (Step 1) and expanded regulatory network (Step 2) in the <b>eXpression2Kinases network</b>.</div><div class='mt-3 text-muted font-italic'>Note: the results from the kinase enrichment analysis step are computational predictions, experimentalists should consider this carefully before attempting to validate any of these predictions experimentally.</div>">
                         <i class="fa fa-question-circle fa-2x text-muted"></i>
                     </button>
 
@@ -191,12 +191,12 @@
                 <nav class="nav nav-tabs navbar-light bg-light dash-nav" role="tablist">
 
                     <!-- Title -->
-                    <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network" data-name="X2K" data-modal-title="Expression2Kinases Network" class="cursor-pointer">
+                    <div data-toggle="modal" data-target="#dashboardFullModal" data-whatever="#x2k-network" data-name="X2K" data-modal-title="eXpression2Kinases Network" class="cursor-pointer">
                         <button type="button" class="expand cursor-pointer">
                             <i class="fas fa-expand-arrows-alt" title="Expand" aria-hidden="true"></i>
                             <i class="fas fa-download" title="Download"></i>
                         </button>
-                        <a class="navbar-brand d-inline-block" href="#"><b>Step 4.</b> Expression2Kinases Network</a>
+                        <a class="navbar-brand d-inline-block" href="#"><b>Step 4.</b> eXpression2Kinases Network</a>
                     </div>
 
                     <!-- Info Popover -->
@@ -204,9 +204,9 @@
                             data-toggle="popover"
                             data-html="true"
                             data-template='<div class="popover x2k-card-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
-                            title="What is Expression2Kinases?"
+                            title="What is eXpression2Kinases?"
                             data-placement="left"
-                            data-content="<div>The Expression2Kinases (X2K) network displays the <b>inferred upstream regulatory network predicted to regulate the input list</b> of genes by integrating the results from the TFEA (Step 1), the network expansion (Step 2), and the kinase enrichment (Step 3).</div><div class='mt-3'>Pink nodes represent the <b>top transcription factors</b> predicted to regulate the expression of the input gene list; orange nodes represent proteins that <b>physically interact with the enriched transcription factors and connect them</b>. Blue nodes represent the <b>top predicted protein kinases</b> known to phosphorylate the proteins within the expanded subnetwork.</div><div class='mt-3'>Green network edges/links represent <b>kinase-substrate phosphorylation</b> interactions between kinases and their substrates, while grey network edges represent <b>physical protein-protein interactions</b>.</div><div class='mt-3 text-muted font-italic'>Note: this network is a results of computational predictions, experimentalists should consider this carefully before attempting to validate any of these predictions experimentally.</div>">
+                            data-content="<div>The eXpression2Kinases (X2K) network displays the <b>inferred upstream regulatory network predicted to regulate the input list</b> of genes by integrating the results from the TFEA (Step 1), the network expansion (Step 2), and the kinase enrichment (Step 3).</div><div class='mt-3'>Pink nodes represent the <b>top transcription factors</b> predicted to regulate the expression of the input gene list; orange nodes represent proteins that <b>physically interact with the enriched transcription factors and connect them</b>. Blue nodes represent the <b>top predicted protein kinases</b> known to phosphorylate the proteins within the expanded subnetwork.</div><div class='mt-3'>Green network edges/links represent <b>kinase-substrate phosphorylation</b> interactions between kinases and their substrates, while grey network edges represent <b>physical protein-protein interactions</b>.</div><div class='mt-3 text-muted font-italic'>Note: this network is a results of computational predictions, experimentalists should consider this carefully before attempting to validate any of these predictions experimentally.</div>">
                         <i class="fa fa-question-circle fa-2x text-muted"></i>
                     </button>
 
