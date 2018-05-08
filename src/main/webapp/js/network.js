@@ -348,7 +348,7 @@ function draw_network(json, svg_id, body) {
         height = 600*coeff,
         height_shift = 620*coeff;
 
-    svg.attr("viewBox", "-" + shift + "-" + shift + " " + width_shift + " " + height_shift);
+    svg.attr("viewBox", "-" + shift + " -" + shift + " " + width_shift + " " + height_shift);
 
 
     var g = svg.append("g")
