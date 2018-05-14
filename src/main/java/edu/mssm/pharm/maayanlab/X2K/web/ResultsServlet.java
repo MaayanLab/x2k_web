@@ -101,7 +101,7 @@ public class ResultsServlet extends HttpServlet {
 	}
 	
 	// ChEA procedures
-    public static String runChEA(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public static String runChEA(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) {
         // Run enrichment
         ChEA app = new ChEA();
         System.out.println(app);
@@ -141,7 +141,6 @@ public class ResultsServlet extends HttpServlet {
             if (nodeName.length() > 1) {
                 nodeName = nodeName.split("-")[0];
             }
-            ;
             network.addNode(Network.nodeTypes.networkNode, node, nodeName);
         }
 
@@ -153,12 +152,10 @@ public class ResultsServlet extends HttpServlet {
                     if (nodeName.length() > 1) {
                         nodeName = nodeName.split("-")[0];
                     }
-                    ;
                     String neighborName = neighbor.getName();
                     if (neighborName.length() > 1) {
                         neighborName = neighborName.split("-")[0];
                     }
-                    ;
                     network.addInteraction(nodeName, neighborName);
                 }
         }
@@ -173,7 +170,7 @@ public class ResultsServlet extends HttpServlet {
         return result;
     }
 
-    public static String runG2N(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public static String runG2N(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) {
         // Run enrichment
         Genes2Networks app = new Genes2Networks();
         app.setSetting(Genes2Networks.PATH_LENGTH, req.getParameter(Genes2Networks.PATH_LENGTH));
@@ -208,7 +205,7 @@ public class ResultsServlet extends HttpServlet {
     }
 
     // KEA procedures
-    public static String runKEA(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public static String runKEA(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) {
         // Run enrichment
         KEA app = new KEA();
         app.setSetting(KEA.SORT_BY, req.getParameter(KEA.SORT_BY));
@@ -269,7 +266,7 @@ public class ResultsServlet extends HttpServlet {
 		//defaultSettings.put(X2K.NUMBER_OF_TOP_KINASES, null);
 	}
 
-	public static String enrichList(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public static String enrichList(ArrayList<String> inputList, HttpServletRequest req, HttpServletResponse resp) {
 		// Run enrichment
 		X2K app = new X2K();
 

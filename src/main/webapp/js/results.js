@@ -68,7 +68,7 @@ function sendToEnrichr(button) {
 	// Create Form
 	var $form = $('<form>', {'method': 'post', 'action': 'https://amp.pharm.mssm.edu/Enrichr/enrich', 'target': '_blank', 'enctype': 'multipart/form-data'})
 					.append($('<input>', {'type': 'hidden', 'name': 'list', 'value': genes.join('\n')}))
-					.append($('<input>', {'type': 'hidden', 'name': 'description', 'value': 'Enriched '+$(button).parents('.popover').find('b').first().text()+' targets from X2K'}))
+					.append($('<input>', {'type': 'hidden', 'name': 'description', 'value': 'Enriched '+$(button).parents('.popover').find('b').first().text()+' targets from X2K'}));
 	
 	// Submit
 	$(button).parents('.popover').append($form);
@@ -235,19 +235,19 @@ function recordsToColData(records) {
 }
 
 function recordsToCsv(records) {
-	var col_data = recordsToColData(records)
+	var col_data = recordsToColData(records);
 	return [col_data.columns].concat(col_data.data).map(function(row) {
 		return row.join(',')
 	}).join('\n')
 }
 
 function exportCsv(name, export_json) {
-	var str;
+	var str, array;
 
 	if(name ==="X2K") {
 	    var tfs = typeof objArray !== 'object' ? export_json["transcriptionFactors"] : objArray;
 	    var kinases = typeof objArray !== 'object' ? export_json["kinases"] : objArray;
-	    var array = tfs.concat(kinases);
+	    array = tfs.concat(kinases);
 	    
     
 	    str = "Name,Simple name,P-value,Z-score,Combined score,Targets\n";
@@ -263,7 +263,7 @@ function exportCsv(name, export_json) {
 	        str += line + '\r\n';
 	    }
 	} else if(name === 'G2N') {
-		var array = typeof objArray !== 'object' ? export_json["network"] : objArray;
+		array = typeof objArray !== 'object' ? export_json["network"] : objArray;
 		var nodes = array["nodes"];
 		var interactions = array["interactions"];
 		var inputList = typeof objArray !== 'object' ? export_json["input_list"] : objArray;
@@ -479,12 +479,12 @@ function createResults(json_file) {
 	var cur_modal = {};
 
 	$("#dashboardFullModal").on("show.bs.modal", function (event) {
-		var button = $(event.relatedTarget) // Button that triggered the modal
-		var modal = $(this)
-		var div_name = button.data('whatever') // Extract info from data-* attributes
-		var modal_title = button.data('modal-title')
-		var name = button.data('name')
-		var svg = $(div_name).find("svg")
+		var button = $(event.relatedTarget); // Button that triggered the modal
+		var modal = $(this);
+		var div_name = button.data('whatever'); // Extract info from data-* attributes
+		var modal_title = button.data('modal-title');
+		var name = button.data('name');
+		var svg = $(div_name).find("svg");
 
 		if ((name === 'ChEA')||(name === 'KEA')) {
             $('.cytoscape-button').hide();
@@ -517,7 +517,7 @@ function createResults(json_file) {
 		cur_modal.svg.find('g.zoom-controls').remove();
 		
 		saveSvgAsPng.svgAsDataUri(cur_modal.svg[0], {}, function(uri) {
-			downloadUri(uri, cur_modal.name + '.svg')
+			downloadUri(uri, cur_modal.name + '.svg');
 			cur_modal.svg.append(zoom_controls);
 		})
 	});
@@ -528,7 +528,7 @@ function createResults(json_file) {
 		cur_modal.svg.find('g.zoom-controls').remove();
 		
 		saveSvgAsPng.svgAsPngUri(cur_modal.svg[0], {}, function(uri) {
-			downloadUri(uri, cur_modal.name + '.png')
+			downloadUri(uri, cur_modal.name + '.png');
 			cur_modal.svg.append(zoom_controls);
 		})
 	});

@@ -12,27 +12,27 @@ const table_lookup = {
     'KINASE': 'Kinome Regulation',
     'TF': 'Transcriptional Regulation',
     'PPI': 'Protein-Protein Interactions',
-}
+};
 
 // Convert various file formats into the simple format we expect e.g. [[header_cell1, header_cell2], [row_1_cell_1, row_1_cell_2], ...]
 const converters = {
     '.json': (file) => JSON.parse(fs.readFileSync(file, 'utf8')),
     '.csv': (file) => fs.readFileSync(file, 'utf8').split('\n').map((line) => line.split(',')),
     '.tsv': (file) => fs.readFileSync(file, 'utf8').split('\n').map((line) => line.split('\t')),
-}
+};
 
 const icons = {
     '.sig': 'http://satie.bioinfo.cnio.es/themes/fustero/images/icon_6.png',
     '.gmt': 'https://s3.amazonaws.com/go-public/image/go-logo-icon.png',
     '.zip': 'https://cdn0.iconfinder.com/data/icons/document-file-types/512/zip-512.png',
     'pmid': 'http://www.ics-mci.fr/static/img/pubmed-icon.png',
-}
+};
 
 const display_url = (name, url) => {
     if(url === '')
-        return name
+        return name;
     else if(url === undefined)
-        return null
+        return null;
     else if(url[0] === '!') {
         return (
             <span dangerouslySetInnerHTML={{
@@ -43,17 +43,17 @@ const display_url = (name, url) => {
         return (
             <a href={url}>{name}</a>
         )
-}
+};
 
 const database_link = (table, database, file) => {
     return  'http://amp.pharm.mssm.edu/lincs-playground/index.php/s/kuUSjyFOryhTRDv/download?path='
         + encodeURIComponent('/' + table + '/' + database)
         + '&' + 'files=' + encodeURIComponent(file)
-}
+};
 
 const trim = (str) => {
     return str.replace(/^\s+|\s+$/g, '')
-}
+};
 
 // Visual column transformations. null will hide column
 const transformers = {
@@ -61,7 +61,7 @@ const transformers = {
     'URL': null,
     'Database': (row) => {
         if(row === undefined)
-            return 'Database'
+            return 'Database';
         else {
             return (
                 <span style={{whiteSpace: "nowrap"}}>
@@ -72,12 +72,12 @@ const transformers = {
     },
     'Filename(s)': (row, table) => {
         if(row === undefined)
-            return 'Download'
+            return 'Download';
         else {
             return (
                 <span style={{whiteSpace: "nowrap"}}>
                     {row['Filename(s)'].split(' ').map((file, ind) => {
-                        const ext = '.' + file.split('.').pop()
+                        const ext = '.' + file.split('.').pop();
                         return (
                             <a
                                 href={database_link(table, row['Database'], file)} title={file} style={{paddingLeft: 5}} key={ind}>
@@ -132,7 +132,7 @@ const transformers = {
     },
     'Source PMID': (row) => {
         if(row === undefined)
-            return 'PMID'
+            return 'PMID';
         else if(row['Source PMID'] !== '') {
             return (
                 <span style={{whiteSpace: "nowrap"}}>
@@ -147,10 +147,10 @@ const transformers = {
     },
     'Interactions [Mouse]': (row) => {
         if(row === undefined)
-            return 'Interactions [M/H]'
+            return 'Interactions [M/H]';
         else {
             if(row['Interactions [Mouse]'] === row['Interactions [Human]'])
-                return row['Interactions [Mouse]']
+                return row['Interactions [Mouse]'];
             else
                 return row['Interactions [Mouse]'] + ' / ' + row['Interactions [Human]']
         }
@@ -158,10 +158,10 @@ const transformers = {
     'Interactions [Human]': null,
     'Unique Interactors [Mouse]': (row) => {
         if(row === undefined)
-            return 'Interactors [M/H]'
+            return 'Interactors [M/H]';
         else {
             if(row['Unique Interactors [Mouse]'] === row['Unique Interactors [Human]'])
-                return row['Unique Interactors [Mouse]']
+                return row['Unique Interactors [Mouse]'];
             else
                 return row['Unique Interactors [Mouse]'] + ' / ' + row['Unique Interactors [Human]']
         }
@@ -169,41 +169,41 @@ const transformers = {
     'Unique Interactors [Human]': null,
     'Unique TFs [Mouse]': (row) => {
         if(row === undefined)
-            return 'TFs [M/H]'
+            return 'TFs [M/H]';
         else {
             if(row['Unique TFs [Mouse]'] === row['Unique TFs [Human]'])
-                return row['Unique TFs [Mouse]']
+                return row['Unique TFs [Mouse]'];
             else
                 return row['Unique TFs [Mouse]'] + ' / ' + row['Unique TFs [Human]']
         }
     },
     'Unique TFs [Human]': null,
-}
+};
 
 const col_data_to_records = (columns, data) => (
     data.map((row) => (
         row.reduce((record, cell, ind) => {
-            const column = columns[ind]
-            record[column] = cell
+            const column = columns[ind];
+            record[column] = cell;
             return record
         }, {})
     ))
-)
+);
 
 const records_to_col_data = (records) => ({
     columns: Object.keys(records[0]),
     data: records.map((record) => Object.keys(record).map((key) => record[key])),
-})
+});
 
 const apply_transformers = (columns, data, table) => (
     records_to_col_data(
         col_data_to_records(columns, data).map((record) =>
             Object.keys(record).reduce((row, column) => {
-                const transformer = transformers[column]
+                const transformer = transformers[column];
                 if(transformer !== undefined) {
                     if(transformer !== null) {
-                        const k = transformer()
-                        const v = transformer(record, table)
+                        const k = transformer();
+                        const v = transformer(record, table);
                         if(k !== null && v !== null)
                             row[k] = v
                     }
@@ -214,10 +214,10 @@ const apply_transformers = (columns, data, table) => (
             }, {})
         )
     )
-)
+);
 
 const render_table = (json, table) => {
-    let { columns, data } = apply_transformers(json[0], json.slice(1), table)
+    let { columns, data } = apply_transformers(json[0], json.slice(1), table);
     return (
         <div className="col-sm-12 my-3 table-responsive">
             <table className="display table table-striped table-bordered table-sm datasets">
@@ -240,7 +240,7 @@ const render_table = (json, table) => {
             </table>
         </div>
     )
-}
+};
 
 const render = (json) => {
     return (
@@ -253,28 +253,28 @@ const render = (json) => {
             )}
         </div>
     )
-}
+};
 
 if(process.argv.length <= 3) {
-    console.log('Usage: ' + process.argv[1] + ' <out.html> [blah.json blah.csv blah.tsv...]')
+    console.log('Usage: ' + process.argv[1] + ' <out.html> [blah.json blah.csv blah.tsv...]');
     process.exit(0)
 }
 
-const output = process.argv[2]
+const output = process.argv[2];
 const json = process.argv.slice(3).reduce((json, file) => {
-    const root = path.dirname(file)
-    const ext = '.' + file.split('.').pop()
-    const base = path.basename(file, ext)
+    const root = path.dirname(file);
+    const ext = '.' + file.split('.').pop();
+    const base = path.basename(file, ext);
 
-    const converter = converters[ext]
-    if(converter === undefined) throw new Error("Unknown file type")
+    const converter = converters[ext];
+    if(converter === undefined) throw new Error("Unknown file type");
 
-    json[base] = converter(file)
+    json[base] = converter(file);
     return json
-}, {})
+}, {});
 
 const rendered =
     '<%-- Do not edit this file directly. See README.md --%>\n' +
-    pretty(ReactDOMServer.renderToStaticMarkup(render(json)))
+    pretty(ReactDOMServer.renderToStaticMarkup(render(json)));
 
-fs.writeFileSync(output, rendered)
+fs.writeFileSync(output, rendered);

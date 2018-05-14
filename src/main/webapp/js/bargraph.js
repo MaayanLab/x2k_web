@@ -14,34 +14,35 @@ function drawBargraph(chart, bargraph_data) {
     }
 
     function change(score) {
-        var range0 = function (d) {
+        var range0, caption, x0;
+        range0 = function (d) {
             return d[score];
         };
         sortByScore(bargraph_data, score, "asc");
 
         if (score === "combinedScore") {
             sortByScore(bargraph_data, score, "desc");
-            var x0 = x.domain([0, d3.max(bargraph_data, function (d) {
+            x0 = x.domain([0, d3.max(bargraph_data, function (d) {
                 return d[score];
             })]);
-            var caption = "Combined score";
+            caption = "Combined score";
         }
         else if (score === "pvalue") {
-            var x0 = x.domain([0, d3.max(bargraph_data, function (d) {
+            x0 = x.domain([0, d3.max(bargraph_data, function (d) {
                 return -Math.log10(d[score]);
             })]);
-            var range0 = function (d) {
+            range0 = function (d) {
                 return -Math.log10(d[score]);
-            }
-            var caption = "-log₁₀(p-value)";
+            };
+            caption = "-log₁₀(p-value)";
         }
         else if (score === "zscore") {
-            var x0 = x.domain([d3.max(bargraph_data, function (d) {
+            x0 = x.domain([d3.max(bargraph_data, function (d) {
                 return d[score];
             }), d3.min(bargraph_data, function (d) {
                 return d[score];
             })]);
-            var caption = "Z-score"
+            caption = "Z-score"
         }
 
         var y0 = y.domain(bargraph_data.map(function (d) {

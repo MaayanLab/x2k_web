@@ -23,7 +23,7 @@ public class Network {
 
 	private HashMap<String, Integer> nodeLocation;
 	
-	public static enum nodeTypes{
+	public enum nodeTypes{
 		kinase,
 		transcriptionFactor,
 		networkNode

@@ -6,6 +6,7 @@ HPRD	HPRD_KINASES.csv HPRD_2018-03_Human_KINASES_unfiltered.gmt HPRD_2018-03_Hum
 huMAP	huMAP_KINASES.csv huMAP_unfiltered.gmt huMAP-KINASES.sig	Mass-Spec PPI	1385	156	955	http://proteincomplexes.org	28596423
 iPTMnet	iPTMnet_KINASES.csv iPTMnet-2018_Mouse-Human_merged_KINASES_filtered.gmt iPTMnet-2018_Mouse-Human_merged_KINASES_unfiltered.gmt	Literature K-S	947	131	724	https://research.bioinformatics.udel.edu/iptmnet/	29145615
 iREF	iREF_KINASES.csv iREF_02-2018_Mouse-Human_KINASES_PPI.sig iREF_02-2018_Mouse-Human_merged_KINASES_unfiltered.gmt	Literature PPI	26734	329	8036	http://irefindex.org/wiki/index.php?title=iRefIndex http://wodaklab.org/iRefWeb/	18823568
+KEA_2018    KEA_2018.csv KEA2018_Mouse-Human_merged_KINASES.sig KEA2018_Mouse-Human_merged_KINASES_unfiltered.gmt	Literature PPI  30521   514 7946    http://amp.pharm.mssm.edu/Enrichr/  19176546
 KEGG	KEGG_KINASES.csv KEGG_unfiltered.gmt KEGG-KINASES.sig	Literature PPI	2238	131	621	http://www.kegg.jp	19880382
 MINT	MINT_KINASES.csv MINT_2018-03_Mouse-Human-Merged_KINASES_unfiltered.gmt MINT_2018-03_Mouse-Human-Merged_KINASES.sig	Literature PPI	1583	225	1065	https://mint.bio.uniroma2.it	22096227; 24234451
 NetworkIN	NetworkIN_KINASES.csv NetworKIN_2018-03-Predictions_KINASES_filtered.sig NetworKIN_2018-03-Predictions_KINASES_unfiltered.gmt	Predictions	5829	190	2006	http://networkin.info	17981841; 24874572

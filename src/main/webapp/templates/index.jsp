@@ -39,13 +39,13 @@
                 <a class="nav-link" href="#api">API</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#case-studies">Case study</a>
+                <a class="nav-link" href="#case-studies">Canned Signatures</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#command-line">Command line tools</a>
+                <a class="nav-link" href="#command-line">Command Line</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#datasets">Download datasets</a>
+                <a class="nav-link" href="#datasets">Datasets</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#about">About</a>
@@ -56,10 +56,10 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center bg-light">
-        <div class="col-sm-9 show-on-ie" style="display: none; color: red; font-weight: bold; text-align:center;">
+        <div class="col-sm-7 show-on-ie" style="display: none; color: red; font-weight: bold; text-align:center;">
             For best app performance, please use a browser other than Internet Explorer.
         </div>
-        <div class="col-sm-9 bg-white">
+        <div class="col-sm-7 bg-white">
             <div class="my-3 mx-2">
                 <h4>Submit</h4>
                 <div class="my-3">
@@ -70,11 +70,8 @@
                         expansion, with kinase enrichment analysis , X2K Web produces inferred networks of transcription
                         factors, proteins, and kinases predicted to regulate the expression of the inputted gene list.
                         X2K Web provides the results as tables and interactive vector graphic figures that can be
-                        readily embedded within publications. You can read more about the X2K concept by reading the
-                        original X2K publication: <a href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">Chen EY, Xu H,
-                        Gordonov S, Lim MP,
-                        Perkins MH, Ma'ayan A. Expression2Kinases: mRNA profiling linked
-                        to multiple upstream regulatory layers. Bioinformatics. 28:105 (2012)</a>.
+                        readily embedded within publications.. You can read more about the X2K concept by reading the
+                        original<a href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">X2K publication</a>.
                     </p>
                 </div>
                 <form id="x2k-form" enctype="multipart/form-data" method="POST">

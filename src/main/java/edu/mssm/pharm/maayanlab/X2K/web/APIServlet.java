@@ -14,9 +14,9 @@ import edu.mssm.pharm.maayanlab.common.web.JSONify;
 @WebServlet(urlPatterns = { "/api" })
 @MultipartConfig
 public class APIServlet extends ResultsServlet {
-	protected void forwardRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void forwardRequest(HttpServletRequest req, HttpServletResponse resp) {
 	}
-	protected void forwardRequest(JSONify json, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void forwardRequest(JSONify json, HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.getWriter().print(json);
 	}
 }

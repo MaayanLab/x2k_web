@@ -11,8 +11,6 @@ function submitButtonListener(button, endpoint, settings_form) {
     $('#' + button).click(function (evt) {
         $("#blocker").show();
         $("#loader").show().css({position: 'absolute', top: $(window).scrollTop() + $(window).height() / 2});
-        ;
-
         // evt.preventDefault();
         var $form = $(settings_form),
             text_input = $("#genelist").val();
@@ -51,7 +49,7 @@ function showHelpDesc(page) {
 }
 
 function cleanArray(actual) {
-	  var newArray = new Array();
+	  var newArray = [];
 	  for (var i = 0; i < actual.length; i++) {
 	    if (actual[i]) {
 	      newArray.push(actual[i]);
@@ -73,7 +71,7 @@ $(document).ready(function () {
         if ((!!window.MSInputMethodContext && !!document.documentMode) || navigator.userAgent.indexOf("MSIE")!=-1) {
             $('.show-on-ie').show();
         }
-    })
+    });
 
     // text area listener
     $("#genelist").on("change keyup paste", function () {
@@ -124,7 +122,7 @@ $(document).ready(function () {
 
     $('.datatable').DataTable({
         scrollX: true,
-    })
+    });
 
     $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 });
