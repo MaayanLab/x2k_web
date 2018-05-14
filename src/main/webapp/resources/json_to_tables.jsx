@@ -89,12 +89,6 @@ const transformers = {
                                         strokeWidth="5"
                                     />
                                     <path
-                                        d="M15,25 l60,0 M15,45 l70,0 M15,65 l70,0 M15,85 l70,0 M15,105 l70,0"
-                                        fill="none"
-                                        stroke="black"
-                                        strokeWidth="3"
-                                    />
-                                    <path
                                         d="M5,75 l90,0 l0,45 l-90,0 z"
                                         fill="darkgrey"
                                         stroke="darkgrey"

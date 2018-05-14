@@ -71,7 +71,7 @@
                         factors, proteins, and kinases predicted to regulate the expression of the inputted gene list.
                         X2K Web provides the results as tables and interactive vector graphic figures that can be
                         readily embedded within publications.. You can read more about the X2K concept by reading the
-                        original<a href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">X2K publication</a>.
+                        original <a href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">X2K publication</a>.
                     </p>
                 </div>
                 <form id="x2k-form" enctype="multipart/form-data" method="POST">
