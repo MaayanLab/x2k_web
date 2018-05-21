@@ -1888,8 +1888,8 @@
             </div>
 
             <div id="case-studies">
-                <h4><a href="http://www.lincsproject.org/LINCS/ljp">The LINCS Joint Project
-                    Case Study</a>
+                <h4>
+                    <a href="http://www.lincsproject.org/LINCS/ljp">The LINCS Joint Project Canned Signatures</a>
                 </h4>
                 <div class="row justify-content-center">
                     <div id="ljp" class="col-sm-6">
