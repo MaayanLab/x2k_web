@@ -16,7 +16,6 @@ dist/
 node_modules/
 npm-debug.log
 out
-out
 package-lock.json
 src/.metadata/
 src/main/webapp/dashboard-mockup/
