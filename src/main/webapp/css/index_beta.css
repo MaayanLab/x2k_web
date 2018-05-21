@@ -25,7 +25,8 @@ body {
 }
 
 #x2k-navbar{
-	padding-left: 20%;
+	margin-left: -32px;
+	margin-right: -32px;
 }
 
 #scrollspy-nav {

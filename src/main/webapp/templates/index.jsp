@@ -22,40 +22,42 @@
 <body data-spy="scroll" data-target="#x2k-navbar" data-offset="150">
 <!-- Anchor for scrollspy -->
 <div id="x2k-scroll"></div>
-<nav class="navbar navbar-light sticky-top bg-light justify-content-center navbar-expand-sm" id="x2k-navbar">
-    <a class="navbar-brand" href="/X2K">
-        <img id="logo" src="static/logo.png" height="50px" class="d-inline-block full-logo">
-        <!-- <p class="caption">A web interface for the Expression to Kinases application</p> -->
-    </a>
-    <div id="scrollspy-nav" class="collapse navbar-collapse">
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link active" href="#x2k-scroll">Submit</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#example">Example</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#api">API</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#case-studies">Canned Signatures</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#command-line">Command Line</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#datasets">Datasets</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 
 <div class="container-fluid">
     <div class="row justify-content-center bg-light">
+        <div class="col-sm-7">
+            <nav class="navbar navbar-light sticky-top bg-light justify-content-center navbar-expand-sm" id="x2k-navbar">
+                <a class="navbar-brand" href="/X2K">
+                    <img id="logo" src="static/logo.png" height="50px" class="d-inline-block full-logo">
+                    <!-- <p class="caption">A web interface for the Expression to Kinases application</p> -->
+                </a>
+                <div id="scrollspy-nav" class="collapse navbar-collapse">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#x2k-scroll">Submit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#example">Example</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#api">API</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#case-studies">Canned Signatures</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#command-line">Command Line</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#datasets">Datasets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
         <div class="col-sm-7 show-on-ie" style="display: none; color: red; font-weight: bold; text-align:center;">
             For best app performance, please use a browser other than Internet Explorer.
         </div>
