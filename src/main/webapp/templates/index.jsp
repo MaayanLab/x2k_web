@@ -67,7 +67,7 @@
 
                         X2K Web infers upstream regulatory networks from signatures of differentially expressed genes.
                         By combining transcription factor enrichment analysis, protein-protein interaction network
-                        expansion, with kinase enrichment analysis , X2K Web produces inferred networks of transcription
+                        expansion, with kinase enrichment analysis, X2K Web produces inferred networks of transcription
                         factors, proteins, and kinases predicted to regulate the expression of the inputted gene list.
                         X2K Web provides the results as tables and interactive vector graphic figures that can be
                         readily embedded within publications.. You can read more about the X2K concept by reading the
