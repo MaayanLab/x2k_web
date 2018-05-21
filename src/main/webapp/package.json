@@ -8,7 +8,7 @@
     "build-tables": "resources/json_to_tables.jsx templates/downloads.jsp resources/*.tsv"
   },
   "author": "",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "save-svg-as-png": "^1.3.1"
   },
