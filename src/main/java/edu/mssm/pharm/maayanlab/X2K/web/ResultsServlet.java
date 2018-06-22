@@ -54,7 +54,7 @@ public class ResultsServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	    Part geneChunk = req.getPart("text-genes");
-	    ArrayList<String> textGenes = PartReader.readLines(geneChunk);
+	    ArrayList<String> textGenes = PartReader.readTokens(geneChunk);
 
 		if(textGenes.size() <= 0)
 			System.out.println("no lists received - error");
