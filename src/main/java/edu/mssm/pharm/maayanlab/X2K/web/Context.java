@@ -20,7 +20,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import edu.mssm.pharm.maayanlab.X2K.enrichment.Network;
-//import edu.mssm.pharm.maayanlab.common.web.HibernateUtil;
 import edu.mssm.pharm.maayanlab.common.web.JSONify;
 
 @WebListener

@@ -1,24 +1,10 @@
 package edu.mssm.pharm.maayanlab.X2K;
 
-import static org.junit.Assert.assertTrue;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import javax.servlet.ServletException;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import edu.mssm.pharm.maayanlab.ChEA.ChEA;
-import edu.mssm.pharm.maayanlab.X2K.web.Context;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AppTest extends Mockito{
 	
