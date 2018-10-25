@@ -14,8 +14,9 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.*;
-
+import java.util.logging.Logger;
 
 @WebServlet(urlPatterns = {"/results"})
 @MultipartConfig
@@ -24,6 +25,7 @@ public class ResultsServlet extends HttpServlet {
     private static final long serialVersionUID = 6063942151226647232L;
     // X2K procedures
     private static final HashMap<String, String> defaultSettings = new HashMap<String, String>();
+    private static Logger log = Logger.getLogger(ResultsServlet.class.getSimpleName());
 
     static {
         defaultSettings.put(ChEA.SORT_BY, ChEA.PVALUE);
@@ -192,43 +194,48 @@ public class ResultsServlet extends HttpServlet {
 
         X2K app = new X2K();
 
-        readAndSetSettings(req, app);
-        app.run(textGenesCleaned);
-
         // Write output
         JSONify json = Context.getJSONConverter();
 
-        JSONify X2K_json = Context.getJSONConverter();
-        X2K_json.add("type", "X2K");
-        X2K_json.add("network", app.webNetwork());
-        X2K_json.add("path_length", app.getSetting(X2K.PATH_LENGTH));
-        // TODO: Fix frontend to eliminate the need of these
-        X2K_json.add("transcriptionFactors", app.getRankedTFs());
-        X2K_json.add("kinases", app.getRankedKinases());
+        readAndSetSettings(req, app);
+        try {
+            app.run(textGenesCleaned);
 
-        json.add("X2K", X2K_json.toString());
+            JSONify X2K_json = Context.getJSONConverter();
+            X2K_json.add("type", "X2K");
+            X2K_json.add("network", app.webNetwork());
+            X2K_json.add("path_length", app.getSetting(X2K.PATH_LENGTH));
+            // TODO: Fix frontend to eliminate the need of these
+            X2K_json.add("transcriptionFactors", app.getRankedTFs());
+            X2K_json.add("kinases", app.getRankedKinases());
 
-        JSONify ChEA_json = Context.getJSONConverter();
-        ChEA_json.add("type", "ChEA");
-        ChEA_json.add("tfs", app.getRankedTFs());
-        json.add("ChEA", ChEA_json.toString());
+            json.add("X2K", X2K_json.toString());
 
-        JSONify KEA_json = Context.getJSONConverter();
-        KEA_json.add("type", "KEA");
-        KEA_json.add("kinases", app.getRankedKinases());
-        json.add("KEA", KEA_json.toString());
+            JSONify ChEA_json = Context.getJSONConverter();
+            ChEA_json.add("type", "ChEA");
+            ChEA_json.add("tfs", app.getRankedTFs());
+            json.add("ChEA", ChEA_json.toString());
 
-        JSONify G2N_json = Context.getJSONConverter();
-        G2N_json.add("type", "G2N");
-        G2N_json.add("network", app.webNetworkFiltered());
-        G2N_json.add("input_list", app.getTopRankedTFs());
-        json.add("G2N", G2N_json.toString());
+            JSONify KEA_json = Context.getJSONConverter();
+            KEA_json.add("type", "KEA");
+            KEA_json.add("kinases", app.getRankedKinases());
+            json.add("KEA", KEA_json.toString());
 
-        json.add("input", textGenesCleaned);
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        req.setAttribute("json", json);
-        forwardRequest(json, req, resp);
+            JSONify G2N_json = Context.getJSONConverter();
+            G2N_json.add("type", "G2N");
+            G2N_json.add("network", app.webNetworkFiltered());
+            G2N_json.add("input_list", app.getTopRankedTFs());
+            json.add("G2N", G2N_json.toString());
+
+            json.add("input", textGenesCleaned);
+            resp.setContentType("application/json");
+            resp.setCharacterEncoding("UTF-8");
+            req.setAttribute("json", json);
+            forwardRequest(json, req, resp);
+        } catch(Exception e) {
+            log.severe(e.getMessage());
+            resp.sendRedirect("/X2K/#error=" + URLEncoder.encode(e.getMessage(), "UTF-8"));
+        }
     }
 
     // Fields getters and setters

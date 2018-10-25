@@ -86,7 +86,7 @@ public class X2K implements SettingsChanger {
     /**
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         if (args.length == 2) {
             X2K x2k = new X2K();
             x2k.run(args[0]);
@@ -125,20 +125,21 @@ public class X2K implements SettingsChanger {
         return settings.get(key);
     }
 
-    public void run(ArrayList<String> inputList) {
+    public void run(ArrayList<String> inputList) throws Exception {
         try {
             if (FileUtils.validateList(inputList))
                 runAll(inputList);
         } catch (ParseException e) {
             if (e.getErrorOffset() == -1)
-                log.severe("Invalid input: " + "Input list is empty.");
+                throw new Exception("Invalid input: " + "Input list is empty.");
             else
-                log.severe("Invalid input: " + e.getMessage() + " at line " + (e.getErrorOffset() + 1) + " is not a valid Entrez Gene Symbol.");
-            System.exit(-1);
+                throw new Exception("Invalid input: " + e.getMessage() + " at line " + (e.getErrorOffset() + 1) + " is not a valid Entrez Gene Symbol.");
+            // Don't exit the program silly
+            // System.exit(-1);
         }
     }
 
-    public void run(String inputPath) {
+    public void run(String inputPath) throws Exception {
         ArrayList<String> inputList = FileUtils.readFile(inputPath);
         run(inputList);
     }
