@@ -174,18 +174,26 @@ public class ResultsServlet extends HttpServlet {
         forwardRequest(req, resp);
     }
 
+    public static String cleanInput(String input) {
+        return input.replaceAll("[-֊־־‐‑‒–—―⁻₋−﹘﹣－]", "-");
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Part geneChunk = req.getPart("text-genes");
         ArrayList<String> textGenes = PartReader.readTokens(geneChunk);
+        ArrayList<String> textGenesCleaned = new ArrayList<String>();
+        for(String input : textGenes) {
+            textGenesCleaned.add(cleanInput(input));
+        }
 
-        if (textGenes.size() <= 0)
+        if (textGenesCleaned.size() <= 0)
             System.out.println("no lists received - error");
 
         X2K app = new X2K();
 
         readAndSetSettings(req, app);
-        app.run(textGenes);
+        app.run(textGenesCleaned);
 
         // Write output
         JSONify json = Context.getJSONConverter();
@@ -216,7 +224,7 @@ public class ResultsServlet extends HttpServlet {
         G2N_json.add("input_list", app.getTopRankedTFs());
         json.add("G2N", G2N_json.toString());
 
-        json.add("input", textGenes);
+        json.add("input", textGenesCleaned);
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         req.setAttribute("json", json);
