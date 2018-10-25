@@ -80,9 +80,10 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-6 my-2">
-                                <label for="genelist">Gene list (<a href="javascript:void(0)"
+                                <label for="genelist" role="alert">Gene list (<a href="javascript:void(0)"
                                                                     onclick="insertExample();"
                                                                     id="example-link">try an example</a>)</label>
+                                <div id="error" class="alert alert-danger" style="display: none"></div>
                                 <textarea class="form-control form-control-sm" id="genelist" rows="12"
                                           name="text-genes"></textarea>
                                 <span id="gene-count" style="color: darkgrey; font-size: 0.9rem;"></span>

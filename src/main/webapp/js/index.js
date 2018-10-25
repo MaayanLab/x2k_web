@@ -59,6 +59,18 @@ function cleanArray(actual) {
 	}
 
 $(document).ready(function () {
+    if(window.location.hash.indexOf('=') > 0) {
+        const hash_args = window.location.hash.slice(1).split('&').reduce((args, arg) => {
+            const [key, val] = arg.split('=')
+            args[decodeURIComponent(key.replace(/\+/g, '%20'))] = decodeURIComponent(val.replace(/\+/g, '%20'))
+            return args
+        }, {})
+        if(hash_args.error !== undefined) {
+            $('#error').show();
+            $('#error').text(hash_args.error);
+        }
+    }
+
     submitButtonListener("results_submit", "/X2K/results", "#x2k-form");
     submitButtonListener("results_submit_ljp", "/X2K/results", "#x2k-form");
     // submitButtonListener("x2k_submit", "http://localhost:8080/X2K/network");
