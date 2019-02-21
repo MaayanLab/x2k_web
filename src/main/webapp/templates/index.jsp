@@ -443,7 +443,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_Biocarta"
-                                                                                       value="false">
+                                                                                       value=false>
                                                                                 Biocarta
                                                                             </label>
                                                                         </div>
@@ -452,7 +452,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_BioGRID"
-                                                                                       value="true" checked>
+                                                                                       value=true checked>
                                                                                 BioGRID 2017
                                                                             </label>
                                                                         </div>
@@ -461,7 +461,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_BioPlex"
-                                                                                       value="false">
+                                                                                       value=false>
                                                                                 BioPlex
                                                                             </label>
                                                                         </div>
@@ -470,7 +470,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_DIP"
-                                                                                       value="false">
+                                                                                       value=false>
                                                                                 DIP 2017
                                                                             </label>
                                                                         </div>
@@ -479,7 +479,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_huMAP"
-                                                                                       value="false">
+                                                                                       value=false>
                                                                                 huMAP 2017
                                                                             </label>
                                                                         </div>
@@ -497,7 +497,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_IntAct"
-                                                                                       value="true" checked>
+                                                                                       value=true checked>
                                                                                 IntAct 2017
                                                                             </label>
                                                                         </div>
@@ -506,7 +506,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_KEGG"
-                                                                                       value="false">
+                                                                                       value=false>
                                                                                 KEGG
                                                                             </label>
                                                                         </div>
@@ -515,7 +515,7 @@
                                                                                 <input class="form-check-input"
                                                                                        type="checkbox"
                                                                                        name="enable_MINT"
-                                                                                       value="true" checked>
+                                                                                       value=true checked>
                                                                                 MINT 2017
                                                                             </label>
                                                                         </div>

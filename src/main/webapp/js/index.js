@@ -71,6 +71,9 @@ $(document).ready(function () {
         }
     }
 
+    // Checkboxes listener
+    $('.form-check-input').change(function(){$(this).val($(this).prop('checked'));});
+
     submitButtonListener("results_submit", "/X2K/results", "#x2k-form");
     submitButtonListener("results_submit_ljp", "/X2K/results", "#x2k-form");
     // submitButtonListener("x2k_submit", "http://localhost:8080/X2K/network");
