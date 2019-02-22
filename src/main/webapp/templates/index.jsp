@@ -672,7 +672,7 @@
                                                                         <div class="col-sm-7">
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
-                                                                                    <input class="form-check-input"
+                                                                                    <input class="form-check-input-kea"
                                                                                            type="radio"
                                                                                            name="kinase interactions to include"
                                                                                            id="KEA"
@@ -682,7 +682,7 @@
                                                                             </div>
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
-                                                                                    <input class="form-check-input"
+                                                                                    <input class="form-check-input-kea"
                                                                                            type="radio"
                                                                                            name="kinase interactions to include"
                                                                                            id="ARCHS4"
@@ -692,7 +692,7 @@
                                                                             </div>
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
-                                                                                    <input class="form-check-input"
+                                                                                    <input class="form-check-input-kea"
                                                                                            type="radio"
                                                                                            name="kinase interactions to include"
                                                                                            id="iPTMnet"
@@ -702,7 +702,7 @@
                                                                             </div>
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
-                                                                                    <input class="form-check-input"
+                                                                                    <input class="form-check-input-kea"
                                                                                            type="radio"
                                                                                            name="kinase interactions to include"
                                                                                            id="NetworkIN"
@@ -712,7 +712,7 @@
                                                                             </div>
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
-                                                                                    <input class="form-check-input"
+                                                                                    <input class="form-check-input-kea"
                                                                                            type="radio"
                                                                                            name="kinase interactions to include"
                                                                                            id="Phospho.ELM"
@@ -722,7 +722,7 @@
                                                                             </div>
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
-                                                                                    <input class="form-check-input"
+                                                                                    <input class="form-check-input-kea"
                                                                                            type="radio"
                                                                                            name="kinase interactions to include"
                                                                                            id="Phosphopoint"
@@ -732,7 +732,7 @@
                                                                             </div>
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
-                                                                                    <input class="form-check-input"
+                                                                                    <input class="form-check-input-kea"
                                                                                            type="radio"
                                                                                            name="kinase interactions to include"
                                                                                            id="PhosphoPlus"
@@ -742,7 +742,7 @@
                                                                             </div>
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
-                                                                                    <input class="form-check-input"
+                                                                                    <input class="form-check-input-kea"
                                                                                            type="radio"
                                                                                            name="kinase interactions to include"
                                                                                            id="MINT"
