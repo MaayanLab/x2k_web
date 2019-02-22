@@ -25,12 +25,11 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center bg-light">
-        <div class="col-sm-7">
+        <div class="col-sm col-md-8">
             <nav class="navbar navbar-light sticky-top bg-light justify-content-center navbar-expand-sm"
                  id="x2k-navbar">
                 <a class="navbar-brand" href="/X2K">
                     <img id="logo" src="static/logo.png" height="50px" class="d-inline-block full-logo">
-                    <!-- <p class="caption">A web interface for the Expression to Kinases application</p> -->
                 </a>
                 <div id="scrollspy-nav" class="collapse navbar-collapse">
                     <ul class="nav nav-pills">
@@ -59,10 +58,10 @@
                 </div>
             </nav>
         </div>
-        <div class="col-sm-7 show-on-ie" style="display: none; color: red; font-weight: bold; text-align:center;">
+        <div class="col-sm col-md-8 show-on-ie" style="display: none; color: red; font-weight: bold; text-align:center;">
             For best app performance, please use a browser other than Internet Explorer.
         </div>
-        <div class="col-sm-7 bg-white">
+        <div class="col-sm col-md-8 bg-white">
             <div class="my-3 mx-2">
                 <h4>Submit</h4>
                 <div class="my-3">
@@ -1998,7 +1997,7 @@
                     Torre D, Duffy ME, Keenan AB, Lachmann A, Feldmann AS, Gundersen GW, Silverstein MC, Wang Z, Ma'ayan
                     A. eXpression2Kinases (X2K) Web: linking expression signatures to upstream cell signaling networks.
                     Nucleic Acids Res. 2018 Jul 2;46(W1):W171-W179</a>
-                <br/><a href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">Chen EY, Xu H, Gordonov S, Lim MP,
+                <br/><br/><a href="https://www.ncbi.nlm.nih.gov/pubmed/22080467">Chen EY, Xu H, Gordonov S, Lim MP,
                 Perkins MH, Ma'ayan A. Expression2Kinases: mRNA profiling linked
                 to multiple upstream regulatory layers. Bioinformatics. 28:105 (2012)</a>
                 </p>
