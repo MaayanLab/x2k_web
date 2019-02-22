@@ -26,7 +26,8 @@
 <div class="container-fluid">
     <div class="row justify-content-center bg-light">
         <div class="col-sm-7">
-            <nav class="navbar navbar-light sticky-top bg-light justify-content-center navbar-expand-sm" id="x2k-navbar">
+            <nav class="navbar navbar-light sticky-top bg-light justify-content-center navbar-expand-sm"
+                 id="x2k-navbar">
                 <a class="navbar-brand" href="/X2K">
                     <img id="logo" src="static/logo.png" height="50px" class="d-inline-block full-logo">
                     <!-- <p class="caption">A web interface for the Expression to Kinases application</p> -->
@@ -81,8 +82,9 @@
                         <div class="row">
                             <div class="col-sm-6 my-2">
                                 <label for="genelist" role="alert">Gene list (<a href="javascript:void(0)"
-                                                                    onclick="insertExample();"
-                                                                    id="example-link">try an example</a>)</label>
+                                                                                 onclick="insertExample();"
+                                                                                 id="example-link">try an
+                                    example</a>)</label>
                                 <div id="error" class="alert alert-danger" style="display: none"></div>
                                 <textarea class="form-control form-control-sm" id="genelist" rows="12"
                                           name="text-genes"></textarea>
@@ -251,7 +253,8 @@
                                                                                            type="radio"
                                                                                            name="TF-target gene background database used for enrichment"
                                                                                            id="x2k_chea-encode"
-                                                                                           value="ChEA & ENCODE Consensus" checked>
+                                                                                           value="ChEA & ENCODE Consensus"
+                                                                                           checked>
                                                                                     ChEA & ENCODE Consensus
                                                                                 </label>
                                                                             </div>
@@ -2018,6 +2021,15 @@
                             <br/>New York, NY 10029, USA</p>
                     </li>
                 </ul>
+                <h5 class="mt-3">Contact</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <p>X2K Web's tools and services are free for academic, non-profit use, but for commercial uses
+                            please contact <a href="http://ip.mountsinai.org/">MSIP</a> for a license.</p>
+                    </li>
+                </ul>
+
+
             </div>
         </div>
     </div>
