@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+git add . && git commit -m "$1" && git push && gradle build && docker build -t maayanlab/x2k:$2 -t maayanlab/x2k:latest . && docker push maayanlab/x2k:$2 && docker push maayanlab/x2k:latest
