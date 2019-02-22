@@ -2021,7 +2021,7 @@
                             <br/>New York, NY 10029, USA</p>
                     </li>
                 </ul>
-                <h5 class="mt-3">Contact</h5>
+                <h5 class="mt-3">Licensing</h5>
                 <ul class="list-unstyled">
                     <li>
                         <p>X2K Web's tools and services are free for academic, non-profit use, but for commercial uses
