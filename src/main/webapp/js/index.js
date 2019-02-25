@@ -60,7 +60,31 @@ function deactivateSpecies(h, m, b) {
     $('#chea-x2k-both').prop('disabled', b);
 }
 
-function db2species() {
+
+
+function cleanArray(actual) {
+	  var newArray = [];
+	  for (var i = 0; i < actual.length; i++) {
+	    if (actual[i]) {
+	      newArray.push(actual[i]);
+	    }
+	  }
+	  return newArray;
+	}
+
+$(document).ready(function () {
+    if(window.location.hash.indexOf('=') > 0) {
+        const hash_args = window.location.hash.slice(1).split('&').reduce((args, arg) => {
+            const [key, val] = arg.split('=')
+            args[decodeURIComponent(key.replace(/\+/g, '%20'))] = decodeURIComponent(val.replace(/\+/g, '%20'))
+            return args
+        }, {})
+        if(hash_args.error !== undefined) {
+            $('#error').show();
+            $('#error').text(hash_args.error);
+        }
+    }
+
     $("#x2k_chea2015").change(function () {
         checkSpecies(false, false, true);
         deactivateSpecies(false, false, false)
@@ -93,33 +117,6 @@ function db2species() {
         checkSpecies(false, false, true);
         deactivateSpecies(true, true, false)
     });
-}
-
-
-function cleanArray(actual) {
-	  var newArray = [];
-	  for (var i = 0; i < actual.length; i++) {
-	    if (actual[i]) {
-	      newArray.push(actual[i]);
-	    }
-	  }
-	  return newArray;
-	}
-
-$(document).ready(function () {
-    if(window.location.hash.indexOf('=') > 0) {
-        const hash_args = window.location.hash.slice(1).split('&').reduce((args, arg) => {
-            const [key, val] = arg.split('=')
-            args[decodeURIComponent(key.replace(/\+/g, '%20'))] = decodeURIComponent(val.replace(/\+/g, '%20'))
-            return args
-        }, {})
-        if(hash_args.error !== undefined) {
-            $('#error').show();
-            $('#error').text(hash_args.error);
-        }
-    }
-
-    db2species();
 
     // Checkboxes listener
     $('.form-check-input').change(function(){$(this).val($(this).prop('checked'));});
