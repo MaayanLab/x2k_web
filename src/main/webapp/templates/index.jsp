@@ -127,49 +127,6 @@
                                                              aria-labelledby="chea-x2k-settings"
                                                              data-parent="#accordion">
                                                             <div class="card-body">
-                                                                <!-- Sorting removed temporarily -->
-                                                                <!-- <div class="form-group" id="chea-x2k-sorting">
-                                                                    <div class="row align-items-center">
-                                                                        <label class="col-form-label col-sm-5">Sort by
-                                                                            <sup data-toggle="tooltip" data-placement="top" container="body" title="The metric used to rank the top Transcription Factors identified by TFEA.">
-                                                                                <i class="fa fa-question-circle"></i>
-                                                                            </sup>
-                                                                        </label>
-                                                                        <div class="col-sm-7">
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="radio"
-                                                                                           name="sort transcription factors by"
-                                                                                           id="chea-x2k-pvalue"
-                                                                                           value="p-value" checked>
-                                                                                    p-value
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="radio"
-                                                                                           name="sort transcription factors by"
-                                                                                           id="chea-x2k-rank"
-                                                                                           value="rank">
-                                                                                    rank
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="radio"
-                                                                                           name="sort transcription factors by"
-                                                                                           id="chea-x2k-combscore"
-                                                                                           value="combined score">
-                                                                                    combined score
-                                                                                </label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <hr/> -->
                                                                 <div class="form-group" id="chea-x2k-species">
                                                                     <div class="row align-items-center">
                                                                         <label class="col-form-label col-sm-5">
@@ -183,7 +140,7 @@
                                                                         <div class="col-sm-7">
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
-                                                                                    <input class="form-check-input"
+                                                                                    <input class="form-check-input-species"
                                                                                            type="radio"
                                                                                            name="included organisms in the background database"
                                                                                            id="chea-x2k-human"
@@ -193,7 +150,7 @@
                                                                             </div>
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
-                                                                                    <input class="form-check-input"
+                                                                                    <input class="form-check-input-species"
                                                                                            type="radio"
                                                                                            name="included organisms in the background database"
                                                                                            id="chea-x2k-mouse"
@@ -203,7 +160,7 @@
                                                                             </div>
                                                                             <div class="form-check">
                                                                                 <label class="form-check-label">
-                                                                                    <input class="form-check-input"
+                                                                                    <input class="form-check-input-species"
                                                                                            type="radio"
                                                                                            name="included organisms in the background database"
                                                                                            id="chea-x2k-both"
@@ -618,49 +575,6 @@
                                                              aria-labelledby="kea-x2k-settings"
                                                              data-parent="#accordion">
                                                             <div class="card-body">
-                                                                <!-- Sorting removed temporarily -->
-                                                                <!-- <div class="form-group">
-                                                                    <div class="row align-items-center">
-                                                                        <label class="col-form-label col-sm-5">
-                                                                            Sort by
-                                                                        <sup data-toggle="tooltip" data-placement="top" container="body" title="The method used to sort the top protein kinases identified by KEA.">
-                                                                            <i class="fa fa-question-circle"></i>
-                                                                        </sup>
-                                                                        </label>
-                                                                        <div class="col-sm-7" id="kea-x2k-sorting">
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="radio"
-                                                                                           name="sort kinases by"
-                                                                                           id="kea-x2k-pvalue"
-                                                                                           value="p-value" checked>
-                                                                                    p-value
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="radio"
-                                                                                           name="sort kinases by"
-                                                                                           id="kea-x2k-rank"
-                                                                                           value="rank">
-                                                                                    rank
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <label class="form-check-label">
-                                                                                    <input class="form-check-input"
-                                                                                           type="radio"
-                                                                                           name="sort kinases by"
-                                                                                           id="kea-x2k-combscore"
-                                                                                           value="combined score">
-                                                                                    combined score
-                                                                                </label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div> -->
                                                                 <div class="form-group" id="kea-x2k-kinase-db">
                                                                     <div class="row align-items-center">
                                                                         <label class="col-form-label col-sm-5">

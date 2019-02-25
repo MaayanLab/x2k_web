@@ -48,6 +48,54 @@ function showHelpDesc(page) {
     });
 }
 
+function checkSpecies(h, m, b) {
+    $('#chea-x2k-human').prop('checked', h);
+    $('#chea-x2k-mouse').prop('checked', m);
+    $('#chea-x2k-both').prop('checked', b);
+}
+
+function deactivateSpecies(h, m, b) {
+    $('#chea-x2k-human').prop('disabled', h);
+    $('#chea-x2k-mouse').prop('disabled', m);
+    $('#chea-x2k-both').prop('disabled', b);
+}
+
+function db2species() {
+    $("#x2k_chea2015").change(function () {
+        checkSpecies(false, false, true);
+        deactivateSpecies(false, false, false)
+    });
+    $("#x2k_encode2015").change(function () {
+        checkSpecies(false, false, true);
+        deactivateSpecies(false, false, false)
+    });
+    $("#x2k_chea-encode").change(function () {
+        checkSpecies(false, false, true);
+        deactivateSpecies(true, true, false)
+    });
+    $("#x2k_transfac-jaspar").change(function () {
+        checkSpecies(false, false, true);
+        deactivateSpecies(false, false, false)
+    });
+    $("#x2k_ChEA_2016").change(function () {
+        checkSpecies(false, false, true);
+        deactivateSpecies(true, true, false)
+    });
+    $("#x2k_ARCHS4").change(function () {
+        checkSpecies(true, false, false);
+        deactivateSpecies(false, true, true)
+    });
+    $("#x2k_CREEDS").change(function () {
+        checkSpecies(false, false, true);
+        deactivateSpecies(true, true, false)
+    });
+    $("#x2k_Enrichr_Co-occurrence").change(function () {
+        checkSpecies(false, false, true);
+        deactivateSpecies(true, true, false)
+    });
+}
+
+
 function cleanArray(actual) {
 	  var newArray = [];
 	  for (var i = 0; i < actual.length; i++) {
@@ -71,12 +119,13 @@ $(document).ready(function () {
         }
     }
 
+    db2species();
+
     // Checkboxes listener
     $('.form-check-input').change(function(){$(this).val($(this).prop('checked'));});
 
     submitButtonListener("results_submit", "/X2K/results", "#x2k-form");
     submitButtonListener("results_submit_ljp", "/X2K/results", "#x2k-form");
-    // submitButtonListener("x2k_submit", "http://localhost:8080/X2K/network");
     submitButtonListener("chea_submit", "/X2K/ChEA", "#chea-form");
     submitButtonListener("kea_submit", "/X2K/KEA", "#kea-form");
     submitButtonListener("g2n_submit", "/X2K/G2N", "#g2n-form");
