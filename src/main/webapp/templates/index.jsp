@@ -883,6 +883,14 @@
                             please contact <a href="http://ip.mountsinai.org/">MSIP</a> for a license.</p>
                     </li>
                 </ul>
+                <h5 class="mt-3">Source code</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://github.com/MaayanLab/x2k_web">
+                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 4rem;">
+                        </a>
+                    </li>
+                </ul>
 
 
             </div>
