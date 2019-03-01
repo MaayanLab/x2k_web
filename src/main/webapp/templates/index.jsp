@@ -807,23 +807,23 @@
                     <br/>Command near each download link suggests usage:</p>
                 <p>
                     <a href=http://www.maayanlab.net/X2K/download/install_X2K.jar>X2K with source code (61.3 MB)</a>
-                    <code>java -jar X2K.jar genelist output.xml</code>
+                    <code>java -jar X2K.jar genelist.txt output.xml</code>
                 </p>
                 <p>
                     <a href=http://www.maayanlab.net/X2K/download/X2K-1.5-SNAPSHOT-jar-with-dependencies.jar>X2K only
                         binary
                         (28.9 MB)</a>
-                    <code>java -jar X2K.jar genelist output.xml</code>
+                    <code>java -jar X2K.jar genelist.txt output.xml</code>
                 </p>
                 <p>
                     <a href=http://www.maayanlab.net/X2K/download/ChEA-1.5-SNAPSHOT-jar-with-dependencies.jar>ChEA (8.1
                         MB)</a>
-                    <code>java -jar ChEA.jar [background] genelist output.csv</code>
+                    <code>java -jar ChEA.jar [background] genelist.txt output.csv</code>
                 </p>
                 <p>
                     <a href=http://www.maayanlab.net/X2K/download/G2N-1.5-SNAPSHOT-jar-with-dependencies.jar>G2N (3.6
                         MB)</a>
-                    <code>java -jar G2N.jar input output.sig [backgroundSigFiles...]</code>
+                    <code>java -jar G2N.jar genelist.txt output.sig [backgroundSigFiles...]</code>
                 </p>
                 <p>
                     <a href=http://www.maayanlab.net/X2K/download/KEA-1.5-SNAPSHOT-jar-with-dependencies.jar>KEA (188
