@@ -23,7 +23,7 @@
             <td>9936</td>
             <td>517</td>
             <td>3824</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/29636450" title="29636450" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/29636450" title="29636450" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="https://academic.oup.com/nar/article/29/1/242/1116175">BIND</a></span></td>
@@ -32,7 +32,7 @@
             <td>2533</td>
             <td>227</td>
             <td>1323</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/12519993" title="12519993" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/12519993" title="12519993" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://amp.pharm.mssm.edu/Harmonizome/">Harmonizome</a></span></td>
@@ -41,7 +41,7 @@
             <td>10000</td>
             <td>79</td>
             <td>3635</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/27374120" title="27374120" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/27374120" title="27374120" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://www.hprd.org">HPRD</a></span></td>
@@ -50,7 +50,7 @@
             <td>5043</td>
             <td>262</td>
             <td>2159</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18988627" title="18988627" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18988627" title="18988627" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://proteincomplexes.org">huMAP</a></span></td>
@@ -59,7 +59,7 @@
             <td>1385</td>
             <td>156</td>
             <td>955</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/28596423" title="28596423" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/28596423" title="28596423" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="https://research.bioinformatics.udel.edu/iptmnet/">iPTMnet</a></span></td>
@@ -68,7 +68,7 @@
             <td>947</td>
             <td>131</td>
             <td>724</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/29145615" title="29145615" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/29145615" title="29145615" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://irefindex.org/wiki/index.php?title=iRefIndex http://wodaklab.org/iRefWeb/">iREF</a></span></td>
@@ -77,7 +77,7 @@
             <td>26734</td>
             <td>329</td>
             <td>8036</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18823568" title="18823568" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18823568" title="18823568" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://amp.pharm.mssm.edu/Enrichr/">KEA_2018</a></span></td>
@@ -86,7 +86,7 @@
             <td>30521</td>
             <td>514</td>
             <td>7946</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/19176546" title="19176546" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/19176546" title="19176546" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://www.kegg.jp">KEGG</a></span></td>
@@ -95,7 +95,7 @@
             <td>2238</td>
             <td>131</td>
             <td>621</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/19880382" title="19880382" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/19880382" title="19880382" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="https://mint.bio.uniroma2.it">MINT</a></span></td>
@@ -104,7 +104,7 @@
             <td>1583</td>
             <td>225</td>
             <td>1065</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22096227" title="22096227" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a><a href="https://www.ncbi.nlm.nih.gov/pubmed/24234451" title="24234451" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22096227" title="22096227" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a><a href="https://www.ncbi.nlm.nih.gov/pubmed/24234451" title="24234451" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://networkin.info">NetworkIN</a></span></td>
@@ -113,7 +113,7 @@
             <td>5829</td>
             <td>190</td>
             <td>2006</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/17981841" title="17981841" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a><a href="https://www.ncbi.nlm.nih.gov/pubmed/24874572" title="24874572" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/17981841" title="17981841" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a><a href="https://www.ncbi.nlm.nih.gov/pubmed/24874572" title="24874572" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://phospho.elm.eu.org/dataset.html">Phospho.ELM</a></span></td>
@@ -122,7 +122,7 @@
             <td>1441</td>
             <td>231</td>
             <td>891</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/21062810" title="21062810" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/21062810" title="21062810" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18689816">Phosphopoint</a></span></td>
@@ -131,7 +131,7 @@
             <td>1970</td>
             <td>281</td>
             <td>1061</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18689816" title="18689816" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18689816" title="18689816" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="https://www.phosphosite.org/homeAction.action">PhosphositePlus</a></span></td>
@@ -140,7 +140,7 @@
             <td>6434</td>
             <td>168</td>
             <td>2680</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22135298" title="22135298" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22135298" title="22135298" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
         </tbody>
       </table>
@@ -167,7 +167,7 @@
             <td>Literature PPI</td>
             <td>25622</td>
             <td>5528</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/12519993" title="12519993" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/12519993" title="12519993" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://www.biocarta.com/genes/index.asp">Biocarta</a></span></td>
@@ -183,7 +183,7 @@
             <td>Mixed</td>
             <td>68759</td>
             <td>7312</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/27980099" title="27980099" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/27980099" title="27980099" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://bioplex.hms.harvard.edu/downloadInteractions.php">BioPLEX</a></span></td>
@@ -191,7 +191,7 @@
             <td>Mass-spec</td>
             <td>56553</td>
             <td>8610</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/26186194" title="26186194" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/26186194" title="26186194" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://dip.mbi.ucla.edu/dip/">DIP</a></span></td>
@@ -199,7 +199,7 @@
             <td>Literature PPI</td>
             <td>3822</td>
             <td>1946</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/11752321" title="11752321" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/11752321" title="11752321" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap">figeys</span></td>
@@ -207,7 +207,7 @@
             <td>Mass-spec</td>
             <td>6452</td>
             <td>2033</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/17353931" title="17353931" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/17353931" title="17353931" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://www.hprd.org">HPRD</a></span></td>
@@ -215,7 +215,7 @@
             <td>Literature PPI</td>
             <td>47496</td>
             <td>7490</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18988627" title="18988627" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18988627" title="18988627" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://proteincomplexes.org">huMAP</a></span></td>
@@ -223,7 +223,7 @@
             <td>Mass-spec</td>
             <td>62214</td>
             <td>6061</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/28596423" title="28596423" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/28596423" title="28596423" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://www.innatedb.com">InnateDB</a></span></td>
@@ -231,7 +231,7 @@
             <td>Literature PPI</td>
             <td>4576</td>
             <td>1523</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/23180781" title="23180781" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/23180781" title="23180781" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="https://www.ebi.ac.uk/intact/">IntAct</a></span></td>
@@ -239,7 +239,7 @@
             <td>Mixed</td>
             <td>15726</td>
             <td>4186</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/24234451" title="24234451" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a><a href="https://www.ncbi.nlm.nih.gov/pubmed/22121220" title="22121220" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/24234451" title="24234451" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a><a href="https://www.ncbi.nlm.nih.gov/pubmed/22121220" title="22121220" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://irefindex.org/wiki/index.php?title=iRefIndex http://wodaklab.org/iRefWeb/">iREF</a></span></td>
@@ -247,7 +247,7 @@
             <td>Mixed</td>
             <td>28417</td>
             <td>5403</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18823568" title="18823568" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18823568" title="18823568" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://www.kegg.jp">KEGG</a></span></td>
@@ -255,7 +255,7 @@
             <td>Literature PPI</td>
             <td>13993</td>
             <td>1198</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/19880382" title="19880382" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/19880382" title="19880382" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="https://mint.bio.uniroma2.it">MINT</a></span></td>
@@ -263,7 +263,7 @@
             <td>Literature PPI</td>
             <td>75065</td>
             <td>9415</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22096227" title="22096227" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a><a href="https://www.ncbi.nlm.nih.gov/pubmed/24234451" title="24234451" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22096227" title="22096227" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a><a href="https://www.ncbi.nlm.nih.gov/pubmed/24234451" title="24234451" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://mips.helmholtz-muenchen.de/proj/ppi/">MiPS</a></span></td>
@@ -271,7 +271,7 @@
             <td>Mass-spec</td>
             <td>606</td>
             <td>373</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/9399795" title="9399795" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a><a href="https://www.ncbi.nlm.nih.gov/pubmed/15531608" title="15531608" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/9399795" title="9399795" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a><a href="https://www.ncbi.nlm.nih.gov/pubmed/15531608" title="15531608" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://abc.med.cornell.edu/pdzbase">PDZbase</a></span></td>
@@ -279,7 +279,7 @@
             <td>Literature PPI</td>
             <td>244</td>
             <td>159</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/15513994" title="15513994" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/15513994" title="15513994" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://www.PPID.mvm.ed.ac.uk">PPID</a></span></td>
@@ -287,7 +287,7 @@
             <td>Literature PPI</td>
             <td>6998</td>
             <td>1208</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/14755292" title="14755292" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/14755292" title="14755292" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://www.maayanlab.net/S2N/">Sets2Networks</a></span></td>
@@ -295,7 +295,7 @@
             <td>Predicted</td>
             <td>3000</td>
             <td>828</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22824380" title="22824380" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22824380" title="22824380" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="https://code.google.com/archive/p/snavi/">SNAVI</a></span></td>
@@ -303,7 +303,7 @@
             <td>Literature PPI</td>
             <td>2007</td>
             <td>442</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/19154595" title="19154595" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/19154595" title="19154595" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/16169070">Stelzl</a></span></td>
@@ -311,7 +311,7 @@
             <td>Mass-spec</td>
             <td>6207</td>
             <td>1702</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/16169070" title="16169070" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/16169070" title="16169070" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://interactome.dfci.harvard.edu/H_sapiens/">Vidal</a></span></td>
@@ -319,7 +319,7 @@
             <td>Yeast-2-Hybrid</td>
             <td>6726</td>
             <td>2541</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/16189514" title="16189514" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/16189514" title="16189514" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
         </tbody>
       </table>
@@ -348,7 +348,7 @@
             <td>518466 / 472585</td>
             <td>1734 / 1724</td>
             <td>21857 / 21918</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/29636450" title="29636450" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/29636450" title="29636450" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://amp.pharm.mssm.edu/lib/chea.jsp">ChEA_2016</a></span></td>
@@ -357,7 +357,7 @@
             <td>535545 / 461570</td>
             <td>194 / 178</td>
             <td>34462 / 35204</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/20709693" title="20709693" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/20709693" title="20709693" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://amp.pharm.mssm.edu/CREEDS/">CREEDS</a></span></td>
@@ -366,7 +366,7 @@
             <td>6140050 / 3583008</td>
             <td>265 / 174</td>
             <td>23170 / 20592</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/27667448" title="27667448" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/27667448" title="27667448" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="https://www.encodeproject.org/data/annotations/">ENCODE_2015</a></span></td>
@@ -375,7 +375,7 @@
             <td>259695 / 1218728</td>
             <td>44 / 175</td>
             <td>18170 / 22008</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22955616" title="22955616" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22955616" title="22955616" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://amp.pharm.mssm.edu/Enrichr/">Enrichr_Co-occurence</a></span></td>
@@ -384,7 +384,7 @@
             <td>516300</td>
             <td>1721</td>
             <td>12487</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/23586463" title="23586463" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/23586463" title="23586463" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://proteincomplexes.org">huMAP</a></span></td>
@@ -393,7 +393,7 @@
             <td>0 / 14017</td>
             <td>0 / 419</td>
             <td>0 / 2109</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/28596423" title="28596423" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/28596423" title="28596423" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://irefindex.org/wiki/index.php?title=iRefIndex http://wodaklab.org/iRefWeb/">iREF</a></span></td>
@@ -402,7 +402,7 @@
             <td>7239 / 57042</td>
             <td>402 / 1372</td>
             <td>3454 / 11021</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18823568" title="18823568" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/18823568" title="18823568" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><span><a href="http://jaspar.genereg.net">JASPAR</a>-<a href="http://gene-regulation.com/pub/databases.html">TRANSFAC</a></span></span>
@@ -412,7 +412,7 @@
             <td>139520 / 424314</td>
             <td>104 / 222</td>
             <td>20895 / 22258</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/14681366" title="14681366" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a><a href="https://www.ncbi.nlm.nih.gov/pubmed/20438625" title="20438625" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/14681366" title="14681366" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a><a href="https://www.ncbi.nlm.nih.gov/pubmed/20438625" title="20438625" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://amp.pharm.mssm.edu/Enrichr/">TF-PPIs_Genes2Fans</a></span></td>
@@ -421,7 +421,7 @@
             <td>22525</td>
             <td>278</td>
             <td>6001</td>
-            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22748121" title="22748121" style="padding-left:5px"><img src="http://www.ics-mci.fr/static/img/pubmed-icon.png" width="25"/></a></span></td>
+            <td><span style="white-space:nowrap"><a href="https://www.ncbi.nlm.nih.gov/pubmed/22748121" title="22748121" style="padding-left:5px"><img src="static/assets/pubmed-icon.png" width="25"/></a></span></td>
           </tr>
           <tr>
             <td><span style="white-space:nowrap"><a href="http://amp.pharm.mssm.edu/Enrichr/">TF-LOF_Expression_GEO</a></span></td>

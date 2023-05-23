@@ -887,7 +887,7 @@
                 <ul class="list-unstyled">
                     <li>
                         <a href="https://github.com/MaayanLab/x2k_web">
-                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 4rem;">
+                            <img src="static/assets/GitHub-Mark.png" style="width: 4rem;">
                         </a>
                     </li>
                 </ul>

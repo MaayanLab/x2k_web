@@ -23,9 +23,9 @@ const converters = {
 
 const icons = {
     '.sig': 'http://satie.bioinfo.cnio.es/themes/fustero/images/icon_6.png',
-    '.gmt': 'https://s3.amazonaws.com/go-public/image/go-logo-icon.png',
-    '.zip': 'https://cdn0.iconfinder.com/data/icons/document-file-types/512/zip-512.png',
-    'pmid': 'http://www.ics-mci.fr/static/img/pubmed-icon.png',
+    '.gmt': 'static/assets/go-logo-icon.png',
+    '.zip': 'static/assets/zip-512.png',
+    'pmid': 'static/assets/pubmed-icon.png',
 };
 
 const display_url = (name, url) => {
