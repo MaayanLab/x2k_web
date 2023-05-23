@@ -6,13 +6,12 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.bmuschko:gradle-tomcat-plugin:2.4.2'
-        classpath "com.github.node-gradle:gradle-node-plugin:3.0.1"
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.7.0'
+        classpath 'com.github.node-gradle:gradle-node-plugin:5.0.0'
     }
 }
 
 apply plugin: 'java'
-apply plugin: 'maven'
 apply plugin: 'war'
 apply plugin: 'com.github.node-gradle.node'
 apply plugin: 'com.bmuschko.tomcat'
@@ -29,11 +28,10 @@ repositories {
 }
 
 dependencies {
-    def tomcatVersion = '8.0.42'
+    def tomcatVersion = '8.5.16'
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
-            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
-            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
-    // compile group: 'org.apache.tomcat', name: 'tomcat-jdbc', version:"${tomcatVersion}"
+        // "org.apache.tomcat.embed:tomcat-embed-logging-juli:8.5.2",
+        "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
 
     implementation 'com.github.MaayanLab:ChEA:master-SNAPSHOT'
     implementation 'com.github.MaayanLab:Genes2Networks:master-SNAPSHOT'
@@ -44,10 +42,8 @@ dependencies {
     implementation 'com.github.MaayanLab.common:common-core:master-SNAPSHOT'
     implementation 'com.github.MaayanLab.common:common-web:master-SNAPSHOT'
     implementation 'com.github.MaayanLab.common:common-geneticalgorithm:master-SNAPSHOT'
-    implementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.14'
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     testImplementation group: 'org.mockito', name: 'mockito-all', version: '1.10.8'
-    providedCompile group: 'mysql', name: 'mysql-connector-java', version: '5.1.22'
     providedCompile group: 'org.apache.tomcat', name: 'tomcat-jdbc', version: "${tomcatVersion}"
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
 }
@@ -55,7 +51,7 @@ dependencies {
 def webappDir = "${project.projectDir}/src/main/webapp/"
 
 node {
-    download = true
+    download = false
     nodeModulesDir = file(webappDir)
 }
 

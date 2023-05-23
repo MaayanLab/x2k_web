@@ -13,9 +13,6 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -25,7 +22,6 @@ import edu.mssm.pharm.maayanlab.common.web.JSONify;
 @WebListener
 public class Context implements ServletContextListener {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(Context.class);
 	private static Gson gson;
 	
 	public static JSONify getJSONConverter() {
@@ -55,7 +51,7 @@ public class Context implements ServletContextListener {
 		for (Thread t : threadSet) {
 			if (t.getName().contains("Abandoned connection cleanup thread")) {
                 synchronized(t) {
-                	LOGGER.warn("Forcibly stopping thread to avoid memory leak: " + t.getName());
+                	// LOGGER.warn("Forcibly stopping thread to avoid memory leak: " + t.getName());
                     t.stop();	//don't complain, it works
                 }
             }

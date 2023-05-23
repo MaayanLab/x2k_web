@@ -17,6 +17,7 @@ module.exports = function(grunt) {
                     src: [
                         '**/*.js',
                         '!dist/**',
+                        '!static/**',
                         '!**/*.min.js',
                         '!gruntfile.js',
                         '!node_modules/**',
@@ -37,6 +38,7 @@ module.exports = function(grunt) {
                     src: [
                         '**/*.css',
                         '!dist/**',
+                        '!static/**',
                         '!**/*.min.css',
                         '!node_modules/**',
                     ],
@@ -53,6 +55,7 @@ module.exports = function(grunt) {
                         '**/*.min.js',
                         '**/*.min.css',
                         '!dist/**',
+                        '!static/**',
                         '!node_modules/**',
                     ],
                     dest: 'dist',
