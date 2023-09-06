@@ -63,6 +63,9 @@
         </div>
         <div class="col-sm col-md-8 bg-white">
             <div class="my-3 mx-2">
+                <div class="alert alert-primary font-weight-bold" role="alert">
+                    We recommend a newer version of the X2K pipeline available from: <a href="https://appyters.maayanlab.cloud/#/X2K_Appyter">https://appyters.maayanlab.cloud/#/X2K_Appyter</a>. This newer version utilizes <a href="https://maayanlab.cloud/chea3/">ChEA3</a> and <a href="https://maayanlab.cloud/kea3/">KEA3</a> which enhance the quality of the kinase and transcription factor enrichment analysis steps.
+                </div>
                 <h4>Submit</h4>
                 <div class="my-3">
                     <p>
