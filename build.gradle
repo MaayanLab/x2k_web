@@ -19,8 +19,8 @@ apply plugin: 'com.bmuschko.tomcat'
 group = 'edu.mssm.pharm.maayanlab.x2k'
 description = 'X2K'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.9
+targetCompatibility = 1.9
 
 repositories {
     mavenCentral()
@@ -28,9 +28,9 @@ repositories {
 }
 
 dependencies {
-    def tomcatVersion = '8.5.16'
+    def tomcatVersion = '8.5.89'
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
-        // "org.apache.tomcat.embed:tomcat-embed-logging-juli:8.5.2",
+           "org.apache.tomcat.embed:tomcat-embed-logging-juli:8.5.2",
         "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
 
     implementation 'com.github.MaayanLab:ChEA:master-SNAPSHOT'
@@ -75,10 +75,12 @@ war.dependsOn buildProject
 tomcat {
     httpPort = 8080
     contextPath = "X2K"
+    httpProtocol = 'org.apache.coyote.http11.Http11Nio2Protocol'
+    ajpProtocol  = 'org.apache.coyote.ajp.AjpNio2Protocol'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
+    archiveClassifier = 'sources'
     from sourceSets.main.allSource
 }
 

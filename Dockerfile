@@ -6,11 +6,11 @@ RUN set -x \
 
 RUN \
   cd /usr/local && \
-  curl -L https://services.gradle.org/distributions/gradle-7.0-bin.zip -o gradle-7.0-bin.zip && \
-  unzip gradle-7.0-bin.zip && \
-  rm gradle-7.0-bin.zip
+  curl -L https://services.gradle.org/distributions/gradle-8.0-bin.zip -o gradle-8.0-bin.zip && \
+  unzip gradle-8.0-bin.zip && \
+  rm gradle-8.0-bin.zip
 
-ENV GRADLE_HOME=/usr/local/gradle-7.0
+ENV GRADLE_HOME=/usr/local/gradle-8.0
 ENV PATH=$PATH:$GRADLE_HOME/bin JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 WORKDIR /work
@@ -18,8 +18,6 @@ WORKDIR /work
 ADD . .
 RUN gradle war
 
-FROM library/tomcat:8-jre8
-
-RUN apt-get update && apt-get install -y libtcnative-1 gettext && apt-get clean
+FROM library/tomcat:8.5-jre9
 
 COPY --from=builder /work/build/libs/work.war webapps/X2K.war
