@@ -36,7 +36,7 @@ dependencies {
     implementation 'com.github.MaayanLab:ChEA:master-SNAPSHOT'
     implementation 'com.github.MaayanLab:Genes2Networks:master-SNAPSHOT'
     implementation 'com.github.MaayanLab.common:common-swing:master-SNAPSHOT'
-    implementation group: 'com.google.code.gson', name: 'gson', version: '2.2.1'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.15.0'
     implementation 'com.github.MaayanLab.common:common-graph:master-SNAPSHOT'
     implementation 'com.github.MaayanLab:KEA:master-SNAPSHOT'
     implementation 'com.github.MaayanLab.common:common-core:master-SNAPSHOT'
